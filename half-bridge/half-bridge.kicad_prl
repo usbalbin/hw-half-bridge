@@ -64,11 +64,11 @@
       39,
       40
     ],
-    "visible_layers": "ffcfeff_ffffffff",
+    "visible_layers": "ffdff77_ffffffff",
     "zone_display_mode": 0
   },
   "meta": {
-    "filename": "dcdc_50MHz.kicad_prl",
+    "filename": "half-bridge.kicad_prl",
     "version": 3
   },
   "project": {
