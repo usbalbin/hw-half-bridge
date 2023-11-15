@@ -36,7 +36,7 @@ jobs:
 
     - name: Run KiBot
       # v2_k6 for v1.5.1 has a permission problem
-      uses: INTI-CMNB/KiBot@v2
+      uses: INTI-CMNB/KiBot@v2_k7
       with:
         quickstart: YES
 
