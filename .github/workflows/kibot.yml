@@ -5,14 +5,14 @@ name: "Variants demo using GitHub actions and quick-start"
 on:
   push:
     paths:
-      - '*.kicad_sch'
-      - '*.kicad_pcb'
-      - '.github/workflows/kibot_action_quick_start.yml'
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+      #- '.github/workflows/kibot_action_quick_start.yml'
   pull_request:
     paths:
       - '*.kicad_sch'
       - '*.kicad_pcb'
-      - '.github/workflows/kibot_action_quick_start.yml'
+      #- '.github/workflows/kibot_action_quick_start.yml'
   repository_dispatch:
     types: [run_qs_gha]
 
