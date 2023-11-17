@@ -125,7 +125,7 @@
         "min_through_hole_diameter": 0.19999999999999998,
         "min_track_width": 0.09,
         "min_via_annular_width": 0.15,
-        "min_via_diameter": 0.35,
+        "min_via_diameter": 0.0,
         "solder_mask_clearance": 0.0,
         "solder_mask_min_width": 0.0,
         "solder_mask_to_copper_clearance": 0.0,
@@ -447,7 +447,15 @@
     "meta": {
       "version": 3
     },
-    "net_colors": null,
+    "net_colors": {
+      "+5V": "rgb(255, 222, 5)",
+      "6-18V": "rgb(255, 117, 0)",
+      "Earth": "rgb(0, 72, 0)",
+      "GNDPWR": "rgb(72, 72, 72)",
+      "POWER_HIGH": "rgb(255, 0, 17)",
+      "POWER_LOW": "rgb(255, 94, 92)",
+      "Switch_node": "rgb(0, 0, 255)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": []
   },
