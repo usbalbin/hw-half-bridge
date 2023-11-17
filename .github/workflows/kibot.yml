@@ -7,17 +7,17 @@ on:
     paths:
       - '**.kicad_sch'
       - '**.kicad_pcb'
-      #- '.github/workflows/kibot_action_quick_start.yml'
+      - '.github/workflows/kibot.yml'
   push:
     paths:
       - '**.kicad_sch'
       - '**.kicad_pcb'
-      #- '.github/workflows/kibot_action_quick_start.yml'
+      - '.github/workflows/kibot.yml'
   pull_request:
     paths:
-      - '*.kicad_sch'
-      - '*.kicad_pcb'
-      #- '.github/workflows/kibot_action_quick_start.yml'
+      - '**.kicad_sch'
+      - '**.kicad_pcb'
+      - '.github/workflows/kibot.yml'
   repository_dispatch:
     types: [run_qs_gha]
 
