@@ -3091,7 +3091,7 @@
     (uuid bb6c3145-5dfd-4d3b-aa06-fc9b342dcccf)
   )
 
-  (text "TODO:\n\n* Filter på insignal?\n* Filter på kraft IN och/eller UT?\n* Kylning?\n* Mer snabb capp över IN?\n* Strömmät INA310A-Q1?\n* Alternativt, mät ström m.h.a. loss less inductor current measurement https://www.microsemi.com/document-portal/doc_view/14646-an-7-a-simple-current-sense-technique-eliminating-a-sense-resistor"
+  (text "TODO:\n\n* Filter på insignal?\n* Filter på kraft IN och/eller UT?\n* Kylning?\n* Mer snabb capp över IN?\n* Strömmät INA310A-Q1?\n* Alternativt, mät ström m.h.a. loss less inductor current measurement https://www.microsemi.com/document-portal/doc_view/14646-an-7-a-simple-current-sense-technique-eliminating-a-sense-resistor\n* Kolla på Gate driver: MPQ1918-AEC1\n* Kolla på GaN fet: EPC2302"
     (at 92.71 140.97 0)
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 251115b0-e80e-432e-8bf1-d3624deacc2c)
