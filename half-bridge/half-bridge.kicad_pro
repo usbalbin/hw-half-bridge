@@ -45,7 +45,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.3
+          "min_clearance": 0.09
         }
       },
       "diff_pair_dimensions": [
@@ -451,7 +451,6 @@
       "+5V": "rgb(255, 222, 5)",
       "6-18V": "rgb(255, 117, 0)",
       "Earth": "rgb(0, 72, 0)",
-      "GNDPWR": "rgb(72, 72, 72)",
       "POWER_HIGH": "rgb(255, 0, 17)",
       "POWER_LOW": "rgb(255, 94, 92)",
       "Switch_node": "rgb(0, 0, 255)"
