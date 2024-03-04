@@ -1,0 +1,29 @@
+* Non ideal capacitor with esr and esl
+.subckt C_with_parasitics 1 4 cap=1nF esr=1m esl=1nH
+C1 1 2 {cap}
+R1 2 3 {esr}
+L1 3 4 {esl}
+.ends
+
+* Non ideal inductor with esr and epc
+.subckt L_with_parasitics 1 3 ind=1uH esr=1m epc=10pF
+R1 1 2 {esr}
+C1 2 3 {epc}
+L1 2 3 {ind}
+.ends
+
+.subckt C1210C474KARACAUTO7210_albin 1 4
+C1 1 2 Q={x * (169.022751 - 210.43427931 * x + 294.96178801 * x**2 - 105.76275728 * x**3 - 189.74141267 * x**4 + 128.52789332 * x**5)}
+R1 2 3 {esr}
+L1 3 4 {esl}
+.ends
+
+* Non ideal capacitor with esr and esl
+.subckt L_coilcraft 1 6 r1=9.9 r2=8.9m c=9.7pF k1=1u k2=0.583 k3=4.7 k4=1u k5=1u
+R1 1 2 {r1}
+C1 2 3 {c}
+G§Lvar1 1 5 LAPLACE=+1/(S*1e-6*({k3}-({k4}*LOG({k5}*(abs(S)/(2*pi))))))
+G§Rvar1 5 3 LAPLACE=+1/{k2}/(-S*S/4/PI^2)^0.25
+G§Rvar2 1 3 LAPLACE=+1/{k1}/(-S*S/4/PI^2)^0.25
+R2 3 6 {r2}
+.ends
