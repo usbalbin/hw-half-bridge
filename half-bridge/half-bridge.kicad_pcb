@@ -5054,6 +5054,8 @@
     )
   )
 
+  (gr_rect (start 131.4 96.6) (end 136.4 99.6)
+    (stroke (width 0.2) (type default)) (fill none) (layer "F.Cu") (tstamp cee41048-8c11-4eb3-8f7a-ee7d98b05047))
   (gr_rect (start 110 80) (end 169 116)
     (stroke (width 0.1) (type default)) (fill none) (layer "Edge.Cuts") (tstamp 0008d6fb-c4db-4fa1-a59e-edb41f333b0a))
   (gr_text "Fint namn här\n%%%date%%\n%%version%%" (at 120.65 85.09) (layer "F.SilkS") (tstamp f5c7795d-4005-476e-90dc-c90d0d5e843e)
