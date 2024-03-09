@@ -1,6 +1,6 @@
 * Non ideal capacitor with esr and esl
-.subckt C_with_parasitics 1 4 cap=1nF esr=1m esl=1nH
-C1 1 2 {cap}
+.subckt C_with_parasitics 1 4 cap=1nF esr=1m esl=1nH IC=0V
+C1 1 2 {cap} IC={IC}
 R1 2 3 {esr}
 L1 3 4 {esl}
 .ends
@@ -12,10 +12,10 @@ C1 2 3 {epc}
 L1 2 3 {ind}
 .ends
 
-.subckt C1210C474KARACAUTO7210_albin 1 4
-C1 1 2 Q={x * (169.022751 - 210.43427931 * x + 294.96178801 * x**2 - 105.76275728 * x**3 - 189.74141267 * x**4 + 128.52789332 * x**5)}
-R1 2 3 {esr}
-L1 3 4 {esl}
+.subckt C1210C474KARACAUTO7210_albin 1 4 IC=0V
+C1 1 2 Q={4.619122696091285e-07 + 2.2987977341847133e-09 * V(1,2) + -1.1871980726621069e-10 * V(1,2)**2 + 1.028483067713827e-12 * V(1,2)**3 + -3.5752189631824305e-15 * V(1,2)**4 + 4.4691309113948826e-18 * V(1,2)**5} IC={IC}
+R1 2 3 8.15m
+L1 3 4 701pH
 .ends
 
 * Non ideal capacitor with esr and esl

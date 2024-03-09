@@ -450,7 +450,6 @@
     "net_colors": {
       "+5V": "rgb(255, 222, 5)",
       "6-18V": "rgb(255, 117, 0)",
-      "Earth": "rgb(0, 72, 0)",
       "POWER_HIGH": "rgb(255, 0, 17)",
       "POWER_LOW": "rgb(255, 94, 92)",
       "Switch_node": "rgb(0, 0, 255)"
