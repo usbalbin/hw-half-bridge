@@ -1,7 +1,7 @@
 (kicad_sch
-	(version 20240101)
+	(version 20231120)
 	(generator "eeschema")
-	(generator_version "8.99")
+	(generator_version "8.0")
 	(uuid "561c49c4-2e8b-46fe-9ff5-6f6657079a69")
 	(paper "A3")
 	(title_block
@@ -3505,12 +3505,6 @@
 		)
 	)
 	(junction
-		(at 308.61 223.52)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "03e58a17-0e49-4ccc-a581-ef217d1b0fc2")
-	)
-	(junction
 		(at 130.81 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3529,22 +3523,16 @@
 		(uuid "0941c799-f103-4987-bb77-707aaee2b17c")
 	)
 	(junction
-		(at 304.8 236.22)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0b74f804-73ff-4072-8120-e8fe3b75342b")
-	)
-	(junction
 		(at 134.62 194.31)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "0ce33499-cd6f-4c00-920b-845a132c5b6d")
 	)
 	(junction
-		(at 69.85 69.85)
+		(at 52.07 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0dd6217e-78e9-4a91-a3fb-5a20e34e5175")
+		(uuid "0e665c98-b2e1-4b77-af9b-ce5998f02d97")
 	)
 	(junction
 		(at 57.785 143.51)
@@ -3583,12 +3571,6 @@
 		(uuid "1ff4827f-988a-4f45-84b8-d7b4409d3529")
 	)
 	(junction
-		(at 29.21 130.175)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "23dbde09-ab83-4207-93d7-34ad393aef01")
-	)
-	(junction
 		(at 48.895 146.05)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3605,18 +3587,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "24a87682-b5a6-467a-9786-9bfbc7cb4595")
-	)
-	(junction
-		(at 308.61 233.68)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2736cab3-8b57-40e7-9244-eff3554f4a07")
-	)
-	(junction
-		(at 66.04 82.55)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "27ec8e43-b28b-4e43-a8e6-f0519591a42b")
 	)
 	(junction
 		(at 85.725 194.31)
@@ -3701,12 +3671,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "39807571-df04-4dc9-81e3-bb46896694ff")
-	)
-	(junction
-		(at 175.26 142.24)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "39ab4060-549b-4805-9b3b-ccefcf93b774")
 	)
 	(junction
 		(at 86.36 163.83)
@@ -3841,12 +3805,6 @@
 		(uuid "4d611f59-018f-4033-b477-d20283fe17e8")
 	)
 	(junction
-		(at 29.21 114.935)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4d6c4e6f-ce68-4430-afda-4deb8e0c9e86")
-	)
-	(junction
 		(at 201.93 184.15)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3865,18 +3823,6 @@
 		(uuid "51b7a1f5-7d02-413b-99db-5f1af83c661e")
 	)
 	(junction
-		(at 304.8 231.14)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "523168d5-cc25-4672-bcf4-0838418805f9")
-	)
-	(junction
-		(at 29.21 127.635)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "52d66c95-5198-4ae8-a605-6618cdefddc0")
-	)
-	(junction
 		(at 104.775 194.31)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3893,6 +3839,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5603197f-b8cd-4452-8cfd-a26173381ac6")
+	)
+	(junction
+		(at 317.5 137.16)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5635f1f4-d84e-4746-a86c-b53695fb14bc")
 	)
 	(junction
 		(at 158.115 194.31)
@@ -3919,12 +3871,6 @@
 		(uuid "5a5df87a-17a6-47c6-b059-3b7a7a85b48f")
 	)
 	(junction
-		(at 29.21 125.095)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "5ad2feed-d499-4cc4-92dd-d55c6b8694ca")
-	)
-	(junction
 		(at 227.965 168.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3941,18 +3887,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6059a779-c265-4581-b89d-38370653ca50")
-	)
-	(junction
-		(at 69.85 85.09)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "61d9ee47-c81c-439a-8984-5eb870ffb5f1")
-	)
-	(junction
-		(at 250.825 147.32)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "62e3b3ab-55cd-4b91-ab49-ad35a2897213")
 	)
 	(junction
 		(at 175.26 163.83)
@@ -3979,16 +3913,16 @@
 		(uuid "6d0685d7-f21b-4cff-9bf2-8f5d5629b08b")
 	)
 	(junction
+		(at 189.865 163.83)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6e93bc9e-7b26-4b0a-8d33-2f676f02102f")
+	)
+	(junction
 		(at 128.905 204.47)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7109dcb1-6417-4ce3-808b-692be787a912")
-	)
-	(junction
-		(at 69.85 80.01)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "736bd823-90bb-4f5c-86fe-897708dfdacf")
 	)
 	(junction
 		(at 90.17 82.55)
@@ -4007,12 +3941,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7991a283-0b02-43d5-a986-a9716d05d47d")
-	)
-	(junction
-		(at 304.8 220.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "7a871f0a-2860-4951-8c7c-dea8855f8233")
 	)
 	(junction
 		(at 43.815 151.13)
@@ -4063,16 +3991,16 @@
 		(uuid "80654774-000c-4b84-bf13-fc6fa45ce5b6")
 	)
 	(junction
+		(at 187.96 142.24)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "851d039b-a48b-4cae-865b-0a61d2fc882c")
+	)
+	(junction
 		(at 185.42 196.85)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "85f883b0-439f-4bda-b50c-bf680159e19f")
-	)
-	(junction
-		(at 29.21 120.015)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "8632132f-dd5d-44a6-ab2c-0381fd0f66e5")
 	)
 	(junction
 		(at 245.11 83.82)
@@ -4111,10 +4039,10 @@
 		(uuid "94e3dcd2-bf39-45e9-b2f8-abffca415a7d")
 	)
 	(junction
-		(at 66.04 87.63)
+		(at 63.5 76.2)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "96db566d-d77b-4590-ad9f-c1171507bc69")
+		(uuid "97ff4479-d469-4006-b7ce-e3d9ca4c1550")
 	)
 	(junction
 		(at 57.785 153.67)
@@ -4159,12 +4087,6 @@
 		(uuid "a47b033e-19f1-46b4-b490-fda0ad30c14f")
 	)
 	(junction
-		(at 304.8 226.06)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a4fb9a92-6084-4c2b-ba00-9531c522903a")
-	)
-	(junction
 		(at 60.325 204.47)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4193,12 +4115,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ae8f4e76-3c86-44e7-ae1d-68439661fd29")
-	)
-	(junction
-		(at 29.21 132.715)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "af229eff-bc4b-4e84-be1e-b14f32139263")
 	)
 	(junction
 		(at 105.41 163.83)
@@ -4241,12 +4157,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b87d966d-abf5-4bcf-9d6b-8932ac00cc42")
-	)
-	(junction
-		(at 66.04 77.47)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "bfb66509-3eeb-4d7d-ac93-0d97f78ddd07")
 	)
 	(junction
 		(at 185.42 191.77)
@@ -4303,10 +4213,10 @@
 		(uuid "cabd4d46-b635-47ee-b067-9714f830b23d")
 	)
 	(junction
-		(at 29.21 117.475)
+		(at 187.96 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "cde807a1-9039-4809-9515-0a716e08b2db")
+		(uuid "cf2ba98c-44e6-469e-84c6-6b08f070d17d")
 	)
 	(junction
 		(at 57.785 148.59)
@@ -4339,12 +4249,6 @@
 		(uuid "d603adfd-fd30-4923-a17f-85d80c5d1f8f")
 	)
 	(junction
-		(at 308.61 228.6)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d805f48e-d110-4ac8-8c82-9200d92e3960")
-	)
-	(junction
 		(at 180.34 186.69)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4375,12 +4279,6 @@
 		(uuid "dd268414-b721-46ee-bf91-f1c71d62fd84")
 	)
 	(junction
-		(at 308.61 218.44)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ddd90025-d9ad-4623-849f-ff1fa87aa98a")
-	)
-	(junction
 		(at 111.76 142.24)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4405,28 +4303,22 @@
 		(uuid "e337ceab-892a-4342-b33e-2ca41c2370ec")
 	)
 	(junction
-		(at 29.21 122.555)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ea6b19f5-4490-4af9-8a50-33ac47632e2e")
-	)
-	(junction
 		(at 152.4 204.47)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ebf53581-0931-4335-a666-e1f91823f582")
 	)
 	(junction
+		(at 175.26 142.24)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ec4312c1-a67d-460e-8e2b-1d36773bd1b0")
+	)
+	(junction
 		(at 245.11 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ed32ca6c-2e59-4888-8a24-c6a33621c655")
-	)
-	(junction
-		(at 69.85 74.93)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ed6eca19-3397-43b5-aba0-d87328e2f721")
 	)
 	(junction
 		(at 146.05 194.31)
@@ -4445,12 +4337,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "ef93d609-bbfb-4125-bc4a-9db1acddd6e3")
-	)
-	(junction
-		(at 66.04 72.39)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f40ab55d-4161-45ba-8ca0-b802f62157e8")
 	)
 	(junction
 		(at 124.46 113.03)
@@ -4477,6 +4363,12 @@
 		(uuid "f92a6155-556a-4277-80c4-b4917c892e75")
 	)
 	(junction
+		(at 298.45 124.46)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "fb6d2966-f647-4cc6-9fd1-40335bb7b3b1")
+	)
+	(junction
 		(at 57.785 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4493,16 +4385,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "fea0a2f4-0111-47d4-a96a-96460074dfa5")
-	)
-	(wire
-		(pts
-			(xy 53.34 90.17) (xy 58.42 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "01910a52-05b2-4907-815a-00e6e291cdb5")
 	)
 	(wire
 		(pts
@@ -4566,13 +4448,13 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 233.68) (xy 308.61 238.76)
+			(xy 52.07 78.74) (xy 54.61 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "053eae3e-7869-4340-a0c5-f4d1c0980d35")
+		(uuid "05ce1788-f3f3-4692-9fff-e182920bc42c")
 	)
 	(wire
 		(pts
@@ -4596,16 +4478,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 69.85) (xy 69.85 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0692e52f-faf6-4977-8b5a-cdfba20baddd")
-	)
-	(wire
-		(pts
 			(xy 105.41 163.83) (xy 111.76 163.83)
 		)
 		(stroke
@@ -4616,16 +4488,6 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 220.98) (xy 304.8 220.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "07f6af31-14cd-4f2c-a51d-96a13b9eb81e")
-	)
-	(wire
-		(pts
 			(xy 53.975 203.2) (xy 53.975 204.47)
 		)
 		(stroke
@@ -4633,16 +4495,6 @@
 			(type default)
 		)
 		(uuid "0812238c-4c09-4c89-a998-5db8ad9b6c03")
-	)
-	(wire
-		(pts
-			(xy 29.21 122.555) (xy 29.21 125.095)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "092eb79f-a4f8-4c89-8eb6-47360ead8d42")
 	)
 	(wire
 		(pts
@@ -4666,13 +4518,13 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 226.06) (xy 304.8 226.06)
+			(xy 175.26 142.24) (xy 181.61 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "0a0b3c41-447c-4450-a1d9-345f537f2205")
+		(uuid "09baa36d-0a03-45a4-887f-fe878ab6f04b")
 	)
 	(wire
 		(pts
@@ -4686,17 +4538,7 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 72.39) (xy 66.04 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0bc4167b-ff3a-4c7c-8d9c-6d9695daca6d")
-	)
-	(wire
-		(pts
-			(xy 78.74 90.17) (xy 90.17 90.17)
+			(xy 76.2 90.17) (xy 90.17 90.17)
 		)
 		(stroke
 			(width 0)
@@ -4746,16 +4588,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 74.93) (xy 69.85 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0d0fa8b9-a302-47a8-b962-1511511d9eb5")
-	)
-	(wire
-		(pts
 			(xy 111.76 163.83) (xy 118.11 163.83)
 		)
 		(stroke
@@ -4763,6 +4595,16 @@
 			(type default)
 		)
 		(uuid "0d7506d1-a80f-478d-b5a5-c101f28d923f")
+	)
+	(wire
+		(pts
+			(xy 194.31 157.48) (xy 194.31 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e6111b7-59ae-42dd-9e78-5058b7830ca4")
 	)
 	(wire
 		(pts
@@ -4816,16 +4658,6 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 213.36) (xy 308.61 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1023ec2d-2f64-44f6-bbfb-4be755ad1f7e")
-	)
-	(wire
-		(pts
 			(xy 185.42 181.61) (xy 194.31 181.61)
 		)
 		(stroke
@@ -4866,16 +4698,6 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 223.52) (xy 308.61 223.52)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "13a770bd-aba6-4202-aac7-12948e7a2f34")
-	)
-	(wire
-		(pts
 			(xy 57.785 153.67) (xy 64.135 153.67)
 		)
 		(stroke
@@ -4896,13 +4718,13 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 218.44) (xy 308.61 223.52)
+			(xy 187.96 142.24) (xy 194.31 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "1551598a-7d54-4a53-b9f2-38ec74a849b6")
+		(uuid "15d8c2ea-a25e-456d-9309-94d368ac3d0b")
 	)
 	(wire
 		(pts
@@ -4986,6 +4808,16 @@
 	)
 	(wire
 		(pts
+			(xy 317.5 137.16) (xy 313.69 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1b806bc9-d08d-4d64-9889-435b3f2a0d7b")
+	)
+	(wire
+		(pts
 			(xy 99.06 142.24) (xy 105.41 142.24)
 		)
 		(stroke
@@ -5023,16 +4855,6 @@
 			(type default)
 		)
 		(uuid "1f10e746-5d74-41ea-8e4f-0b1aee5d52f9")
-	)
-	(wire
-		(pts
-			(xy 175.26 149.86) (xy 175.26 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1f3852a8-2ba2-42b8-845b-340730fa967d")
 	)
 	(wire
 		(pts
@@ -5093,6 +4915,16 @@
 			(type default)
 		)
 		(uuid "22853931-0d54-453e-bfdd-830d8a58060c")
+	)
+	(wire
+		(pts
+			(xy 31.75 88.9) (xy 39.37 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "22abcbf9-0e95-4a94-93ca-d3281e76710d")
 	)
 	(wire
 		(pts
@@ -5186,6 +5018,16 @@
 	)
 	(wire
 		(pts
+			(xy 31.75 86.36) (xy 40.64 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27ae48ea-bcae-41d4-8e17-0b7f41ddff15")
+	)
+	(wire
+		(pts
 			(xy 137.16 163.83) (xy 143.51 163.83)
 		)
 		(stroke
@@ -5233,16 +5075,6 @@
 			(type default)
 		)
 		(uuid "29d26ef7-931f-4b36-9651-a54a6f8cdf1c")
-	)
-	(wire
-		(pts
-			(xy 58.42 67.31) (xy 66.04 67.31)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2a9cdc2f-07af-40ef-96b7-80e06795e2bb")
 	)
 	(wire
 		(pts
@@ -5386,6 +5218,16 @@
 	)
 	(wire
 		(pts
+			(xy 187.96 163.83) (xy 189.865 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33db3ced-5753-4c10-b3dc-9631429a59c2")
+	)
+	(wire
+		(pts
 			(xy 185.42 186.69) (xy 194.31 186.69)
 		)
 		(stroke
@@ -5393,16 +5235,6 @@
 			(type default)
 		)
 		(uuid "343a3320-5e45-4cea-a94d-f9ff9ba70d82")
-	)
-	(wire
-		(pts
-			(xy 66.04 67.31) (xy 66.04 72.39)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "35bacd0d-bd8d-4539-83f9-ccbbba7673c2")
 	)
 	(wire
 		(pts
@@ -5496,16 +5328,6 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 114.935) (xy 29.21 117.475)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3de2b473-a53c-4095-9d11-14a8508dbb7d")
-	)
-	(wire
-		(pts
 			(xy 285.75 100.33) (xy 284.48 100.33)
 		)
 		(stroke
@@ -5566,16 +5388,6 @@
 	)
 	(wire
 		(pts
-			(xy 95.885 94.615) (xy 95.885 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "40e50c04-5b0e-44e6-bd56-0f58e65e471e")
-	)
-	(wire
-		(pts
 			(xy 43.815 156.21) (xy 48.895 156.21)
 		)
 		(stroke
@@ -5626,7 +5438,7 @@
 	)
 	(wire
 		(pts
-			(xy 292.1 238.76) (xy 297.18 238.76)
+			(xy 31.75 101.6) (xy 39.37 101.6)
 		)
 		(stroke
 			(width 0)
@@ -5703,16 +5515,6 @@
 			(type default)
 		)
 		(uuid "479f19d1-c8d0-4b65-bfe6-733de023e538")
-	)
-	(wire
-		(pts
-			(xy 250.825 147.32) (xy 259.08 147.32)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "49c5252e-3d39-49d8-ac4f-6bb10e8946ce")
 	)
 	(wire
 		(pts
@@ -5886,13 +5688,13 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 82.55) (xy 66.04 87.63)
+			(xy 187.96 157.48) (xy 187.96 163.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "574b8da5-a588-4540-9022-38fd94445184")
+		(uuid "5a18caeb-e768-43a8-a3da-c04bda1e5aab")
 	)
 	(wire
 		(pts
@@ -6076,16 +5878,6 @@
 	)
 	(wire
 		(pts
-			(xy 308.61 223.52) (xy 308.61 228.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "66b0cf3c-5f42-46c5-b96a-e93d297d5be9")
-	)
-	(wire
-		(pts
 			(xy 180.34 196.85) (xy 185.42 196.85)
 		)
 		(stroke
@@ -6186,7 +5978,7 @@
 	)
 	(wire
 		(pts
-			(xy 80.01 94.615) (xy 66.04 94.615)
+			(xy 78.74 93.98) (xy 54.61 93.98)
 		)
 		(stroke
 			(width 0)
@@ -6203,6 +5995,16 @@
 			(type default)
 		)
 		(uuid "6da84cdd-4178-4de5-b753-0d82ef5901b8")
+	)
+	(wire
+		(pts
+			(xy 175.26 142.24) (xy 175.26 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6dbe709d-0405-4a00-b3b6-706d05d877b8")
 	)
 	(wire
 		(pts
@@ -6226,16 +6028,6 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 127.635) (xy 29.21 130.175)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7193335e-de9a-4834-a2cc-365885827a1d")
-	)
-	(wire
-		(pts
 			(xy 98.425 203.2) (xy 98.425 204.47)
 		)
 		(stroke
@@ -6243,16 +6035,6 @@
 			(type default)
 		)
 		(uuid "72c33ade-4644-4388-8320-cfdfc345a5c4")
-	)
-	(wire
-		(pts
-			(xy 308.61 228.6) (xy 308.61 233.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "739ea493-a17b-4559-b22e-9440f1dac213")
 	)
 	(wire
 		(pts
@@ -6266,7 +6048,7 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 236.22) (xy 304.8 236.22)
+			(xy 31.75 99.06) (xy 52.07 99.06)
 		)
 		(stroke
 			(width 0)
@@ -6323,16 +6105,6 @@
 			(type default)
 		)
 		(uuid "77f38311-cdfd-4f2a-b48c-453909edcf21")
-	)
-	(wire
-		(pts
-			(xy 58.42 77.47) (xy 66.04 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "78d7a749-1372-4b7e-ba15-822b246f7b8c")
 	)
 	(wire
 		(pts
@@ -6396,13 +6168,13 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 80.01) (xy 69.85 85.09)
+			(xy 31.75 76.2) (xy 63.5 76.2)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "79d8ef44-6a39-446f-b559-dfea97854ef7")
+		(uuid "7a25ef20-1a7c-4a31-93c8-39974e0826c3")
 	)
 	(wire
 		(pts
@@ -6496,36 +6268,6 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 220.98) (xy 304.8 226.06)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "81f33008-a8e1-4f38-bada-c4085618d266")
-	)
-	(wire
-		(pts
-			(xy 29.21 117.475) (xy 29.21 120.015)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82bbdebc-0fcc-41ce-8c31-cf152ccfbaca")
-	)
-	(wire
-		(pts
-			(xy 250.825 168.91) (xy 259.08 168.91)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "82bf642e-2f03-4f10-a636-8177ba234c3d")
-	)
-	(wire
-		(pts
 			(xy 180.34 196.85) (xy 180.34 194.31)
 		)
 		(stroke
@@ -6533,16 +6275,6 @@
 			(type default)
 		)
 		(uuid "850f4b11-6009-4e5e-96d0-8335ce57b4ac")
-	)
-	(wire
-		(pts
-			(xy 29.21 112.395) (xy 29.21 114.935)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "856b69f6-2038-4726-b304-7ae5588017e7")
 	)
 	(wire
 		(pts
@@ -6586,16 +6318,6 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 64.77) (xy 69.85 64.77)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8a032299-b5c0-4e1d-bc02-899c73b53bec")
-	)
-	(wire
-		(pts
 			(xy 201.93 184.15) (xy 201.93 179.07)
 		)
 		(stroke
@@ -6603,16 +6325,6 @@
 			(type default)
 		)
 		(uuid "8ac1370f-183a-4706-aa42-dd8290d21311")
-	)
-	(wire
-		(pts
-			(xy 66.04 87.63) (xy 66.04 94.615)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8bc42a48-4ac2-4b7f-b80c-a16cfb692d64")
 	)
 	(wire
 		(pts
@@ -6706,16 +6418,6 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 215.9) (xy 304.8 215.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "98990a6b-ef22-41a9-913f-be163c6e93ab")
-	)
-	(wire
-		(pts
 			(xy 43.815 146.05) (xy 43.815 140.97)
 		)
 		(stroke
@@ -6746,16 +6448,6 @@
 	)
 	(wire
 		(pts
-			(xy 175.26 142.24) (xy 181.61 142.24)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "99471a6b-7ca6-4c6b-b169-e8000370d6d4")
-	)
-	(wire
-		(pts
 			(xy 181.61 142.24) (xy 181.61 149.86)
 		)
 		(stroke
@@ -6763,26 +6455,6 @@
 			(type default)
 		)
 		(uuid "9aabc78d-a281-441f-9f2a-53556911cba3")
-	)
-	(wire
-		(pts
-			(xy 297.18 233.68) (xy 308.61 233.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9b16fff2-1261-4df3-b8d0-46b6799a0bb3")
-	)
-	(wire
-		(pts
-			(xy 304.8 215.9) (xy 304.8 220.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9b69e86f-4f7c-4c02-929d-2ce08a46754d")
 	)
 	(wire
 		(pts
@@ -6826,7 +6498,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 90.17) (xy 73.66 90.17)
+			(xy 66.04 90.17) (xy 71.12 90.17)
 		)
 		(stroke
 			(width 0)
@@ -6916,16 +6588,6 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 120.015) (xy 29.21 122.555)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a3c7528f-659d-44c3-9f37-0a61b1004c58")
-	)
-	(wire
-		(pts
 			(xy 66.675 194.31) (xy 66.675 195.58)
 		)
 		(stroke
@@ -6933,6 +6595,16 @@
 			(type default)
 		)
 		(uuid "a4fea0e8-4a3a-45b9-bc31-d6413ffab134")
+	)
+	(wire
+		(pts
+			(xy 31.75 93.98) (xy 35.56 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a627bcaa-ba86-4d53-b266-65625e896757")
 	)
 	(wire
 		(pts
@@ -6956,13 +6628,23 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 142.24) (xy 188.595 142.24)
+			(xy 181.61 142.24) (xy 187.96 142.24)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "a6ebf8c6-bc3b-4744-9bc5-35bcc0b49cad")
+	)
+	(wire
+		(pts
+			(xy 187.96 149.86) (xy 187.96 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a71d45c6-4327-49de-835d-09c89f64c8c1")
 	)
 	(wire
 		(pts
@@ -7056,6 +6738,16 @@
 	)
 	(wire
 		(pts
+			(xy 63.5 76.2) (xy 66.04 76.2)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0ddc60e-8d73-4b6d-8989-851285d0a1bb")
+	)
+	(wire
+		(pts
 			(xy 180.34 186.69) (xy 185.42 186.69)
 		)
 		(stroke
@@ -7063,16 +6755,6 @@
 			(type default)
 		)
 		(uuid "b10e0d2b-f94c-4281-a045-c6d2cd3c2dc4")
-	)
-	(wire
-		(pts
-			(xy 58.42 69.85) (xy 69.85 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b1a0d555-133f-4fdd-90c5-47f2d19f20cb")
 	)
 	(wire
 		(pts
@@ -7096,16 +6778,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 72.39) (xy 66.04 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b5456a09-4a69-4e94-89e7-69bb39022287")
-	)
-	(wire
-		(pts
 			(xy 48.895 153.67) (xy 57.785 153.67)
 		)
 		(stroke
@@ -7116,6 +6788,16 @@
 	)
 	(wire
 		(pts
+			(xy 55.88 96.52) (xy 31.75 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6072401-a4ad-4bd3-b1fa-257f9701513e")
+	)
+	(wire
+		(pts
 			(xy 118.11 142.24) (xy 118.11 149.86)
 		)
 		(stroke
@@ -7123,16 +6805,6 @@
 			(type default)
 		)
 		(uuid "b64bf087-7aac-4c71-8ac1-3f4128b3b125")
-	)
-	(wire
-		(pts
-			(xy 58.42 87.63) (xy 66.04 87.63)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b6cfa09a-336e-437b-b108-7ff344506f2d")
 	)
 	(wire
 		(pts
@@ -7226,16 +6898,6 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 218.44) (xy 308.61 218.44)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bc49afce-4daf-4678-b79f-428c29cfbd4e")
-	)
-	(wire
-		(pts
 			(xy 180.34 201.93) (xy 180.34 196.85)
 		)
 		(stroke
@@ -7276,6 +6938,16 @@
 	)
 	(wire
 		(pts
+			(xy 66.04 76.2) (xy 66.04 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bfc85779-0124-4cfb-977b-2fed04cc89af")
+	)
+	(wire
+		(pts
 			(xy 175.26 163.83) (xy 181.61 163.83)
 		)
 		(stroke
@@ -7303,16 +6975,6 @@
 			(type default)
 		)
 		(uuid "c143ef82-e68c-43c2-a821-d65515f63918")
-	)
-	(wire
-		(pts
-			(xy 29.21 125.095) (xy 29.21 127.635)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c260ac24-13ae-4f67-a47c-62744ce98be5")
 	)
 	(wire
 		(pts
@@ -7353,16 +7015,6 @@
 			(type default)
 		)
 		(uuid "c38b1f32-7db6-4fc2-a3a8-fb95a3c1ba5c")
-	)
-	(wire
-		(pts
-			(xy 297.18 213.36) (xy 308.61 213.36)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c41b7bd1-10d7-4294-9bda-1baee7ed8981")
 	)
 	(wire
 		(pts
@@ -7436,26 +7088,6 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 85.09) (xy 69.85 90.17)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c78e1456-0097-4902-83db-518462eb79e6")
-	)
-	(wire
-		(pts
-			(xy 29.21 130.175) (xy 29.21 132.715)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c83f8be9-d2ea-48e7-9661-ffb3b8d151e2")
-	)
-	(wire
-		(pts
 			(xy 87.63 77.47) (xy 90.17 77.47)
 		)
 		(stroke
@@ -7526,23 +7158,23 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 228.6) (xy 308.61 228.6)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cf836f7e-b8b1-49a5-bbf6-e5a2b1abe07b")
-	)
-	(wire
-		(pts
-			(xy 304.8 236.22) (xy 304.8 243.205)
+			(xy 52.07 99.06) (xy 52.07 106.045)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "d01a5384-e189-46ca-8d5c-7b985bb6db64")
+	)
+	(wire
+		(pts
+			(xy 317.5 124.46) (xy 317.5 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0326baa-6fdc-4bb9-8611-bbf8b37820d6")
 	)
 	(wire
 		(pts
@@ -7553,26 +7185,6 @@
 			(type default)
 		)
 		(uuid "d0389b60-828a-41c7-94ab-cf5563acc2e8")
-	)
-	(wire
-		(pts
-			(xy 66.04 77.47) (xy 66.04 82.55)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d0a5c485-832b-4866-922a-e99ea369c44d")
-	)
-	(wire
-		(pts
-			(xy 58.42 80.01) (xy 69.85 80.01)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d0a983d3-803e-4e57-aaea-4a5c67844992")
 	)
 	(wire
 		(pts
@@ -7626,13 +7238,23 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 85.09) (xy 69.85 85.09)
+			(xy 31.75 78.74) (xy 52.07 78.74)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d72c8481-7b5e-4fdf-a53e-41d6bf51c7f9")
+		(uuid "d3f6a329-6e74-415b-94cf-1f83d4a6d6f8")
+	)
+	(wire
+		(pts
+			(xy 55.88 101.6) (xy 55.88 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d453d499-7c07-464f-92c9-c462195b6228")
 	)
 	(wire
 		(pts
@@ -7666,6 +7288,16 @@
 	)
 	(wire
 		(pts
+			(xy 35.56 91.44) (xy 31.75 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d7e34d04-f963-4719-9204-4a3389faf635")
+	)
+	(wire
+		(pts
 			(xy 227.965 168.91) (xy 250.825 168.91)
 		)
 		(stroke
@@ -7696,13 +7328,13 @@
 	)
 	(wire
 		(pts
-			(xy 297.18 231.14) (xy 304.8 231.14)
+			(xy 189.865 163.83) (xy 194.31 163.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "dcaa9d6f-fe69-4466-a00a-c3cdeded2910")
+		(uuid "dc89f963-eb3b-4d74-a068-53cecf6284b6")
 	)
 	(wire
 		(pts
@@ -7766,16 +7398,6 @@
 	)
 	(wire
 		(pts
-			(xy 304.8 226.06) (xy 304.8 231.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "df82c707-6452-43e7-9d56-f4d824cdf9ff")
-	)
-	(wire
-		(pts
 			(xy 90.17 77.47) (xy 92.71 77.47)
 		)
 		(stroke
@@ -7806,6 +7428,16 @@
 	)
 	(wire
 		(pts
+			(xy 194.31 149.86) (xy 194.31 142.24)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e150e4ef-a02a-4d0e-86ff-d68275472143")
+	)
+	(wire
+		(pts
 			(xy 130.81 149.86) (xy 130.81 142.24)
 		)
 		(stroke
@@ -7826,6 +7458,16 @@
 	)
 	(wire
 		(pts
+			(xy 309.88 124.46) (xy 317.5 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e5a0d1f2-bbb9-4535-89ca-308395758607")
+	)
+	(wire
+		(pts
 			(xy 64.135 158.75) (xy 64.135 153.67)
 		)
 		(stroke
@@ -7836,13 +7478,23 @@
 	)
 	(wire
 		(pts
-			(xy 29.21 107.315) (xy 33.655 107.315)
+			(xy 31.75 81.28) (xy 35.56 81.28)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "e7ae802c-a306-4426-975a-2bcae33edf87")
+		(uuid "e75ee55e-9f2d-4b7a-a56e-bff1e6ffb408")
+	)
+	(wire
+		(pts
+			(xy 298.45 124.46) (xy 298.45 137.16)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e81d68ae-79e9-4e9f-9538-7f2a1dd2d944")
 	)
 	(wire
 		(pts
@@ -7853,26 +7505,6 @@
 			(type default)
 		)
 		(uuid "e81d8c84-3444-4319-8985-58663788737a")
-	)
-	(wire
-		(pts
-			(xy 58.42 74.93) (xy 69.85 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e8cb2462-135d-4cdc-82da-e9475ce97490")
-	)
-	(wire
-		(pts
-			(xy 304.8 231.14) (xy 304.8 236.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "eb5f456d-e122-4d5d-a869-3c6c24e51388")
 	)
 	(wire
 		(pts
@@ -7906,7 +7538,7 @@
 	)
 	(wire
 		(pts
-			(xy 85.09 94.615) (xy 95.885 94.615)
+			(xy 83.82 93.98) (xy 95.885 93.98)
 		)
 		(stroke
 			(width 0)
@@ -7956,13 +7588,13 @@
 	)
 	(wire
 		(pts
-			(xy 58.42 82.55) (xy 66.04 82.55)
+			(xy 31.75 83.82) (xy 35.56 83.82)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f18f7bb9-45a1-4da7-9839-aef24c44af89")
+		(uuid "f1db8ef9-190f-4640-a1fc-311dc4eb158b")
 	)
 	(wire
 		(pts
@@ -8003,6 +7635,16 @@
 			(type default)
 		)
 		(uuid "f325b0a3-f610-454f-b8e6-494eef9f9fcd")
+	)
+	(wire
+		(pts
+			(xy 298.45 124.46) (xy 304.8 124.46)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f60befb9-deeb-40c5-a72b-374938d1f0e0")
 	)
 	(wire
 		(pts
@@ -8096,23 +7738,13 @@
 	)
 	(wire
 		(pts
-			(xy 181.61 163.83) (xy 189.865 163.83)
+			(xy 181.61 163.83) (xy 187.96 163.83)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "fb451ef7-911f-4970-965c-f569d77d14d7")
-	)
-	(wire
-		(pts
-			(xy 69.85 64.77) (xy 69.85 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fc06ead7-9363-4fe4-b20a-2749c57a55c0")
 	)
 	(wire
 		(pts
@@ -8153,6 +7785,16 @@
 			(type default)
 		)
 		(uuid "fe2787be-8d28-445a-b2b9-f89890a2a16f")
+	)
+	(wire
+		(pts
+			(xy 54.61 78.74) (xy 54.61 93.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fe350d7f-b097-4a2a-9215-eea6b6844b0f")
 	)
 	(rectangle
 		(start 34.925 171.45)
@@ -8228,7 +7870,7 @@
 	)
 	(rectangle
 		(start 225.425 12.7)
-		(end 365.125 121.285)
+		(end 365.125 119.38)
 		(stroke
 			(width 0)
 			(type default)
@@ -8251,7 +7893,7 @@
 		(uuid 9bb1211f-e3a6-4ac7-bc04-9a6744229844)
 	)
 	(rectangle
-		(start 275.59 123.19)
+		(start 275.59 120.65)
 		(end 325.12 155.575)
 		(stroke
 			(width 0)
@@ -8276,7 +7918,7 @@
 	)
 	(rectangle
 		(start 34.925 118.11)
-		(end 205.105 169.545)
+		(end 212.09 169.545)
 		(stroke
 			(width 0)
 			(type dash)
@@ -8287,8 +7929,8 @@
 		(uuid b697ec5e-e077-4541-90c8-6eb74b0192e7)
 	)
 	(rectangle
-		(start 171.45 135.255)
-		(end 186.69 167.64)
+		(start 171.45 134.62)
+		(end 209.55 167.64)
 		(stroke
 			(width 0)
 			(type dash)
@@ -8340,17 +7982,6 @@
 			(justify left bottom)
 		)
 		(uuid "34337765-3e74-4c41-a2e8-ee6b84defeac")
-	)
-	(text "0.44uF"
-		(exclude_from_sim no)
-		(at 172.72 139.7 0)
-		(effects
-			(font
-				(size 2.54 2.54)
-			)
-			(justify left bottom)
-		)
-		(uuid "3726e6d4-8763-4bb9-9b99-e3fc0b38690e")
 	)
 	(text "Simulation"
 		(exclude_from_sim no)
@@ -8429,7 +8060,7 @@
 		)
 		(uuid "cc273650-724c-4ad9-b852-ca4762303315")
 	)
-	(text ".param pwm_period=1us\n.param pwm_duty=0.5us\n.param pwm_falling_dead_time=5ns\n.param pwm_rising_dead_time=5ns\n.param pwm_delay=50us"
+	(text ".param pwm_period=1us\n.param pwm_duty=0.5us\n.param pwm_falling_dead_time=5ns\n.param pwm_rising_dead_time=7ns\n.param pwm_delay=50us"
 		(exclude_from_sim no)
 		(at 314.706 97.79 0)
 		(effects
@@ -8495,7 +8126,7 @@
 		(uuid "4d1db3d1-c354-4c0c-be6c-fc4339838ad8")
 	)
 	(label "LI"
-		(at 69.85 94.615 0)
+		(at 69.85 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8528,7 +8159,7 @@
 		(uuid "dae66c7b-b815-406a-9d2a-f0c0ba0c2eb3")
 	)
 	(label "HI"
-		(at 69.85 90.17 0)
+		(at 66.04 90.17 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8738,7 +8369,7 @@
 	)
 	(global_label "6-18V"
 		(shape input)
-		(at 29.21 109.855 0)
+		(at 39.37 88.9 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8748,7 +8379,7 @@
 		)
 		(uuid "648693d6-91e2-41c2-874a-2c88ae0f3499")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 38.4847 109.855 0)
+			(at 48.6447 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8760,7 +8391,7 @@
 	)
 	(global_label "Current_sense-"
 		(shape input)
-		(at 308.61 238.76 0)
+		(at 55.88 101.6 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8770,7 +8401,7 @@
 		)
 		(uuid "746679a4-45bb-46d5-b8dc-ae8c8fca14ba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 326.4723 238.76 0)
+			(at 73.7423 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8848,7 +8479,7 @@
 	)
 	(global_label "Current_sense+"
 		(shape input)
-		(at 304.8 243.205 0)
+		(at 52.07 106.045 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -8858,7 +8489,7 @@
 		)
 		(uuid "98562cd0-c604-444d-949d-9bf0083afab5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 322.6623 243.205 0)
+			(at 69.9323 106.045 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9024,7 +8655,7 @@
 	)
 	(global_label "POWER_HIGH"
 		(shape input)
-		(at 188.595 142.24 0)
+		(at 194.31 142.24 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -9034,108 +8665,13 @@
 		)
 		(uuid "f7c0a92f-e9c7-4c3a-a38f-eadac5c106e7")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 203.5545 142.24 0)
+			(at 209.2695 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 				(hide yes)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x11_Pin")
-		(at 24.13 120.015 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "024cc55b-56a4-494a-bb69-57651ea0dfa1")
-		(property "Reference" "J1"
-			(at 24.765 102.235 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x11_Pin"
-			(at 24.765 104.775 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Vertical"
-			(at 24.13 120.015 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 24.13 120.015 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 24.13 120.015 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bd6bd2ee-5f80-43a0-b38f-b8840bc456bc")
-		)
-		(pin "10"
-			(uuid "6d41cb1f-8d9b-4a5c-a289-9ce32c8f50fe")
-		)
-		(pin "11"
-			(uuid "2fb581d0-5030-494b-b152-fd173e63c993")
-		)
-		(pin "2"
-			(uuid "332565d0-151e-418a-8eaa-8958291156f9")
-		)
-		(pin "3"
-			(uuid "5e3df031-f5a8-4099-a3ec-c52ed1f5c661")
-		)
-		(pin "4"
-			(uuid "8ce372cd-b83b-4d2b-890b-9cd806884bb8")
-		)
-		(pin "5"
-			(uuid "c8ce6064-91e1-4baa-968d-25c607894c34")
-		)
-		(pin "6"
-			(uuid "3e0e63bc-ab1a-4b94-a877-886a287662d0")
-		)
-		(pin "7"
-			(uuid "7cf0d8e2-5e20-4a1e-a0d1-f263ea1866dd")
-		)
-		(pin "8"
-			(uuid "585e0f8c-b05c-430c-b4a1-6f0ffbed7f80")
-		)
-		(pin "9"
-			(uuid "17ac158c-f1a5-458a-be9c-8919944c6ecc")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "J1")
-					(unit 1)
-				)
 			)
 		)
 	)
@@ -9352,7 +8888,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 98.425 199.39 0)
 			(effects
 				(font
@@ -9390,12 +8926,12 @@
 		(at 245.11 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "05458701-aef7-4dd4-b3e1-ab46ee816d81")
-		(property "Reference" "R29"
+		(property "Reference" "Rsim2"
 			(at 247.65 92.7099 0)
 			(effects
 				(font
@@ -9449,7 +8985,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R29")
+					(reference "Rsim2")
 					(unit 1)
 				)
 			)
@@ -9465,7 +9001,7 @@
 		(dnp no)
 		(uuid "05ea9fae-9b57-49b4-bd45-ea139fe0e0a3")
 		(property "Reference" "C16"
-			(at 90.805 96.52 0)
+			(at 93.98 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9605,7 +9141,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 104.775 199.39 0)
 			(effects
 				(font
@@ -9741,83 +9277,16 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 213.36 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "0c31e9dc-8066-481e-8712-84f82011d8e7")
-		(property "Reference" "R16"
-			(at 299.72 213.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 213.36 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 213.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f269dbd8-b37a-4b64-87e8-fe9e305c5c5c")
-		)
-		(pin "2"
-			(uuid "6b67ca7b-3581-4af3-b55b-29c33c198c25")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 245.11 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "0c382f60-3e59-4a81-afe2-42353f84e85d")
-		(property "Reference" "C48"
+		(property "Reference" "Csim2"
 			(at 247.65 87.6362 0)
 			(effects
 				(font
@@ -9871,7 +9340,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "C48")
+					(reference "Csim2")
 					(unit 1)
 				)
 			)
@@ -10044,7 +9513,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 149.86 153.67 0)
 			(effects
 				(font
@@ -10082,12 +9551,12 @@
 		(at 248.92 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "14478273-24da-405a-9f96-b0766e3d6401")
-		(property "Reference" "C52"
+		(property "Reference" "Csim5"
 			(at 251.46 104.1462 0)
 			(effects
 				(font
@@ -10141,7 +9610,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "C52")
+					(reference "Csim5")
 					(unit 1)
 				)
 			)
@@ -10306,73 +9775,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "J4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 87.63 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1a81d88d-e867-443f-bf8f-106594e3b088")
-		(property "Reference" "R10"
-			(at 60.96 87.63 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 87.63 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f3df2927-88ba-4f31-b814-55fcc41781bc")
-		)
-		(pin "2"
-			(uuid "f0ed3cb6-ef25-42ef-b52e-f9128525a0c1")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R10")
 					(unit 1)
 				)
 			)
@@ -10725,7 +10127,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 146.05 199.39 0)
 			(effects
 				(font
@@ -11087,7 +10489,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 124.46 153.67 0)
 			(effects
 				(font
@@ -11186,77 +10588,10 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 228.6 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2956d074-b421-41db-8f6f-7cec0a157519")
-		(property "Reference" "R22"
-			(at 299.72 228.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 228.6 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 228.6 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5f4f483e-0cea-49f2-b5f9-969c7467ef7e")
-		)
-		(pin "2"
-			(uuid "7b15e16e-cf39-4489-a3a6-deda371338c9")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R22")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 175.26 153.67 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
@@ -11270,8 +10605,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220nF"
-			(at 175.26 156.21 0)
+		(property "Value" "${SIM.PARAMS}"
+			(at 172.974 138.684 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11279,7 +10614,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 176.2252 157.48 0)
 			(effects
 				(font
@@ -11298,6 +10633,51 @@
 			)
 		)
 		(property "Description" ""
+			(at 175.26 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 175.26 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "cap=1nF esr=72m srf=304MEG"
+			(at 175.26 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=4"
+			(at 175.26 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "/home/albin/hw-half-bridge/sim/albins_lib.lib"
+			(at 175.26 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "C_with_parasitics_srf"
 			(at 175.26 153.67 0)
 			(effects
 				(font
@@ -11539,7 +10919,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2ede4416-3631-4f6d-8d94-88056f59fa20")
-		(property "Reference" "L4"
+		(property "Reference" "Lsim4"
 			(at 262.89 83.8199 0)
 			(effects
 				(font
@@ -11611,7 +10991,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "L4")
+					(reference "Lsim4")
 					(unit 1)
 				)
 			)
@@ -11619,16 +10999,16 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x11_Pin")
-		(at 287.02 226.06 0)
+		(at 26.67 88.9 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim yes)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "31815ad4-f784-4d41-ad0b-20b359393d0d")
-		(property "Reference" "J7"
-			(at 287.655 208.28 0)
+		(property "Reference" "J1"
+			(at 27.305 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11636,15 +11016,15 @@
 			)
 		)
 		(property "Value" "Conn_01x11_Pin"
-			(at 287.655 210.82 0)
+			(at 27.305 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Vertical"
-			(at 287.02 226.06 0)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Horizontal"
+			(at 26.67 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11653,7 +11033,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 287.02 226.06 0)
+			(at 26.67 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11662,7 +11042,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 287.02 226.06 0)
+			(at 26.67 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11706,7 +11086,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "J7")
+					(reference "J1")
 					(unit 1)
 				)
 			)
@@ -11730,7 +11110,7 @@
 				)
 			)
 		)
-		(property "Value" "5R"
+		(property "Value" "2R"
 			(at 142.24 87.63 90)
 			(effects
 				(font
@@ -11738,7 +11118,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 142.24 90.17 0)
 			(effects
 				(font
@@ -11775,73 +11155,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "R13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:Earth")
-		(at 29.21 132.715 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "38a352ba-7b91-4e90-9741-ccef17194718")
-		(property "Reference" "#PWR01"
-			(at 29.21 139.065 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "Earth"
-			(at 29.21 136.525 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 29.21 132.715 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 29.21 132.715 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 29.21 132.715 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ea4894fa-c841-437d-a5d0-6590d1db6d2c")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -11928,7 +11241,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 169.545 199.39 0)
 			(effects
 				(font
@@ -12042,7 +11355,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 163.83 199.39 0)
 			(effects
 				(font
@@ -12077,7 +11390,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 313.69 137.16 0)
+		(at 317.5 137.16 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12086,7 +11399,7 @@
 		(fields_autoplaced yes)
 		(uuid "3f7731c2-bef8-48d4-8320-17caa0241d6d")
 		(property "Reference" "#PWR016"
-			(at 313.69 143.51 0)
+			(at 317.5 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12095,7 +11408,7 @@
 			)
 		)
 		(property "Value" "Earth"
-			(at 313.69 140.97 0)
+			(at 317.5 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12104,7 +11417,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 313.69 137.16 0)
+			(at 317.5 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12113,7 +11426,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 313.69 137.16 0)
+			(at 317.5 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12122,7 +11435,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 313.69 137.16 0)
+			(at 317.5 137.16 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12309,7 +11622,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 111.76 153.67 0)
 			(effects
 				(font
@@ -12337,73 +11650,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 64.77 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "4866d319-37d0-4849-8828-cf73feec67c5")
-		(property "Reference" "R1"
-			(at 60.96 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 64.77 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 64.77 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "8e8abb21-d8da-4485-93a7-cd5d78617b57")
-		)
-		(pin "2"
-			(uuid "173425d5-f4b2-4f90-92c4-82d324a5409d")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -12812,8 +12058,8 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "595dbbe1-8d4a-418f-9c9f-649bc97e37a4")
-		(property "Reference" "R_LOAD1"
-			(at 303.53 64.135 0)
+		(property "Reference" "Rsim_LOAD1"
+			(at 303.53 64.1349 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12822,7 +12068,7 @@
 			)
 		)
 		(property "Value" "2R4"
-			(at 303.53 66.675 0)
+			(at 303.53 66.6749 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12866,7 +12112,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R_LOAD1")
+					(reference "Rsim_LOAD1")
 					(unit 1)
 				)
 			)
@@ -12876,7 +12122,7 @@
 		(lib_id "Device:C")
 		(at 181.61 153.67 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
@@ -12890,16 +12136,17 @@
 				(justify left)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "${SIM.PARAMS}"
 			(at 181.61 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 182.5752 157.48 0)
 			(effects
 				(font
@@ -12918,6 +12165,51 @@
 			)
 		)
 		(property "Description" ""
+			(at 181.61 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 181.61 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=4"
+			(at 181.61 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "/home/albin/hw-half-bridge/sim/albins_lib.lib"
+			(at 181.61 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "C_with_parasitics_srf"
+			(at 181.61 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "cap=1nF esr=72m srf=304MEG"
 			(at 181.61 153.67 0)
 			(effects
 				(font
@@ -12946,12 +12238,12 @@
 		(at 245.11 78.74 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "5f849eea-1d9d-4ff1-8f95-ac64b4002aca")
-		(property "Reference" "R30"
+		(property "Reference" "Rsim1"
 			(at 247.65 77.4699 0)
 			(effects
 				(font
@@ -13005,7 +12297,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R30")
+					(reference "Rsim1")
 					(unit 1)
 				)
 			)
@@ -13194,73 +12486,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 233.68 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "612069ba-5961-4cae-873f-6c4a5b5d614a")
-		(property "Reference" "R24"
-			(at 299.72 233.68 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 233.68 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 233.68 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9032606f-75c1-45b8-8750-561a9b778f52")
-		)
-		(pin "2"
-			(uuid "6485e0e8-42cf-4ad1-8587-a03b2c891a5f")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Feedthrough")
 		(at 160.02 86.36 0)
 		(unit 1)
@@ -13362,8 +12587,8 @@
 		(at 284.48 105.41 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "663fd676-d87f-4f85-a8f4-e1a9c996fb70")
@@ -13465,207 +12690,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 220.98 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "66c02693-20dd-4b68-8bf0-7fadb56df181")
-		(property "Reference" "R19"
-			(at 299.72 220.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 220.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 220.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7c6283f6-8f89-41c0-a9cb-4964d2328b4c")
-		)
-		(pin "2"
-			(uuid "a17b2316-dbf4-424b-af96-b3a6f0939c32")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 74.93 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "69295b3f-d5d4-4233-a973-8f60c6c0e502")
-		(property "Reference" "R5"
-			(at 60.96 74.93 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 74.93 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "c399537b-a36b-498a-a038-ffb65ce15dd9")
-		)
-		(pin "2"
-			(uuid "1767e180-8a2a-44e7-a564-2447b03db4ac")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 69.85 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "6ccacfdb-7cb6-4755-9d06-268ffe043e5a")
-		(property "Reference" "R3"
-			(at 60.96 69.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 69.85 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f1f2a33a-484b-4c94-9640-c54e5d12aca6")
-		)
-		(pin "2"
-			(uuid "32a24fa7-18fe-401a-af6e-b8c5bcee3b2a")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 85.725 199.39 0)
 		(unit 1)
@@ -13729,6 +12753,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 35.56 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6eaf0bf8-89ba-4f2e-ad30-786e4cc920a7")
+		(property "Reference" "#PWR01"
+			(at 41.91 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 39.37 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 35.56 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 35.56 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2b6dbaa5-f6e4-4a5b-9e34-2124690aad7c")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR01")
 					(unit 1)
 				)
 			)
@@ -13884,7 +12975,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 143.51 153.67 0)
 			(effects
 				(font
@@ -14016,73 +13107,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Heatsink_Pad")
-		(at 259.08 144.78 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "722e6d84-66da-4f9f-b975-cafd6589831d")
-		(property "Reference" "HS1"
-			(at 263.525 144.145 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Heatsink_Pad"
-			(at 262.89 145.415 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Library:Heatsink_SMD_Chamfered_5.2x5.2mm"
-			(at 259.3848 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 259.3848 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 259.08 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "22513e53-ea16-4c93-a613-7b33228cf313")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "HS1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 118.11 153.67 0)
 		(unit 1)
@@ -14163,7 +13187,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 118.11 153.67 0)
 			(effects
 				(font
@@ -14201,12 +13225,12 @@
 		(at 248.92 110.49 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "77bc7bac-4bad-4f3e-80dc-4c825d7bee26")
-		(property "Reference" "R32"
+		(property "Reference" "Rsim5"
 			(at 251.46 109.2199 0)
 			(effects
 				(font
@@ -14260,7 +13284,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R32")
+					(reference "Rsim5")
 					(unit 1)
 				)
 			)
@@ -14268,31 +13292,34 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 55.88 77.47 90)
+		(at 175.26 147.32 0)
 		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
-		(uuid "7949dd84-c01b-4623-a787-f3d611ca1710")
-		(property "Reference" "R6"
-			(at 60.96 77.47 90)
+		(fields_autoplaced yes)
+		(uuid "7953f9b3-2a25-4488-a65a-36a2f81b7a46")
+		(property "Reference" "Rsim6"
+			(at 177.8 146.0499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "0R"
-			(at 55.88 77.47 90)
+		(property "Value" "0.1m"
+			(at 177.8 148.5899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 77.47 0)
+		(property "Footprint" ""
+			(at 175.26 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14301,7 +13328,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 55.88 77.47 0)
+			(at 175.26 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14309,8 +13336,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 55.88 77.47 0)
+		(property "Description" "Resistor, small symbol"
+			(at 175.26 147.32 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14318,16 +13345,34 @@
 				(hide yes)
 			)
 		)
-		(pin "1"
-			(uuid "ed8a5e17-2e56-4039-a836-39152273c645")
+		(property "Sim.Device" "R"
+			(at 175.26 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 175.26 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
 		)
 		(pin "2"
-			(uuid "3bc5ff46-39a2-4f63-8644-c5289c95a5f1")
+			(uuid "329e74d3-92d3-40a9-a5a9-09af65e9fa12")
+		)
+		(pin "1"
+			(uuid "893a4937-9289-4453-b539-d70bd14d22e1")
 		)
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R6")
+					(reference "Rsim6")
 					(unit 1)
 				)
 			)
@@ -14335,7 +13380,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 297.18 238.76 0)
+		(at 39.37 101.6 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14344,7 +13389,7 @@
 		(fields_autoplaced yes)
 		(uuid "7987810a-014f-4fe4-8fdc-806f5dccd749")
 		(property "Reference" "#PWR014"
-			(at 297.18 245.11 0)
+			(at 39.37 107.95 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14353,7 +13398,7 @@
 			)
 		)
 		(property "Value" "Earth"
-			(at 297.18 242.57 0)
+			(at 39.37 105.41 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14362,7 +13407,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 297.18 238.76 0)
+			(at 39.37 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14371,7 +13416,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 297.18 238.76 0)
+			(at 39.37 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14380,7 +13425,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 297.18 238.76 0)
+			(at 39.37 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14490,15 +13535,6 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
-			(at 73.66 153.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
 		(pin "1"
 			(uuid "67d7ede7-531b-4971-88c5-1beb81982265")
 		)
@@ -14516,7 +13552,7 @@
 	)
 	(symbol
 		(lib_id "power:Earth")
-		(at 58.42 90.17 0)
+		(at 35.56 81.28 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -14525,7 +13561,7 @@
 		(fields_autoplaced yes)
 		(uuid "7bc7f30f-8c48-4cea-9e1b-497c7249d73a")
 		(property "Reference" "#PWR04"
-			(at 58.42 96.52 0)
+			(at 41.91 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14534,7 +13570,7 @@
 			)
 		)
 		(property "Value" "Earth"
-			(at 58.42 93.98 0)
+			(at 39.37 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14543,7 +13579,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 58.42 90.17 0)
+			(at 35.56 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14552,7 +13588,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 58.42 90.17 0)
+			(at 35.56 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14561,7 +13597,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 58.42 90.17 0)
+			(at 35.56 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -14576,73 +13612,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 85.09 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7c148430-eda1-4496-a975-ddb3ec5f0473")
-		(property "Reference" "R9"
-			(at 60.96 85.09 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 85.09 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f6cb894-6f6e-473f-a409-fd69a87bb51f")
-		)
-		(pin "2"
-			(uuid "1354ad44-fee2-468d-9448-c0908bb3e1b5")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R9")
 					(unit 1)
 				)
 			)
@@ -14796,7 +13765,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 117.475 199.39 0)
 			(effects
 				(font
@@ -14902,6 +13871,121 @@
 	)
 	(symbol
 		(lib_id "Device:C")
+		(at 187.96 153.67 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "842e4510-4757-4fa5-90ac-7d42a0d2370a")
+		(property "Reference" "C53"
+			(at 187.96 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "${SIM.PARAMS}"
+			(at 187.96 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 188.9252 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=4"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "/home/albin/hw-half-bridge/sim/albins_lib.lib"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "C_with_parasitics_srf"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "cap=1nF esr=72m srf=304MEG"
+			(at 187.96 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "437a6eb5-fd5f-4699-bc43-0ea7d0166e07")
+		)
+		(pin "2"
+			(uuid "6ed7dfcf-52b4-4def-be33-a2faad25f642")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "C53")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
 		(at 80.01 153.67 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14981,7 +14065,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 80.01 153.67 0)
 			(effects
 				(font
@@ -15095,7 +14179,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 158.115 199.39 0)
 			(effects
 				(font
@@ -15209,7 +14293,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 140.335 199.39 0)
 			(effects
 				(font
@@ -15248,13 +14332,13 @@
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim yes)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "8f02589a-2f27-481a-858e-4fd09ff8aaa0")
 		(property "Reference" "R15"
-			(at 292.735 133.985 0)
+			(at 292.1 133.9849 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15263,7 +14347,7 @@
 			)
 		)
 		(property "Value" "0R"
-			(at 292.735 136.525 0)
+			(at 292.1 136.5249 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15271,7 +14355,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Library:SolderJumper-2_P1.3mm_Open_TrianglePad1.0x1.2mm"
 			(at 294.64 135.255 0)
 			(effects
 				(font
@@ -15308,73 +14392,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "R15")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 218.44 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "90e29473-4468-4821-b3f9-d4dfe7d7339f")
-		(property "Reference" "R18"
-			(at 299.72 218.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 218.44 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 218.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "19c5b621-43de-4847-9fd7-e55e8012eb9b")
-		)
-		(pin "2"
-			(uuid "74197d32-54fd-4225-b557-95de4ae03a0b")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -15452,11 +14469,11 @@
 		(at 261.62 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(uuid "971581fe-4c8d-4a52-a82a-82f201818201")
-		(property "Reference" "R34"
+		(property "Reference" "Rsim4"
 			(at 259.588 98.298 0)
 			(effects
 				(font
@@ -15510,74 +14527,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R34")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 82.55 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "9785fdc2-0235-4cc4-83e0-dd5ffb1bf8a8")
-		(property "Reference" "R8"
-			(at 60.96 82.55 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 82.55 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 82.55 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "71bb428a-7af6-4b1e-ba35-2c47d0ad85ba")
-		)
-		(pin "2"
-			(uuid "c948242b-c996-471f-badf-0d0247205333")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R8")
+					(reference "Rsim4")
 					(unit 1)
 				)
 			)
@@ -15716,74 +14666,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Mechanical:Heatsink_Pad")
-		(at 259.08 166.37 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9d97e512-89b1-40d2-9cc1-b45dc8ae3f57")
-		(property "Reference" "HS2"
-			(at 263.525 165.735 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Heatsink_Pad"
-			(at 262.89 167.005 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Library:Heatsink_SMD_Chamfered_5.2x5.2mm"
-			(at 259.3848 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 259.3848 167.64 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 259.08 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "691d00f8-2e47-40f7-9949-7a51ce7fe7b4")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "HS2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 111.125 199.39 0)
 		(unit 1)
@@ -15864,7 +14746,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 111.125 199.39 0)
 			(effects
 				(font
@@ -15907,7 +14789,7 @@
 		(dnp no)
 		(uuid "9f6e28fd-5d48-49db-8867-3656c162a757")
 		(property "Reference" "C13"
-			(at 85.09 92.71 0)
+			(at 87.884 99.06 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16047,7 +14929,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 128.905 199.39 0)
 			(effects
 				(font
@@ -16161,7 +15043,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 130.81 153.67 0)
 			(effects
 				(font
@@ -16196,7 +15078,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 76.2 90.17 90)
+		(at 73.66 90.17 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16205,7 +15087,7 @@
 		(fields_autoplaced yes)
 		(uuid "a5c96063-0d42-4da7-891f-682dc3d38bef")
 		(property "Reference" "R11"
-			(at 76.2 85.09 90)
+			(at 73.66 85.09 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16213,7 +15095,7 @@
 			)
 		)
 		(property "Value" "100R"
-			(at 76.2 87.63 90)
+			(at 73.66 87.63 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16221,7 +15103,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 76.2 90.17 0)
+			(at 73.66 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16230,7 +15112,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 76.2 90.17 0)
+			(at 73.66 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16239,7 +15121,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 76.2 90.17 0)
+			(at 73.66 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16279,7 +15161,7 @@
 				)
 			)
 		)
-		(property "Value" "5R"
+		(property "Value" "2R"
 			(at 142.24 96.52 90)
 			(effects
 				(font
@@ -16287,7 +15169,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
+		(property "Footprint" "Resistor_SMD:R_0201_0603Metric_Pad0.64x0.40mm_HandSolder"
 			(at 142.24 99.06 0)
 			(effects
 				(font
@@ -16330,32 +15212,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 226.06 90)
+		(lib_id "power:Earth")
+		(at 35.56 91.44 90)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "a61e48d7-566a-45a0-9e8e-27bbe0bf56cb")
-		(property "Reference" "R21"
-			(at 299.72 226.06 90)
+		(fields_autoplaced yes)
+		(uuid "a613912b-a438-4991-b54b-6882b57366c8")
+		(property "Reference" "#PWR017"
+			(at 41.91 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Value" "0R"
-			(at 294.64 226.06 90)
+		(property "Value" "Earth"
+			(at 39.37 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 226.06 0)
+		(property "Footprint" ""
+			(at 35.56 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16364,7 +15249,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 294.64 226.06 0)
+			(at 35.56 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16373,7 +15258,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 294.64 226.06 0)
+			(at 35.56 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16382,15 +15267,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "7127a5a2-12a8-44a9-800e-5f73542736e3")
-		)
-		(pin "2"
-			(uuid "c553fc29-057c-4a6f-bdfe-fa45417182af")
+			(uuid "6308e5b2-5e73-4044-a363-29730b9944b3")
 		)
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R21")
+					(reference "#PWR017")
 					(unit 1)
 				)
 			)
@@ -16467,148 +15349,14 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 294.64 215.9 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "a907150d-d57f-45c2-9d16-cb48e4c91fe3")
-		(property "Reference" "R17"
-			(at 299.72 215.9 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 215.9 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 215.9 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "27644e33-1527-4df1-bfc0-8252652d84f4")
-		)
-		(pin "2"
-			(uuid "e1c97d14-7446-4e24-b915-7884b971debb")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 223.52 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "ac9cbe14-870a-4d87-87d7-24e1cf6e6c50")
-		(property "Reference" "R20"
-			(at 299.72 223.52 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 223.52 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 223.52 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e27dc062-7577-4554-ba1c-87bd8d9b0fde")
-		)
-		(pin "2"
-			(uuid "5ab67cea-b003-4c5b-bee0-a307c283e784")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
 		(at 255.27 93.98 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(uuid "ad07193f-7b76-4869-a65e-255bc304429f")
-		(property "Reference" "R31"
+		(property "Reference" "Rsim3"
 			(at 253.238 98.298 0)
 			(effects
 				(font
@@ -16662,7 +15410,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R31")
+					(reference "Rsim3")
 					(unit 1)
 				)
 			)
@@ -16744,7 +15492,7 @@
 		(on_board no)
 		(dnp no)
 		(uuid "b03effe5-f493-42ee-a58b-7ed497717b7b")
-		(property "Reference" "C51"
+		(property "Reference" "Csim3"
 			(at 252.222 67.056 0)
 			(effects
 				(font
@@ -16798,7 +15546,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "C51")
+					(reference "Csim3")
 					(unit 1)
 				)
 			)
@@ -16873,7 +15621,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 33.655 107.315 0)
+		(at 40.64 86.36 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16881,7 +15629,7 @@
 		(dnp no)
 		(uuid "b4072335-bd79-4b20-80c9-4e7d3d7417eb")
 		(property "Reference" "#PWR02"
-			(at 33.655 111.125 0)
+			(at 40.64 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16890,7 +15638,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 34.925 103.505 0)
+			(at 41.91 82.55 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16898,7 +15646,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 33.655 107.315 0)
+			(at 40.64 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16907,7 +15655,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 33.655 107.315 0)
+			(at 40.64 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16916,7 +15664,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 33.655 107.315 0)
+			(at 40.64 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17008,8 +15756,8 @@
 		(at 285.75 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b4641767-462b-4175-9ca5-f87c32003cc5")
@@ -17129,7 +15877,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "EPC2308"
+		(property "Value" "EPC2306"
 			(at 254.635 154.94 0)
 			(effects
 				(font
@@ -17232,6 +15980,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:Earth")
+		(at 35.56 83.82 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "b6358c23-713b-4b57-aecc-0b2edfaa9869")
+		(property "Reference" "#PWR018"
+			(at 41.91 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 39.37 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 35.56 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 35.56 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 35.56 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "89ad8f8c-64f2-4e4c-b8bd-b90f0c247355")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 261.62 77.47 0)
 		(unit 1)
@@ -17240,7 +16055,7 @@
 		(on_board no)
 		(dnp no)
 		(uuid "b685819c-ffce-41ec-8bb7-b408d7a4f83b")
-		(property "Reference" "C50"
+		(property "Reference" "Csim4"
 			(at 259.334 67.056 0)
 			(effects
 				(font
@@ -17294,7 +16109,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "C50")
+					(reference "Csim4")
 					(unit 1)
 				)
 			)
@@ -17360,73 +16175,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "#GND07")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 67.31 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "baf60dd5-7a28-4c54-9f7b-db19067c5696")
-		(property "Reference" "R2"
-			(at 60.96 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 67.31 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "aa022a52-3d15-43ba-ae99-9fccf448895b")
-		)
-		(pin "2"
-			(uuid "f92ffb8a-59b0-4985-8fb2-4e749bbf1325")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R2")
 					(unit 1)
 				)
 			)
@@ -17578,7 +16326,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 134.62 199.39 0)
 			(effects
 				(font
@@ -17776,73 +16524,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 80.01 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c3120506-c3c5-4d33-b7ff-938a81bc265d")
-		(property "Reference" "R7"
-			(at 60.96 80.01 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 55.88 80.01 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0470bcb1-8136-4df6-940b-6c31a5202924")
-		)
-		(pin "2"
-			(uuid "43278d3a-da64-499f-a8d7-8c3fbc59b487")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C")
 		(at 152.4 199.39 0)
 		(unit 1)
@@ -17923,7 +16604,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 152.4 199.39 0)
 			(effects
 				(font
@@ -17951,101 +16632,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C35")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:Conn_01x11_Pin")
-		(at 48.26 77.47 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c5879fde-b80c-4c34-bd30-4ca121a2ce3e")
-		(property "Reference" "J2"
-			(at 48.895 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x11_Pin"
-			(at 48.895 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Vertical"
-			(at 48.26 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 48.26 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 48.26 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3dae8dd1-2dfe-4360-8924-82a6e02d08db")
-		)
-		(pin "10"
-			(uuid "82fa7d36-bcc3-4275-9d28-2f9c8af78d18")
-		)
-		(pin "11"
-			(uuid "f6e5c524-b9ca-4e71-b938-26d03782371a")
-		)
-		(pin "2"
-			(uuid "40a9a35a-85c3-4a7f-bb26-3a04c02ce4ab")
-		)
-		(pin "3"
-			(uuid "1dc1a206-d24a-4536-bc2e-e55c40d1ab64")
-		)
-		(pin "4"
-			(uuid "51493380-3b23-4a4c-92a7-713aee31fca5")
-		)
-		(pin "5"
-			(uuid "510a2c38-8acf-4150-b94b-42b1420f50b4")
-		)
-		(pin "6"
-			(uuid "51fcb858-d74e-420e-8ad3-976f97253823")
-		)
-		(pin "7"
-			(uuid "393c8a66-6103-4a77-8bf5-9ac7358cbe44")
-		)
-		(pin "8"
-			(uuid "e32c8d6c-9a0d-47e8-b4b4-eb72f29a8975")
-		)
-		(pin "9"
-			(uuid "934788bd-63f5-4a95-8133-6537b8711f70")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -18132,7 +16718,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 162.56 153.67 0)
 			(effects
 				(font
@@ -18167,7 +16753,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 298.45 137.16 0)
+		(at 298.45 124.46 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -18176,7 +16762,7 @@
 		(fields_autoplaced yes)
 		(uuid "c80a75a1-815f-4bba-ac96-1aa03073ebd6")
 		(property "Reference" "#PWR015"
-			(at 298.45 140.97 0)
+			(at 298.45 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18185,7 +16771,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 298.45 132.08 0)
+			(at 298.45 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18193,7 +16779,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 298.45 137.16 0)
+			(at 298.45 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18202,7 +16788,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 298.45 137.16 0)
+			(at 298.45 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18211,7 +16797,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 298.45 137.16 0)
+			(at 298.45 124.46 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18329,6 +16915,76 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R_Small")
+		(at 52.07 81.28 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c92f87c5-50e9-452b-99a1-203f86889dcd")
+		(property "Reference" "R2"
+			(at 49.53 80.0099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 49.53 82.5499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 52.07 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 52.07 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 52.07 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8b13df8e-9b3f-45b1-8494-af2d732f089c")
+		)
+		(pin "2"
+			(uuid "e45d7097-87ce-4c39-93cc-dc0ea2c1396a")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:L")
 		(at 255.27 85.09 0)
 		(unit 1)
@@ -18338,7 +16994,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "cca1fe67-3f9c-4096-9cd9-f0f6d4bc816d")
-		(property "Reference" "L5"
+		(property "Reference" "Lsim3"
 			(at 256.54 83.8199 0)
 			(effects
 				(font
@@ -18410,7 +17066,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "L5")
+					(reference "Lsim3")
 					(unit 1)
 				)
 			)
@@ -18617,7 +17273,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 175.26 199.39 0)
 			(effects
 				(font
@@ -18655,8 +17311,8 @@
 		(at 284.48 87.63 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d2568c1b-ee75-42b1-a696-7cc2ad97583d")
@@ -18823,33 +17479,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 82.55 94.615 90)
+		(lib_id "power:Earth")
+		(at 52.07 83.82 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "d75a3568-87ca-4fc4-836f-32497154042f")
-		(property "Reference" "R12"
-			(at 82.55 88.9 90)
+		(uuid "d6e052ee-8d98-4664-bc85-e6946e6a4c6d")
+		(property "Reference" "#PWR019"
+			(at 52.07 90.17 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Value" "100R"
-			(at 82.55 91.44 90)
+		(property "Value" "Earth"
+			(at 52.07 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 82.55 94.615 0)
+		(property "Footprint" ""
+			(at 52.07 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18858,7 +17516,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 82.55 94.615 0)
+			(at 52.07 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18867,7 +17525,72 @@
 			)
 		)
 		(property "Description" ""
-			(at 82.55 94.615 0)
+			(at 52.07 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d086301e-3f31-47e8-9900-76ad1392f7d4")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR019")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 81.28 93.98 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d75a3568-87ca-4fc4-836f-32497154042f")
+		(property "Reference" "R12"
+			(at 81.28 88.265 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100R"
+			(at 81.28 90.805 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 81.28 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 81.28 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 81.28 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18971,7 +17694,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 156.21 153.67 0)
 			(effects
 				(font
@@ -18999,6 +17722,143 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 307.34 124.46 90)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d9d79b8d-409c-40b3-8308-ee595575f5ac")
+		(property "Reference" "C48"
+			(at 307.34 121.92 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1nF"
+			(at 311.785 126.365 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
+			(at 307.34 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 307.34 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 307.34 124.46 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8a11cdbd-ccdc-49a3-886b-483cc5844662")
+		)
+		(pin "2"
+			(uuid "2e43cb79-6394-406d-816b-0fea53be2c8b")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "C48")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 63.5 78.74 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "da72df96-48a7-4cd4-a1f9-515568d211e3")
+		(property "Reference" "R1"
+			(at 60.96 77.4699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 60.96 80.0099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 63.5 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 63.5 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 63.5 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1d3742b1-34ba-48c8-92a5-b48fae12246a")
+		)
+		(pin "2"
+			(uuid "0ab420d3-ddf3-430f-ab51-4927c27a50ba")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "R1")
 					(unit 1)
 				)
 			)
@@ -19085,7 +17945,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 137.16 153.67 0)
 			(effects
 				(font
@@ -19123,12 +17983,12 @@
 		(at 245.11 73.66 0)
 		(unit 1)
 		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
+		(in_bom no)
+		(on_board no)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "e0755189-1b54-41e3-8636-696fdc52803c")
-		(property "Reference" "C49"
+		(property "Reference" "Csim1"
 			(at 247.65 72.3962 0)
 			(effects
 				(font
@@ -19182,7 +18042,7 @@
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "C49")
+					(reference "Csim1")
 					(unit 1)
 				)
 			)
@@ -19269,7 +18129,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 99.06 153.67 0)
 			(effects
 				(font
@@ -19303,73 +18163,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 236.22 90)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e1de79c1-f169-4f66-9de9-adc57230497c")
-		(property "Reference" "R25"
-			(at 299.72 236.22 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "0R"
-			(at 294.64 236.22 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 294.64 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 294.64 236.22 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "730361f4-08b9-4a19-9d89-c6cda48afd51")
-		)
-		(pin "2"
-			(uuid "bd6057c8-5b5b-4853-b747-a611a2439477")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R25")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Library:EPC2302")
 		(at 248.285 163.83 0)
 		(unit 1)
@@ -19387,7 +18180,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "EPC2308"
+		(property "Value" "EPC2306"
 			(at 243.84 173.355 0)
 			(effects
 				(font
@@ -19793,7 +18586,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 86.36 153.67 0)
 			(effects
 				(font
@@ -20089,7 +18882,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 92.71 153.67 0)
 			(effects
 				(font
@@ -20123,32 +18916,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 294.64 231.14 90)
+		(lib_id "Device:C")
+		(at 194.31 153.67 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f53e65d1-4fe2-42b4-9328-fae243d4b328")
-		(property "Reference" "R23"
-			(at 299.72 231.14 90)
+		(uuid "f5eb608e-06a3-4ded-9ebc-ad59bdca524d")
+		(property "Reference" "C54"
+			(at 194.31 151.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "0R"
-			(at 294.64 231.14 90)
+		(property "Value" "${SIM.PARAMS}"
+			(at 194.31 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric_Pad0.74x0.62mm_HandSolder"
-			(at 294.64 231.14 0)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 195.2752 157.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20157,7 +18953,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 294.64 231.14 0)
+			(at 194.31 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20166,7 +18962,52 @@
 			)
 		)
 		(property "Description" ""
-			(at 294.64 231.14 0)
+			(at 194.31 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "SUBCKT"
+			(at 194.31 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=1 2=4"
+			(at 194.31 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Library" "/home/albin/hw-half-bridge/sim/albins_lib.lib"
+			(at 194.31 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Name" "C_with_parasitics_srf"
+			(at 194.31 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "cap=1nF esr=72m srf=304MEG"
+			(at 194.31 153.67 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20175,47 +19016,50 @@
 			)
 		)
 		(pin "1"
-			(uuid "6c914402-b116-46e9-9ad4-21b6bdb77f39")
+			(uuid "a5858536-3ff0-4d96-b812-3819ad242f77")
 		)
 		(pin "2"
-			(uuid "f2c5cda9-b061-4c98-b077-22501ea6ce31")
+			(uuid "c833b77a-c8b1-49aa-9257-ec74a1df02d2")
 		)
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R23")
+					(reference "C54")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 55.88 72.39 90)
+		(lib_id "power:Earth")
+		(at 63.5 81.28 0)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f5d323e8-5a9e-4e1a-b58e-378c47c66962")
-		(property "Reference" "R4"
-			(at 60.96 72.39 90)
+		(fields_autoplaced yes)
+		(uuid "fa127bd1-b4a2-4649-981a-d2c7163e51b2")
+		(property "Reference" "#PWR020"
+			(at 63.5 87.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Value" "0R"
-			(at 55.88 72.39 90)
+		(property "Value" "Earth"
+			(at 63.5 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 55.88 72.39 0)
+		(property "Footprint" ""
+			(at 63.5 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20224,7 +19068,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 55.88 72.39 0)
+			(at 63.5 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20233,7 +19077,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 55.88 72.39 0)
+			(at 63.5 81.28 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20242,15 +19086,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8250ac0f-fd7a-49b7-8fbf-50c3b9908a7b")
-		)
-		(pin "2"
-			(uuid "d4f75af7-eaac-4265-bf56-72269a534a21")
+			(uuid "98e5970d-80db-470f-9565-794a0a9f1de6")
 		)
 		(instances
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R4")
+					(reference "#PWR020")
 					(unit 1)
 				)
 			)
@@ -20337,7 +19178,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 105.41 153.67 0)
 			(effects
 				(font
@@ -20451,7 +19292,7 @@
 				(hide yes)
 			)
 		)
-		(property "Sim.Params" "IC={high_voltage}"
+		(property "Sim.Params" ""
 			(at 123.19 199.39 0)
 			(effects
 				(font

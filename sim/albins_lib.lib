@@ -5,6 +5,13 @@ R1 2 3 {esr}
 L1 3 4 {esl}
 .ends
 
+* Non ideal capacitor with esr and esl, but let user specify srf instead of esl
+.subckt C_with_parasitics_srf 1 4 cap=1nF esr=1m srf=100MEG
+C1 1 2 {cap}
+R1 2 3 {esr}
+L1 3 4 {1 / (4 * 3.14159265359**2 * srf**2)}
+.ends
+
 * Non ideal inductor with esr and epc
 .subckt L_with_parasitics 1 3 ind=1uH esr=1m epc=10pF
 R1 1 2 {esr}
