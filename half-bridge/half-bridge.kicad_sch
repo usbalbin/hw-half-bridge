@@ -4820,6 +4820,16 @@
 	)
 	(wire
 		(pts
+			(xy 175.26 142.24) (xy 175.26 149.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1cfdcdbd-938f-4427-8f04-b612cdff358a")
+	)
+	(wire
+		(pts
 			(xy 180.34 201.93) (xy 185.42 201.93)
 		)
 		(stroke
@@ -5937,16 +5947,6 @@
 			(type default)
 		)
 		(uuid "6da84cdd-4178-4de5-b753-0d82ef5901b8")
-	)
-	(wire
-		(pts
-			(xy 175.26 142.24) (xy 175.26 144.78)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6dbe709d-0405-4a00-b3b6-706d05d877b8")
 	)
 	(wire
 		(pts
@@ -13151,94 +13151,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "Rsim5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 175.26 147.32 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7953f9b3-2a25-4488-a65a-36a2f81b7a46")
-		(property "Reference" "Rsim6"
-			(at 177.8 146.0499 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "0.1m"
-			(at 177.8 148.5899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 175.26 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 175.26 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 175.26 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Device" "R"
-			(at 175.26 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Sim.Pins" "1=+ 2=-"
-			(at 175.26 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "2"
-			(uuid "329e74d3-92d3-40a9-a5a9-09af65e9fa12")
-		)
-		(pin "1"
-			(uuid "893a4937-9289-4453-b539-d70bd14d22e1")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "Rsim6")
 					(unit 1)
 				)
 			)
