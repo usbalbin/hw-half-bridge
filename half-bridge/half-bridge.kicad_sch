@@ -5090,7 +5090,7 @@
 	)
 	(wire
 		(pts
-			(xy 309.88 158.75) (xy 308.61 158.75)
+			(xy 308.61 158.75) (xy 316.23 158.75)
 		)
 		(stroke
 			(width 0)
@@ -7470,16 +7470,6 @@
 	)
 	(wire
 		(pts
-			(xy 314.96 158.75) (xy 316.23 158.75)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1f53ed8-b274-41b8-b32f-969c9b26e783")
-	)
-	(wire
-		(pts
 			(xy 66.675 194.31) (xy 73.025 194.31)
 		)
 		(stroke
@@ -9529,73 +9519,6 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "Csim5")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R_Small")
-		(at 312.42 158.75 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board no)
-		(dnp no)
-		(uuid "15a47afb-caee-40a3-963c-c6c94e7e4bf4")
-		(property "Reference" "R33"
-			(at 312.42 160.655 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "1m"
-			(at 311.15 156.845 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
-			(at 312.42 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 312.42 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 312.42 158.75 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9469c639-bad3-4fd0-a9a0-80c02530a26f")
-		)
-		(pin "2"
-			(uuid "d8285ef1-7837-424f-9baf-ed2b05922656")
-		)
-		(instances
-			(project "half-bridge"
-				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
-					(reference "R33")
 					(unit 1)
 				)
 			)
