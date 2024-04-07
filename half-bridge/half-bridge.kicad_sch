@@ -2780,6 +2780,108 @@
 				)
 			)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers hide)
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Simulation_SPICE:0"
 			(power)
 			(pin_names
@@ -3589,6 +3691,12 @@
 		(uuid "24a87682-b5a6-467a-9786-9bfbc7cb4595")
 	)
 	(junction
+		(at 259.08 223.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "26b85387-25d7-4582-9052-9b53971dc35c")
+	)
+	(junction
 		(at 73.66 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -3853,6 +3961,12 @@
 		(uuid "6059a779-c265-4581-b89d-38370653ca50")
 	)
 	(junction
+		(at 246.38 223.52)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "64df6433-8052-415a-a62f-a32bd7ae8a90")
+	)
+	(junction
 		(at 175.26 163.83)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4037,6 +4151,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a47b033e-19f1-46b4-b490-fda0ad30c14f")
+	)
+	(junction
+		(at 320.04 214.63)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a5a21fbb-076b-453d-93f7-8e998ef5c66c")
 	)
 	(junction
 		(at 95.885 93.98)
@@ -4828,6 +4948,16 @@
 	)
 	(wire
 		(pts
+			(xy 246.38 205.74) (xy 243.84 205.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "233a0e0d-e9c5-4ac2-aa7c-e17cab7112bc")
+	)
+	(wire
+		(pts
 			(xy 128.905 194.31) (xy 128.905 195.58)
 		)
 		(stroke
@@ -4995,6 +5125,16 @@
 			(type default)
 		)
 		(uuid "2c6457e0-3da0-4e9d-9fed-14bf76f77d5e")
+	)
+	(wire
+		(pts
+			(xy 246.38 223.52) (xy 259.08 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2db86dd6-8346-401f-8292-9d7fdee34108")
 	)
 	(wire
 		(pts
@@ -5848,6 +5988,16 @@
 	)
 	(wire
 		(pts
+			(xy 320.04 207.01) (xy 320.04 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "76fadad3-31ce-48ba-90ba-2aff7cf723d3")
+	)
+	(wire
+		(pts
 			(xy 100.965 77.47) (xy 100.965 102.87)
 		)
 		(stroke
@@ -6128,6 +6278,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 223.52) (xy 246.38 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "98f3b29b-67f3-48b1-82e1-ef86189e73a1")
+	)
+	(wire
+		(pts
 			(xy 134.62 194.31) (xy 140.335 194.31)
 		)
 		(stroke
@@ -6145,6 +6305,16 @@
 			(type default)
 		)
 		(uuid "993cacb9-3bd2-4292-b542-e9e6228e7e75")
+	)
+	(wire
+		(pts
+			(xy 271.78 213.36) (xy 271.78 215.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "99ae6cae-a6c3-4a4c-81ef-850e8aefe50b")
 	)
 	(wire
 		(pts
@@ -6878,6 +7048,16 @@
 	)
 	(wire
 		(pts
+			(xy 243.84 205.74) (xy 243.84 223.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d9b1828d-c861-4ed8-b207-b7d0c7738551")
+	)
+	(wire
+		(pts
 			(xy 105.41 157.48) (xy 105.41 163.83)
 		)
 		(stroke
@@ -7075,6 +7255,26 @@
 			(type default)
 		)
 		(uuid "eb7cf0d8-6b19-4633-9235-9a3736582582")
+	)
+	(wire
+		(pts
+			(xy 271.78 195.58) (xy 271.78 198.12)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eba23449-e877-40ce-90f7-4465dc442c96")
+	)
+	(wire
+		(pts
+			(xy 318.77 220.98) (xy 320.04 220.98)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec4a1ef4-24b9-44ee-89d9-4bb5bf098b63")
 	)
 	(wire
 		(pts
@@ -7288,6 +7488,16 @@
 	)
 	(wire
 		(pts
+			(xy 316.23 214.63) (xy 320.04 214.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb90eff4-e228-4f3a-9b60-904591e4b64a")
+	)
+	(wire
+		(pts
 			(xy 86.36 163.83) (xy 92.71 163.83)
 		)
 		(stroke
@@ -7480,6 +7690,18 @@
 		)
 		(uuid bb6c3145-5dfd-4d3b-aa06-fc9b342dcccf)
 	)
+	(rectangle
+		(start 241.3 182.88)
+		(end 295.91 228.6)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid dd23dda2-aacb-44ce-bfc2-cf015c354f3f)
+	)
 	(text "PCB paracitic capacitances"
 		(exclude_from_sim no)
 		(at 248.92 63.5 0)
@@ -7533,6 +7755,17 @@
 			(justify left bottom)
 		)
 		(uuid "4d6d4db6-f31e-45ce-9b33-cb2fb4267891")
+	)
+	(text "Heat sink mounting holes"
+		(exclude_from_sim no)
+		(at 245.11 188.468 0)
+		(effects
+			(font
+				(size 2.54 2.54)
+			)
+			(justify left bottom)
+		)
+		(uuid "595ae5a7-fc83-41b7-b735-2d1c594cdbcf")
 	)
 	(text "4.6uF"
 		(exclude_from_sim no)
@@ -7744,6 +7977,28 @@
 	)
 	(global_label "POWER_HIGH"
 		(shape input)
+		(at 320.04 200.66 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0ec4c7d6-189f-40f4-86c6-25194284528d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 305.0805 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "POWER_HIGH"
+		(shape input)
 		(at 243.84 71.12 180)
 		(fields_autoplaced yes)
 		(effects
@@ -7777,6 +8032,28 @@
 		(uuid "172bd926-5d9a-496c-ab7f-679368f3bd15")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 326.4723 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "POWER_HIGH"
+		(shape input)
+		(at 271.78 195.58 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "256a634b-23dd-43fc-80f7-40454d998b63")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 286.7395 195.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -7918,6 +8195,28 @@
 			)
 		)
 	)
+	(global_label "POWER_LOW"
+		(shape input)
+		(at 271.78 213.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "688a5c92-ea14-4680-bb9e-f9c20dfe2b9d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 286.0137 213.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "Current_sense-"
 		(shape input)
 		(at 52.07 105.41 0)
@@ -8024,6 +8323,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "POWER_LOW"
+		(shape input)
+		(at 318.77 220.98 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a7543aa4-519d-45a8-a6ed-ceddb169b739")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 304.5363 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -8628,6 +8949,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 322.58 207.01 270)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "06757b1f-49d5-4f1e-998c-7edb61081f76")
+		(property "Reference" "J2"
+			(at 326.39 205.7399 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 326.39 208.2799 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm"
+			(at 322.58 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 322.58 207.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4366c19a-0702-4bc1-bcd0-e287c002ea24")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -9287,6 +9675,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 271.78 218.44 180)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1a10052b-604c-472b-b118-18a42c578575")
+		(property "Reference" "H5"
+			(at 274.32 219.7099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "WE 97730256330"
+			(at 269.24 218.4401 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Mounting_Wuerth:Mounting_Wuerth_WA-SMSI-M1.6_H2.5mm_ThreadDepth1.5mm_NoNPTH_97730256330"
+			(at 271.78 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/97730256330R.pdf"
+			(at 271.78 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 271.78 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9a16900f-5bec-4d87-84a9-edd311d6fe63")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "H5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Earth")
 		(at 90.17 95.25 0)
 		(unit 1)
@@ -9909,6 +10365,74 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "J3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 246.38 203.2 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "2775625a-07d4-4329-8ada-eb41174d6471")
+		(property "Reference" "H1"
+			(at 248.92 200.6599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "WE 97730256330"
+			(at 248.92 203.1999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Mounting_Wuerth:Mounting_Wuerth_WA-SMSI-M1.6_H2.5mm_ThreadDepth1.5mm_NoNPTH_97730256330"
+			(at 246.38 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/97730256330R.pdf"
+			(at 246.38 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 246.38 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "808c1a71-7d74-4212-b1c6-611245d14549")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "H1")
 					(unit 1)
 				)
 			)
@@ -10834,6 +11358,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "L2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 322.58 214.63 270)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "47aa033a-a96c-427d-8981-a0b2cd06009b")
+		(property "Reference" "J8"
+			(at 326.39 213.3599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 326.39 215.8999 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm"
+			(at 322.58 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 322.58 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "610ead1d-40fc-41a1-af98-85ecbf7b5f5d")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "J8")
 					(unit 1)
 				)
 			)
@@ -14096,6 +14687,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 322.58 200.66 270)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a5173505-62d8-4dcf-bee8-a147e7fd8183")
+		(property "Reference" "J7"
+			(at 326.39 199.3899 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 326.39 201.9299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm"
+			(at 322.58 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 322.58 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d20cd4e0-66bd-404d-9238-a89bff749220")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "J7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 73.66 90.17 90)
 		(unit 1)
@@ -14225,6 +14883,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "R14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 316.23 214.63 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "a9346273-c577-4b88-a596-ce0b3d94ddf0")
+		(property "Reference" "#PWR021"
+			(at 316.23 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 316.23 218.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 316.23 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 316.23 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 316.23 214.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e7c2a473-bc2a-46ec-8dc8-4b93eaeff43c")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -14361,6 +15086,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "#PWR09")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 322.58 220.98 270)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ae09c190-bba2-4ab4-9619-cb742994d45b")
+		(property "Reference" "J9"
+			(at 326.39 219.7099 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 326.39 222.2499 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Connector_Wire:SolderWirePad_1x01_SMD_5x10mm"
+			(at 322.58 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 322.58 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 322.58 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d061a02b-029a-4188-ab2c-d7df950d141d")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "J9")
 					(unit 1)
 				)
 			)
@@ -16186,6 +16978,74 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 246.38 220.98 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "d326f45f-a176-41e1-a57f-9bffa77b1bef")
+		(property "Reference" "H3"
+			(at 248.92 218.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "WE 97730256330"
+			(at 248.92 220.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Mounting_Wuerth:Mounting_Wuerth_WA-SMSI-M1.6_H2.5mm_ThreadDepth1.5mm_NoNPTH_97730256330"
+			(at 246.38 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/97730256330R.pdf"
+			(at 246.38 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 246.38 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0bca6a25-3513-4096-8c09-a7a8a5a6fb0e")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "H3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Simulation_SPICE:0")
 		(at 245.11 97.79 0)
 		(unit 1)
@@ -17232,6 +18092,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:Earth")
+		(at 259.08 223.52 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "eb2a0888-9ccb-4b01-b254-8a225d19f637")
+		(property "Reference" "#PWR017"
+			(at 259.08 229.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 259.08 227.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 259.08 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 259.08 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 259.08 223.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "948b2e46-f946-4142-a22e-17073d837b6a")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 86.36 153.67 0)
 		(unit 1)
@@ -17528,6 +18455,73 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 271.78 200.66 180)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f01c4f86-4b30-4e01-9e72-bcc396f88114")
+		(property "Reference" "H2"
+			(at 274.32 200.6599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "WE 97730256330"
+			(at 274.32 203.1999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Mounting_Wuerth:Mounting_Wuerth_WA-SMSI-M1.6_H2.5mm_ThreadDepth1.5mm_NoNPTH_97730256330"
+			(at 271.78 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/97730256330R.pdf"
+			(at 271.78 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 271.78 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0cc57a76-490a-4941-8c79-cefc2d2d92dc")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "H2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 92.71 153.67 0)
 		(unit 1)
@@ -17751,6 +18745,74 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C54")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 259.08 220.98 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f966afea-c639-4425-a069-b37905ecd322")
+		(property "Reference" "H4"
+			(at 261.62 218.4399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "WE 97730256330"
+			(at 261.62 220.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Mounting_Wuerth:Mounting_Wuerth_WA-SMSI-M1.6_H2.5mm_ThreadDepth1.5mm_NoNPTH_97730256330"
+			(at 259.08 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.we-online.com/components/products/datasheet/97730256330R.pdf"
+			(at 259.08 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 259.08 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "899774bf-b17a-4b1e-acb0-b55c3e4ad57b")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "H4")
 					(unit 1)
 				)
 			)
