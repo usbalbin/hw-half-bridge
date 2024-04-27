@@ -23223,7 +23223,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "/home/albin/hw-half-bridge/3d/kemet/C1210C474KARACAUTO.step"
+		(model "${KIPRJMOD}/../3d/kemet/C1210C474KARACAUTO.step"
 			(offset
 				(xyz -1.7 -1.35 0)
 			)
