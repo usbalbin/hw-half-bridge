@@ -189,7 +189,7 @@
 		(roundrect_rratio 0.243902)
 		(uuid "1ad1544b-7ba3-4927-93fd-ab9c0a8dba06")
 	)
-	(model "/home/albin/hw-half-bridge/3d/ohmite/FCSL20R005FER.stp"
+	(model "${KIPRJMOD}/../3d/ohmite/FCSL20R005FER.stp"
 		(offset
 			(xyz 0 0 0)
 		)
