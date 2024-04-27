@@ -376,7 +376,7 @@
 		(zone_connect 2)
 		(uuid "5ff4dd62-9bc9-4077-bd71-5dac640be161")
 	)
-	(model "/home/albin/hw-half-bridge/3d/texas/RVR0019A.stp"
+	(model "${KIPRJMOD}/../3d/texas/RVR0019A.stp"
 		(offset
 			(xyz 0 0 0)
 		)
