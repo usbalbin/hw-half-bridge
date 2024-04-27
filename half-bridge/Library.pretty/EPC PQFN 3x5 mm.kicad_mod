@@ -546,7 +546,7 @@
 		(thermal_bridge_angle 45)
 		(uuid "bb279da2-7733-4ff1-ac3b-7d38490333ae")
 	)
-	(model "/home/albin/hw-half-bridge/3d/D0606F.step"
+	(model "${KIPRJMOD}/../3d/D0606F.step"
 		(offset
 			(xyz 0 0 -0.05)
 		)
