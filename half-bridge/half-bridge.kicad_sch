@@ -3207,6 +3207,85 @@
 				)
 			)
 		)
+		(symbol "Mechanical:Fiducial"
+			(exclude_from_sim yes)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "FID"
+				(at 0 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Fiducial"
+				(at 0 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Fiducial Marker"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "fiducial marker"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Fiducial*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Fiducial_0_1"
+				(circle
+					(center 0 0)
+					(radius 1.27)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+		)
 		(symbol "Mechanical:MountingHole_Pad"
 			(pin_numbers hide)
 			(pin_names
@@ -5609,7 +5688,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 88.9) (xy 39.37 88.9)
+			(xy 24.13 88.9) (xy 39.37 88.9)
 		)
 		(stroke
 			(width 0)
@@ -5739,7 +5818,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 86.36) (xy 39.37 86.36)
+			(xy 24.13 86.36) (xy 39.37 86.36)
 		)
 		(stroke
 			(width 0)
@@ -6149,7 +6228,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 101.6) (xy 39.37 101.6)
+			(xy 24.13 101.6) (xy 39.37 101.6)
 		)
 		(stroke
 			(width 0)
@@ -6396,6 +6475,16 @@
 			(type default)
 		)
 		(uuid "54e3bb6a-db4e-4265-b7ab-4fc4b38a05cd")
+	)
+	(wire
+		(pts
+			(xy 38.1 64.77) (xy 39.37 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "550d9f6a-c72d-497e-850a-e1c40b7050ef")
 	)
 	(wire
 		(pts
@@ -6959,7 +7048,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 99.06) (xy 52.07 99.06)
+			(xy 24.13 99.06) (xy 52.07 99.06)
 		)
 		(stroke
 			(width 0)
@@ -7089,7 +7178,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 76.2) (xy 63.5 76.2)
+			(xy 24.13 76.2) (xy 63.5 76.2)
 		)
 		(stroke
 			(width 0)
@@ -7539,7 +7628,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 93.98) (xy 35.56 93.98)
+			(xy 24.13 93.98) (xy 35.56 93.98)
 		)
 		(stroke
 			(width 0)
@@ -7739,7 +7828,7 @@
 	)
 	(wire
 		(pts
-			(xy 55.88 96.52) (xy 31.75 96.52)
+			(xy 55.88 96.52) (xy 24.13 96.52)
 		)
 		(stroke
 			(width 0)
@@ -8209,7 +8298,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 78.74) (xy 52.07 78.74)
+			(xy 24.13 78.74) (xy 52.07 78.74)
 		)
 		(stroke
 			(width 0)
@@ -8289,7 +8378,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 91.44) (xy 38.1 91.44)
+			(xy 24.13 91.44) (xy 38.1 91.44)
 		)
 		(stroke
 			(width 0)
@@ -8419,6 +8508,16 @@
 	)
 	(wire
 		(pts
+			(xy 24.13 83.82) (xy 27.94 83.82)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e012e2a5-2f8a-480e-b724-71c9cc4792e0")
+	)
+	(wire
+		(pts
 			(xy 243.84 71.12) (xy 245.11 71.12)
 		)
 		(stroke
@@ -8499,7 +8598,7 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 81.28) (xy 35.56 81.28)
+			(xy 24.13 81.28) (xy 35.56 81.28)
 		)
 		(stroke
 			(width 0)
@@ -8679,16 +8778,6 @@
 	)
 	(wire
 		(pts
-			(xy 31.75 83.82) (xy 40.64 83.82)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f1db8ef9-190f-4640-a1fc-311dc4eb158b")
-	)
-	(wire
-		(pts
 			(xy 135.89 194.31) (xy 135.89 195.58)
 		)
 		(stroke
@@ -8776,6 +8865,16 @@
 			(type default)
 		)
 		(uuid "f6ea171d-5008-42c7-a5cd-b0d45b9c9125")
+	)
+	(wire
+		(pts
+			(xy 27.94 83.82) (xy 27.94 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f8423f77-8d4a-4477-abe7-37894420f79d")
 	)
 	(wire
 		(pts
@@ -8976,6 +9075,18 @@
 		(uuid 40f53b06-ffc0-411b-b8e1-fd5c35af59e9)
 	)
 	(rectangle
+		(start 21.59 247.65)
+		(end 54.61 275.59)
+		(stroke
+			(width 0)
+			(type dash)
+		)
+		(fill
+			(type none)
+		)
+		(uuid 4e46dbc6-18cb-47ed-938f-6e3209d8acac)
+	)
+	(rectangle
 		(start 274.955 55.88)
 		(end 350.52 74.93)
 		(stroke
@@ -9105,7 +9216,17 @@
 		)
 		(uuid "0a5aa379-ba9a-4c0f-a881-0081f5095fa0")
 	)
-	(text "TODO:\n\n* Filter på kraft IN och/eller UT?\n* Kolla på GaN fet: EPC2302\n\nDokumentation:\n* Layout: https://epc-co.com/epc/Portals/0/epc/documents/papers/Optimizing%20PCB%20Layout%20with%20eGaN%20FETs.pdf"
+	(text "Stencil alignment holes"
+		(exclude_from_sim no)
+		(at 37.084 250.952 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "0c29ef3d-39ce-4d88-9a0f-b4c95ef4787e")
+	)
+	(text "TODO:\n\n* Möjlighet att möta på gate-signal med skåp\n* Filter på kraft IN och/eller UT?\n* Kolla på GaN fet: EPC2302\n\nDokumentation:\n* Layout: https://epc-co.com/epc/Portals/0/epc/documents/papers/Optimizing%20PCB%20Layout%20with%20eGaN%20FETs.pdf"
 		(exclude_from_sim no)
 		(at 14.478 33.02 0)
 		(effects
@@ -11480,6 +11601,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:Fiducial")
+		(at 33.02 265.43 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "1ce90fbe-8ed7-47ea-8083-997df7463660")
+		(property "Reference" "FID2"
+			(at 35.56 264.1599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fiducial"
+			(at 35.56 266.6999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 33.02 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fiducial Marker"
+			(at 33.02 265.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "FID2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:L")
 		(at 299.085 36.83 90)
 		(unit 1)
@@ -11940,6 +12125,103 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Feedthrough")
+		(at 33.02 67.31 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "24334849-b1c5-4a95-9287-d7d8ede65b02")
+		(property "Reference" "C51"
+			(at 33.02 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "YFF18PW0J474M"
+			(at 29.21 58.42 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_Vias"
+			(at 33.02 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/emc/emc/3tf/catalog/3tf_commercial_power_yff-p_en.pdf"
+			(at 33.02 67.31 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 33.02 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Device" "C"
+			(at 33.02 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Pins" "1=+ 2=-"
+			(at 33.02 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Sim.Params" "c=100n"
+			(at 33.02 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "cbee69bb-c78e-4c70-8c75-23c5fbd4994e")
+		)
+		(pin "2"
+			(uuid "9ead2716-68cd-4c1d-ac87-5572621b15db")
+		)
+		(pin "3"
+			(uuid "486a2220-d24b-48fd-8293-981ae9c5644b")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "C51")
 					(unit 1)
 				)
 			)
@@ -12703,7 +12985,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x11_Pin")
-		(at 26.67 88.9 0)
+		(at 19.05 88.9 0)
 		(mirror x)
 		(unit 1)
 		(exclude_from_sim yes)
@@ -12712,7 +12994,7 @@
 		(dnp no)
 		(uuid "31815ad4-f784-4d41-ad0b-20b359393d0d")
 		(property "Reference" "J1"
-			(at 27.305 106.68 0)
+			(at 19.685 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12720,7 +13002,7 @@
 			)
 		)
 		(property "Value" "Conn_01x11_Pin"
-			(at 27.305 104.14 0)
+			(at 19.685 104.14 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12728,7 +13010,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x11_P2.54mm_Horizontal"
-			(at 26.67 88.9 0)
+			(at 19.05 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12737,7 +13019,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 26.67 88.9 0)
+			(at 19.05 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12746,7 +13028,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 26.67 88.9 0)
+			(at 19.05 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15567,6 +15849,70 @@
 		)
 	)
 	(symbol
+		(lib_id "Mechanical:Fiducial")
+		(at 33.02 271.78 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7d4eaf84-5618-44b7-8c53-eaa5216362f9")
+		(property "Reference" "FID3"
+			(at 35.56 270.5099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fiducial"
+			(at 35.56 273.0499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 33.02 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fiducial Marker"
+			(at 33.02 271.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "FID3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:Earth")
 		(at 95.885 99.06 0)
 		(unit 1)
@@ -17924,7 +18270,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 40.64 83.82 0)
+		(at 39.37 64.77 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -17932,7 +18278,7 @@
 		(dnp no)
 		(uuid "b4072335-bd79-4b20-80c9-4e7d3d7417eb")
 		(property "Reference" "#PWR02"
-			(at 40.64 87.63 0)
+			(at 39.37 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17941,7 +18287,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 41.91 80.01 0)
+			(at 40.64 60.96 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17949,7 +18295,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 40.64 83.82 0)
+			(at 39.37 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17958,7 +18304,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 40.64 83.82 0)
+			(at 39.37 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -17967,7 +18313,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 40.64 83.82 0)
+			(at 39.37 64.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21343,6 +21689,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:Earth")
+		(at 33.02 69.85 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e3772f9a-b133-45fd-a489-2b7057441b9d")
+		(property "Reference" "#PWR03"
+			(at 33.02 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 33.02 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 33.02 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 33.02 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5130ff9c-b955-4e42-a33d-df0ebad28d0d")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C")
 		(at 214.63 153.67 0)
 		(unit 1)
@@ -22494,6 +22907,70 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:Fiducial")
+		(at 33.02 259.08 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fd27a40a-1fb3-4a8e-bb8f-cfb45a9afe50")
+		(property "Reference" "FID1"
+			(at 35.56 257.8099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Fiducial"
+			(at 35.56 260.3499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 33.02 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 33.02 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Fiducial Marker"
+			(at 33.02 259.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "FID1")
 					(unit 1)
 				)
 			)
