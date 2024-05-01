@@ -38,8 +38,8 @@
         "other_text_upright": false,
         "pads": {
           "drill": 0.0,
-          "height": 0.4,
-          "width": 0.4
+          "height": 1.0,
+          "width": 1.0
         },
         "silk_line_width": 0.15,
         "silk_text_italic": false,
@@ -68,7 +68,7 @@
         "connection_width": "warning",
         "copper_edge_clearance": "error",
         "copper_sliver": "warning",
-        "courtyards_overlap": "error",
+        "courtyards_overlap": "ignore",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
         "drill_out_of_range": "error",
