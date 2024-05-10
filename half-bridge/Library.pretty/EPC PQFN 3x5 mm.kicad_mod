@@ -149,7 +149,7 @@
 		(end 2.8 1.8)
 		(stroke
 			(width 0.1)
-			(type default)
+			(type dash_dot_dot)
 		)
 		(fill none)
 		(layer "F.SilkS")
