@@ -1,23 +1,23 @@
-name: "Variants demo using GitHub actions and quick-start"
+name: "KiBot for half-bridge"
 
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the master branch
 on:
   workflow_dispatch:
     paths:
-      - '**.kicad_sch'
-      - '**.kicad_pcb'
-      - '.github/workflows/kibot.yml'
+      - 'half-bridge/half-bridge.kicad_sch'
+      - 'half-bridge/half-bridge.kicad_pcb'
+      - '.github/workflows/half-bridge.yml'
   push:
     paths:
-      - '**.kicad_sch'
-      - '**.kicad_pcb'
-      - '.github/workflows/kibot.yml'
+      - 'half-bridge/half-bridge.kicad_sch'
+      - 'half-bridge/half-bridge.kicad_pcb'
+      - '.github/workflows/half-bridge.yml'
   pull_request:
     paths:
-      - '**.kicad_sch'
-      - '**.kicad_pcb'
-      - '.github/workflows/kibot.yml'
+      - 'half-bridge/half-bridge.kicad_sch'
+      - 'half-bridge/half-bridge.kicad_pcb'
+      - '.github/workflows/half-bridge.yml'
   repository_dispatch:
     types: [run_qs_gha]
 
@@ -53,14 +53,14 @@ jobs:
         # Required - kibot config file
         config: half-bridge/config.kibot.yaml
         # optional - prefix to output defined in config
-        #dir: half-bridge_
+        dir: half-bridge/out
         # optional - schematic file
-        #schema: 'half-bridge/half-bridge.kicad_sch'
+        schema: 'half-bridge/half-bridge.kicad_sch'
         # optional - PCB design file
-        #board: 'half-bridge/half-bridge.kicad_pcb'
+        board: 'half-bridge/half-bridge.kicad_pcb'
 
     - name: Upload results
       uses: actions/upload-artifact@v3
       with:
         name: Automatic_outputs
-        path: Generated
+        path: half-bridge/out
