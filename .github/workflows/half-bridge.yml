@@ -34,21 +34,15 @@ jobs:
         # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
-    #- name: Run KiBot for controller
-    #  # v2_k8 kibot v2 kicad v8
-    #  uses: INTI-CMNB/KiBot@v2_k8
-    #  with:
-    #    # Required - kibot config file
-    #    config: controller/config.kibot.yaml
-    #    # optional - prefix to output defined in config
-    #    dir: controller_
-    #    # optional - schematic file
-    #    schema: 'controller/controller.kicad_sch'
-    #    # optional - PCB design file
-    #    board: 'controller/controller.kicad_pcb'
-
     - name: Run KiBot for half-bridge
       uses: INTI-CMNB/KiBot@v2_k8
+      env:
+        ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
+        MOUSER_KEY: ${{ secrets.MOUSER_KEY }}
+        TME_TOKEN: ${{ secrets.TME_TOKEN }}
+        TME_APP_SECRET: ${{ secrets.TME_APP_SECRET }}
+        NEXAR_CLIENT_ID: ${{ secrets.NEXAR_CLIENT_ID }}
+        NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
       with:
         # Required - kibot config file
         config: half-bridge/config.kibot.yaml
