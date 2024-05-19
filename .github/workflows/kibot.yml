@@ -48,7 +48,7 @@ jobs:
     #    board: 'controller/controller.kicad_pcb'
 
     - name: Run KiBot for half-bridge
-      uses: INTI-CMNB/KiBot@v2
+      uses: INTI-CMNB/KiBot@v2_k8
       with:
         # Required - kibot config file
         config: half-bridge/config.kibot.yaml
