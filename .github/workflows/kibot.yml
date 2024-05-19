@@ -34,11 +34,30 @@ jobs:
         # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
-    - name: Run KiBot
-      # v2_k6 for v1.5.1 has a permission problem
+    - name: Run KiBot for controller
+      # v2_k8 kibot v2 kicad v8
       uses: INTI-CMNB/KiBot@v2_k8
-      #with:
-      #  quickstart: YES
+      with:
+        # Required - kibot config file
+        config: controller/config.kibot.yaml
+        # optional - prefix to output defined in config
+        dir: controller_
+        # optional - schematic file
+        schema: 'controller/controller.kicad_sch'
+        # optional - PCB design file
+        board: 'controller/controller.kicad_pcb'
+
+    - name: Run KiBot for half-bridge
+      uses: INTI-CMNB/KiBot@v2
+      with:
+        # Required - kibot config file
+        config: half-bridge/config.kibot.yaml
+        # optional - prefix to output defined in config
+        dir: half-bridge_
+        # optional - schematic file
+        schema: 'half-bridge/half-bridge.kicad_sch'
+        # optional - PCB design file
+        board: 'half-bridge/half-bridge.kicad_pcb'
 
     - name: Upload results
       uses: actions/upload-artifact@v3
