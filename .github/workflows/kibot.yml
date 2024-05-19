@@ -37,8 +37,8 @@ jobs:
     - name: Run KiBot
       # v2_k6 for v1.5.1 has a permission problem
       uses: INTI-CMNB/KiBot@v2_k8
-      with:
-        quickstart: YES
+      #with:
+      #  quickstart: YES
 
     - name: Upload results
       uses: actions/upload-artifact@v3
