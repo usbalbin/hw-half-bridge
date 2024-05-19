@@ -24,8 +24,6 @@ import:
 - file: PCBWay
   definitions:
     _KIBOT_MANF_DIR: Manufacturers/PCBWay
-- file: PanelDemo_4x4
-
 
 preflight:
   # [dict] Annotates the PCB according to physical coordinates.
@@ -60,7 +58,7 @@ preflight:
   # (right mouse button, then Grouping -> Group). Now edit the group and change its name
   # to *kibot_stackup*. After running this preflight the rectangle will contain the
   # stackup.
-  draw_stackup: true
+  #draw_stackup: true
   # [boolean=false|dict] Runs the DRC (Distance Rules Check). To ensure we have a valid PCB.
   # You need a valid *fp-lib-table* installed. If not KiBot will try to temporarily install the template.
   # This is a replacement for the *run_drc* preflight that needs KiCad 8 or newer.
@@ -164,9 +162,9 @@ preflight:
   # To ensure our generated BoM is up to date.
   # Note that this isn't needed when using the internal BoM generator (`bom`).
   # You can compare the PCB and schematic netlists using it.
-  update_xml:
-    enabled: true
-    check_pcb_parity: true
+  #update_xml:
+  #  enabled: true
+  #  check_pcb_parity: true
 
 outputs:
   - name: PanelDemo_4x4
@@ -185,7 +183,6 @@ outputs:
           #  size: A0
           cuts:
             type: vcuts
-            layer: "0"
           framing:
             type: tightframe
             hspace: "0mm"
@@ -215,7 +212,6 @@ outputs:
             vjustify: center
           text2:
             type: "simple"
-            layer: "0"
             text: "3 half etched fiducials on frame"
   # Blender Export:
   # Also renders the PCB with high-quality.
