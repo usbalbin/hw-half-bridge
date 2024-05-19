@@ -53,11 +53,11 @@ jobs:
         # Required - kibot config file
         config: half-bridge/config.kibot.yaml
         # optional - prefix to output defined in config
-        dir: half-bridge_
+        #dir: half-bridge_
         # optional - schematic file
-        schema: 'half-bridge/half-bridge.kicad_sch'
+        #schema: 'half-bridge/half-bridge.kicad_sch'
         # optional - PCB design file
-        board: 'half-bridge/half-bridge.kicad_pcb'
+        #board: 'half-bridge/half-bridge.kicad_pcb'
 
     - name: Upload results
       uses: actions/upload-artifact@v3
