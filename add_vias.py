@@ -133,7 +133,7 @@ def vertices_to_lines(vertices: list[Vector]):
         lines.append(LineSegment(vertices[i], vertices[i + 1]))
     return lines
 
-def fill_poly(board: pcbnew.BOARD, lines: list[LineSegment], step: float, via_drill_size: float, via_pad_size: float, x_step=0):
+def fill_poly(board: pcbnew.BOARD, lines: list[LineSegment], step: float, via_drill_size: float, via_pad_size: float, x_step=0, net_name=None):
     bounding_box = BoundingBox(Vector(math.inf, math.inf), Vector(-math.inf, -math.inf))
     for line in lines:
         bounding_box.min = bounding_box.min.min(line.start)
@@ -152,16 +152,23 @@ def fill_poly(board: pcbnew.BOARD, lines: list[LineSegment], step: float, via_dr
             via.SetPosition(pcbnew.VECTOR2I(int(x), int(y)))
             via.SetDrill(int(via_drill_size * pcbnew.PCB_IU_PER_MM))
             via.SetWidth(int(via_pad_size * pcbnew.PCB_IU_PER_MM))
+            if not net_name is None:
+                net = board.FindNet(net_name)
+                via.SetNetCode(net.GetNetCode())
             board.Add(via)
-"""
-def clear_vias_in_poly(board, lines):
-    for track in board.GetTracks():
-        if track.GetClass() != 'PCB_VIA':
+
+def clear_vias_in_poly(board: pcbnew.BOARD, lines: list[LineSegment]):
+    vias_to_remove = []
+    for via in board.GetTracks():
+        if via.GetClass() != 'PCB_VIA':
             continue
 
-        if track is inide poly:
-            track.DeleteStructure()
-"""
+        if is_inside_poly(Vector(via.GetPosition().x, via.GetPosition().y), lines):
+            vias_to_remove.append(via)
+
+    for via in vias_to_remove:
+        board.Remove(via)
+
 """
 pcbnew.S_SEGMENT: "segment",
 pcbnew.S_CIRCLE: "circle",
@@ -169,6 +176,39 @@ pcbnew.S_ARC: "arc",
 pcbnew.S_CURVE: "curve",
 pcbnew.S_RECT: "rect",
 """
+
+def place_vias(via_drill_size, via_pad_size, hole_to_hole_clearance=0.254):
+    distance = None
+    board = pcbnew.GetBoard()
+    drawings = [d for d in list(board.GetDrawings()) if d.GetLayer() == pcbnew.User_1 and d.GetClass() in ["DRAWSEGMENT", "MGRAPHIC", "PCB_SHAPE"]]
+    texts = [d for d in list(board.GetDrawings()) if d.GetLayer() == pcbnew.User_1 and d.GetClass() == "PCB_TEXT"]
+
+    distance = via_drill_size + hole_to_hole_clearance if distance is None else distance
+    step = distance * math.sin(math.pi/3)
+    x_step = distance * math.cos(math.pi/3)
+
+    for d in drawings:
+        if d.GetShape() == pcbnew.S_POLYGON:
+            poly = d.GetPolyShape()
+            for i in range(poly.OutlineCount()):
+                shape = poly.Outline(i)
+                vertices = []
+                for point_index in range(shape.PointCount()):
+                    p = shape.CPoint(point_index)
+                    vertices.append(Vector(p.x, p.y))
+                lines = vertices_to_lines(vertices)
+
+                text = next((t.GetText() for t in texts if is_inside_poly(Vector(t.GetPosition().x, t.GetPosition().y), lines)), None)
+                via_net = None
+                step_factor = 1.0
+                if text:
+                    text_lines = text.splitlines()
+                    via_net = text_lines[0].strip()
+                    step_factor = float(text_lines[1].strip()) if len(text_lines) > 1 else 1.0
+
+
+                clear_vias_in_poly(board, lines)
+                fill_poly(board, lines, step * step_factor, via_drill_size, via_pad_size, x_step * step_factor, via_net)
 
 class ViaPlugin(pcbnew.ActionPlugin):
     def defaults(self):
@@ -179,26 +219,32 @@ class ViaPlugin(pcbnew.ActionPlugin):
         self.icon_file_name = "" #os.path.join(os.path.dirname(__file__), 'simple_plugin.png') # Optional, defaults to ""
 
     def Run(self):
-        board = pcbnew.GetBoard()
-        drawings = [d for d in list(board.GetDrawings()) if d.GetLayer() == pcbnew.User_1 and d.GetClass() in ["DRAWSEGMENT", "MGRAPHIC", "PCB_SHAPE"]]
-        # Hex pattern 0.5 mm
-        distance = 0.5
-        step = distance * math.sin(math.pi/3)
-        x_step = distance * math.cos(math.pi/3)
+        hole_to_hole_clearance = 0.254
+
+        # Hex pattern 0.48 mm
+        hole_to_hole_clearance = 0.28
+        via_drill_size = 0.2
+        via_pad_size = 0.35
+
+        #hole_to_hole_clearance = 0.254
+        #via_drill_size = 0.3
+        #via_pad_size = 0.45
+        place_vias(via_drill_size, via_pad_size, hole_to_hole_clearance)
+
+class LargerViaPlugin(pcbnew.ActionPlugin):
+    def defaults(self):
+        self.name = "usbalbin's large via placer"
+        self.category = "A descriptive category name"
+        self.description = "A plugin for automatically placing via grids in polygons"
+        self.show_toolbar_button = True # Optional, defaults to False
+        self.icon_file_name = "" #os.path.join(os.path.dirname(__file__), 'simple_plugin.png') # Optional, defaults to ""
+
+    def Run(self):
+        hole_to_hole_clearance = 0.28
         via_drill_size = 0.3
         via_pad_size = 0.45
-
-        for d in drawings:
-            if d.GetShape() == pcbnew.S_POLYGON:
-                poly = d.GetPolyShape()
-                for i in range(poly.OutlineCount()):
-                    shape = poly.Outline(i)
-                    vertices = []
-                    for point_index in range(shape.PointCount()):
-                        p = shape.CPoint(point_index)
-                        vertices.append(Vector(p.x, p.y))
-                    lines = vertices_to_lines(vertices)
-                    fill_poly(board, lines, step, via_drill_size, via_pad_size, x_step)
+        place_vias(via_drill_size, via_pad_size, hole_to_hole_clearance)
 
 
 ViaPlugin().register() # Instantiate and register to Pcbnew
+LargerViaPlugin().register() # Instantiate and register to Pcbnew
