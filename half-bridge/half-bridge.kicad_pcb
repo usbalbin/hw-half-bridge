@@ -234,7 +234,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -323,7 +323,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -336,7 +336,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -535,7 +535,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -836,7 +836,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1137,7 +1137,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1221,7 +1221,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1234,7 +1234,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1853,7 +1853,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1937,7 +1937,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1950,7 +1950,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2149,7 +2149,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2450,7 +2450,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2534,7 +2534,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2547,7 +2547,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2746,7 +2746,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2835,7 +2835,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2848,7 +2848,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3257,7 +3257,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3341,7 +3341,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3354,7 +3354,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5679,7 +5679,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_midvoltage_en.pdf"
 			(at 0 0 80)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5756,6 +5756,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "131fe2f5-90d7-44a0-beed-802ce6b4995f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "TDK"
+			(at 0 0 80)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0279e200-1902-400c-89b8-81aac56dce8c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "C2012X7R2A225K125AC"
+			(at 0 0 80)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5ec90e6b-a4fc-4468-8b27-26793be66849")
 			(effects
 				(font
 					(size 1 1)
@@ -5970,6 +5996,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFR" "Wurth Elektronik"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ca299846-c9a3-4c81-9494-edac978996e3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "97730256330R"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "962f2fc5-d47a-49a3-8e34-79c9f6a60dd2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -6524,7 +6576,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6600,7 +6652,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6613,7 +6665,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6626,7 +6678,7 @@
 				)
 			)
 		)
-		(property "Sim.Params" "cap=2524nF esr=2.5m srf=1.3MEG"
+		(property "Sim.Params" "cap=2640nF esr=3m srf=2MEG"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6825,7 +6877,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6909,7 +6961,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6922,7 +6974,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7121,7 +7173,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7205,7 +7257,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7218,7 +7270,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8188,7 +8240,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8599,7 +8651,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8688,7 +8740,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8701,7 +8753,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9132,6 +9184,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFR" "Wurth Elektronik"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5b6cec77-0883-4800-851a-7eb686c38dd9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "97730256330R"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "30fe17ec-a916-4853-8695-f45902400284")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -9686,7 +9764,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10056,6 +10134,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "7cc68b2a-80d9-4335-b347-b28cfe8ba498")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "Texas Instruments"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ba52daa3-a60a-4325-af7a-0760a6319235")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "LMG1210RVRR"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "713a9c36-5bfa-471e-a400-c2a9afff8ee3")
 			(effects
 				(font
 					(size 1 1)
@@ -10455,7 +10559,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10539,7 +10643,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10552,7 +10656,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10751,7 +10855,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10835,7 +10939,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10848,7 +10952,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11047,7 +11151,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11136,7 +11240,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11149,7 +11253,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11722,7 +11826,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12233,7 +12337,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12322,7 +12426,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12335,7 +12439,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12534,7 +12638,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12618,7 +12722,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12631,7 +12735,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12830,7 +12934,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12914,7 +13018,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12927,7 +13031,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13126,7 +13230,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://epc-co.com/epc/Portals/0/epc/documents/datasheets/EPC2308_datasheet.pdf"
+		(property "Datasheet" "https://epc-co.com/epc/Portals/0/epc/documents/datasheets/EPC2306_datasheet.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13193,6 +13297,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "31e1917d-3e17-410b-b90d-d7777d499f42")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "EPC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d05b2c02-d7cf-4f8f-b940-434949dd1c7c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "EPC2306ENGRT"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "276fb2db-431b-401f-bb31-aec259e23d52")
 			(effects
 				(font
 					(size 1 1)
@@ -13709,7 +13839,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14276,6 +14406,32 @@
 				)
 			)
 		)
+		(property "MFR" "Wurth Elektronik"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "03a2ff2a-a7d8-40ba-acdf-a8741a8f5130")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "97730256330R"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3d29a37c-b575-415f-81b2-35416259c14a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/2775625a-07d4-4329-8ada-eb41174d6471")
 		(sheetname "Rotark")
@@ -14839,7 +14995,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14924,7 +15080,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14937,7 +15093,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15136,7 +15292,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15225,7 +15381,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15238,7 +15394,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -15459,6 +15615,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFR" "Wurth Elektronik"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "56f7be8d-983e-4776-96fe-f76d33133e76")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "97730256330R"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1bace518-1638-4268-89d5-711f6e753cee")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16013,7 +16195,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.vishay.com/docs/87465/v3pm10.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16034,6 +16216,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFR" "Vishay General Semiconductor"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ad900c8e-7dec-4c85-a82f-0f1cc4108c33")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "V3PM10-M3/H"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "7e7fd83a-800d-49e4-931c-50103f5dce4a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -16245,7 +16453,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16609,6 +16817,32 @@
 				)
 			)
 		)
+		(property "MFR" "TDK"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1c607a25-c541-41a1-836e-acc1e669a1b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "YFF18PW0J474MT0H0N"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ba377684-f199-4640-809f-576022a69a9e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c05031af-5c3e-4135-9c36-4fcbf17ae352")
 		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
@@ -16865,7 +17099,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16949,7 +17183,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -16962,7 +17196,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -17398,7 +17632,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -17482,7 +17716,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -17495,7 +17729,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19171,7 +19405,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19255,7 +19489,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19268,7 +19502,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19677,7 +19911,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19761,7 +19995,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19774,7 +20008,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -19973,7 +20207,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20057,7 +20291,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20070,7 +20304,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20269,7 +20503,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20353,7 +20587,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20366,7 +20600,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20565,7 +20799,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20649,7 +20883,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20662,7 +20896,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20861,7 +21095,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://epc-co.com/epc/Portals/0/epc/documents/datasheets/EPC2308_datasheet.pdf"
+		(property "Datasheet" "https://epc-co.com/epc/Portals/0/epc/documents/datasheets/EPC2306_datasheet.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -20928,6 +21162,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "dba3db1a-e6c5-4a24-b20f-0475bedfafd3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "EPC"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ec5bc78e-11cc-4892-8a39-0708a177aaa6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "EPC2306ENGRT"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "684a86ad-ffa4-432e-8c20-6fa2afbbaf27")
 			(effects
 				(font
 					(size 1 1)
@@ -21444,7 +21704,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds30628.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -21937,7 +22197,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22238,7 +22498,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22771,6 +23031,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFR" "Wurth Elektronik"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d3f47ec3-f00e-454b-9697-fe4522ba83d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "97730256330R"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cb9ff8fe-9c3e-4fd2-95d5-b2619b1d95df")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -23325,7 +23611,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23626,7 +23912,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23710,7 +23996,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23723,7 +24009,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23922,7 +24208,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/396/MBA07_e-3369865.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24223,7 +24509,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24307,7 +24593,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24320,7 +24606,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24575,6 +24861,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "1ff64ca4-b6b3-4b36-adfd-f49624b64328")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "TDK"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f00c4bb4-50a9-4664-8c11-aa6d30b5cf90")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "YFF18PW0J474MT0H0N"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2111506b-4616-4cab-bd93-b7410548af90")
 			(effects
 				(font
 					(size 1 1)
@@ -25485,6 +25797,32 @@
 				)
 			)
 		)
+		(property "MFR" "TDK"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "62828861-edf4-4bba-b929-6ed7b1fa20cb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "YFF18PW0J474MT0H0N"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "945d7a8f-94eb-4c64-93d5-f4152f290c22")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/61c2b991-d753-4398-b307-e21f35d2e096")
 		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
@@ -25741,7 +26079,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25825,7 +26163,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -25838,7 +26176,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26259,7 +26597,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_midvoltage_en.pdf"
 			(at 0 0 100)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26341,6 +26679,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "9088bdde-839a-472f-8ca3-5e73cb15a0d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "TDK"
+			(at 0 0 100)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "40f2d049-7ca4-4d87-8314-d9824fc2c1fb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "C2012X7R2A225K125AC"
+			(at 0 0 100)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "147f3624-e51b-4b39-9468-dcae7156a402")
 			(effects
 				(font
 					(size 1 1)
@@ -26534,7 +26898,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26618,7 +26982,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26631,7 +26995,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27043,7 +27407,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/597/xal8080-270752.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27132,6 +27496,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "49ab5d10-c4e1-4665-8e8d-c9a2c58ed4dd")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "Coilcraft"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c31151b1-ed79-46a9-80bf-394289170d06")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "XAL8080-222MED"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c3fa0240-fc68-4f86-8d2c-8c96da1436e6")
 			(effects
 				(font
 					(size 1 1)
@@ -27575,7 +27965,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27659,7 +28049,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27672,7 +28062,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27871,7 +28261,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.vishay.com/docs/87465/v3pm10.pdf"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -27892,6 +28282,32 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "MFR" "Vishay General Semiconductor"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5dbd122e-69de-4aae-98aa-45856bf22c2a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "V3PM10-M3/H"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2e5054f7-5446-471a-825c-8a3012e98b7e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
 				)
 			)
 		)
@@ -28103,7 +28519,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28187,7 +28603,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28200,7 +28616,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28637,7 +29053,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28726,7 +29142,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28739,7 +29155,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -28938,7 +29354,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29022,7 +29438,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29035,7 +29451,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29234,7 +29650,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_midvoltage_en.pdf"
 			(at 0 0 80)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29316,6 +29732,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "cc2423b7-3050-4fc8-92d1-a40f8b40dba0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "TDK"
+			(at 0 0 80)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "47c2ecbe-5441-4912-bdd0-3c49749823c5")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "C2012X7R2A225K125AC"
+			(at 0 0 80)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9c5b7b70-1d75-4821-88c0-51ed60315e1d")
 			(effects
 				(font
 					(size 1 1)
@@ -29640,7 +30082,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://product.tdk.com/system/files/dam/doc/product/capacitor/ceramic/mlcc/catalog/mlcc_commercial_midvoltage_en.pdf"
 			(at 0 0 100)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29717,6 +30159,32 @@
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e852fb40-9f46-4415-86fe-345fb7d031d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "MFR" "TDK"
+			(at 0 0 100)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b408efe4-ae3e-4992-812a-d45d1fe78282")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "PNR" "C2012X7R2A225K125AC"
+			(at 0 0 100)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "992428d8-2d5b-4e4e-a11f-cdf5e7ebc7a9")
 			(effects
 				(font
 					(size 1 1)
@@ -29910,7 +30378,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "https://www.mouser.se/datasheet/2/281/1/GRM32EC72A106ME05_01A-1988110.pdf"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29999,7 +30467,7 @@
 				)
 			)
 		)
-		(property "MFR" "TDK"
+		(property "MFR" "Murata"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -30012,7 +30480,7 @@
 				)
 			)
 		)
-		(property "PNR" "C3225X7R2A106K250AC"
+		(property "PNR" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -31220,6 +31688,34 @@
 			(layer "B.Fab")
 			(hide yes)
 			(uuid "54ba086e-bcdc-4e7f-8d74-6cf05e82edcb")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "MFR" "Texas Instruments"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "4e83b7d8-7617-4345-8555-1caac47bfdf2")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+				(justify mirror)
+			)
+		)
+		(property "PNR" "INA293B2"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "B.Fab")
+			(hide yes)
+			(uuid "2537c1fe-df4d-406b-a59c-4d009cb1dd5e")
 			(effects
 				(font
 					(size 1 1)
