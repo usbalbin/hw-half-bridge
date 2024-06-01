@@ -13099,7 +13099,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_Vias"
+		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_0.45Vias"
 			(at 52.07 106.68 90)
 			(effects
 				(font
@@ -16118,7 +16118,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_Vias"
+		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_0.45Vias"
 			(at 160.02 86.36 90)
 			(effects
 				(font
@@ -20997,7 +20997,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_Vias"
+		(property "Footprint" "Library:C_0603_1608Metric_Feedthrough_W_0.45Vias"
 			(at 97.79 80.01 90)
 			(effects
 				(font
