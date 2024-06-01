@@ -536,7 +536,7 @@
           "show": true
         },
         {
-          "group_by": true,
+          "group_by": false,
           "label": "Value",
           "name": "Value",
           "show": true
@@ -551,19 +551,19 @@
           "group_by": true,
           "label": "Footprint",
           "name": "Footprint",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
           "label": "Qty",
           "name": "${QUANTITY}",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
           "label": "DNP",
           "name": "${DNP}",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -581,37 +581,37 @@
           "group_by": false,
           "label": "Sim.Device",
           "name": "Sim.Device",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
           "label": "Sim.Library",
           "name": "Sim.Library",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
           "label": "Sim.Name",
           "name": "Sim.Name",
-          "show": true
+          "show": false
         },
         {
           "group_by": true,
           "label": "Sim.Params",
           "name": "Sim.Params",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
           "label": "Sim.Pins",
           "name": "Sim.Pins",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
           "label": "Sim.Type",
           "name": "Sim.Type",
-          "show": true
+          "show": false
         },
         {
           "group_by": false,
@@ -626,7 +626,7 @@
           "show": true
         },
         {
-          "group_by": false,
+          "group_by": true,
           "label": "MFR",
           "name": "MFR",
           "show": true
