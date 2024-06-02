@@ -47,6 +47,8 @@ jobs:
         path: Generated
 
   release:
+    permissions:
+      contents: write
     needs: [quick]
     runs-on: ubuntu-latest
     steps:
@@ -60,4 +62,4 @@ jobs:
           draft: true
           if: startsWith(github.ref, 'refs/tags/')
           files: |
-            Automatic_outputs.zip
+            Automatic_outputs
