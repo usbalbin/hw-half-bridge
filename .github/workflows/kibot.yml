@@ -40,12 +40,12 @@ jobs:
     - name: Run KiBot
       uses: INTI-CMNB/KiBot@v2_k8
       env:
-        ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
+        #ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
         MOUSER_KEY: ${{ secrets.MOUSER_KEY }}
-        TME_TOKEN: ${{ secrets.TME_TOKEN }}
-        TME_APP_SECRET: ${{ secrets.TME_APP_SECRET }}
-        NEXAR_CLIENT_ID: ${{ secrets.NEXAR_CLIENT_ID }}
-        NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
+        #TME_TOKEN: ${{ secrets.TME_TOKEN }}
+        #TME_APP_SECRET: ${{ secrets.TME_APP_SECRET }}
+        #NEXAR_CLIENT_ID: ${{ secrets.NEXAR_CLIENT_ID }}
+        #NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
       with:
         quickstart: YES
       
