@@ -66,4 +66,4 @@ jobs:
         with:
           draft: true
           files: |
-            Automatic_outputs
+            Generated
