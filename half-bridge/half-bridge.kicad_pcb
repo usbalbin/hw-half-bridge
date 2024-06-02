@@ -26324,7 +26324,6 @@
 			(uuid "cb3ace2d-7b4b-4c15-9076-922080f2557a")
 		)
 		(model "${KICAD6_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_1210_3225Metric.wrl"
-			(hide yes)
 			(offset
 				(xyz 0 0 0)
 			)
@@ -26336,6 +26335,7 @@
 			)
 		)
 		(model "${KIPRJMOD}/../3d/kemet/C1210C474KARACAUTO.step"
+			(hide yes)
 			(offset
 				(xyz -1.7 -1.35 0)
 			)
