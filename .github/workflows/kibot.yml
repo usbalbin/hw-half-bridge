@@ -40,6 +40,7 @@ jobs:
     - name: Run KiBot
       uses: INTI-CMNB/KiBot@v2_k8
       env:
+        CURRENCY: SEK
         #ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
         MOUSER_KEY: ${{ secrets.MOUSER_KEY }}
         #TME_TOKEN: ${{ secrets.TME_TOKEN }}
