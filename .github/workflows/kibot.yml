@@ -38,17 +38,23 @@ jobs:
         fetch-depth: '0'
 
     - name: Run KiBot
-      # v2_k6 for v1.5.1 has a permission problem
       uses: INTI-CMNB/KiBot@v2_k8
+      env:
+        ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
+        MOUSER_KEY: ${{ secrets.MOUSER_KEY }}
+        TME_TOKEN: ${{ secrets.TME_TOKEN }}
+        TME_APP_SECRET: ${{ secrets.TME_APP_SECRET }}
+        NEXAR_CLIENT_ID: ${{ secrets.NEXAR_CLIENT_ID }}
+        NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
       with:
         quickstart: YES
       
     - name: Zip artifact
       run: zip Generated.zip ./Generated -r
 
-    - name: create release
+    - name: Create release
       uses: softprops/action-gh-release@v2
-      #if: startsWith(github.ref, 'refs/tags/')
+      if: startsWith(github.ref, 'refs/tags/')
       with:
         draft: true
         files: |
