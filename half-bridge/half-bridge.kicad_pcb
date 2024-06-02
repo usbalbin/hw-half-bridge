@@ -336,12 +336,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0b13aab2-193b-4329-abcb-ece99573030d")
+			(uuid "709ef3fa-b261-4f95-871a-23e1faaa639c")
 			(effects
 				(font
 					(size 1 1)
@@ -637,12 +637,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c5d42b9f-5a69-41ba-8bf1-9a630a871e47")
+			(uuid "6f73748e-8c1c-4ec5-9bb7-6d450f5ce7f7")
 			(effects
 				(font
 					(size 1 1)
@@ -938,12 +938,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "bb8d0fce-9edc-48c0-8f1e-f8d2b182a5de")
+			(uuid "692bac64-5ed3-4458-8a42-cd8380b1db00")
 			(effects
 				(font
 					(size 1 1)
@@ -1234,12 +1234,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c295e388-6ac2-49a8-ab61-bda67640fdb1")
+			(uuid "13357668-4fa0-47fb-bcc7-a09a575315b2")
 			(effects
 				(font
 					(size 1 1)
@@ -1950,12 +1950,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "9b668e01-e2c6-4601-9efa-b9978c318cc4")
+			(uuid "60177939-9b6f-4ebe-891f-e33493d433c4")
 			(effects
 				(font
 					(size 1 1)
@@ -2251,12 +2251,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "292c3225-9b4c-481a-8885-da6d3cd68107")
+			(uuid "4bd8e18b-d3b9-4c62-b106-6c5112e5e417")
 			(effects
 				(font
 					(size 1 1)
@@ -2547,12 +2547,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "0b20335f-12d5-4c2b-ae65-b180f19e3608")
+			(uuid "03cd79d8-6bf4-41a2-9869-5cb21a21dd38")
 			(effects
 				(font
 					(size 1 1)
@@ -2848,12 +2848,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "e99bd24f-11e0-468c-aa13-1bcda7f89aa4")
+			(uuid "a958390e-8661-446f-8667-c5480bbe6f45")
 			(effects
 				(font
 					(size 1 1)
@@ -3354,12 +3354,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "fe18204e-d946-4042-91b4-f5cd401a86ce")
+			(uuid "656769a9-3437-4c6e-aa06-569a734cecfd")
 			(effects
 				(font
 					(size 1 1)
@@ -5776,12 +5776,12 @@
 				)
 			)
 		)
-		(property "PNR" "C2012X7R2A225K125AC"
+		(property "part-num" "C2012X7R2A225K125AC"
 			(at 0 0 80)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "5ec90e6b-a4fc-4468-8b27-26793be66849")
+			(uuid "18e8721d-7b31-4e00-b744-43c298e0909a")
 			(effects
 				(font
 					(size 1 1)
@@ -6012,12 +6012,12 @@
 				)
 			)
 		)
-		(property "PNR" "97730256330R"
+		(property "part-num" "97730256330R"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "962f2fc5-d47a-49a3-8e34-79c9f6a60dd2")
+			(uuid "b8be150c-b0ac-42c3-8b33-0c4ca042ae1f")
 			(effects
 				(font
 					(size 1 1)
@@ -6665,12 +6665,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "Sim.Params" "cap=2640nF esr=3m srf=2MEG"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3ac5556f-95de-4eb0-9eb0-9c74e1580481")
+			(uuid "dc3db2df-29a9-42dc-a149-0b6573293cb0")
 			(effects
 				(font
 					(size 1 1)
@@ -6678,12 +6678,12 @@
 				)
 			)
 		)
-		(property "Sim.Params" "cap=2640nF esr=3m srf=2MEG"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "dc3db2df-29a9-42dc-a149-0b6573293cb0")
+			(uuid "1f500d77-ec71-4f26-8471-43bb20264d91")
 			(effects
 				(font
 					(size 1 1)
@@ -6974,12 +6974,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "07b8c24d-4b28-46df-995b-77b9578ef7e3")
+			(uuid "0f6b8d77-2d24-454d-81da-d26d772dd893")
 			(effects
 				(font
 					(size 1 1)
@@ -7270,12 +7270,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3869c772-2c3e-4cb5-8cf5-a05095ae038c")
+			(uuid "ccc245d0-152d-4480-80e5-2b18bc4cbbdb")
 			(effects
 				(font
 					(size 1 1)
@@ -8342,12 +8342,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "8ea477c3-6beb-46bb-946a-e863afe91bbf")
+			(uuid "754d8bf9-b65e-4f4e-9563-14d03ffcb732")
 			(effects
 				(font
 					(size 1 1)
@@ -8753,12 +8753,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "023d5710-f074-456a-bf2a-dbdc81dcc092")
+			(uuid "12058975-5f48-4b09-89c6-e8b56fcf9bac")
 			(effects
 				(font
 					(size 1 1)
@@ -9200,12 +9200,12 @@
 				)
 			)
 		)
-		(property "PNR" "97730256330R"
+		(property "part-num" "97730256330R"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "30fe17ec-a916-4853-8695-f45902400284")
+			(uuid "5787ae97-4023-4e79-a8f6-e718f9ca5fc3")
 			(effects
 				(font
 					(size 1 1)
@@ -9866,12 +9866,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "dd7cb22a-8516-40d1-b3de-2abbf4a87d86")
+			(uuid "2dbb3fef-d0f0-4520-bd39-c186c018a8fb")
 			(effects
 				(font
 					(size 1 1)
@@ -10154,12 +10154,12 @@
 				)
 			)
 		)
-		(property "PNR" "LMG1210RVRR"
+		(property "part-num" "LMG1210RVRR"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "713a9c36-5bfa-471e-a400-c2a9afff8ee3")
+			(uuid "979a9520-b9ca-413b-8cf9-fd4967569984")
 			(effects
 				(font
 					(size 1 1)
@@ -10656,12 +10656,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6ae9c224-c947-4be5-a49f-c31d1ac73911")
+			(uuid "454df4d0-1a06-4018-b4a1-2517b46d502b")
 			(effects
 				(font
 					(size 1 1)
@@ -10952,12 +10952,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7eb4a22b-12cf-4d92-847f-1c69d4546b70")
+			(uuid "e544fc20-6d2b-4d77-aade-cff77e0d47a9")
 			(effects
 				(font
 					(size 1 1)
@@ -11253,12 +11253,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "add2f91c-80f8-4c39-8e74-7f709a9705ff")
+			(uuid "c7ac8c7f-ccae-4226-a84b-3cad8064e077")
 			(effects
 				(font
 					(size 1 1)
@@ -11928,12 +11928,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "78f9afd6-642b-4d55-bc6e-a877f3149387")
+			(uuid "937dcfa7-7e80-424f-afa2-e3dbd0294dc2")
 			(effects
 				(font
 					(size 1 1)
@@ -12439,12 +12439,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d7d0d0d0-d034-44b3-b710-5b5a697b64b3")
+			(uuid "660b233a-ecc1-4a75-9350-e3c15090bae5")
 			(effects
 				(font
 					(size 1 1)
@@ -12735,12 +12735,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c0372331-1444-4c67-ae54-041a0ca6b171")
+			(uuid "5ab94f63-a1d1-409d-851d-e764f15be43c")
 			(effects
 				(font
 					(size 1 1)
@@ -13031,12 +13031,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f9b697da-07ed-42cb-808b-8792a6c703cb")
+			(uuid "eafdb8fa-5916-4e4d-866e-a799aa280d47")
 			(effects
 				(font
 					(size 1 1)
@@ -13317,12 +13317,12 @@
 				)
 			)
 		)
-		(property "PNR" "EPC2306ENGRT"
+		(property "part-num" "EPC2306ENGRT"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "276fb2db-431b-401f-bb31-aec259e23d52")
+			(uuid "ce0942c7-0af3-41a7-b16a-ea23881008e3")
 			(effects
 				(font
 					(size 1 1)
@@ -13941,12 +13941,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7d67af36-0e55-46a4-a41d-c13d53e3cb71")
+			(uuid "2b8be71b-a1c4-4987-b0dc-497edc68d853")
 			(effects
 				(font
 					(size 1 1)
@@ -14419,12 +14419,12 @@
 				)
 			)
 		)
-		(property "PNR" "97730256330R"
+		(property "part-num" "97730256330R"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3d29a37c-b575-415f-81b2-35416259c14a")
+			(uuid "604f4d2f-04ac-460e-94e7-88fbfe906e42")
 			(effects
 				(font
 					(size 1 1)
@@ -15093,12 +15093,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "a7a633f0-0148-4074-9963-0c1d2816379b")
+			(uuid "bed51100-7ba6-4f80-b00d-03652c8e26d8")
 			(effects
 				(font
 					(size 1 1)
@@ -15394,12 +15394,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "33e472c3-0f63-4d4f-986d-91ff5ac8d789")
+			(uuid "29a688d9-63cb-485d-b962-12d8c6156354")
 			(effects
 				(font
 					(size 1 1)
@@ -15631,12 +15631,12 @@
 				)
 			)
 		)
-		(property "PNR" "97730256330R"
+		(property "part-num" "97730256330R"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1bace518-1638-4268-89d5-711f6e753cee")
+			(uuid "63e4797e-5541-467e-bec9-7b5539fc6920")
 			(effects
 				(font
 					(size 1 1)
@@ -16232,12 +16232,12 @@
 				)
 			)
 		)
-		(property "PNR" "V3PM10-M3/H"
+		(property "part-num" "V3PM10-M3/H"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7e7fd83a-800d-49e4-931c-50103f5dce4a")
+			(uuid "34144b6f-9d52-449c-8f23-e010bd7f48f0")
 			(effects
 				(font
 					(size 1 1)
@@ -16555,12 +16555,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ed6805c0-be76-46ba-b231-2c49ae408b1f")
+			(uuid "f28abefc-268a-400f-adae-43edd8b93ce2")
 			(effects
 				(font
 					(size 1 1)
@@ -16830,12 +16830,12 @@
 				)
 			)
 		)
-		(property "PNR" "YFF18PW0J474MT0H0N"
+		(property "part-num" "YFF18PW0J474MT0H0N"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ba377684-f199-4640-809f-576022a69a9e")
+			(uuid "0f9c5f99-9335-4fc8-a014-10eaab1f3077")
 			(effects
 				(font
 					(size 1 1)
@@ -17196,12 +17196,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "53eb84ba-ad84-47ae-901d-65827352b6a3")
+			(uuid "f7b872ce-e12c-481b-93aa-83be79b9584f")
 			(effects
 				(font
 					(size 1 1)
@@ -17729,12 +17729,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c2c4a006-44de-4be5-be98-d3e18251f773")
+			(uuid "3215afe0-25c4-4f48-9165-2a6e1d62a2d6")
 			(effects
 				(font
 					(size 1 1)
@@ -19502,12 +19502,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1c714bdb-e221-4b24-ad3f-b8ec6db2435e")
+			(uuid "ea49ce13-0df1-4010-b3ee-f553e4d7674a")
 			(effects
 				(font
 					(size 1 1)
@@ -20008,12 +20008,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "55c25eb2-3c32-436e-9612-188a585bdf2a")
+			(uuid "3e403589-da38-42eb-98a7-f3b60510131e")
 			(effects
 				(font
 					(size 1 1)
@@ -20304,12 +20304,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "f3c445cd-a08b-46df-8073-77fed6f91aa8")
+			(uuid "ff68685a-1a96-4c7b-9253-f08b132c16d8")
 			(effects
 				(font
 					(size 1 1)
@@ -20600,12 +20600,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "7428d686-253a-4274-b111-2664604bbcb9")
+			(uuid "c37645f4-7f18-4198-82b9-81f8d72d41ce")
 			(effects
 				(font
 					(size 1 1)
@@ -20896,12 +20896,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "308abf14-02f7-4136-89cc-78d8545b706a")
+			(uuid "0f1bfdbc-72ad-42f7-a8a1-e1cad8183dec")
 			(effects
 				(font
 					(size 1 1)
@@ -21182,12 +21182,12 @@
 				)
 			)
 		)
-		(property "PNR" "EPC2306ENGRT"
+		(property "part-num" "EPC2306ENGRT"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "684a86ad-ffa4-432e-8c20-6fa2afbbaf27")
+			(uuid "c901af3a-9896-4ffc-ac19-169627a110f4")
 			(effects
 				(font
 					(size 1 1)
@@ -21806,12 +21806,12 @@
 				)
 			)
 		)
-		(property "PNR" "DFLS1200-7"
+		(property "part-num" "DFLS1200-7"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "ba8b9988-9ddb-4cdc-be91-cb47e84b7486")
+			(uuid "d58f49be-2a19-4cf8-8bf4-f5fc60f8844a")
 			(effects
 				(font
 					(size 1 1)
@@ -22299,12 +22299,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1a683abb-24a6-4a0f-8a59-14d5187df1b0")
+			(uuid "d4dcf4f7-15e5-4608-9782-e3ae01d915ff")
 			(effects
 				(font
 					(size 1 1)
@@ -22600,12 +22600,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1e6e6a4b-067e-4011-a459-07ee55c867f4")
+			(uuid "1299759b-b0b8-4196-8508-11cf1b98f4e2")
 			(effects
 				(font
 					(size 1 1)
@@ -23047,12 +23047,12 @@
 				)
 			)
 		)
-		(property "PNR" "97730256330R"
+		(property "part-num" "97730256330R"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "cb9ff8fe-9c3e-4fd2-95d5-b2619b1d95df")
+			(uuid "e892046e-fcd6-4852-95a1-205f1091d642")
 			(effects
 				(font
 					(size 1 1)
@@ -23713,12 +23713,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "8b8edc09-8040-416c-8988-48cd5b94a8a7")
+			(uuid "2e0a942c-f88e-4fd4-9937-9a8433f32b08")
 			(effects
 				(font
 					(size 1 1)
@@ -24009,12 +24009,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "22115f31-2811-4864-890e-fcf10edbf823")
+			(uuid "313f0b2b-4ea9-4066-8457-1a142597dc01")
 			(effects
 				(font
 					(size 1 1)
@@ -24310,12 +24310,12 @@
 				)
 			)
 		)
-		(property "PNR" "MBASH168SC7224KTCA01"
+		(property "part-num" "MBASH168SC7224KTCA01"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b3dc0b5c-b176-4f25-90e6-81c6030d2850")
+			(uuid "0174af77-df3f-405b-93cc-a0236c4c0897")
 			(effects
 				(font
 					(size 1 1)
@@ -24606,12 +24606,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "d89e0a72-ed41-481b-97f2-d145d375b878")
+			(uuid "9b561698-8632-4ee3-bb50-85888a5f63a6")
 			(effects
 				(font
 					(size 1 1)
@@ -24881,12 +24881,12 @@
 				)
 			)
 		)
-		(property "PNR" "YFF18PW0J474MT0H0N"
+		(property "part-num" "YFF18PW0J474MT0H0N"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2111506b-4616-4cab-bd93-b7410548af90")
+			(uuid "c397bd81-3952-42c4-8cb9-226658b21b58")
 			(effects
 				(font
 					(size 1 1)
@@ -25810,12 +25810,12 @@
 				)
 			)
 		)
-		(property "PNR" "YFF18PW0J474MT0H0N"
+		(property "part-num" "YFF18PW0J474MT0H0N"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "945d7a8f-94eb-4c64-93d5-f4152f290c22")
+			(uuid "90fd3f8f-371e-408a-879b-ae589230deab")
 			(effects
 				(font
 					(size 1 1)
@@ -26176,12 +26176,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "8c15f3a7-2f1c-4ac7-9978-4ea4d9926700")
+			(uuid "1fb461d8-a9b3-4b79-ac87-83e949bbb7fe")
 			(effects
 				(font
 					(size 1 1)
@@ -26699,12 +26699,12 @@
 				)
 			)
 		)
-		(property "PNR" "C2012X7R2A225K125AC"
+		(property "part-num" "C2012X7R2A225K125AC"
 			(at 0 0 100)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "147f3624-e51b-4b39-9468-dcae7156a402")
+			(uuid "d2be5929-33e7-47a5-b1e6-b9cae15e94ab")
 			(effects
 				(font
 					(size 1 1)
@@ -26995,12 +26995,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "94290ec5-6c38-4cc1-b2d6-c9c12cf85979")
+			(uuid "9e796301-441a-4b33-86b8-d4d9bae97214")
 			(effects
 				(font
 					(size 1 1)
@@ -27516,12 +27516,12 @@
 				)
 			)
 		)
-		(property "PNR" "XAL8080-222MED"
+		(property "part-num" "XAL8080-222MED"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "c3fa0240-fc68-4f86-8d2c-8c96da1436e6")
+			(uuid "ecae9d57-f14e-4280-a44a-023791167f97")
 			(effects
 				(font
 					(size 1 1)
@@ -28062,12 +28062,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "973ca590-e5ce-4e80-82dc-28eba914e200")
+			(uuid "ad82a6a4-d0e6-4f5d-89b8-32d3bd9904a1")
 			(effects
 				(font
 					(size 1 1)
@@ -28298,12 +28298,12 @@
 				)
 			)
 		)
-		(property "PNR" "V3PM10-M3/H"
+		(property "part-num" "V3PM10-M3/H"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "2e5054f7-5446-471a-825c-8a3012e98b7e")
+			(uuid "ba5f4a32-a0e3-4be2-b05e-5f2e88d63036")
 			(effects
 				(font
 					(size 1 1)
@@ -28616,12 +28616,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "3f11aa01-afbe-4d84-86ec-b20ccb625321")
+			(uuid "6ac82724-04e4-467d-a8d6-23182a3439c5")
 			(effects
 				(font
 					(size 1 1)
@@ -29155,12 +29155,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "6e6d5ebf-0789-43af-b39d-ee5711033ea7")
+			(uuid "9c7a54d2-d811-4029-870f-c1f327e890a0")
 			(effects
 				(font
 					(size 1 1)
@@ -29451,12 +29451,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "1871c7c0-6180-4265-95e0-ec9a644717f6")
+			(uuid "4ea44b93-4c12-4025-a430-5bda72300129")
 			(effects
 				(font
 					(size 1 1)
@@ -29752,12 +29752,12 @@
 				)
 			)
 		)
-		(property "PNR" "C2012X7R2A225K125AC"
+		(property "part-num" "C2012X7R2A225K125AC"
 			(at 0 0 80)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "9c5b7b70-1d75-4821-88c0-51ed60315e1d")
+			(uuid "981b65a7-2dac-40e2-817e-987aeb7d01ed")
 			(effects
 				(font
 					(size 1 1)
@@ -30179,12 +30179,12 @@
 				)
 			)
 		)
-		(property "PNR" "C2012X7R2A225K125AC"
+		(property "part-num" "C2012X7R2A225K125AC"
 			(at 0 0 100)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "992428d8-2d5b-4e4e-a11f-cdf5e7ebc7a9")
+			(uuid "44e68c80-9739-47f5-b030-193f24a7c01f")
 			(effects
 				(font
 					(size 1 1)
@@ -30480,12 +30480,12 @@
 				)
 			)
 		)
-		(property "PNR" "GRM32EC72A106ME05L"
+		(property "part-num" "GRM32EC72A106ME05L"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
 			(hide yes)
-			(uuid "b3b31718-a398-469e-98ec-c751a03f01b7")
+			(uuid "0fc44cf9-ddec-4c8b-a397-bf97eaf58f00")
 			(effects
 				(font
 					(size 1 1)
@@ -31710,12 +31710,12 @@
 				(justify mirror)
 			)
 		)
-		(property "PNR" "INA293B2"
+		(property "part-num" "INA293B2"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
-			(uuid "2537c1fe-df4d-406b-a59c-4d009cb1dd5e")
+			(uuid "f0e6e10f-1d32-49db-a086-bba9650ee0bb")
 			(effects
 				(font
 					(size 1 1)

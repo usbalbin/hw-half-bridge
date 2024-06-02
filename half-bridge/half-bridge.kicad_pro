@@ -621,8 +621,8 @@
         },
         {
           "group_by": true,
-          "label": "PNR",
-          "name": "PNR",
+          "label": "part-num",
+          "name": "part-num",
           "show": true
         },
         {
@@ -635,8 +635,8 @@
       "filter_string": "",
       "group_symbols": true,
       "name": "",
-      "sort_asc": true,
-      "sort_field": "Reference"
+      "sort_asc": false,
+      "sort_field": "part-num"
     },
     "connection_grid_size": 50.0,
     "drawing": {
