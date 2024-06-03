@@ -9,6 +9,8 @@ on:
       - '**.kicad_pcb'
       - '.github/workflows/kibot.yml'
   push:
+    branches:
+      - main
     paths:
       - '**.kicad_sch'
       - '**.kicad_pcb'
@@ -37,6 +39,22 @@ jobs:
         # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
+    - name: Cache KiCost prices
+      uses: actions/cache@v4
+      id: kicost-cache
+      with:
+        save-always: true
+        path: ~/.cache/kicost
+        key: kicost_cache
+    
+    - name: Cache 3D models data
+      id: models-cache
+      uses: actions/cache@v4
+      with:
+        save-always: true
+        path: ~/cache_3d
+        key: cache_3d
+        
     - name: Run KiBot
       uses: INTI-CMNB/KiBot@v2_k8
       env:
