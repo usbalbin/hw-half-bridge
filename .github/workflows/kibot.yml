@@ -46,7 +46,7 @@ jobs:
         save-always: true
         path: ~/.cache/kicost
         key: kicost_cache
-    
+
     - name: Cache 3D models data
       id: models-cache
       uses: actions/cache@v4
@@ -54,7 +54,11 @@ jobs:
         save-always: true
         path: ~/cache_3d
         key: cache_3d
-        
+
+    - run: ls -hal .
+    - run: ls -hal ~
+    - run: ls -hal *
+
     - name: Run KiBot
       uses: INTI-CMNB/KiBot@v2_k8
       env:
@@ -67,7 +71,11 @@ jobs:
         #NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
       with:
         quickstart: YES
-      
+    
+    - run: ls -hal .
+    - run: ls -hal ~
+    - run: ls -hal *
+
     - name: Zip artifact
       run: zip Generated.zip ./Generated -r
 
