@@ -56,7 +56,7 @@ jobs:
         key: cache_3d
 
     - run: ls -hal .
-    - run: ls -hal ./.cache
+    - run: ls -hal ./.cache || echo nope
     - run: ls -hal *
 
     - name: Run KiBot
