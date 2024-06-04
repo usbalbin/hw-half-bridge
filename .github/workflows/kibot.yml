@@ -44,7 +44,7 @@ jobs:
       id: kicost-cache
       with:
         save-always: true
-        path: ~/.cache/kicost
+        path: ./.cache/kicost
         key: kicost_cache
 
     - name: Cache 3D models data
@@ -52,7 +52,7 @@ jobs:
       uses: actions/cache@v4
       with:
         save-always: true
-        path: ~/cache_3d
+        path: ./cache_3d
         key: cache_3d
 
     - run: ls -hal .
