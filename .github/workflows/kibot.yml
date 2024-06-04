@@ -71,7 +71,7 @@ jobs:
         #NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
       with:
         quickstart: YES
-    
+
     - run: ls -hal .
     - run: ls -hal ~
     - run: ls -hal ./.cache
