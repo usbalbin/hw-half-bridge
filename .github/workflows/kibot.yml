@@ -39,13 +39,13 @@ jobs:
         # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
-    - name: Cache KiCost prices
+    - name: Cache .cache
       uses: actions/cache@v4
-      id: kicost-cache
+      id: some-cache
       with:
         save-always: true
-        path: /home/runner/work/hw-half-bridge/hw-half-bridge/.cache/kicost
-        key: kicost_cache
+        path: ./.cache/
+        key: some_cache
 
     - name: Cache 3D models data
       id: models-cache
