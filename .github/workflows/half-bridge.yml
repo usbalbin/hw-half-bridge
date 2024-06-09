@@ -75,9 +75,13 @@ jobs:
         board: 'half-bridge/half-bridge.kicad_pcb'
 
     - run: ls -hal .
+      if: always()
     - run: ls -hal ./.cache || echo nope
+      if: always()
     - run: ls -hal *
+      if: always()
     - run: ls -hal ./half-bridge/* || echo nope
+      if: always()
 
     - name: Upload results
       uses: actions/upload-artifact@v3
