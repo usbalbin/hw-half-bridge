@@ -9,6 +9,8 @@ on:
       - '**.kicad_pcb'
       - '.github/workflows/kibot.yml'
   push:
+    branches:
+      - main
     paths:
       - '**.kicad_sch'
       - '**.kicad_pcb'
@@ -37,18 +39,44 @@ jobs:
         # So we can run a diff between last 2 changes
         fetch-depth: '0'
 
+    - name: Cache .cache
+      uses: actions/cache@v4
+      id: some-cache
+      with:
+        save-always: true
+        path: ./.cache/
+        key: some_cache
+
+    - name: Cache 3D models data
+      id: models-cache
+      uses: actions/cache@v4
+      with:
+        save-always: true
+        path: ./cache_3d
+        key: cache_3d
+
+    - run: ls -hal .
+    - run: ls -hal ./.cache || echo nope
+    - run: ls -hal *
+
     - name: Run KiBot
       uses: INTI-CMNB/KiBot@v2_k8
       env:
-        ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
+        CURRENCY: SEK
+        #ELEMENT14_KEY: ${{ secrets.ELEMENT14_KEY }}
         MOUSER_KEY: ${{ secrets.MOUSER_KEY }}
-        TME_TOKEN: ${{ secrets.TME_TOKEN }}
-        TME_APP_SECRET: ${{ secrets.TME_APP_SECRET }}
-        NEXAR_CLIENT_ID: ${{ secrets.NEXAR_CLIENT_ID }}
-        NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
+        #TME_TOKEN: ${{ secrets.TME_TOKEN }}
+        #TME_APP_SECRET: ${{ secrets.TME_APP_SECRET }}
+        #NEXAR_CLIENT_ID: ${{ secrets.NEXAR_CLIENT_ID }}
+        #NEXAR_CLIENT_SECRET: ${{ secrets.NEXAR_CLIENT_SECRET }}
       with:
         quickstart: YES
-      
+
+    - run: ls -hal .
+    - run: ls -hal ~
+    - run: ls -hal ./.cache
+    - run: ls -hal *
+
     - name: Zip artifact
       run: zip Generated.zip ./Generated -r
 
@@ -64,4 +92,4 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: Automatic_outputs
-        path: Generated
+        path: Generated.zip
