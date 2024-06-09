@@ -14908,7 +14908,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "0R"
 			(at 358.14 154.94 90)
 			(effects
 				(font
@@ -15791,9 +15791,9 @@
 		(at 361.95 151.13 90)
 		(unit 1)
 		(exclude_from_sim yes)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "58265c9a-7054-458e-ada3-7cb7370317cb")
 		(property "Reference" "C10"
 			(at 361.95 148.59 90)
