@@ -7659,6 +7659,16 @@
 	)
 	(wire
 		(pts
+			(xy 295.91 176.53) (xy 300.99 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "67e79a89-7443-46af-887b-510aeca0f77b")
+	)
+	(wire
+		(pts
 			(xy 63.5 142.24) (xy 68.58 142.24)
 		)
 		(stroke
@@ -15934,6 +15944,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:Earth")
+		(at 346.71 176.53 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4a672523-5e1e-46fe-a36b-364702c28b2e")
+		(property "Reference" "#PWR014"
+			(at 346.71 182.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 346.71 180.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 346.71 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 346.71 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 346.71 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9447b16f-1f90-4dc1-a266-fdcbbd2a2b3d")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:C_Small")
 		(at 342.9 132.08 0)
 		(unit 1)
@@ -16538,6 +16615,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "C10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 295.91 176.53 90)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "592c43af-a301-420d-928e-18da1060d160")
+		(property "Reference" "TP3"
+			(at 291.338 180.848 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 290.83 176.53 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+			(at 295.91 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 295.91 171.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 295.91 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "76e8241b-783e-41c2-981e-0860ecedbd2e")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "TP3")
 					(unit 1)
 				)
 			)
@@ -19314,6 +19458,73 @@
 			(project "half-bridge"
 				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
 					(reference "Rsim4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 346.71 176.53 0)
+		(unit 1)
+		(exclude_from_sim yes)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "9bb4a8d5-801f-4ec5-b1b7-d053c1b8412b")
+		(property "Reference" "TP2"
+			(at 342.392 171.958 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "TestPoint"
+			(at 336.804 174.244 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
+			(at 351.79 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 351.79 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 346.71 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e3ef726e-abba-4164-b951-b6db0f522564")
+		)
+		(instances
+			(project "half-bridge"
+				(path "/561c49c4-2e8b-46fe-9ff5-6f6657079a69"
+					(reference "TP2")
 					(unit 1)
 				)
 			)
@@ -23882,8 +24093,8 @@
 		(lib_id "Connector:TestPoint")
 		(at 347.98 166.37 0)
 		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
+		(exclude_from_sim yes)
+		(in_bom no)
 		(on_board yes)
 		(dnp no)
 		(uuid "d989f217-2a9b-4e20-b956-c4850aa4f984")
@@ -23894,6 +24105,7 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Value" "TestPoint"
@@ -23905,7 +24117,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_D1.0mm"
+		(property "Footprint" "TestPoint:TestPoint_Pad_D2.0mm"
 			(at 353.06 166.37 0)
 			(effects
 				(font
