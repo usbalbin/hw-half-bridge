@@ -1,0 +1,1694 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "51e653ea-2e91-4a12-aa90-9ef5ddcba082")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Device:R"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Transistor_FET:FDG6335N"
+			(pin_names hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Q"
+				(at 5.08 1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "FDG6335N"
+				(at 5.08 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+				(at 5.08 -1.905 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+				(at 5.08 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Dual N-Channel MOSFET"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?363*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "FDG6335N_0_1"
+				(polyline
+					(pts
+						(xy 0.254 0) (xy -2.54 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.254 1.905) (xy 0.254 -1.905)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.27) (xy 0.762 -2.286)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 0.508) (xy 0.762 -0.508)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 2.286) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 0) (xy 0.762 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.762 -1.778) (xy 3.302 -1.778) (xy 3.302 1.778) (xy 0.762 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 0) (xy 2.032 0.381) (xy 2.032 -0.381) (xy 1.016 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.794 0.508) (xy 2.921 0.381) (xy 3.683 0.381) (xy 3.81 0.254)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.302 0.381) (xy 2.921 -0.254) (xy 3.683 -0.254) (xy 3.302 0.381)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.651 0)
+					(radius 2.794)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 -1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(circle
+					(center 2.54 1.778)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "FDG6335N_1_1"
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "FDG6335N_2_1"
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "D"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "S"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "G"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:Earth"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "Earth"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"Earth\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global ground gnd"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Earth_0_1"
+				(polyline
+					(pts
+						(xy -0.635 -1.905) (xy 0.635 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.127 -2.54) (xy 0.127 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Earth_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(junction
+		(at 100.33 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "08a264db-2497-41bc-b4f1-43153ea4353b")
+	)
+	(junction
+		(at 86.36 109.22)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "256e062e-1f28-4d7b-b102-cdfce440a3c1")
+	)
+	(junction
+		(at 86.36 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "49ac7f8d-fb21-4027-be0a-c8cc5ea83c3c")
+	)
+	(junction
+		(at 100.33 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "95302020-219c-4616-b2ea-cb179f9fe3f5")
+	)
+	(wire
+		(pts
+			(xy 107.95 121.92) (xy 107.95 119.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1215076f-f136-4162-861e-537dc5dbc817")
+	)
+	(wire
+		(pts
+			(xy 107.95 96.52) (xy 107.95 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f5751e2-9528-4c01-b92e-e54984f2b36c")
+	)
+	(wire
+		(pts
+			(xy 100.33 74.93) (xy 100.33 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26fc0ced-6728-49bf-bbe9-cf8781008b4c")
+	)
+	(wire
+		(pts
+			(xy 107.95 62.23) (xy 107.95 64.77)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3807871d-16d3-475d-bb0c-e7dc58588efd")
+	)
+	(wire
+		(pts
+			(xy 100.33 69.85) (xy 100.33 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3fc2225c-8785-46a5-86b0-c9b5f99899d5")
+	)
+	(wire
+		(pts
+			(xy 100.33 104.14) (xy 100.33 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "823af8c4-65c9-4195-aa50-251bc85a4eaa")
+	)
+	(wire
+		(pts
+			(xy 86.36 74.93) (xy 100.33 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "891342ae-8b73-470e-9145-63b587afa892")
+	)
+	(wire
+		(pts
+			(xy 86.36 69.85) (xy 86.36 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b658f543-df63-4401-9219-43ee2815f5e5")
+	)
+	(wire
+		(pts
+			(xy 107.95 85.09) (xy 107.95 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b76c9693-5987-4c31-9f20-7910f3b255ee")
+	)
+	(wire
+		(pts
+			(xy 86.36 106.68) (xy 86.36 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb3627c9-9210-455f-b7ab-94c14db177d1")
+	)
+	(wire
+		(pts
+			(xy 100.33 109.22) (xy 100.33 114.3)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e87c2809-fdc8-4b08-bc17-14f2c9e49a2a")
+	)
+	(wire
+		(pts
+			(xy 86.36 109.22) (xy 100.33 109.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f7357be7-4614-44d5-b17b-43c3570d286a")
+	)
+	(global_label "6-18V"
+		(shape input)
+		(at 86.36 99.06 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "786be89d-7024-4c14-9873-2e078a203044")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 86.36 89.7853 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "6-18V"
+		(shape input)
+		(at 86.36 62.23 90)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d698d65b-d01d-4c10-b7c3-875882111696")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 86.36 52.9553 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(hierarchical_label "IN1"
+		(shape input)
+		(at 78.74 80.01 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "05fc6ab7-2ea3-4bf5-860d-33a277ab3ad6")
+	)
+	(hierarchical_label "A2"
+		(shape bidirectional)
+		(at 107.95 96.52 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "14425951-96e1-4e9d-8065-542e11efdab6")
+	)
+	(hierarchical_label "A1"
+		(shape bidirectional)
+		(at 107.95 62.23 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "2b7f294e-1041-4ed2-807e-81d225c4eef6")
+	)
+	(hierarchical_label "IN2"
+		(shape input)
+		(at 78.74 114.3 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6f6e6cfc-73d7-40d3-94dc-9996a4063dc8")
+	)
+	(hierarchical_label "B1"
+		(shape bidirectional)
+		(at 107.95 87.63 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "b2bf38cc-0651-4ca6-9f0d-7e24518821b5")
+	)
+	(hierarchical_label "B2"
+		(shape bidirectional)
+		(at 107.95 121.92 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d959b7ff-038b-4d77-a27f-af230e1d32ad")
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 86.36 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2dc36952-1cf0-46e2-957a-d358d35060e9")
+		(property "Reference" "#PWR0103"
+			(at 86.36 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 90.678 86.614 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 86.36 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 86.36 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "161d01cf-9246-4d49-9169-bd8ea62e7a3c")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "#PWR0103")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "#PWR0101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 86.36 66.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "359d42a8-3a38-494b-a14d-a0e25b8e90fb")
+		(property "Reference" "R100"
+			(at 88.9 64.7699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 88.9 67.3099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 84.582 66.04 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 86.36 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 86.36 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "98cc5746-2630-4a72-bf6d-4ee675261520")
+		)
+		(pin "1"
+			(uuid "313dc2e2-5e5c-4656-9154-8b3ce8292a93")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "R100")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "R99")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDG6335N")
+		(at 105.41 114.3 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "38d1ed2a-069d-48f4-a95b-78c1a398897f")
+		(property "Reference" "Q5"
+			(at 111.76 113.0299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FDG6335N"
+			(at 111.76 115.5699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 110.49 116.205 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+			(at 110.49 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+			(at 105.41 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "c531c49b-c623-4f38-bd98-05da7d55ec47")
+		)
+		(pin "6"
+			(uuid "dbde614d-a3ef-4016-80c4-a847699f87c2")
+		)
+		(pin "1"
+			(uuid "01c26bd1-2cd4-4b4d-9d05-ebedc4e24d2f")
+		)
+		(pin "4"
+			(uuid "524b26c0-6e3f-411a-8ac7-051a39c357fb")
+		)
+		(pin "5"
+			(uuid "71ad1e08-3314-432e-b7cd-2904aa3173eb")
+		)
+		(pin "3"
+			(uuid "140155bd-975c-48cf-8902-7173eb5d6db4")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "Q5")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "Q7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDG6335N")
+		(at 83.82 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "4736f0f1-aa1d-4cd9-86b6-560ea6960b62")
+		(property "Reference" "Q4"
+			(at 90.17 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FDG6335N"
+			(at 90.17 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 88.9 81.915 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+			(at 88.9 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+			(at 83.82 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "d75ff285-e8dd-4a44-a61d-9e1d97f27cff")
+		)
+		(pin "6"
+			(uuid "6761b7db-64ff-4d80-a23f-b59c087e4b68")
+		)
+		(pin "1"
+			(uuid "b51efc89-8073-421f-805a-e67da5beeb0a")
+		)
+		(pin "4"
+			(uuid "524b26c0-6e3f-411a-8ac7-051a39c357fa")
+		)
+		(pin "5"
+			(uuid "71ad1e08-3314-432e-b7cd-2904aa3173ea")
+		)
+		(pin "3"
+			(uuid "140155bd-975c-48cf-8902-7173eb5d6db3")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "Q4")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "Q2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDG6335N")
+		(at 105.41 104.14 0)
+		(mirror x)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "666debfb-2621-4d25-9ed5-60200e156e52")
+		(property "Reference" "Q5"
+			(at 111.76 102.8699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FDG6335N"
+			(at 111.76 105.4099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 110.49 102.235 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+			(at 110.49 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+			(at 105.41 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e1725619-255c-433f-a77d-70820d6d6f56")
+		)
+		(pin "6"
+			(uuid "01352cd6-c309-4e11-9b31-428cd997bfa0")
+		)
+		(pin "1"
+			(uuid "c2bb304e-b816-44a0-b12c-8947d3a99290")
+		)
+		(pin "4"
+			(uuid "b6b761cd-e145-4363-b38a-9600d3b6709b")
+		)
+		(pin "5"
+			(uuid "247e693d-22c8-4ec4-a0d5-c41e6378ea2d")
+		)
+		(pin "3"
+			(uuid "ff1591f1-a246-4589-9aa5-80f721db6613")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "Q5")
+					(unit 2)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "Q7")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDG6335N")
+		(at 105.41 69.85 0)
+		(mirror x)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7abeeab8-aeda-4666-b48e-30c0c45c07f5")
+		(property "Reference" "Q6"
+			(at 111.76 68.5799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FDG6335N"
+			(at 111.76 71.1199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 110.49 67.945 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+			(at 110.49 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+			(at 105.41 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e1725619-255c-433f-a77d-70820d6d6f58")
+		)
+		(pin "6"
+			(uuid "01352cd6-c309-4e11-9b31-428cd997bfa2")
+		)
+		(pin "1"
+			(uuid "c2bb304e-b816-44a0-b12c-8947d3a99292")
+		)
+		(pin "4"
+			(uuid "36713d14-be82-489a-b991-63553ec75c25")
+		)
+		(pin "5"
+			(uuid "92cd0530-9da9-46af-bd9b-6dff5c535634")
+		)
+		(pin "3"
+			(uuid "269fa17f-1d15-435e-a9bf-0bdf2d1afff4")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "Q6")
+					(unit 2)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "Q3")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDG6335N")
+		(at 83.82 114.3 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8ce1533e-ceec-499c-9bca-cb2469ae4a76")
+		(property "Reference" "Q4"
+			(at 90.17 115.5701 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FDG6335N"
+			(at 90.17 113.0301 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 88.9 116.205 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+			(at 88.9 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+			(at 83.82 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e1725619-255c-433f-a77d-70820d6d6f57")
+		)
+		(pin "6"
+			(uuid "01352cd6-c309-4e11-9b31-428cd997bfa1")
+		)
+		(pin "1"
+			(uuid "c2bb304e-b816-44a0-b12c-8947d3a99291")
+		)
+		(pin "4"
+			(uuid "f4d74397-96b2-489e-883f-37f9bbdbca9d")
+		)
+		(pin "5"
+			(uuid "71d5a1e5-e682-4527-a7d0-b1534ce83f29")
+		)
+		(pin "3"
+			(uuid "d96a71b1-f98e-4ce4-97df-ba44587f5f9e")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "Q4")
+					(unit 2)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "Q2")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 86.36 119.38 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ae62e2fd-b741-4d28-8d1c-26b17e893c1b")
+		(property "Reference" "#PWR0104"
+			(at 86.36 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 90.678 120.904 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 86.36 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 86.36 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 86.36 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "311b2163-1ab6-484c-96d5-12c5512f7b03")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "#PWR0104")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "#PWR0102")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Transistor_FET:FDG6335N")
+		(at 105.41 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c878a66d-7633-4664-88cf-c533358c0bb5")
+		(property "Reference" "Q6"
+			(at 111.76 78.7399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "FDG6335N"
+			(at 111.76 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
+			(at 110.49 81.915 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.gneic.com/product/datasheet/FDG6335N-1122853.pdf"
+			(at 110.49 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" "0.7A Id, 20V Vds, Dual N-Channel MOSFET, 300mOhm Ron, SC-70-6"
+			(at 105.41 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "1a513b9a-ed1c-493e-b353-a2c1ee82dfb8")
+		)
+		(pin "6"
+			(uuid "7d102674-bb38-4ac1-8b7f-5dd8e259ba72")
+		)
+		(pin "1"
+			(uuid "99851793-12e5-4558-9433-80955d3358d8")
+		)
+		(pin "4"
+			(uuid "524b26c0-6e3f-411a-8ac7-051a39c357fc")
+		)
+		(pin "5"
+			(uuid "71ad1e08-3314-432e-b7cd-2904aa3173ec")
+		)
+		(pin "3"
+			(uuid "140155bd-975c-48cf-8902-7173eb5d6db5")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "Q6")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "Q3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 86.36 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ce088745-2186-4da5-a823-d38e039c2a77")
+		(property "Reference" "R102"
+			(at 88.9 101.5999 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 88.9 104.1399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 84.582 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 86.36 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 86.36 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "e28ef061-fc3d-4fc4-a52c-e4da25b108c8")
+		)
+		(pin "1"
+			(uuid "8ba97dfc-2df6-4747-84da-a304842875fa")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7"
+					(reference "R102")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f6d012c6-3338-4516-b3a6-b3cc5951de5d"
+					(reference "R101")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
