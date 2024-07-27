@@ -13852,6 +13852,17 @@
 		)
 		(uuid "0eee795e-8a78-424b-8322-e8cc50d85325")
 	)
+	(label "CC1"
+		(at 44.45 46.99 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "11da8e4b-3e13-4daa-8c1b-eb9c310b6440")
+	)
 	(label "NTC_1"
 		(at 312.42 45.72 0)
 		(fields_autoplaced yes)
@@ -14148,6 +14159,17 @@
 			(justify right bottom)
 		)
 		(uuid "55800107-6a63-4fc4-9996-a6d7a2e77168")
+	)
+	(label "CC2"
+		(at 44.45 49.53 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "55c81cb9-97da-4a7a-b0a5-db7ce0fc16bb")
 	)
 	(label "Current_sense_2"
 		(at 185.42 128.27 180)
