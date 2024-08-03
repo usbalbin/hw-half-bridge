@@ -604,12 +604,60 @@
       "Root"
     ],
     [
-      "aeb8f02d-6d9c-41d2-8767-383d1f4f9cd7",
-      "dual_switch"
-    ],
-    [
       "f6d012c6-3338-4516-b3a6-b3cc5951de5d",
       "dual_switch1"
+    ],
+    [
+      "f622ffec-9449-45e5-9eb8-0ca2aae12be6",
+      "3v3_clamp"
+    ],
+    [
+      "64e9cba2-e97f-4526-9a99-6b255d7da8ff",
+      "3v3_clamp11"
+    ],
+    [
+      "e36b8f0b-f67b-43b4-a062-1c2e4f599a7e",
+      "3v3_clamp1"
+    ],
+    [
+      "bfb44169-033d-4821-bbb7-0e04a8e5768b",
+      "3v3_clamp2"
+    ],
+    [
+      "2daf64ca-0fcc-4c79-982b-99a1ed63087f",
+      "3v3_clamp3"
+    ],
+    [
+      "6d8a5e30-be0a-415d-800e-7055fa910833",
+      "3v3_clamp4"
+    ],
+    [
+      "8b708188-1a68-474c-8138-666e57805904",
+      "3v3_clamp5"
+    ],
+    [
+      "3e515984-b506-4b34-9c6c-a071ff059aee",
+      "3v3_clamp6"
+    ],
+    [
+      "66521937-95cb-47c9-955a-dc67d2295042",
+      "3v3_clamp7"
+    ],
+    [
+      "55375563-a82c-4e58-8d7a-9f1784f16f65",
+      "3v3_clamp8"
+    ],
+    [
+      "4bbfbbcc-77d3-429d-a9b9-e8d5a41328fa",
+      "3v3_clamp9"
+    ],
+    [
+      "eccf688e-2cc2-46e7-8f30-5ac4b381f08b",
+      "3v3_clamp10"
+    ],
+    [
+      "9c8ae244-4a7c-4a3c-a9c4-73858cb269a0",
+      "dual_high_side_fet"
     ]
   ],
   "text_variables": {}
