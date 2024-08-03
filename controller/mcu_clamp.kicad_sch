@@ -1,0 +1,932 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "f3b83b7b-9ffc-402e-b4f3-ae953ba28190")
+	(paper "A4")
+	(lib_symbols
+		(symbol "Diode:BAT54S"
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 2.54 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "BAT54S"
+				(at -6.35 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 1.905 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds11005.pdf"
+				(at -3.048 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "schottky diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "BAT54S_0_1"
+				(polyline
+					(pts
+						(xy -3.81 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -3.175 -1.27) (xy -3.175 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -3.175 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -1.27) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 1.27) (xy -1.905 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 0) (xy 1.905 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.905 1.27) (xy -1.905 1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy 3.81 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.175 -1.27) (xy 3.175 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -1.27) (xy 3.175 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 -1.27) (xy 3.81 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 3.81 1.27) (xy 4.445 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 4.445 1.27) (xy 4.445 1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -4.445 1.27) (xy -4.445 -1.27) (xy -2.54 0) (xy -4.445 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.905 1.27) (xy 1.905 -1.27) (xy 3.81 0) (xy 1.905 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "BAT54S_1_1"
+				(pin passive line
+					(at -7.62 0 0)
+					(length 3.81)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 7.62 0 180)
+					(length 3.81)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 5.08)
+					(name "COM"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:+3V3"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "+3V3"
+				(at 0 3.556 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"+3V3\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global power"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "+3V3_0_1"
+				(polyline
+					(pts
+						(xy -0.762 1.27) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.54) (xy 0.762 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "+3V3_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "power:Earth"
+			(power)
+			(pin_numbers hide)
+			(pin_names
+				(offset 0) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "Earth"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Power symbol creates a global label with name \"Earth\""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "global ground gnd"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Earth_0_1"
+				(polyline
+					(pts
+						(xy -0.635 -1.905) (xy 0.635 -1.905)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -0.127 -2.54) (xy 0.127 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 -1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Earth_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(hierarchical_label "S"
+		(shape input)
+		(at 68.58 63.5 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "528875d3-6c3f-4bd6-8d77-0ec3e1995ff3")
+	)
+	(symbol
+		(lib_id "Diode:BAT54S")
+		(at 63.5 63.5 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "03d532f2-090a-4d63-b038-0689bcdf2adf")
+		(property "Reference" "D17"
+			(at 60.96 62.2299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "BAT54S"
+			(at 60.96 64.7699 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 60.325 61.595 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds11005.pdf"
+			(at 63.5 66.548 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Vr 30V, If 200mA, Dual schottky barrier diode, in series, SOT-323"
+			(at 63.5 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "b4342f34-1d07-457d-8807-a1e347670bc0")
+		)
+		(pin "3"
+			(uuid "eafcdb63-8d31-406a-9f5c-f30305054623")
+		)
+		(pin "1"
+			(uuid "3c77b119-6101-42aa-a3c5-45ead17a4179")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/2daf64ca-0fcc-4c79-982b-99a1ed63087f"
+					(reference "D17")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/3e515984-b506-4b34-9c6c-a071ff059aee"
+					(reference "D22")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/4bbfbbcc-77d3-429d-a9b9-e8d5a41328fa"
+					(reference "D15")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/55375563-a82c-4e58-8d7a-9f1784f16f65"
+					(reference "D14")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/64e9cba2-e97f-4526-9a99-6b255d7da8ff"
+					(reference "D23")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/66521937-95cb-47c9-955a-dc67d2295042"
+					(reference "D13")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/6d8a5e30-be0a-415d-800e-7055fa910833"
+					(reference "D20")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/8b708188-1a68-474c-8138-666e57805904"
+					(reference "D21")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/bfb44169-033d-4821-bbb7-0e04a8e5768b"
+					(reference "D26")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/e36b8f0b-f67b-43b4-a062-1c2e4f599a7e"
+					(reference "D25")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/eccf688e-2cc2-46e7-8f30-5ac4b381f08b"
+					(reference "D16")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f622ffec-9449-45e5-9eb8-0ca2aae12be6"
+					(reference "D24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 63.5 55.88 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "67b0df47-c461-42dd-879a-018efea6ec6e")
+		(property "Reference" "#PWR092"
+			(at 63.5 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 63.5 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 63.5 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 63.5 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 63.5 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6fa420e7-7a63-4aa0-9646-d21ec71b8c99")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/2daf64ca-0fcc-4c79-982b-99a1ed63087f"
+					(reference "#PWR092")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/3e515984-b506-4b34-9c6c-a071ff059aee"
+					(reference "#PWR0114")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/4bbfbbcc-77d3-429d-a9b9-e8d5a41328fa"
+					(reference "#PWR078")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/55375563-a82c-4e58-8d7a-9f1784f16f65"
+					(reference "#PWR047")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/64e9cba2-e97f-4526-9a99-6b255d7da8ff"
+					(reference "#PWR090")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/66521937-95cb-47c9-955a-dc67d2295042"
+					(reference "#PWR033")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/6d8a5e30-be0a-415d-800e-7055fa910833"
+					(reference "#PWR0110")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/8b708188-1a68-474c-8138-666e57805904"
+					(reference "#PWR0112")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/bfb44169-033d-4821-bbb7-0e04a8e5768b"
+					(reference "#PWR0117")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/e36b8f0b-f67b-43b4-a062-1c2e4f599a7e"
+					(reference "#PWR0108")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/eccf688e-2cc2-46e7-8f30-5ac4b381f08b"
+					(reference "#PWR080")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f622ffec-9449-45e5-9eb8-0ca2aae12be6"
+					(reference "#PWR088")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 63.5 71.12 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "71db50df-3ded-4337-8a76-c79952d8a062")
+		(property "Reference" "#PWR093"
+			(at 63.5 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 63.5 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 63.5 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 63.5 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 63.5 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dc2cdd3a-be82-4a4b-9288-14d56189cdad")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/2daf64ca-0fcc-4c79-982b-99a1ed63087f"
+					(reference "#PWR093")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/3e515984-b506-4b34-9c6c-a071ff059aee"
+					(reference "#PWR0115")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/4bbfbbcc-77d3-429d-a9b9-e8d5a41328fa"
+					(reference "#PWR079")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/55375563-a82c-4e58-8d7a-9f1784f16f65"
+					(reference "#PWR077")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/64e9cba2-e97f-4526-9a99-6b255d7da8ff"
+					(reference "#PWR091")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/66521937-95cb-47c9-955a-dc67d2295042"
+					(reference "#PWR040")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/6d8a5e30-be0a-415d-800e-7055fa910833"
+					(reference "#PWR0111")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/8b708188-1a68-474c-8138-666e57805904"
+					(reference "#PWR0113")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/bfb44169-033d-4821-bbb7-0e04a8e5768b"
+					(reference "#PWR0118")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/e36b8f0b-f67b-43b4-a062-1c2e4f599a7e"
+					(reference "#PWR0116")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/eccf688e-2cc2-46e7-8f30-5ac4b381f08b"
+					(reference "#PWR081")
+					(unit 1)
+				)
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/f622ffec-9449-45e5-9eb8-0ca2aae12be6"
+					(reference "#PWR089")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
