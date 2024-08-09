@@ -162,14 +162,11 @@ mod app {
             #[allow(dead_code)]
             dbcc2: gpio::gpioa::PA10<gpio::Input<gpio::Floating>>,
 
-            frs1: gpio::gpioc::PC12<gpio::Input<gpio::Floating>>,
-            frs2: gpio::gpioa::PA5<gpio::Input<gpio::Floating>>,
+            frs: gpio::gpioc::PC12<gpio::Input<gpio::Floating>>,
 
-            en_vconn1: gpio::gpioc::PC10<gpio::Input<gpio::Floating>>,
-            en_vconn2: gpio::gpioc::PC11<gpio::Input<gpio::Floating>>,
+            en_vconn: gpio::gpioc::PC10<gpio::Input<gpio::Floating>>,
 
-            en_cc1: gpio::gpioc::PC13<gpio::Input<gpio::Floating>>,
-            en_cc2: gpio::gpioc::PC14<gpio::Input<gpio::Floating>>,
+            en_cc: gpio::gpioc::PC13<gpio::Input<gpio::Floating>>,
         }
 
         struct Swd {
@@ -264,8 +261,7 @@ mod app {
             frs1: pc12,
             frs2: pa5,
 
-            en_vconn1: pc10,
-            en_vconn2: pc11,
+            en_vconn: pc10,
 
             en_cc1: pc13,
             en_cc2: pc14,
