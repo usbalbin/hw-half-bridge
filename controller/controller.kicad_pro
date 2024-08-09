@@ -604,76 +604,48 @@
       "Root"
     ],
     [
-      "17fa42ce-3bca-4df7-8e9c-f893032f2f24",
-      "3v3_clamp11"
-    ],
-    [
       "8b76543b-a49c-413b-a98c-7f3e228c6216",
       "48V to 3v3 div_2"
-    ],
-    [
-      "17fa42ce-3bca-4df7-8e9c-f893032f2f24",
-      "3v3_clamp11"
     ],
     [
       "a5d84eb1-8829-4f32-a763-e01f5977372c",
       "48V to 3v3 div_3"
     ],
     [
-      "e36b8f0b-f67b-43b4-a062-1c2e4f599a7e",
-      "3v3_clamp1"
-    ],
-    [
-      "bfb44169-033d-4821-bbb7-0e04a8e5768b",
-      "3v3_clamp2"
-    ],
-    [
-      "2daf64ca-0fcc-4c79-982b-99a1ed63087f",
-      "3v3_clamp3"
-    ],
-    [
-      "6d8a5e30-be0a-415d-800e-7055fa910833",
-      "3v3_clamp4"
-    ],
-    [
-      "8b708188-1a68-474c-8138-666e57805904",
-      "3v3_clamp5"
-    ],
-    [
-      "3e515984-b506-4b34-9c6c-a071ff059aee",
-      "3v3_clamp6"
-    ],
-    [
       "3a11ce7c-7e29-4758-a12a-8535ab4c73af",
       "48V to 3v3 div_1"
-    ],
-    [
-      "17fa42ce-3bca-4df7-8e9c-f893032f2f24",
-      "3v3_clamp11"
     ],
     [
       "2f911ebd-6dc8-4496-8afb-4a9ec6bafab7",
       "48V to 3v3 div_4"
     ],
     [
-      "17fa42ce-3bca-4df7-8e9c-f893032f2f24",
-      "3v3_clamp11"
-    ],
-    [
       "dfe157ff-eae8-44d0-adc3-b7fe75c1e740",
       "48V to 3v3 div_0"
-    ],
-    [
-      "17fa42ce-3bca-4df7-8e9c-f893032f2f24",
-      "3v3_clamp11"
     ],
     [
       "e3d09b0d-badf-46a0-b7fb-f25da99c9c12",
       "48V to 3v3 div_5"
     ],
     [
-      "17fa42ce-3bca-4df7-8e9c-f893032f2f24",
-      "3v3_clamp11"
+      "9f4be3a6-fd4f-491e-be65-69cf4b3ed547",
+      "hb-card1"
+    ],
+    [
+      "b6f7c2c4-d7db-44b7-b030-eb8c4bb9e571",
+      "hb-card3"
+    ],
+    [
+      "841b52a4-3318-4fac-b55e-9de2ad4fe4ee",
+      "hb-card4"
+    ],
+    [
+      "862e8064-9f06-4505-bb2d-3efa3044593e",
+      "hb-card5"
+    ],
+    [
+      "b9c56faa-c91b-4a56-a1ba-01961aa6f4f8",
+      "hb-card2"
     ]
   ],
   "text_variables": {}
