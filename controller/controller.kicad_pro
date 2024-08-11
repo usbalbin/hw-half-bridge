@@ -616,6 +616,10 @@
       "48V to 3v3 div_1"
     ],
     [
+      "d740d1c6-5e66-443f-883c-6d6068be0c77",
+      "esp32c6"
+    ],
+    [
       "2f911ebd-6dc8-4496-8afb-4a9ec6bafab7",
       "48V to 3v3 div_4"
     ],
