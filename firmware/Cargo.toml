@@ -6,12 +6,13 @@ version = "0.1.0"
 
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
+cortex-m-rt = "0.7.3" ## <--- Probably not needed
 defmt = { version = "0.3", features = ["encoding-rzcobs"] }
 defmt-brtt = { version = "0.1", default-features = false, features = ["rtt"] }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
 rtic = { version = "2.0.0", features = [ "thumbv7-backend" ] }
 
-stm32g4xx-hal = { git = "https://github.com/usbalbin/stm32g4xx-hal", branch = "hrtim3", features = ["stm32g474"] }
+stm32g4xx-hal = { git = "https://github.com/usbalbin/stm32g4xx-hal", branch = "hrtim4", features = ["stm32g474"] }
 usb-device = "0.3.2"
 usbd-serial = "0.2.2"
 # TODO add a monotonic if you use scheduling
