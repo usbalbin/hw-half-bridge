@@ -43,12 +43,12 @@
         },
         "silk_line_width": 0.1,
         "silk_text_italic": false,
-        "silk_text_size_h": 1.0,
-        "silk_text_size_v": 1.0,
+        "silk_text_size_h": 0.5,
+        "silk_text_size_v": 0.5,
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.0
+          "min_clearance": 0.15
         }
       },
       "diff_pair_dimensions": [
@@ -601,7 +601,7 @@
   "sheets": [
     [
       "5b092a03-7e3e-4df1-ad91-2ac0e362f857",
-      "Root"
+      "Rotark"
     ],
     [
       "8b76543b-a49c-413b-a98c-7f3e228c6216",
