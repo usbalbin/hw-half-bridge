@@ -404,6 +404,14 @@ mod app {
             ntc_4,
             ntc_5_comp3_pin,
             adc12_in8_pot,
+
+            cc1a: op3_comp4_cc1a_pin,
+            cc1b: comp3_b_fb_d_cc1b_pin,
+            cc2: op4_comp6_cc2_pin,
+            cc3: op25_comp7_cc3_pin,
+            cc4: op1_comp1_b_cc4_pin_fb_a,
+            cc5: op12_comp2_fb_b_cc5_pin_b,
+
             //op12_comp2_fb_b_cc5_pin_b,
             fb_c,
             adc2_in17,
@@ -615,12 +623,12 @@ mod app {
     fn init_comparators(
         dacs: &Dacs,
         comp: stm32::COMP,
-        comp1_pin: &PA1<gpio::Analog>,
-        comp2_pin: &PA7<gpio::Analog>,
-        comp3_pin: &PC1<gpio::Analog>,
-        comp4_pin: &PB0<gpio::Analog>,
-        comp6_pin: &PB11<gpio::Analog>,
-        comp7_pin: &PB14<gpio::Analog>,
+        cc4_comp1_adc12_in2_pin: &PA1<gpio::Analog>,
+        cc5_comp2_adc2_in4_pin: &PA7<gpio::Analog>,
+        cc1b_comp3_adc12_in7_pin: &PC1<gpio::Analog>,
+        cc1a_comp4_adc1_in15__adc3_in12_pin: &PB0<gpio::Analog>,
+        cc2_comp6_adc12_in14_pin: &PB11<gpio::Analog>,
+        cc3_comp7_adc1_in5__adc4_in4_pin: &PB14<gpio::Analog>,
         eev_inputs: EevInputs,
         rcc: &mut Rcc,
         ctrl: &mut HrTimCalibrated,
@@ -655,7 +663,7 @@ mod app {
         // filt=eev6 // fast=eev4,
         let comp1_cc4 = init_comp!(
             comp1,
-            comp1_pin,
+            cc4_comp1_adc12_in2_pin, // ok
             dacs.dac3ch1,
             eev_inputs.eev_input6,
             rcc,
@@ -666,7 +674,7 @@ mod app {
         // fast=eev1 // filt=eev6
         let comp2_cc5 = init_comp!(
             comp2,
-            comp2_pin,
+            cc5_comp2_adc2_in4_pin, // ok
             dacs.dac3ch2,
             eev_inputs.eev_input1,
             rcc,
@@ -676,7 +684,7 @@ mod app {
         // fast=eev5, // filt=eev8
         let comp3_cc1b = init_comp!(
             comp3,
-            comp3_pin,
+            cc1b_comp3_adc12_in7_pin, // ok
             dacs.dac3ch1,
             eev_inputs.eev_input5,
             rcc,
@@ -686,7 +694,7 @@ mod app {
         // filt=eev7 // fast=eev2, filt=eev9
         let comp4_cc1a = init_comp!(
             comp4,
-            comp4_pin,
+            cc1a_comp4_adc1_in15__adc3_in12_pin, // ok, TODO: Is ADC3 good enough?
             dacs.dac3ch2,
             eev_inputs.eev_input7,
             rcc,
@@ -700,7 +708,7 @@ mod app {
         // filt=eev8, // fast=eev3,
         let comp6_cc2 = init_comp!(
             comp6,
-            comp6_pin,
+            cc2_comp6_adc12_in14_pin, // ok
             dacs.dac4ch2,
             eev_inputs.eev_input8,
             rcc,
@@ -711,7 +719,7 @@ mod app {
         // filt=eev10, //fast=eev5
         let comp7_cc3 = init_comp!(
             comp7,
-            comp7_pin,
+            cc3_comp7_adc1_in5__adc4_in4_pin, // ok
             dacs.dac4ch1,
             eev_inputs.eev_input10,
             rcc,
@@ -746,6 +754,13 @@ mod app {
         ntc_4: PF0<gpio::Analog>,           //ok
         ntc_5_comp3_pin: PA0<gpio::Analog>, // ok
         adc12_in8_pot: PC2<gpio::Analog>,
+
+        cc1a: PB0<gpio::Analog>,
+        cc1b: PC1<gpio::Analog>,
+        cc2: PB11<gpio::Analog>,
+        cc3: PB14<gpio::Analog>,
+        cc4: PA1<gpio::Analog>,
+        cc5: PA7<gpio::Analog>,
 
         //op12_comp2_fb_b_cc5_pin_b: PA7<gpio::Analog>,
         fb_c: PA6<gpio::Analog>,
@@ -786,7 +801,13 @@ mod app {
         adcs.adc2.convert(&ad_channels.adc2_in10, sample_time);
         adcs.adc2.convert(&ad_channels.adc2_in11, sample_time);
         adcs.adc2.convert(&ad_channels.adc2_in12, sample_time);
-        let todo current adc measurements
+        
+        adcs.adc2.convert(&ad_channels.cc1a, sample_time);
+        adcs.adc2.convert(&ad_channels.cc1b, sample_time);
+        adcs.adc2.convert(&ad_channels.cc2, sample_time);
+        adcs.adc2.convert(&ad_channels.cc3, sample_time);
+        adcs.adc2.convert(&ad_channels.cc4, sample_time);
+        adcs.adc2.convert(&ad_channels.cc5, sample_time);
 
         adcs.adc3.convert(&ad_channels.op3, sample_time);
 
