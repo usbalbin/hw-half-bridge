@@ -12562,16 +12562,6 @@
 		)
 		(uuid "3b180168-9fc9-43c1-9e9a-07f194d7df8a")
 	)
-	(text "TODO: Ad measurements of cc1a and cc3"
-		(exclude_from_sim no)
-		(at 147.32 112.522 0)
-		(effects
-			(font
-				(size 12.7 12.7)
-			)
-		)
-		(uuid "892626b9-d816-4acd-8d69-4b73e88a1e6b")
-	)
 	(text "USB PD Extension board"
 		(exclude_from_sim no)
 		(at 70.612 305.054 0)
@@ -14944,7 +14934,7 @@
 			)
 		)
 	)
-	(global_label "OP23_VINP"
+	(global_label "OP3_VINP"
 		(shape input)
 		(at 186.69 92.71 0)
 		(fields_autoplaced yes)
@@ -14956,7 +14946,7 @@
 		)
 		(uuid "859d45e2-3bb0-4efe-88ea-0b4f2fc684f4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 199.9562 92.71 0)
+			(at 198.7467 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
