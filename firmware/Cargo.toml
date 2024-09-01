@@ -4,6 +4,14 @@ name = "half-bridge"
 edition = "2021"
 version = "0.1.0"
 
+[features]
+default = ["hv4", "hv5"]
+fb_a-op = [] # Op on fb_a, else R32
+cs-op = [] # Op's as follower on all current sense signals
+usb-pd-db = []
+hv4 = []
+hv5 = []
+
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
 cortex-m-rt = "0.7.3" ## <--- Probably not needed
