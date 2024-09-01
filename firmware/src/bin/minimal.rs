@@ -294,14 +294,18 @@ mod app {
         let pwm_led1 = pb5.into_alternate(); // 5v tol
         let pwm_led2 = pb7.into_alternate(); // 5v tol
         let pwm_led3 = pb9.into_alternate(); // 5v tol
+
         let pwm_led4 = pb10.into_alternate(); // 3.6v max
         //let pwm_led5 = pa3.into_alternate(); // 3.6v max
         let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate();  // 3.6v max
         let pwm_led7_adc2_in11 = pc5.into_analog(); // TIM1_CH4N  // 3.6v max
+        let pwm_led8_adc2_in12 = pb2.into_alternate(); // 3.6v max
 
         let (led2_tim4, led3_tim4) = dp.TIM4.pwm((pwm_led2, pwm_led3), 20.kHz(), &mut rcc);
         let (led3_tim3, led6_tim3) = dp.TIM3.pwm((pwm_led1, pwm_led6_pot3_adc1_in12_adc3_in1), 20.kHz(), &mut rcc);
         let (led4_tim2/*, led5_tim2*/) = dp.TIM2.pwm((pwm_led4/*, pwm_led5*/), 20.kHz(), &mut rcc);
+        let led8_tim5 = dp.TIM5.pwm(pwm_led8_adc2_in12, 20.kHz(), &mut rcc);
+        
 
         let tx = pb3.into_alternate();
         let rx = pa15.into_alternate();
@@ -345,12 +349,11 @@ mod app {
         let comp3_b_fb_d_cc1b_pin = pc1.into_analog();
 
         let adc12_in8_pot = pc2.into_analog();
-        let adc1_in4_pot_pwm_led5 = pa3.into_analog();
+        let adc1_in4_pot2_pwm_led5 = pa3.into_analog();
         let fb1_lo_adc2_in17 = pa4.into_analog();
         let fb1_hi_adc2_in13 = pa5.into_analog();
         let fb_d_adc2_in5 = pc4.into_analog();
         let fb_b_adc2_in10 = pf1.into_analog();
-        let adc2_in12 = pb2.into_analog();
 
         let (mut ctrl, _f, eev_inputs) = dp
             .HRTIM_COMMON
@@ -413,7 +416,7 @@ mod app {
             ntc_3,
             ntc_4,
             ntc_5_comp3_pin,
-            adc1_in4_pot_pwm_led5,
+            adc1_in4_pot2_pwm_led5,
             adc12_in8_pot,
 
             cc1a: op3_comp4_cc1a_pin,
@@ -429,7 +432,7 @@ mod app {
             fb_d_adc2_in5,
             fb_b_adc2_in10,
             pwm_led7_adc2_in11,
-            adc2_in12,
+            pwm_led8_adc2_in12,
             op2,
             op3,
             op4,
@@ -763,8 +766,8 @@ mod app {
         ntc_3: PA2<gpio::Analog>,           //ok
         ntc_4: PF0<gpio::Analog>,           //ok
         ntc_5_comp3_pin: PA0<gpio::Analog>, //ok
-        adc1_in5_pot: PA3<gpio::Analog>,
         adc12_in8_pot: PC2<gpio::Analog>,
+        adc1_in4_pot2_pwm_led5: PA3<gpio::Analog>,
 
         cc1a: PB0<gpio::Analog>,
         cc1b: PC1<gpio::Analog>,
@@ -781,8 +784,8 @@ mod app {
 
         fb1_lo_adc2_in17: PA4<gpio::Analog>,
         
-        adc2_in11: PC5<gpio::Analog>,
-        adc2_in12: PB2<gpio::Analog>,
+        pwm_led7_adc2_in11: PC5<gpio::Analog>,
+        pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
 
         op2: opamp2::Follower<PA7<gpio::Analog>>, // ok
         op3: opamp3::Follower<PB0<gpio::Analog>>, // ok, is also CS1A
@@ -813,8 +816,8 @@ mod app {
         adcs.adc2.convert(&ad_channels.fb1_lo_adc2_in17, sample_time);
         adcs.adc2.convert(&ad_channels.fb_d_adc2_in5, sample_time);
         adcs.adc2.convert(&ad_channels.fb_b_adc2_in10, sample_time);
-        adcs.adc2.convert(&ad_channels.adc2_in11, sample_time);
-        adcs.adc2.convert(&ad_channels.adc2_in12, sample_time);
+        adcs.adc2.convert(&ad_channels.pwm_led7_adc2_in11, sample_time);
+        adcs.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
         
         adcs.adc2.convert(&ad_channels.cc1a, sample_time);
         adcs.adc2.convert(&ad_channels.cc1b, sample_time);
