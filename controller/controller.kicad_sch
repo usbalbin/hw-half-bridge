@@ -9462,16 +9462,6 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 170.18) (xy 186.69 170.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0e12b5ee-7f82-477f-8f15-8d7dddda324d")
-	)
-	(wire
-		(pts
 			(xy 427.99 72.39) (xy 454.66 72.39)
 		)
 		(stroke
@@ -9792,6 +9782,16 @@
 	)
 	(wire
 		(pts
+			(xy 177.8 172.72) (xy 171.45 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27e6beff-4747-4aa7-bb3a-6db1e2328a25")
+	)
+	(wire
+		(pts
 			(xy 167.64 97.79) (xy 179.07 97.79)
 		)
 		(stroke
@@ -9909,16 +9909,6 @@
 			(type default)
 		)
 		(uuid "30a02b36-758e-4ddf-afe2-dece91a3e34f")
-	)
-	(wire
-		(pts
-			(xy 55.88 407.67) (xy 63.5 407.67)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "31ec3a7c-1e0a-47fa-b8f6-7dadad71a940")
 	)
 	(wire
 		(pts
@@ -11372,6 +11362,16 @@
 	)
 	(wire
 		(pts
+			(xy 182.88 170.18) (xy 171.45 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a34f3b69-8e87-47a0-81ee-514cdef72730")
+	)
+	(wire
+		(pts
 			(xy 167.64 77.47) (xy 185.42 77.47)
 		)
 		(stroke
@@ -12062,7 +12062,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 167.64) (xy 193.04 167.64)
+			(xy 171.45 163.83) (xy 193.04 163.83)
 		)
 		(stroke
 			(width 0)
@@ -12362,6 +12362,16 @@
 	)
 	(wire
 		(pts
+			(xy 171.45 166.37) (xy 186.69 166.37)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e9edeca5-2683-47fb-acdc-92fd1def0912")
+	)
+	(wire
+		(pts
 			(xy 303.53 281.94) (xy 303.53 280.67)
 		)
 		(stroke
@@ -12459,6 +12469,16 @@
 			(type default)
 		)
 		(uuid "f19a2148-260f-4133-b9cf-80af8a15bb7e")
+	)
+	(wire
+		(pts
+			(xy 182.88 175.26) (xy 171.45 175.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1a7f139-38c0-4ae8-b7f9-efd81d3caed7")
 	)
 	(wire
 		(pts
@@ -12684,7 +12704,7 @@
 	)
 	(text "Kolla så esp kan output på LED-pinnar"
 		(exclude_from_sim no)
-		(at 136.398 168.91 0)
+		(at 141.478 188.976 0)
 		(effects
 			(font
 				(size 12.7 12.7)
@@ -12701,16 +12721,6 @@
 			)
 		)
 		(uuid "91775cc5-9ad3-40e9-9ea7-fde09c608e6d")
-	)
-	(text "V_{GS} >= 100V"
-		(exclude_from_sim no)
-		(at 72.644 406.4 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "ad5236a8-0b16-49d9-85c0-64eba1fc031b")
 	)
 	(text "page 37 layout i https://www.ti.com/lit/ds/symlink/lm5168.pdf?ts=1714923464346"
 		(exclude_from_sim no)
@@ -13128,7 +13138,7 @@
 		(uuid "2f82b6db-8468-461b-8688-65556ef31735")
 	)
 	(label "pwm_led5 pot2"
-		(at 430.53 185.42 270)
+		(at 450.85 185.42 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13148,6 +13158,17 @@
 			(justify left bottom)
 		)
 		(uuid "31016a82-567f-419f-b234-ee7a8bfdfe4f")
+	)
+	(label "pwm_led4"
+		(at 182.88 175.26 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "32a895f6-db27-44c8-9ea2-8cf6f3d8ea88")
 	)
 	(label "NTC_2"
 		(at 124.46 80.01 0)
@@ -13194,7 +13215,7 @@
 		(uuid "3969a40c-6cfd-4a61-bccf-a17af5b01185")
 	)
 	(label "pwm_led4"
-		(at 424.18 185.42 270)
+		(at 430.53 185.42 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13282,7 +13303,7 @@
 		(uuid "4202fe64-e6cc-4b46-b8a8-1347bd24ac0e")
 	)
 	(label "pwm_led7"
-		(at 444.5 185.42 270)
+		(at 438.15 185.42 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13304,7 +13325,7 @@
 		(uuid "47a0de25-6b97-493b-a174-3e19785a8b42")
 	)
 	(label "PC2"
-		(at 450.85 185.42 270)
+		(at 424.18 185.42 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13315,7 +13336,7 @@
 		(uuid "4b846551-f32d-4772-8922-5c16f462447a")
 	)
 	(label "STM32_NRST_TO_ESP"
-		(at 193.04 167.64 180)
+		(at 193.04 163.83 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -13324,6 +13345,17 @@
 			(justify right bottom)
 		)
 		(uuid "4be4d142-361f-4363-8e02-728cae76acff")
+	)
+	(label "pwm_led7"
+		(at 182.88 170.18 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4e230a96-4862-473d-b035-81eccea5dfdc")
 	)
 	(label "Current_sense_5"
 		(at 185.42 67.31 180)
@@ -14008,7 +14040,7 @@
 		(uuid "ba7f2722-7560-4fb8-9d2f-9a689762fb12")
 	)
 	(label "STM32_BOOT0"
-		(at 186.69 170.18 180)
+		(at 186.69 166.37 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -14370,6 +14402,17 @@
 		)
 		(uuid "ebdf059c-e3dd-46b0-a51c-f29b6cbe69e3")
 	)
+	(label "PC2"
+		(at 177.8 172.72 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "eda03b91-40b5-4291-a140-410d253773e5")
+	)
 	(label "STM32_SWC"
 		(at 181.61 85.09 180)
 		(fields_autoplaced yes)
@@ -14404,7 +14447,7 @@
 		(uuid "f3967cae-1dee-4b56-9105-39b47640b2cf")
 	)
 	(label "pwm_led6 pot3"
-		(at 438.15 185.42 270)
+		(at 444.5 185.42 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -20269,7 +20312,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Library:LED_Cree-PLCC4_1.5x1.5mm"
 			(at 412.75 166.37 0)
 			(effects
 				(font
@@ -22998,73 +23041,6 @@
 			(project "controller"
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "U4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:Earth")
-		(at 55.88 407.67 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "a14ac90a-1198-4358-af94-1023574b0a87")
-		(property "Reference" "#PWR0122"
-			(at 55.88 414.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "Earth"
-			(at 55.88 411.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 55.88 407.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 55.88 407.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 55.88 407.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "3bafb952-8893-4000-8eab-bf4c3a717236")
-		)
-		(instances
-			(project "controller"
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "#PWR0122")
 					(unit 1)
 				)
 			)
@@ -28290,6 +28266,7 @@
 	(sheet
 		(at 128.27 162.56)
 		(size 43.18 13.97)
+		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
 			(type solid)
@@ -28299,7 +28276,7 @@
 		)
 		(uuid "d740d1c6-5e66-443f-883c-6d6068be0c77")
 		(property "Sheetname" "esp32c6"
-			(at 145.034 168.656 0)
+			(at 128.27 161.8484 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28308,7 +28285,7 @@
 			)
 		)
 		(property "Sheetfile" "esp32c6.kicad_sch"
-			(at 136.906 173.482 0)
+			(at 128.27 177.1146 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28317,7 +28294,7 @@
 			)
 		)
 		(pin "GPIO21" bidirectional
-			(at 171.45 170.18 0)
+			(at 171.45 166.37 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28347,7 +28324,7 @@
 			(uuid "1e33b4c3-f48d-41c8-8e5e-0ad867274d7f")
 		)
 		(pin "GPIO20" bidirectional
-			(at 171.45 167.64 0)
+			(at 171.45 163.83 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28375,6 +28352,36 @@
 				(justify left)
 			)
 			(uuid "22e8c5ad-5024-4fe6-acb8-ec85fb8b9236")
+		)
+		(pin "B_BOOT" bidirectional
+			(at 171.45 175.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "c91a0237-54f6-43a7-8ec4-ffa407a43e4a")
+		)
+		(pin "G" input
+			(at 171.45 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "106de63c-dbb2-4a75-b291-3116b1ad15c4")
+		)
+		(pin "R" output
+			(at 171.45 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "9903fb5c-1af8-4c5f-92ce-9345c585f086")
 		)
 		(instances
 			(project "controller"
