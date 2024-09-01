@@ -16,7 +16,7 @@ mod app {
         delay::SYSTDelayExt,
         gpio::{
             self,
-            gpioa::{PA0, PA1, PA2, PA4, PA6, PA7},
+            gpioa::{PA0, PA1, PA2, PA3, PA4, PA6, PA7},
             gpiob::{PB0, PB11, PB14, PB2},
             gpioc::{PC0, PC1, PC2, PC3, PC4, PC5},
             gpiof::{PF0, PF1},
@@ -38,12 +38,12 @@ mod app {
             opamp4::{self, IntoFollower as _},
             OpampEx,
         },
-        pwm,
+        pwm::{self, PwmExt as _},
         pwr::{self, PwrExt},
         rcc::{self, Rcc, RccExt},
         serial::SerialExt,
         stm32::{self, UCPD1},
-        time::Hertz,
+        time::{Hertz, RateExtU32 as _},
     };
 
     macro_rules! try_down_cast {
@@ -241,7 +241,7 @@ mod app {
         // HI: HI_4, LI_4, HI_5 and LI_5 are connected to PA8,9,10 and PB15
         let cc_hi4_hi5_mux = pd2.into_push_pull_output();
 
-        //let pg10 = gpiog.pg10;
+        //let pg10 = gpiog.pg10;comp3_b_fb_d_cc1b_pin
         //let _reset_pin = pg10;
         let _boot_pin = pb8;
 
@@ -282,20 +282,26 @@ mod app {
 
         // HRTIMD
         //let hi_5 = pb14; // HRTIMD  <--- Used by comp7
-        let li_4 = pb15; // HRTIMD
+        //let li_4 = pb15; // HRTIMD
 
-        let hi_4 = pa10; // HRTIMB
+        //let hi_4 = pa10; // HRTIMB
                          //let li_b = pa11; // HRTIMB <--- Used by USB_DP
 
         // HRTIMA
         //let hi_5 = pa8;
         //let li_5 = pa9; // Used by dbcc1
 
-        let pwm_led1 = pb5.into_push_pull_output();
-        let pwm_led2 = pb9.into_push_pull_output();
+        let pwm_led1 = pb5.into_alternate(); // 5v tol
+        let pwm_led2 = pb7.into_alternate(); // 5v tol
+        let pwm_led3 = pb9.into_alternate(); // 5v tol
+        let pwm_led4 = pb10.into_alternate(); // 3.6v max
+        //let pwm_led5 = pa3.into_alternate(); // 3.6v max
+        let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate();  // 3.6v max
+        let pwm_led7_adc2_in11 = pc5.into_analog(); // TIM1_CH4N  // 3.6v max
 
-        let eev3_or_pwm_led3 = pb7;
-        let flt3_or_pwm_led4 = pb10;
+        let (led2_tim4, led3_tim4) = dp.TIM4.pwm((pwm_led2, pwm_led3), 20.kHz(), &mut rcc);
+        let (led3_tim3, led6_tim3) = dp.TIM3.pwm((pwm_led1, pwm_led6_pot3_adc1_in12_adc3_in1), 20.kHz(), &mut rcc);
+        let (led4_tim2/*, led5_tim2*/) = dp.TIM2.pwm((pwm_led4/*, pwm_led5*/), 20.kHz(), &mut rcc);
 
         let tx = pb3.into_alternate();
         let rx = pa15.into_alternate();
@@ -309,11 +315,11 @@ mod app {
             )
             .unwrap();
 
-        let comp1_cc4_pin = pb1.into_analog();
+        //let comp1_cc4_pin = pb1.into_analog();
         let op1_comp1_b_cc4_pin_fb_a = pa1.into_analog();
 
-        let comp2_cc5_pin = pa3.into_analog(); // No filter and same DAC as comp4
-        let op12_comp2_fb_b_cc5_pin_b = pa7.into_analog();
+        //let comp2_cc5_pin = pa3.into_analog(); // No filter and same DAC as comp4
+        let op12_comp2_cc5_pin_b = pa7.into_analog(); // CC5
         // comp3_b_fb_d on pc1
 
         let op3_comp4_cc1a_pin = pb0.into_analog();
@@ -339,10 +345,11 @@ mod app {
         let comp3_b_fb_d_cc1b_pin = pc1.into_analog();
 
         let adc12_in8_pot = pc2.into_analog();
-        let adc2_in17 = pa4.into_analog();
-        let adc2_in5 = pc4.into_analog();
-        let adc2_in10 = pf1.into_analog();
-        let adc2_in11 = pc5.into_analog();
+        let adc1_in4_pot_pwm_led5 = pa3.into_analog();
+        let fb1_lo_adc2_in17 = pa4.into_analog();
+        let fb1_hi_adc2_in13 = pa5.into_analog();
+        let fb_d_adc2_in5 = pc4.into_analog();
+        let fb_b_adc2_in10 = pf1.into_analog();
         let adc2_in12 = pb2.into_analog();
 
         let (mut ctrl, _f, eev_inputs) = dp
@@ -359,7 +366,7 @@ mod app {
             &dacs,
             dp.COMP,
             &op1_comp1_b_cc4_pin_fb_a,
-            &op12_comp2_fb_b_cc5_pin_b,
+            &op12_comp2_cc5_pin_b,
             &comp3_b_fb_d_cc1b_pin,
             &op3_comp4_cc1a_pin,
             &op4_comp6_cc2_pin,
@@ -370,6 +377,9 @@ mod app {
         );
 
         let mut hr_ctrl = ctrl.constrain();
+        
+        // Used to select cc-line for usb pd cable orientation
+        let cc_select = pc14;
 
         // Use to select direction of current measurements 2-5
         let cc_dir = pc15;
@@ -381,7 +391,7 @@ mod app {
             None::<gpio::gpioa::PA2<hal::gpio::Analog>>,
         ); // PA1 PA3(comp2) PA7
         let op2 = op2.follower(
-            op12_comp2_fb_b_cc5_pin_b,
+            op12_comp2_cc5_pin_b,
             None::<gpio::gpioa::PA6<hal::gpio::Analog>>,
         ); // PA7 PB0(comp4) PB14(comp7)
         let op3 = op3.follower(
@@ -403,6 +413,7 @@ mod app {
             ntc_3,
             ntc_4,
             ntc_5_comp3_pin,
+            adc1_in4_pot_pwm_led5,
             adc12_in8_pot,
 
             cc1a: op3_comp4_cc1a_pin,
@@ -410,14 +421,14 @@ mod app {
             cc2: op4_comp6_cc2_pin,
             cc3: op25_comp7_cc3_pin,
             cc4: op1_comp1_b_cc4_pin_fb_a,
-            cc5: op12_comp2_fb_b_cc5_pin_b,
+            cc5: op12_comp2_cc5_pin_b,
 
-            //op12_comp2_fb_b_cc5_pin_b,
+            //op12_comp2_cc5_pin_b,
             fb_c,
-            adc2_in17,
-            adc2_in5,
-            adc2_in10,
-            adc2_in11,
+            fb1_lo_adc2_in17,
+            fb_d_adc2_in5,
+            fb_b_adc2_in10,
+            pwm_led7_adc2_in11,
             adc2_in12,
             op2,
             op3,
@@ -469,12 +480,12 @@ mod app {
             dp.ADC1, dp.ADC2, dp.ADC3, dp.ADC4, dp.ADC5, &mut delay, &rcc,
         );
 
-        let (tim4b, cr1, cr2, _out1) =
+        /*let (tim4b, cr1, cr2, _out1) =
             init_hrtim!(dp.HRTIM_TIMB, (hi_4), eevs.cc4, dt, mcmp3, rcc, hr_ctrl);
         let (tim4d, cr1, cr2, _out2) =
             init_hrtim!(dp.HRTIM_TIMD, (li_4), eevs.cc4, dt, mcmp3, rcc, hr_ctrl);
 
-        /*let (tim5a, cr1, cr2, _out1 /*_out2*/) = init_hrtim!(
+        let (tim5a, cr1, cr2, _out1 /*_out2*/) = init_hrtim!(
             dp.HRTIM_TIMA,
             (hi_5/*, li_5*/),
             eevs.cc4,
@@ -746,13 +757,13 @@ mod app {
     }
 
     struct AdcChannels {
-        op1_fb_a: opamp1::Follower<PA1<gpio::Analog>>,
         //op1_comp1_b_cc4_pin_fb_a: PA1<gpio::Analog>,
         ntc_1: PC0<gpio::Analog>,           //ok
         ntc_2_op5: PC3<gpio::Analog>,       //ok
         ntc_3: PA2<gpio::Analog>,           //ok
         ntc_4: PF0<gpio::Analog>,           //ok
-        ntc_5_comp3_pin: PA0<gpio::Analog>, // ok
+        ntc_5_comp3_pin: PA0<gpio::Analog>, //ok
+        adc1_in5_pot: PA3<gpio::Analog>,
         adc12_in8_pot: PC2<gpio::Analog>,
 
         cc1a: PB0<gpio::Analog>,
@@ -762,11 +773,14 @@ mod app {
         cc4: PA1<gpio::Analog>,
         cc5: PA7<gpio::Analog>,
 
-        //op12_comp2_fb_b_cc5_pin_b: PA7<gpio::Analog>,
+        //op12_comp2_cc5_pin_b: PA7<gpio::Analog>,
+        op1_fb_a: opamp1::Follower<PA1<gpio::Analog>>,
+        fb_b_adc2_in10: PF1<gpio::Analog>,
         fb_c: PA6<gpio::Analog>,
-        adc2_in17: PA4<gpio::Analog>,
-        adc2_in5: PC4<gpio::Analog>,
-        adc2_in10: PF1<gpio::Analog>,
+        fb_d_adc2_in5: PC4<gpio::Analog>,
+
+        fb1_lo_adc2_in17: PA4<gpio::Analog>,
+        
         adc2_in11: PC5<gpio::Analog>,
         adc2_in12: PB2<gpio::Analog>,
 
@@ -796,9 +810,9 @@ mod app {
         adcs.adc2.convert(&ad_channels.ntc_5_comp3_pin, sample_time);
         adcs.adc2.convert(&ad_channels.fb_c, sample_time);
         adcs.adc2.convert(&ad_channels.adc12_in8_pot, sample_time);
-        adcs.adc2.convert(&ad_channels.adc2_in17, sample_time);
-        adcs.adc2.convert(&ad_channels.adc2_in5, sample_time);
-        adcs.adc2.convert(&ad_channels.adc2_in10, sample_time);
+        adcs.adc2.convert(&ad_channels.fb1_lo_adc2_in17, sample_time);
+        adcs.adc2.convert(&ad_channels.fb_d_adc2_in5, sample_time);
+        adcs.adc2.convert(&ad_channels.fb_b_adc2_in10, sample_time);
         adcs.adc2.convert(&ad_channels.adc2_in11, sample_time);
         adcs.adc2.convert(&ad_channels.adc2_in12, sample_time);
         
