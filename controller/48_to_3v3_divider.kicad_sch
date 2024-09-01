@@ -673,7 +673,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "10nF"
 			(at 35.052 38.354 0)
 			(effects
 				(font
