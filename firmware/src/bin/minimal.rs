@@ -16,7 +16,7 @@ mod app {
         delay::SYSTDelayExt,
         gpio::{
             self,
-            gpioa::{PA0, PA1, PA2, PA3, PA4, PA6, PA7},
+            gpioa::{PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7},
             gpiob::{PB0, PB11, PB14, PB2},
             gpioc::{PC0, PC1, PC2, PC3, PC4, PC5},
             gpiof::{PF0, PF1},
@@ -408,7 +408,7 @@ mod app {
         );
         let op5 = op5.follower(
             op25_comp7_cc3_pin,
-            None::<gpio::gpiob::PA8<hal::gpio::Analog>>,
+            None::<gpio::gpioa::PA8<hal::gpio::Analog>>,
         );
          // PB11(comp6)
            //let op5 = op5.follower(ntc_2_op5, None::<gpio::gpioa::PA8<hal::gpio::Analog>>); // PB14(comp7) PC3
@@ -435,6 +435,7 @@ mod app {
             //op12_comp2_cc5_pin_b,
             fb_c,
             fb1_lo_adc2_in17,
+            fb1_hi_adc2_in13,
             fb_d_adc2_in5,
             fb_b_adc2_in10,
             pwm_led7_adc2_in11,
@@ -790,6 +791,7 @@ mod app {
         fb_d_adc2_in5: PC4<gpio::Analog>,
 
         fb1_lo_adc2_in17: PA4<gpio::Analog>,
+        fb1_hi_adc2_in13: PA5<gpio::Analog>,
         
         pwm_led7_adc2_in11: PC5<gpio::Analog>,
         //pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
@@ -822,20 +824,19 @@ mod app {
         adcs.adc2.convert(&ad_channels.fb_c, sample_time);
         adcs.adc2.convert(&ad_channels.adc12_in8_pot, sample_time);
         adcs.adc2.convert(&ad_channels.fb1_lo_adc2_in17, sample_time);
+        adcs.adc2.convert(&ad_channels.fb1_hi_adc2_in13, sample_time);
         adcs.adc2.convert(&ad_channels.fb_d_adc2_in5, sample_time);
         adcs.adc2.convert(&ad_channels.fb_b_adc2_in10, sample_time);
         adcs.adc2.convert(&ad_channels.pwm_led7_adc2_in11, sample_time);
         
         adcs.adc2.convert(&ad_channels.op2, sample_time);
         adcs.adc2.convert(&ad_channels.op3, sample_time);
-        adcs.adc2.convert(&ad_channels.op4, sample_time);
-        adcs.adc2.convert(&ad_channels.op5, sample_time);
         //adcs.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
         
-        adcs.adc2.convert(&ad_channels.cc1a, sample_time);
+        //adcs.adc2.convert(&ad_channels.cc1a, sample_time); // Use OP2 or OP3 instead
         adcs.adc2.convert(&ad_channels.cc1b, sample_time);
         adcs.adc2.convert(&ad_channels.cc2, sample_time);
-        adcs.adc2.convert(&ad_channels.cc3, sample_time);
+        //adcs.adc2.convert(&ad_channels.cc3, sample_time); // Use OP2 or OP5 insead
         adcs.adc2.convert(&ad_channels.cc4, sample_time);
         adcs.adc2.convert(&ad_channels.cc5, sample_time);
 
