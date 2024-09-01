@@ -14944,7 +14944,7 @@
 			)
 		)
 	)
-	(global_label "OP3_VINP"
+	(global_label "OP23_VINP"
 		(shape input)
 		(at 186.69 92.71 0)
 		(fields_autoplaced yes)
@@ -14956,7 +14956,7 @@
 		)
 		(uuid "859d45e2-3bb0-4efe-88ea-0b4f2fc684f4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 198.7467 92.71 0)
+			(at 199.9562 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
