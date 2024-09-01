@@ -36,6 +36,7 @@ mod app {
             opamp2::{self, IntoFollower as _},
             opamp3::{self, IntoFollower as _},
             opamp4::{self, IntoFollower as _},
+            opamp5::{self, IntoFollower as _},
             OpampEx,
         },
         pwm::{self, PwmExt as _},
@@ -404,7 +405,12 @@ mod app {
         let op4 = op4.follower(
             op4_comp6_cc2_pin,
             None::<gpio::gpiob::PB12<hal::gpio::Analog>>,
-        ); // PB11(comp6)
+        );
+        let op5 = op5.follower(
+            op25_comp7_cc3_pin,
+            None::<gpio::gpiob::PA8<hal::gpio::Analog>>,
+        );
+         // PB11(comp6)
            //let op5 = op5.follower(ntc_2_op5, None::<gpio::gpioa::PA8<hal::gpio::Analog>>); // PB14(comp7) PC3
            // let op6 = op6.follower((), None);
 
@@ -432,10 +438,11 @@ mod app {
             fb_d_adc2_in5,
             fb_b_adc2_in10,
             pwm_led7_adc2_in11,
-            pwm_led8_adc2_in12,
+            //pwm_led8_adc2_in12,
             op2,
             op3,
             op4,
+            op5,
         };
 
         let (master, (mcmp1, mcmp2, mcmp3, mcmp4), _dma) = dp
@@ -785,11 +792,12 @@ mod app {
         fb1_lo_adc2_in17: PA4<gpio::Analog>,
         
         pwm_led7_adc2_in11: PC5<gpio::Analog>,
-        pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
+        //pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
 
-        op2: opamp2::Follower<PA7<gpio::Analog>>, // ok
+        op2: opamp2::Follower<PA7<gpio::Analog>>, // ok, is also CS1A, CS3 and CS5
         op3: opamp3::Follower<PB0<gpio::Analog>>, // ok, is also CS1A
         op4: opamp4::Follower<PB11<gpio::Analog>>,
+        op5: opamp5::Follower<PB14<gpio::Analog>>, // CS3
     }
 
     fn read_adcs(adcs: &mut Adcs, ad_channels: &AdcChannels) {
@@ -817,7 +825,12 @@ mod app {
         adcs.adc2.convert(&ad_channels.fb_d_adc2_in5, sample_time);
         adcs.adc2.convert(&ad_channels.fb_b_adc2_in10, sample_time);
         adcs.adc2.convert(&ad_channels.pwm_led7_adc2_in11, sample_time);
-        adcs.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
+        
+        adcs.adc2.convert(&ad_channels.op2, sample_time);
+        adcs.adc2.convert(&ad_channels.op3, sample_time);
+        adcs.adc2.convert(&ad_channels.op4, sample_time);
+        adcs.adc2.convert(&ad_channels.op5, sample_time);
+        //adcs.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
         
         adcs.adc2.convert(&ad_channels.cc1a, sample_time);
         adcs.adc2.convert(&ad_channels.cc1b, sample_time);
@@ -829,6 +842,7 @@ mod app {
         adcs.adc3.convert(&ad_channels.op3, sample_time);
 
         adcs.adc5.convert(&ad_channels.op4, sample_time);
+        adcs.adc5.convert(&ad_channels.op5, sample_time);
         //adc5.convert(&op5, sample_time);
     }
 }
