@@ -19798,22 +19798,22 @@
 			)
 		)
 		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c049")
+			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04b")
 		)
 		(pin "4"
 			(uuid "83ba262d-474c-43ff-bd18-8abc8b81aa26")
 		)
 		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e2e")
+			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e30")
 		)
 		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af84948")
+			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494a")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293296")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee293297")
 		)
 		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918030")
+			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918032")
 		)
 		(instances
 			(project "controller"
@@ -20452,7 +20452,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 332.74 30.48 0)
 			(effects
 				(font
@@ -21330,22 +21330,22 @@
 			)
 		)
 		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04a")
+			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04c")
 		)
 		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff0")
+			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff1")
 		)
 		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e2f")
+			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e31")
 		)
 		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af84949")
+			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494b")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293297")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee293298")
 		)
 		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918031")
+			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918033")
 		)
 		(instances
 			(project ""
@@ -21413,22 +21413,22 @@
 			)
 		)
 		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04b")
+			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04d")
 		)
 		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff1")
+			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff2")
 		)
 		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e30")
+			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e32")
 		)
 		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494a")
+			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494c")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293298")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee293299")
 		)
 		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918032")
+			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918034")
 		)
 		(instances
 			(project ""
@@ -24953,7 +24953,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_1005Metric"
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
 			(at 332.74 26.67 0)
 			(effects
 				(font
@@ -26896,22 +26896,22 @@
 			)
 		)
 		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04c")
+			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04e")
 		)
 		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff2")
+			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff3")
 		)
 		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e31")
+			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e33")
 		)
 		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494b")
+			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494d")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293299")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee29329a")
 		)
 		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918033")
+			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918035")
 		)
 		(instances
 			(project ""
@@ -27092,22 +27092,22 @@
 			)
 		)
 		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04c")
+			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04f")
 		)
 		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff2")
+			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff4")
 		)
 		(pin "6"
 			(uuid "e97fc8cd-50f6-4897-b277-49f6950a318b")
 		)
 		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494b")
+			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494e")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293299")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee29329b")
 		)
 		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918033")
+			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918036")
 		)
 		(instances
 			(project "controller"
@@ -27823,19 +27823,19 @@
 			)
 		)
 		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04b")
+			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c050")
 		)
 		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff1")
+			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff5")
 		)
 		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e30")
+			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e34")
 		)
 		(pin "2"
 			(uuid "a313df5f-24e3-4472-bf47-5867961c262e")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293298")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee29329c")
 		)
 		(pin "5"
 			(uuid "c762d5f5-564f-4f28-ae0c-77a93da051b8")
@@ -28291,6 +28291,98 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_02x05_Odd_Even")
+		(at 104.14 320.04 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f95ad33d-964c-492a-9470-34d55d15e6ac")
+		(property "Reference" "J13"
+			(at 102.616 320.04 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GRPB072VWQS-RC"
+			(at 102.616 319.786 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD"
+			(at 104.14 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 104.14 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 104.14 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "f1f7d159-d99c-496a-9ba9-aedc6ec49854")
+		)
+		(pin "2"
+			(uuid "e37c6f46-041e-4bf4-9c62-f2d7a1aaaea2")
+		)
+		(pin "1"
+			(uuid "490da431-5ae9-4bb1-9382-f41de7ef80be")
+		)
+		(pin "6"
+			(uuid "34fa6e72-45c6-4e1f-9e73-e1130336b1ee")
+		)
+		(pin "4"
+			(uuid "fe29da34-e733-4745-b181-3437bb038809")
+		)
+		(pin "5"
+			(uuid "ea0cadec-d45f-4637-b677-ebce59eeceaf")
+		)
+		(pin "8"
+			(uuid "2e921cf3-0aec-4a22-9d1c-96eada8977c2")
+		)
+		(pin "9"
+			(uuid "37015edd-2d4e-4069-827b-949b9b2b226d")
+		)
+		(pin "7"
+			(uuid "63b99d82-7fc3-47d3-999e-536b1e3964e0")
+		)
+		(pin "10"
+			(uuid "c366a1c2-8985-4c64-be94-dcf4c9252fc2")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "J13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Library:QSBT40-7-F")
 		(at 450.85 19.05 0)
 		(unit 3)
@@ -28350,19 +28442,19 @@
 			(uuid "c4f84028-b25d-4380-87f3-d501ecdf866e")
 		)
 		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75afee")
+			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff6")
 		)
 		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e2d")
+			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e35")
 		)
 		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af84947")
+			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494f")
 		)
 		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293295")
+			(uuid "ba26f988-518c-4831-a980-e4c5ee29329d")
 		)
 		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a91802f")
+			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918037")
 		)
 		(instances
 			(project "controller"
