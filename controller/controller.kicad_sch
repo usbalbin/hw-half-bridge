@@ -10827,6 +10827,16 @@
 	)
 	(wire
 		(pts
+			(xy 114.3 320.04) (xy 125.73 320.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6e2dd0dc-8a21-40ea-b9b0-33215f29b0d3")
+	)
+	(wire
+		(pts
 			(xy 318.77 275.59) (xy 320.04 275.59)
 		)
 		(stroke
@@ -11294,6 +11304,16 @@
 			(type default)
 		)
 		(uuid "8e1ac5b6-508b-41b1-ae88-5f1f8741311f")
+	)
+	(wire
+		(pts
+			(xy 90.17 320.04) (xy 101.6 320.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8eb4743e-a31e-4778-8b06-ceb804380ee1")
 	)
 	(wire
 		(pts
@@ -15089,6 +15109,28 @@
 			)
 		)
 	)
+	(global_label "VBUS_B"
+		(shape input)
+		(at 114.3 322.58 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "29382637-08d8-4c9a-82af-53a4356cd08b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 124.4214 322.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "HI_4"
 		(shape input)
 		(at 191.77 69.85 0)
@@ -15199,6 +15241,28 @@
 			)
 		)
 	)
+	(global_label "VBUS_B"
+		(shape input)
+		(at 101.6 322.58 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "444be4a8-8350-4286-b2e5-eb0edf2fe2ee")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.4786 322.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "COMP2_INP"
 		(shape input)
 		(at 213.36 67.31 0)
@@ -15300,6 +15364,28 @@
 		(uuid "5f37a0b1-40e8-477c-916b-f92549508bba")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 202.0727 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS_B"
+		(shape input)
+		(at 114.3 325.12 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "664a74b1-07b3-48ec-87aa-ce12d2e98a30")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 124.4214 325.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15507,6 +15593,28 @@
 			)
 		)
 	)
+	(global_label "VBUS_A"
+		(shape input)
+		(at 101.6 314.96 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9aeca4ca-6a19-474e-93f8-09b569dba6b2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.66 314.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "USB_D-"
 		(shape input)
 		(at 90.17 356.87 0)
@@ -15573,6 +15681,28 @@
 			)
 		)
 	)
+	(global_label "VBUS_A"
+		(shape input)
+		(at 114.3 314.96 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a179a048-fbb9-45c4-97d5-6211c392b157")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 124.24 314.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "6-18V"
 		(shape input)
 		(at 347.98 287.02 180)
@@ -15586,6 +15716,28 @@
 		(uuid "a265d020-8a99-4f6f-9d70-3be61e7e6b6a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 338.7053 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS_A"
+		(shape input)
+		(at 101.6 317.5 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b1c22be9-2781-46ea-80bd-6893b3d0fa1e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.66 317.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -15705,6 +15857,28 @@
 			)
 		)
 	)
+	(global_label "VBUS_A"
+		(shape input)
+		(at 114.3 317.5 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "d388b6cc-fb6e-4588-8b81-bd5653b59d22")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 124.24 317.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "UART34_RX"
 		(shape input)
 		(at 90.17 275.59 0)
@@ -15723,6 +15897,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "VBUS_B"
+		(shape input)
+		(at 101.6 325.12 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e3cae083-b885-40ee-98a9-9139ad471c29")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 91.4786 325.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
@@ -16414,6 +16610,73 @@
 			(project "controller"
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "#PWR064")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 90.17 320.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "09967fb5-d39c-478d-a033-b4d4e9cdd871")
+		(property "Reference" "#PWR098"
+			(at 90.17 326.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 90.17 323.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.17 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 90.17 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 90.17 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "479dc330-bcaf-4183-9602-548fe65f7972")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "#PWR098")
 					(unit 1)
 				)
 			)
@@ -22708,6 +22971,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:Earth")
+		(at 125.73 320.04 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "877e3076-198b-4fb9-902a-c490928ac3e4")
+		(property "Reference" "#PWR0146"
+			(at 125.73 326.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 125.73 323.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 125.73 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 125.73 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4f8a02a3-5163-467b-8b27-252145b536e0")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "#PWR0146")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Device:R_Small")
 		(at 33.02 60.96 0)
 		(mirror y)
@@ -28292,7 +28622,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_02x05_Odd_Even")
-		(at 104.14 320.04 180)
+		(at 109.22 320.04 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -28300,7 +28630,7 @@
 		(dnp no)
 		(uuid "f95ad33d-964c-492a-9470-34d55d15e6ac")
 		(property "Reference" "J13"
-			(at 102.616 320.04 90)
+			(at 107.696 320.04 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28308,7 +28638,7 @@
 			)
 		)
 		(property "Value" "GRPB072VWQS-RC"
-			(at 102.616 319.786 90)
+			(at 107.696 319.786 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28317,7 +28647,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD"
-			(at 104.14 320.04 0)
+			(at 109.22 320.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28326,7 +28656,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 104.14 320.04 0)
+			(at 109.22 320.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28335,7 +28665,7 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 104.14 320.04 0)
+			(at 109.22 320.04 0)
 			(effects
 				(font
 					(size 1.27 1.27)
