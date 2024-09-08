@@ -552,7 +552,7 @@
       "specctra_dsn": "",
       "step": "half-bridge.step",
       "svg": "",
-      "vrml": ""
+      "vrml": "half-bridge.wrl"
     },
     "page_layout_descr_file": ""
   },
