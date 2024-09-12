@@ -463,7 +463,7 @@
     "classes": [
       {
         "bus_width": 12,
-        "clearance": 0.2,
+        "clearance": 0.15,
         "diff_pair_gap": 0.25,
         "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2,
@@ -477,13 +477,63 @@
         "via_diameter": 0.5,
         "via_drill": 0.3,
         "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.6,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "MAX_100V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgb(0, 0, 0)",
+        "track_width": 0.2,
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "wire_width": 6
+      },
+      {
+        "bus_width": 12,
+        "clearance": 0.6,
+        "diff_pair_gap": 0.25,
+        "diff_pair_via_gap": 0.25,
+        "diff_pair_width": 0.2,
+        "line_style": 0,
+        "microvia_diameter": 0.3,
+        "microvia_drill": 0.1,
+        "name": "MAX_48V",
+        "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "schematic_color": "rgb(123, 123, 123)",
+        "track_width": 0.2,
+        "via_diameter": 0.5,
+        "via_drill": 0.3,
+        "wire_width": 6
       }
     ],
     "meta": {
       "version": 3
     },
     "net_colors": null,
-    "netclass_assignments": null,
+    "netclass_assignments": {
+      "/VBUS1": "MAX_48V",
+      "/VBUS2": "MAX_48V",
+      "/hb-card1/FB_x_FULL_HI": "MAX_100V",
+      "/hb-card1/FB_x_FULL_LO": "MAX_100V",
+      "/hb-card2/FB_x_FULL_HI": "MAX_100V",
+      "/hb-card2/FB_x_FULL_LO": "MAX_100V",
+      "/hb-card3/FB_x_FULL_HI": "MAX_100V",
+      "/hb-card3/FB_x_FULL_LO": "MAX_100V",
+      "/hb-card4/FB_x_FULL_HI": "MAX_100V",
+      "/hb-card4/FB_x_FULL_LO": "MAX_100V",
+      "/hb-card5/FB_x_FULL_HI": "MAX_100V",
+      "/hb-card5/FB_x_FULL_LO": "MAX_100V",
+      "Logic DC{slash}DC in": "MAX_100V",
+      "VBUS_A": "MAX_48V",
+      "VBUS_B": "MAX_48V"
+    },
     "netclass_patterns": []
   },
   "pcbnew": {
