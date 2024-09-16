@@ -535,10 +535,6 @@
       {
         "netclass": "HV",
         "pattern": "/current_sense*_in-"
-      },
-      {
-        "netclass": "HV",
-        "pattern": "/I_Shunt_"
       }
     ]
   },
@@ -732,7 +728,7 @@
   "sheets": [
     [
       "561c49c4-2e8b-46fe-9ff5-6f6657079a69",
-      "Rotark"
+      "Root"
     ]
   ],
   "text_variables": {}
