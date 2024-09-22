@@ -14345,7 +14345,7 @@
 		)
 		(uuid "a8051022-37b8-449d-ab1a-97cf666b12b6")
 	)
-	(label "Current_sense_1A"
+	(label "Current_sense_1"
 		(at 30.48 71.12 0)
 		(fields_autoplaced yes)
 		(effects
@@ -20261,7 +20261,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7uF"
+		(property "Value" "10uF"
 			(at 373.38 290.8362 0)
 			(effects
 				(font
@@ -24639,7 +24639,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7uF"
+		(property "Value" "10uF"
 			(at 373.38 271.7862 0)
 			(effects
 				(font
