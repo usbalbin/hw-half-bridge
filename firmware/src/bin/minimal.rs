@@ -344,7 +344,7 @@ mod app {
         let op12_comp2_cc5_pin_b = pa7.into_analog(); // CC5
         // comp3_b_fb_d on pc1
 
-        let op3_comp4_cc1a_pin = pb0.into_analog();
+        let op3_comp4_cc1_pin = pb0.into_analog();
         // let comp4_pin_b = pe7; only on LQFP80 and larger
 
         //let comp5_pin = pc7.into_analog(); // Used by HRTIMF_CH2
@@ -364,7 +364,7 @@ mod app {
         //let op1_comp1_b_pin_fb_a = pa1.into_analog();
         // comp4_op3_pin
         let fb_c = pa6.into_analog();
-        let comp3_b_cc1b_pin = pc1.into_analog();
+        //let comp3_b_cc1b_pin = pc1.into_analog();
 
         let adc12_in8_pot = pc2.into_analog();
         let adc1_in4_pot2_pwm_led5 = pa3.into_analog();
@@ -386,8 +386,8 @@ mod app {
         let eevs = init_comparators(
             &dacs,
             dp.COMP,
-            &op3_comp4_cc1a_pin,
-            &comp3_b_cc1b_pin,
+            &op3_comp4_cc1_pin,
+            //&comp3_b_cc1b_pin,
             &op4_comp6_cc2_pin,
             &op25_comp7_cc3_pin,
             &op1_comp1_b_cc4_pin,
@@ -402,23 +402,23 @@ mod app {
         let (op1, op2, op3, op4, op5, _op6) = dp.OPAMP.split(&mut rcc);
 
         let op1 = op1.follower(
-            op1_comp1_b_cc4_pin,
+            &op1_comp1_b_cc4_pin,
             None::<gpio::gpioa::PA2<hal::gpio::Analog>>,
         ); // PA1 PA3(comp2) PA7
         let op2 = op2.follower(
-            op12_comp2_cc5_pin_b,
+            &op12_comp2_cc5_pin_b,
             None::<gpio::gpioa::PA6<hal::gpio::Analog>>,
         ); // PA7 PB0(comp4) PB14(comp7)
         let op3 = op3.follower(
-            op3_comp4_cc1a_pin,
+            &op3_comp4_cc1_pin,
             None::<gpio::gpiob::PB1<hal::gpio::Analog>>,
         ); // PA1 PB0(comp4)
         let op4 = op4.follower(
-            op4_comp6_cc2_pin,
+            &op4_comp6_cc2_pin,
             None::<gpio::gpiob::PB12<hal::gpio::Analog>>,
         );
         let op5 = op5.follower(
-            op25_comp7_cc3_pin,
+            &op25_comp7_cc3_pin,
             None::<gpio::gpioa::PA8<hal::gpio::Analog>>,
         );
          // PB11(comp6)
@@ -436,9 +436,9 @@ mod app {
             adc12_in8_pot,
 
             #[cfg(not(feature = "cs-op"))]
-            cc1a: op3_comp4_cc1a_pin,
-            #[cfg(not(feature = "cs-op"))]
-            cc1b: comp3_b_cc1b_pin,
+            cc1: op3_comp4_cc1_pin,
+            //#[cfg(not(feature = "cs-op"))]
+            //cc1b: comp3_b_cc1b_pin,
             #[cfg(not(feature = "cs-op"))]
             cc2: op4_comp6_cc2_pin,
             #[cfg(not(feature = "cs-op"))]
@@ -449,9 +449,9 @@ mod app {
             cc5: op12_comp2_cc5_pin_b,
 
             #[cfg(feature = "cs-op")]
-            cc1a: op3,
-            #[cfg(feature = "cs-op")]
-            cc1b: comp3_b_cc1b_pin,
+            cc1: op3,
+            //#[cfg(feature = "cs-op")]
+            //cc1b: comp3_b_cc1b_pin,
             #[cfg(feature = "cs-op")]
             cc2: op4,
             #[cfg(feature = "cs-op")]
@@ -488,7 +488,7 @@ mod app {
         let (tim1, cr1, cr2, _out1, _out2) = init_hrtim!(
             dp.HRTIM_TIMF,
             (hi1, li1),
-            eevs.cc1a,
+            eevs.cc1,
             dt,
             master,
             rcc,
@@ -648,16 +648,16 @@ mod app {
         };
 
         Dacs {
-            cc1a_cc5: dac3ch2,
-            cc1b_cc4: dac3ch1,
+            cc1_cc5: dac3ch2,
+            cc4: dac3ch1,
             cc2: dac4ch2,
             cc3: dac4ch1,
         }
     }
 
     struct Eevs {
-        cc1a: ExternalEventSource<7, false>,
-        cc1b: ExternalEventSource<5, false>,
+        cc1: ExternalEventSource<7, false>,
+        //cc1b: ExternalEventSource<5, false>,
         cc2: ExternalEventSource<8, false>,
 
         cc3: ExternalEventSource<10, false>,
@@ -666,8 +666,8 @@ mod app {
     }
 
     struct Dacs {
-        cc1b_cc4: Dac3Ch1<0b11, dac::WaveGenerator>,
-        cc1a_cc5: Dac3Ch2<0b11, dac::WaveGenerator>,
+        cc4: Dac3Ch1<0b11, dac::WaveGenerator>,
+        cc1_cc5: Dac3Ch2<0b11, dac::WaveGenerator>,
 
         cc3: Dac4Ch1<0b11, dac::WaveGenerator>,
         cc2: Dac4Ch2<0b11, dac::WaveGenerator>,
@@ -676,8 +676,8 @@ mod app {
     fn init_comparators(
         dacs: &Dacs,
         comp: stm32::COMP,
-        cc1a_pin: &PB0<gpio::Analog>,
-        cc1b_pin: &PC1<gpio::Analog>,
+        cc1_pin: &PB0<gpio::Analog>,
+        //cc1b_pin: &PC1<gpio::Analog>,
         cc2_pin: &PB11<gpio::Analog>,
         cc3_pin: &PB14<gpio::Analog>,
         cc4_pin: &PA1<gpio::Analog>,
@@ -717,7 +717,7 @@ mod app {
         let comp1_cc4 = init_comp!(
             comp1,
             cc4_pin, // ok
-            dacs.cc1b_cc4,
+            dacs.cc4,
             eev_inputs.eev_input6,
             rcc,
             ctrl,
@@ -728,27 +728,27 @@ mod app {
         let comp2_cc5 = init_comp!(
             comp2,
             cc5_pin, // ok
-            dacs.cc1a_cc5,
+            dacs.cc1_cc5,
             eev_inputs.eev_input1,
             rcc,
             ctrl, /* No filter */
         ); // <-- Same DAC as comp4
 
         // fast=eev5, // filt=eev8
-        let comp3_cc1b = init_comp!(
+        /*let comp3_cc1b = init_comp!(
             comp3,
             cc1b_pin, // ok
             dacs.cc1b_cc4,
             eev_inputs.eev_input5,
             rcc,
             ctrl, /* No filter */
-        ); // Same DAC as comp1
+        );*/ // Same DAC as comp1
 
         // filt=eev7 // fast=eev2, filt=eev9
         let comp4_cc1a = init_comp!(
             comp4,
-            cc1a_pin, // ok, TODO: Is ADC3 good enough?
-            dacs.cc1a_cc5,
+            cc1_pin, // ok, TODO: Is ADC3 good enough?
+            dacs.cc1_cc5,
             eev_inputs.eev_input7,
             rcc,
             ctrl,
@@ -780,8 +780,8 @@ mod app {
             I_FILTER
         );
 
-        let cc1a = comp4_cc1a;
-        let cc1b = comp3_cc1b;
+        let cc1 = comp4_cc1a;
+        //let cc1b = comp3_cc1b;
         let cc2 = comp6_cc2;
 
         let cc3 = comp7_cc3;
@@ -789,8 +789,8 @@ mod app {
         let cc5 = comp2_cc5; // WARNING uses same DAC as cc1, so will have wonky slope compensation, adjust phase order to minimize bad stuff
 
         Eevs {
-            cc1a,
-            cc1b,
+            cc1,
+            //cc1b,
             cc2,
             cc3,
             cc4,
@@ -809,8 +809,8 @@ mod app {
         adc1_in4_pot2_pwm_led5: PA3<gpio::Analog>,
 
         #[cfg(not(feature = "cs-op"))]
-        cc1a: PB0<gpio::Analog>,
-        cc1b: PC1<gpio::Analog>, // No op available on this pin unless the signal is routed to cc5 by mounting R28
+        cc1: PB0<gpio::Analog>,
+        //cc1b: PC1<gpio::Analog>, // No op available on this pin unless the signal is routed to cc5 by mounting R28
         #[cfg(not(feature = "cs-op"))]
         cc2: PB11<gpio::Analog>,
         #[cfg(not(feature = "cs-op"))]
@@ -851,7 +851,7 @@ mod app {
     fn read_adcs(adcs: &mut Adcs, ad_channels: &AdcChannels) {
         let sample_time = hal::adc::config::SampleTime::Cycles_12_5;
         let fast_sample_time = hal::adc::config::SampleTime::Cycles_6_5; // Should be fine for current signals since come from the current amplifiers with ~20R @ 1MHz
-        adcs.adc1.convert(&ad_channels.fb_a, sample_time);
+        
         //adc1.convert(&op1_comp1_b_cc4_pin_fb_a, sample_time);
         adcs.adc1.convert(&ad_channels.ntc_1, sample_time);
         adcs.adc1.convert(&ad_channels.ntc_2, sample_time);
@@ -860,6 +860,8 @@ mod app {
         adcs.adc1.convert(&ad_channels.ntc_5, sample_time);
         adcs.adc1.convert(&ad_channels.adc12_in8_pot, sample_time);
 
+        #[cfg(not(feature = "fb_a-op"))]
+        adcs.adc2.convert(&ad_channels.fb_a, sample_time);
         //adc2.convert(&op1_comp1_b_cc4_pin_fb_a, sample_time);
         //adc2.convert(&op2_pin_fb_b, sample_time);
         adcs.adc2.convert(&ad_channels.ntc_1, sample_time);
@@ -880,11 +882,12 @@ mod app {
         //adcs.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
         
         //adcs.adc2.convert(&ad_channels.cc1a, sample_time); // Use OP2 or OP3 instead
-        adcs.adc2.convert(&ad_channels.cc1b, sample_time);
+        //adcs.adc2.convert(&ad_channels.cc1b, sample_time);
         adcs.adc2.convert(&ad_channels.cc2, sample_time);
         //adcs.adc2.convert(&ad_channels.cc3, sample_time); // Use OP2 or OP5 insead
         adcs.adc2.convert(&ad_channels.cc4, sample_time);
         adcs.adc2.convert(&ad_channels.cc5, sample_time);
+        
 
         adcs.adc3.convert(&ad_channels.op3, sample_time);
 
