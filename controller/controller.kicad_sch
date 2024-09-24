@@ -16057,6 +16057,52 @@
 	(netclass_flag ""
 		(length 2.54)
 		(shape round)
+		(at 356.87 71.12 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "aaa8bbd8-f9b4-4203-b280-408693ffeaf7")
+		(property "Netclass" "Current_sense"
+			(at 357.5685 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 356.87 86.36 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "abac16c9-ef75-40a6-9a56-c1a479d17e5c")
+		(property "Netclass" "Current_sense"
+			(at 357.5685 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
 		(at 222.25 267.97 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16074,6 +16120,52 @@
 					(italic yes)
 				)
 				(justify right)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 356.87 78.74 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ea7581f7-98a2-44ac-ab94-adc0eb02af1c")
+		(property "Netclass" "Current_sense"
+			(at 357.5685 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
+			)
+		)
+	)
+	(netclass_flag ""
+		(length 2.54)
+		(shape round)
+		(at 356.87 63.5 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f75c3e51-31c5-49ec-8153-f62ec3e946f6")
+		(property "Netclass" "Current_sense"
+			(at 357.5685 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(justify left)
 			)
 		)
 	)
