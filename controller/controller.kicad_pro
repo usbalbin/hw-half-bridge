@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.2
+          "min_clearance": 0.0
         }
       },
       "diff_pair_dimensions": [
@@ -534,7 +534,18 @@
     "meta": {
       "version": 3
     },
-    "net_colors": null,
+    "net_colors": {
+      "/Current_sense_1": "rgb(255, 241, 128)",
+      "/Current_sense_2": "rgb(255, 231, 18)",
+      "/Current_sense_3": "rgb(255, 231, 18)",
+      "/Current_sense_4": "rgb(255, 231, 18)",
+      "/Current_sense_5": "rgb(255, 231, 18)",
+      "/hb-card1/Current_sense": "rgb(255, 231, 18)",
+      "/hb-card2/Current_sense": "rgb(255, 231, 18)",
+      "/hb-card3/Current_sense": "rgb(255, 231, 18)",
+      "/hb-card4/Current_sense": "rgb(255, 231, 18)",
+      "/hb-card5/Current_sense": "rgb(255, 231, 18)"
+    },
     "netclass_assignments": {
       "/Current_sense_2": "Current_sense",
       "/Current_sense_3": "Current_sense",
