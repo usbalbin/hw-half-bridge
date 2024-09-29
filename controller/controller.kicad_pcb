@@ -2104,19 +2104,7 @@
 				(xyz 0 0 0)
 			)
 		)
-		(model "/home/albin/hw-half-bridge/3d/TDK/clf7045ni-d.step"
-			(hide yes)
-			(offset
-				(xyz 8.5 7.12 1)
-			)
-			(scale
-				(xyz 1 1 1)
-			)
-			(rotate
-				(xyz -90 0 0)
-			)
-		)
-		(model "/home/albin/Hämtningar/CLF7045NIT-4R7N-D.STEP"
+		(model "../3d/TDK/CLF7045NIT-4R7N-D.STEP"
 			(offset
 				(xyz 0 0 0)
 			)
