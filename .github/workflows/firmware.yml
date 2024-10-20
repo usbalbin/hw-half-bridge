@@ -1,0 +1,40 @@
+on:
+  pull_request:
+  
+name: Firmware
+
+# Make sure CI fails on all warnings, including Clippy lints
+env:
+  RUSTFLAGS: "-Dwarnings"
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust:
+          - stable
+        hv45_or_usb_db:
+          - usb-pd-db
+          - hv4
+          - hv5
+          - hv4,hv5
+        op:
+          - fb_a-op
+          - cs-op
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: ${{ matrix.rust }}
+          target: thumbv7em-none-eabihf
+          override: true
+
+      - name: Regular build
+        run: cd firmware; cargo check --no-default-features --features ${{ matrix.hv45_or_usb_db }} --features ${{ matrix.op }}
+      - name: Format check
+        run: cd firmware; cargo fmt --check
+      - name: Clippy
+        run: cd firmware; cargo clippy --no-default-features --features ${{ matrix.hv45_or_usb_db }} --features ${{ matrix.op }}
