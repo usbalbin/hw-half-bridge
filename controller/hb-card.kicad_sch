@@ -627,153 +627,6 @@
 				)
 			)
 		)
-		(symbol "Device:D_Schottky_Small"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0.254) hide)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "D"
-				(at -1.27 2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "D_Schottky_Small"
-				(at -7.112 -2.032 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 90)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Schottky diode, small symbol"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "diode Schottky"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "TO-???* *_Diode_* *SingleDiode* D_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "D_Schottky_Small_0_1"
-				(polyline
-					(pts
-						(xy -0.762 0) (xy 0.762 0)
-					)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0.762 -1.016) (xy -0.762 0) (xy 0.762 1.016) (xy 0.762 -1.016)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -1.27 0.762) (xy -1.27 1.016) (xy -0.762 1.016) (xy -0.762 -1.016) (xy -0.254 -1.016) (xy -0.254 -0.762)
-					)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "D_Schottky_Small_1_1"
-				(pin passive line
-					(at -2.54 0 0)
-					(length 1.778)
-					(name "K"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 2.54 0 180)
-					(length 1.778)
-					(name "A"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "Device:R_Small"
 			(pin_numbers hide)
 			(pin_names
@@ -880,6 +733,168 @@
 					(at 0 -2.54 90)
 					(length 0.762)
 					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Diode:1N4148W"
+			(pin_numbers hide)
+			(pin_names hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "1N4148W"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_SMD:D_SOD-123"
+				(at 0 -4.445 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "D"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=K 2=A"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "D*SOD?123*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "1N4148W_0_1"
+				(polyline
+					(pts
+						(xy -1.27 1.27) (xy -1.27 -1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "1N4148W_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -1270,18 +1285,6 @@
 		)
 	)
 	(junction
-		(at 48.26 88.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "2557adf6-113b-4e10-8e55-6828f0a0e749")
-	)
-	(junction
-		(at 46.99 60.96)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "25eac7ad-b6b0-4428-ac6e-35bb25dc63c9")
-	)
-	(junction
 		(at 73.66 92.71)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1348,10 +1351,22 @@
 		(uuid "bf23a020-597f-49d4-9ad5-16563a7a8039")
 	)
 	(junction
+		(at 46.99 60.96)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bf546fde-e3eb-4f36-8878-528f2450dbf0")
+	)
+	(junction
 		(at 73.66 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "bf6b8887-c46b-4b84-abbd-3656e7695438")
+	)
+	(junction
+		(at 48.26 88.9)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d0ac5f0a-4c60-4e07-82b0-fd8891045752")
 	)
 	(junction
 		(at 73.66 50.8)
@@ -1418,6 +1433,16 @@
 			(type default)
 		)
 		(uuid "07a355b3-90b5-466a-9538-5a6f263124a4")
+	)
+	(wire
+		(pts
+			(xy 48.26 88.9) (xy 63.5 88.9)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "08c1aa3d-65a5-4e61-b976-b45c55846e5d")
 	)
 	(wire
 		(pts
@@ -1541,13 +1566,13 @@
 	)
 	(wire
 		(pts
-			(xy 48.26 88.9) (xy 63.5 88.9)
+			(xy 46.99 60.96) (xy 64.77 60.96)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "2b20ed39-3d8b-4db4-ae46-a8061d367f29")
+		(uuid "2b2bd43c-a529-41f2-bdb7-2e41de031b3d")
 	)
 	(wire
 		(pts
@@ -1598,16 +1623,6 @@
 			(type default)
 		)
 		(uuid "445d68c5-5cce-4dfa-8730-cd0a0660880f")
-	)
-	(wire
-		(pts
-			(xy 53.34 93.98) (xy 54.61 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4ad21d40-f19b-4706-9bf5-9b5aad94e01a")
 	)
 	(wire
 		(pts
@@ -1711,16 +1726,6 @@
 	)
 	(wire
 		(pts
-			(xy 52.07 57.15) (xy 53.34 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6ba0ca2a-aff2-4ace-aad0-4d135c7d27c4")
-	)
-	(wire
-		(pts
 			(xy 73.66 59.69) (xy 74.93 59.69)
 		)
 		(stroke
@@ -1798,16 +1803,6 @@
 			(type default)
 		)
 		(uuid "7effd356-d3df-43df-9954-3ce30d1739a0")
-	)
-	(wire
-		(pts
-			(xy 46.99 60.96) (xy 64.77 60.96)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "816f5362-b136-40a3-ade9-ca5bce5fbfcc")
 	)
 	(wire
 		(pts
@@ -2297,7 +2292,7 @@
 	)
 	(global_label "Logic DC{slash}DC in"
 		(shape output)
-		(at 53.34 57.15 0)
+		(at 54.61 57.15 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2307,7 +2302,7 @@
 		)
 		(uuid "64d0fd3f-b4fe-45c2-bc8c-75eb3d975734")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 71.4442 57.15 0)
+			(at 72.7142 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2341,7 +2336,7 @@
 	)
 	(global_label "Logic DC{slash}DC in"
 		(shape output)
-		(at 54.61 93.98 0)
+		(at 55.88 93.98 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -2351,7 +2346,7 @@
 		)
 		(uuid "8a9ab52e-0723-4949-8978-c6e77537aec4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 72.7142 93.98 0)
+			(at 73.9842 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3265,42 +3260,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Schottky_Small")
-		(at 49.53 57.15 180)
+		(lib_id "Diode:1N4148W")
+		(at 50.8 57.15 180)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4e50790c-6a94-4b62-b4ff-00067bdf6688")
 		(property "Reference" "D7"
-			(at 49.784 50.8 0)
+			(at 50.8 50.8 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
-			(at 49.784 53.34 0)
+		(property "Value" "1N4148W"
+			(at 50.8 53.34 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_PowerDI-123"
-			(at 49.53 57.15 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 49.53 57.15 90)
+		(property "Footprint" "Diode_SMD:D_SOD-123"
+			(at 50.8 52.705 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3308,8 +3294,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 49.53 57.15 0)
+		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
+			(at 50.8 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
+			(at 50.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3318,7 +3313,7 @@
 			)
 		)
 		(property "Sim.Library" "/home/albin/hw-half-bridge/sim/Diodes/DFLS1200.spice.txt"
-			(at 49.53 57.15 0)
+			(at 50.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3327,7 +3322,7 @@
 			)
 		)
 		(property "Sim.Name" "DI_DFLS1200"
-			(at 49.53 57.15 0)
+			(at 50.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3336,7 +3331,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 49.53 57.15 0)
+			(at 50.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3345,7 +3340,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 49.53 57.15 0)
+			(at 50.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3354,7 +3349,7 @@
 			)
 		)
 		(property "Sim.Params" "temp=50"
-			(at 49.53 57.15 0)
+			(at 50.8 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4270,42 +4265,33 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Schottky_Small")
-		(at 50.8 93.98 0)
+		(lib_id "Diode:1N4148W")
+		(at 52.07 93.98 0)
 		(mirror y)
 		(unit 1)
-		(exclude_from_sim yes)
+		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(uuid "a53ebedc-e53d-4291-a6da-bb6fc6d5f949")
 		(property "Reference" "D8"
-			(at 51.054 100.33 0)
+			(at 52.324 100.33 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
-			(at 51.054 97.79 0)
+		(property "Value" "1N4148W"
+			(at 52.07 96.52 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_PowerDI-123"
-			(at 50.8 93.98 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 50.8 93.98 90)
+		(property "Footprint" "Diode_SMD:D_SOD-123"
+			(at 52.07 98.425 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4313,8 +4299,17 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
-			(at 50.8 93.98 0)
+		(property "Datasheet" "https://www.vishay.com/docs/85748/1n4148w.pdf"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "75V 0.15A Fast Switching Diode, SOD-123"
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4323,7 +4318,7 @@
 			)
 		)
 		(property "Sim.Library" "/home/albin/hw-half-bridge/sim/Diodes/DFLS1200.spice.txt"
-			(at 50.8 93.98 0)
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4332,7 +4327,7 @@
 			)
 		)
 		(property "Sim.Name" "DI_DFLS1200"
-			(at 50.8 93.98 0)
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4341,7 +4336,7 @@
 			)
 		)
 		(property "Sim.Device" "D"
-			(at 50.8 93.98 0)
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4350,7 +4345,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 50.8 93.98 0)
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4359,7 +4354,7 @@
 			)
 		)
 		(property "Sim.Params" "temp=50"
-			(at 50.8 93.98 0)
+			(at 52.07 93.98 0)
 			(effects
 				(font
 					(size 1.27 1.27)
