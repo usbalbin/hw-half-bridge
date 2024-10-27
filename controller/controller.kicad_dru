@@ -1,0 +1,25 @@
+(version 1)
+
+(rule USB_J6_unused_SB
+   # Smaller clearance for unused USB SB pins
+   (constraint clearance (min "0.15mm"))
+   (condition "(A.NetName == 'unconnected-(J6-SBU1-PadA8)' || A.NetName == 'unconnected-(J6-SBU2-PadB8)')")
+)
+
+(rule USB_J7_unused_SB
+   # Smaller clearance for unused USB SB pins
+   (constraint clearance (min "0.15mm"))
+   (condition "A.NetName == 'unconnected-(J7-SBU1-PadA8)' || A.NetName == 'unconnected-(J7-SBU2-PadB8)'")
+)
+
+(rule VBUS1_to_CC1
+   # Smaller clearance between VBUS and CC lines
+   (constraint clearance (min "0.2mm"))
+   (condition "A.NetName == '/VBUS1' && (B.NetName == '/CC1' || B.NetName == '/CC2')")
+)
+
+(rule VBUS2_to_CC2
+   # Smaller clearance between VBUS and CC lines
+   (constraint clearance (min "0.2mm"))
+   (condition "A.NetName == '/VBUS2' && (B.NetName == '/OTHER_USB_CC1' || B.NetName == '/OTHER_USB_CC2')")
+)
