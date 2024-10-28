@@ -1636,12 +1636,6 @@
 		(uuid "0bcff83b-689b-4d27-96ff-0e7d019d7c66")
 	)
 	(junction
-		(at 92.71 88.9)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "0f58ab9c-56cf-4707-b34e-f6f225057799")
-	)
-	(junction
 		(at 146.05 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1658,12 +1652,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "44363d27-f8c9-406d-8f91-5c0717bfc58f")
-	)
-	(junction
-		(at 95.25 93.98)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "55bac957-8564-4bd0-8a05-8167f258effd")
 	)
 	(junction
 		(at 90.17 96.52)
@@ -1777,7 +1765,7 @@
 	)
 	(wire
 		(pts
-			(xy 95.25 93.98) (xy 100.33 93.98)
+			(xy 93.98 93.98) (xy 100.33 93.98)
 		)
 		(stroke
 			(width 0)
@@ -1827,16 +1815,6 @@
 	)
 	(wire
 		(pts
-			(xy 92.71 88.9) (xy 90.17 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "3f149636-0ec2-4466-8544-76f669945c8a")
-	)
-	(wire
-		(pts
 			(xy 90.17 111.76) (xy 100.33 111.76)
 		)
 		(stroke
@@ -1844,16 +1822,6 @@
 			(type default)
 		)
 		(uuid "430855e3-1b2c-40d7-880f-b4d5793a9bdf")
-	)
-	(wire
-		(pts
-			(xy 92.71 88.9) (xy 95.25 88.9)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4804be4f-5be4-47f2-8e46-a95ed9d9efa8")
 	)
 	(wire
 		(pts
@@ -2104,16 +2072,6 @@
 			(type default)
 		)
 		(uuid "dc8ace16-cdf3-49d3-8883-bb6c8291ad53")
-	)
-	(wire
-		(pts
-			(xy 93.98 93.98) (xy 95.25 93.98)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dde6361e-da87-4840-84d9-c77d040ac1df")
 	)
 	(wire
 		(pts
@@ -3395,7 +3353,7 @@
 	)
 	(symbol
 		(lib_id "power:+3V3")
-		(at 92.71 88.9 0)
+		(at 90.17 88.9 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -3404,7 +3362,7 @@
 		(fields_autoplaced yes)
 		(uuid "98a70615-cabd-4d85-bf25-ed786519e0f3")
 		(property "Reference" "#PWR044"
-			(at 92.71 92.71 0)
+			(at 90.17 92.71 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3413,7 +3371,7 @@
 			)
 		)
 		(property "Value" "+3V3"
-			(at 92.71 85.09 0)
+			(at 90.17 85.09 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3421,7 +3379,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 92.71 88.9 0)
+			(at 90.17 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3430,7 +3388,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 92.71 88.9 0)
+			(at 90.17 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3439,7 +3397,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 92.71 88.9 0)
+			(at 90.17 88.9 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3758,75 +3716,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R_Small")
-		(at 95.25 91.44 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "c822374a-6f4a-4690-8267-fb3d865082fc")
-		(property "Reference" "R10"
-			(at 96.266 90.17 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10k"
-			(at 95.25 93.218 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 95.25 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 95.25 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Resistor, small symbol"
-			(at 95.25 91.44 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1b05fdb0-e8c1-4ba0-b3f4-34b2d27beba9")
-		)
-		(pin "2"
-			(uuid "4b0d3ae6-0e56-441a-8333-187b389b5755")
-		)
-		(instances
-			(project "controller"
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857/d740d1c6-5e66-443f-883c-6d6068be0c77"
-					(reference "R10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:Earth")
 		(at 146.05 66.04 0)
 		(unit 1)
@@ -3921,7 +3810,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 171.45 69.85 0)
 			(effects
 				(font
