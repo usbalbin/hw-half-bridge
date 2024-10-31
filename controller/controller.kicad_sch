@@ -8138,12 +8138,6 @@
 		(uuid "181a5dbd-e136-494d-b377-dc8ab5b48bd8")
 	)
 	(junction
-		(at 91.44 287.02)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "19f259fa-2745-4635-85a2-493f268ed3cf")
-	)
-	(junction
 		(at 270.51 275.59)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8190,6 +8184,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "3144eb85-453c-4c76-b011-19e07198dea6")
+	)
+	(junction
+		(at 368.3 13.97)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "384f4028-ac30-48d1-a5ff-4302951757ac")
 	)
 	(junction
 		(at 246.38 290.83)
@@ -8348,6 +8348,12 @@
 		(uuid "83751bcc-617f-41d1-9aad-0757806cc38f")
 	)
 	(junction
+		(at 368.3 21.59)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "86ace163-5c5b-44f0-946a-87d5677a1d71")
+	)
+	(junction
 		(at 27.94 284.48)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -8406,12 +8412,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a73f7849-fc63-46e1-bd49-cf78d825e8ab")
-	)
-	(junction
-		(at 97.79 292.1)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a74934b3-2c4e-4475-8666-e760e6d4427d")
 	)
 	(junction
 		(at 182.88 34.29)
@@ -8628,16 +8628,6 @@
 			(type default)
 		)
 		(uuid "099f2847-0db4-4498-a5ae-fce6e665e43c")
-	)
-	(wire
-		(pts
-			(xy 78.74 288.29) (xy 90.17 288.29)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "0a79a75d-b58d-4d14-94d8-6ef6dee7c6c1")
 	)
 	(wire
 		(pts
@@ -9018,6 +9008,16 @@
 			(type default)
 		)
 		(uuid "275d1141-abf7-413b-b2a0-64decf14ce8a")
+	)
+	(wire
+		(pts
+			(xy 374.65 21.59) (xy 368.3 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "27626b3d-806f-4292-9aaf-38e771b6f45d")
 	)
 	(wire
 		(pts
@@ -9441,16 +9441,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 290.83) (xy 90.17 292.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "421a1815-8375-403e-ae1f-7573b07e25d2")
-	)
-	(wire
-		(pts
 			(xy 167.64 52.07) (xy 185.42 52.07)
 		)
 		(stroke
@@ -9598,6 +9588,16 @@
 			(type default)
 		)
 		(uuid "506dc3ce-542b-4139-9798-8476d5d65aeb")
+	)
+	(wire
+		(pts
+			(xy 247.65 74.93) (xy 257.81 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "536d89a6-f3b3-40ca-b669-c73760df3c13")
 	)
 	(wire
 		(pts
@@ -9781,16 +9781,6 @@
 	)
 	(wire
 		(pts
-			(xy 78.74 290.83) (xy 90.17 290.83)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "65a83a57-28fa-464c-9dfc-7383e5f84b96")
-	)
-	(wire
-		(pts
 			(xy 52.07 317.5) (xy 63.5 317.5)
 		)
 		(stroke
@@ -9871,16 +9861,6 @@
 	)
 	(wire
 		(pts
-			(xy 97.79 292.1) (xy 104.14 292.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6983054c-f3cf-4fa1-aba3-3ff5bb4223b4")
-	)
-	(wire
-		(pts
 			(xy 464.82 165.1) (xy 476.25 165.1)
 		)
 		(stroke
@@ -9888,6 +9868,16 @@
 			(type default)
 		)
 		(uuid "6b0ed1e3-8159-4c46-8125-3ee52f8e4a85")
+	)
+	(polyline
+		(pts
+			(xy 262.89 110.49) (xy 273.05 110.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c59ed32-63ff-4b05-b33b-e2b2b07ec736")
 	)
 	(wire
 		(pts
@@ -10028,16 +10018,6 @@
 			(type default)
 		)
 		(uuid "76b721f0-5fff-4939-b58c-45261b2262b8")
-	)
-	(wire
-		(pts
-			(xy 97.79 281.94) (xy 91.44 281.94)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "770e668c-9e07-4218-a3d9-42c0f060202a")
 	)
 	(wire
 		(pts
@@ -10321,16 +10301,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 292.1) (xy 97.79 292.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "886a2425-6dc4-48ba-a5e6-57c3436c2f20")
-	)
-	(wire
-		(pts
 			(xy 281.94 198.12) (xy 294.64 198.12)
 		)
 		(stroke
@@ -10378,6 +10348,16 @@
 			(type default)
 		)
 		(uuid "8d1be28e-867c-43c6-9dea-3168d88f9f21")
+	)
+	(wire
+		(pts
+			(xy 229.87 80.01) (xy 232.41 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8dae1d7f-11b6-4c7f-ad79-5bbbf3cec7eb")
 	)
 	(wire
 		(pts
@@ -10731,6 +10711,16 @@
 	)
 	(wire
 		(pts
+			(xy 248.92 82.55) (xy 248.92 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1c47117-c02c-432c-8db7-73fea2143880")
+	)
+	(wire
+		(pts
 			(xy 222.25 267.97) (xy 222.25 270.51)
 		)
 		(stroke
@@ -10748,6 +10738,16 @@
 			(type default)
 		)
 		(uuid "a2323828-1917-42e2-89b3-108e003b6aeb")
+	)
+	(polyline
+		(pts
+			(xy 233.68 105.41) (xy 273.05 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a254a801-8887-41dd-859f-b0bb8baf4ee6")
 	)
 	(wire
 		(pts
@@ -10768,6 +10768,16 @@
 			(type default)
 		)
 		(uuid "a3cbe4b0-d8cd-4370-a924-17ad4650e65b")
+	)
+	(wire
+		(pts
+			(xy 374.65 19.05) (xy 374.65 21.59)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a4266cd6-ae26-4b2e-b762-24ca796624eb")
 	)
 	(wire
 		(pts
@@ -10798,6 +10808,16 @@
 			(type default)
 		)
 		(uuid "a5bc6246-b7cc-49cd-854a-1edb43ddda44")
+	)
+	(wire
+		(pts
+			(xy 231.14 77.47) (xy 232.41 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a5c8fc4e-759c-4365-bab8-bf0bfcc50dc1")
 	)
 	(wire
 		(pts
@@ -10951,6 +10971,16 @@
 	)
 	(wire
 		(pts
+			(xy 248.92 80.01) (xy 247.65 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ad3bd9b9-afab-466c-adfa-233d02587706")
+	)
+	(wire
+		(pts
 			(xy 345.44 287.02) (xy 351.79 287.02)
 		)
 		(stroke
@@ -11008,6 +11038,16 @@
 			(type default)
 		)
 		(uuid "b018dfed-19a4-46cf-8751-310fc136e181")
+	)
+	(wire
+		(pts
+			(xy 374.65 13.97) (xy 368.3 13.97)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b0776163-e884-4a6b-9d4e-e74eed66d4d1")
 	)
 	(wire
 		(pts
@@ -11078,6 +11118,16 @@
 			(type default)
 		)
 		(uuid "b44b40f4-9d14-4948-991e-3f3529379936")
+	)
+	(polyline
+		(pts
+			(xy 273.05 110.49) (xy 273.05 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b476fc4f-316c-49dd-8c00-d27df6a012bc")
 	)
 	(wire
 		(pts
@@ -11181,16 +11231,6 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 281.94) (xy 91.44 287.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bb1625bb-3500-4bd4-ac78-d360747975cf")
-	)
-	(wire
-		(pts
 			(xy 398.78 22.86) (xy 405.13 22.86)
 		)
 		(stroke
@@ -11238,16 +11278,6 @@
 			(type default)
 		)
 		(uuid "be172efd-d7c8-4df9-95c0-8dc40a9f4b8b")
-	)
-	(wire
-		(pts
-			(xy 97.79 298.45) (xy 97.79 292.1)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "be542cd9-19f9-4f05-83df-78aaa50284c1")
 	)
 	(wire
 		(pts
@@ -11571,6 +11601,16 @@
 	)
 	(wire
 		(pts
+			(xy 229.87 74.93) (xy 232.41 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4734947-568a-47f9-b438-e9d01881b6a9")
+	)
+	(wire
+		(pts
 			(xy 201.93 160.02) (xy 201.93 161.29)
 		)
 		(stroke
@@ -11831,16 +11871,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 287.02) (xy 91.44 287.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e91d57d4-b3f8-4afc-a068-2166c3566969")
-	)
-	(wire
-		(pts
 			(xy 130.81 63.5) (xy 130.81 62.23)
 		)
 		(stroke
@@ -11848,16 +11878,6 @@
 			(type default)
 		)
 		(uuid "e937af74-7de5-451e-a8bf-5b782bcd8cdd")
-	)
-	(wire
-		(pts
-			(xy 90.17 288.29) (xy 90.17 287.02)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e9e12987-53bf-4050-92d7-129a5884c865")
 	)
 	(wire
 		(pts
@@ -11958,6 +11978,16 @@
 			(type default)
 		)
 		(uuid "f0bd5e16-865e-4de1-8acc-3ce57f60d056")
+	)
+	(wire
+		(pts
+			(xy 231.14 83.82) (xy 231.14 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1352c2a-c3e2-45c7-ae68-c0919d580dbe")
 	)
 	(wire
 		(pts
@@ -12213,16 +12243,6 @@
 		)
 		(uuid "35594291-7ac0-4337-b948-9805fb8b062f")
 	)
-	(text "Maybe let the 0-ohm's be the upper half of the dividers?"
-		(exclude_from_sim no)
-		(at 280.416 55.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-		)
-		(uuid "3b180168-9fc9-43c1-9e9a-07f194d7df8a")
-	)
 	(text "USB PD Extension board"
 		(exclude_from_sim no)
 		(at 70.612 305.054 0)
@@ -12439,6 +12459,17 @@
 		)
 		(uuid "11da8e4b-3e13-4daa-8c1b-eb9c310b6440")
 	)
+	(label "pwm_led3"
+		(at 257.81 74.93 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "14fb44b5-00c3-494a-995c-cf8c7ea95dbe")
+	)
 	(label "NTC_1"
 		(at 290.83 27.94 0)
 		(fields_autoplaced yes)
@@ -12570,17 +12601,6 @@
 			(justify right bottom)
 		)
 		(uuid "28db7d44-a374-41e2-be86-3f38a430083e")
-	)
-	(label "CC1_MCU"
-		(at 78.74 288.29 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "28ec9d6a-cab1-45aa-ac8e-e2976b42cc36")
 	)
 	(label "LI_2"
 		(at 173.99 125.73 180)
@@ -12846,6 +12866,17 @@
 		)
 		(uuid "5111ac28-e5a3-4335-939b-16dae944f986")
 	)
+	(label "pwm_led2"
+		(at 229.87 80.01 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5287d112-3fde-407a-b113-1010b1370fae")
+	)
 	(label "ESP_USB_D-"
 		(at 92.71 245.11 180)
 		(fields_autoplaced yes)
@@ -12977,6 +13008,17 @@
 			(justify left bottom)
 		)
 		(uuid "6ab3ae40-07c6-405f-a170-f431e936045f")
+	)
+	(label "pwm_led1"
+		(at 229.87 74.93 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6b65c7f3-f5f3-4677-acce-3c66675fea67")
 	)
 	(label "LI_4"
 		(at 300.99 182.88 180)
@@ -13835,17 +13877,6 @@
 			(justify right bottom)
 		)
 		(uuid "f46d3887-112c-41ca-ab2d-8715bf4e12ec")
-	)
-	(label "CC2_MCU"
-		(at 78.74 290.83 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f62add79-163f-4d63-bab8-f16c28293b11")
 	)
 	(label "FB_B"
 		(at 425.45 22.86 180)
@@ -15146,7 +15177,7 @@
 		)
 	)
 	(global_label "6-18V"
-		(shape input)
+		(shape output)
 		(at 320.04 275.59 0)
 		(fields_autoplaced yes)
 		(effects
@@ -16659,7 +16690,7 @@
 	)
 	(symbol
 		(lib_id "Library:QSBT40-7-F")
-		(at 440.69 22.86 0)
+		(at 440.69 35.56 0)
 		(unit 4)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -16668,7 +16699,7 @@
 		(fields_autoplaced yes)
 		(uuid "15deda12-7afd-4635-ab04-2ed971fe62e6")
 		(property "Reference" "U14"
-			(at 443.23 23.1774 0)
+			(at 443.23 35.8774 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16677,7 +16708,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 443.23 24.1299 0)
+			(at 443.23 36.8299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16687,7 +16718,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 440.69 22.86 0)
+			(at 440.69 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16696,7 +16727,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 440.69 22.86 0)
+			(at 440.69 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -16705,7 +16736,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 440.69 22.86 0)
+			(at 440.69 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -18211,73 +18242,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:Earth")
-		(at 124.46 292.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2b943dec-2dff-4ad6-9e72-57aca9366dd9")
-		(property "Reference" "#PWR040"
-			(at 124.46 298.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "Earth"
-			(at 124.46 295.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" ""
-			(at 124.46 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 124.46 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 124.46 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "add3d008-5a90-4bf8-a2e5-6442b70946e9")
-		)
-		(instances
-			(project "controller"
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "#PWR040")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Regulator_Linear:TLV76133DCY")
 		(at 359.41 287.02 0)
 		(unit 1)
@@ -18840,89 +18804,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:QSBT40-7-F")
-		(at 102.87 281.94 0)
-		(unit 3)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "36923245-d71f-46d7-b976-2f197178afa6")
-		(property "Reference" "U12"
-			(at 105.41 282.2574 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "QSBT40-7-F"
-			(at 105.41 283.2099 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 102.87 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 102.87 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 102.87 281.94 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c048")
-		)
-		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75afee")
-		)
-		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e2d")
-		)
-		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af84947")
-		)
-		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293295")
-		)
-		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a91802f")
-		)
-		(instances
-			(project ""
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "U12")
-					(unit 3)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "albin:ECMF02-2AMX6")
 		(at 74.93 356.87 0)
 		(mirror y)
@@ -19410,88 +19291,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:QSBT40-7-F")
-		(at 96.52 287.02 0)
-		(unit 2)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "41530eb6-1509-45d7-902e-e05ae721c185")
-		(property "Reference" "U12"
-			(at 102.87 286.512 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "QSBT40-7-F"
-			(at 99.06 288.2899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 96.52 287.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 96.52 287.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 96.52 287.02 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c049")
-		)
-		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75afef")
-		)
-		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e2e")
-		)
-		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af84948")
-		)
-		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293296")
-		)
-		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918030")
-		)
-		(instances
-			(project ""
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "U12")
-					(unit 2)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:RotaryEncoder_Switch_MP")
 		(at 240.03 77.47 0)
 		(unit 1)
@@ -19526,7 +19325,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://tech.alpsalpine.com/e/products/detail/EC11E15244G1/"
 			(at 240.03 90.17 0)
 			(effects
 				(font
@@ -19874,7 +19673,7 @@
 	(symbol
 		(lib_name "QSBT40-7-F_5")
 		(lib_id "Library:QSBT40-7-F")
-		(at 434.34 29.21 0)
+		(at 359.41 24.13 0)
 		(unit 4)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -19883,7 +19682,7 @@
 		(fields_autoplaced yes)
 		(uuid "49e18e4b-32ef-4567-bebe-8947717866db")
 		(property "Reference" "U13"
-			(at 436.88 29.5274 0)
+			(at 361.95 24.4474 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19892,7 +19691,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 436.88 30.4799 0)
+			(at 361.95 25.3999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19902,7 +19701,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 434.34 29.21 0)
+			(at 359.41 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19911,7 +19710,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 434.34 29.21 0)
+			(at 359.41 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19920,7 +19719,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY DIODE BUS TERMINATOR 30V"
-			(at 434.34 29.21 0)
+			(at 359.41 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20302,7 +20101,8 @@
 	)
 	(symbol
 		(lib_id "Library:QSBT40-7-F")
-		(at 454.66 -3.81 0)
+		(at 285.75 49.53 0)
+		(mirror y)
 		(unit 2)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -20310,7 +20110,7 @@
 		(dnp no)
 		(uuid "502aee4e-f0e0-4fa5-a797-465a491817c9")
 		(property "Reference" "U14"
-			(at 461.01 -4.318 0)
+			(at 279.4 49.022 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20319,7 +20119,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 457.2 -2.5401 0)
+			(at 283.21 50.7999 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20329,7 +20129,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 454.66 -3.81 0)
+			(at 285.75 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20338,7 +20138,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 454.66 -3.81 0)
+			(at 285.75 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20347,7 +20147,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 454.66 -3.81 0)
+			(at 285.75 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20447,6 +20247,76 @@
 			(project "controller"
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 374.65 16.51 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "51632773-d832-46a0-b5da-b09931a4af4f")
+		(property "Reference" "C30"
+			(at 381.508 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "1uF"
+			(at 380.492 17.526 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4cf46934-bb88-4dd5-a3fa-e45e431b2e4b")
+		)
+		(pin "1"
+			(uuid "b02bc437-1bbc-412a-a84f-076f97ed0b30")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "C30")
 					(unit 1)
 				)
 			)
@@ -20704,6 +20574,72 @@
 			(project "controller"
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 240.03 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "534948de-be8c-4f10-b622-17fe84545a58")
+		(property "Reference" "#PWR0151"
+			(at 240.03 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 240.03 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 240.03 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 240.03 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 240.03 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9f887dbd-2386-493c-b804-e42c1a005ead")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "#PWR0151")
 					(unit 1)
 				)
 			)
@@ -21911,89 +21847,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:QSBT40-7-F")
-		(at 102.87 298.45 0)
-		(unit 4)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "69b4cca5-a9d9-402b-89e5-b704f8cca7bf")
-		(property "Reference" "U12"
-			(at 105.41 298.7674 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "QSBT40-7-F"
-			(at 105.41 299.7199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 102.87 298.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 102.87 298.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 102.87 298.45 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04c")
-		)
-		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff1")
-		)
-		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e31")
-		)
-		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494b")
-		)
-		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293298")
-		)
-		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918033")
-		)
-		(instances
-			(project ""
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "U12")
-					(unit 4)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:C_Small")
 		(at 513.08 153.67 0)
 		(mirror y)
@@ -22126,89 +21979,6 @@
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "#PWR0116")
 					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Library:QSBT40-7-F")
-		(at 124.46 288.29 0)
-		(unit 5)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6bc7bd8c-9cf5-42c3-9dfe-5393334fee4c")
-		(property "Reference" "U12"
-			(at 127 288.6074 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "QSBT40-7-F"
-			(at 127 289.5599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 124.46 288.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 124.46 288.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 124.46 288.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04d")
-		)
-		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff2")
-		)
-		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e32")
-		)
-		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494c")
-		)
-		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee293299")
-		)
-		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918034")
-		)
-		(instances
-			(project ""
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "U12")
-					(unit 5)
 				)
 			)
 		)
@@ -22422,72 +22192,6 @@
 			(project ""
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "D13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
-		(at 124.46 284.48 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "6f72ac0e-1c46-463c-92d4-de9320f1a523")
-		(property "Reference" "#PWR039"
-			(at 124.46 288.29 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3V3"
-			(at 124.46 280.67 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 124.46 284.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 124.46 284.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
-			(at 124.46 284.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b7c3158a-ff9e-4a0d-82f8-c65a34d45828")
-		)
-		(instances
-			(project "controller"
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "#PWR039")
 					(unit 1)
 				)
 			)
@@ -23210,7 +22914,7 @@
 	(symbol
 		(lib_name "QSBT40-7-F_5")
 		(lib_id "Library:QSBT40-7-F")
-		(at 359.41 24.13 0)
+		(at 434.34 16.51 0)
 		(unit 3)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -23218,7 +22922,7 @@
 		(dnp no)
 		(uuid "803d5c19-d617-4f2e-99a1-818aff5d8c9a")
 		(property "Reference" "U13"
-			(at 361.442 26.416 0)
+			(at 436.372 18.796 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23227,7 +22931,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 361.95 25.3999 0)
+			(at 436.88 17.7799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23237,7 +22941,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 359.41 24.13 0)
+			(at 434.34 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23246,7 +22950,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 359.41 24.13 0)
+			(at 434.34 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -23255,7 +22959,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY DIODE BUS TERMINATOR 30V"
-			(at 359.41 24.13 0)
+			(at 434.34 16.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25929,7 +25633,7 @@
 	(symbol
 		(lib_name "QSBT40-7-F_5")
 		(lib_id "Library:QSBT40-7-F")
-		(at 440.69 35.56 0)
+		(at 434.34 29.21 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -25937,7 +25641,7 @@
 		(dnp no)
 		(uuid "a799aeda-7f03-49b1-ba33-78bfb4a066f4")
 		(property "Reference" "U13"
-			(at 443.23 36.8299 0)
+			(at 436.88 30.4799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25946,7 +25650,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 443.23 36.8299 0)
+			(at 436.88 30.4799 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25956,7 +25660,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 440.69 35.56 0)
+			(at 434.34 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25965,7 +25669,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 440.69 35.56 0)
+			(at 434.34 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -25974,7 +25678,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY DIODE BUS TERMINATOR 30V"
-			(at 440.69 35.56 0)
+			(at 434.34 29.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26962,6 +26666,72 @@
 			(project "controller"
 				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
 					(reference "#PWR082")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:Earth")
+		(at 248.92 82.55 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c1190900-892b-4efb-a595-b4412cab186e")
+		(property "Reference" "#PWR0171"
+			(at 248.92 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 248.92 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 248.92 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 248.92 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 248.92 82.55 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43f155d8-c325-42f4-9e6c-29ad23e733a3")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "#PWR0171")
 					(unit 1)
 				)
 			)
@@ -28200,89 +27970,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Library:QSBT40-7-F")
-		(at 109.22 292.1 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "dfc5c6d8-7f5c-4779-8b25-df178f44d24f")
-		(property "Reference" "U12"
-			(at 111.76 293.3699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "QSBT40-7-F"
-			(at 111.76 293.3699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 109.22 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 109.22 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 109.22 292.1 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "3"
-			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04e")
-		)
-		(pin "4"
-			(uuid "c221e852-870e-44c7-ade0-4cb5de75aff3")
-		)
-		(pin "6"
-			(uuid "5c0aa593-5cdb-445c-b413-46accd3c7e33")
-		)
-		(pin "2"
-			(uuid "78056dec-2df3-4a61-9b6c-c4e84af8494d")
-		)
-		(pin "1"
-			(uuid "ba26f988-518c-4831-a980-e4c5ee29329a")
-		)
-		(pin "5"
-			(uuid "48db2115-c5c8-42a8-98aa-7b0b2a918035")
-		)
-		(instances
-			(project ""
-				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
-					(reference "U12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:USB_C_Receptacle_USB2.0_16P")
 		(at 30.48 350.52 0)
 		(unit 1)
@@ -28396,8 +28083,74 @@
 		)
 	)
 	(symbol
+		(lib_id "power:Earth")
+		(at 231.14 83.82 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e0a6b2a2-8e55-4506-a58b-f7a6bd86f0e6")
+		(property "Reference" "#PWR0150"
+			(at 231.14 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "Earth"
+			(at 231.14 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.14 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 231.14 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"Earth\""
+			(at 231.14 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "65d6360c-2a28-4d7f-94c8-164825aae6d9")
+		)
+		(instances
+			(project "controller"
+				(path "/5b092a03-7e3e-4df1-ad91-2ac0e362f857"
+					(reference "#PWR0150")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Library:QSBT40-7-F")
-		(at 434.34 16.51 0)
+		(at 440.69 22.86 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -28406,7 +28159,7 @@
 		(fields_autoplaced yes)
 		(uuid "e1932ade-1232-403e-ae8f-a9634a05c792")
 		(property "Reference" "U14"
-			(at 436.88 17.7799 0)
+			(at 443.23 24.1299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28415,7 +28168,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 436.88 17.7799 0)
+			(at 443.23 24.1299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28425,7 +28178,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 434.34 16.51 0)
+			(at 440.69 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28434,7 +28187,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 434.34 16.51 0)
+			(at 440.69 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28443,7 +28196,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 434.34 16.51 0)
+			(at 440.69 22.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29229,10 +28982,9 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "f15cbde7-27fb-43fb-8b90-a726d708aade")
 		(property "Reference" "U13"
-			(at 370.84 18.0974 0)
+			(at 361.696 17.78 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29666,16 +29418,16 @@
 	)
 	(symbol
 		(lib_id "Library:QSBT40-7-F")
-		(at 454.66 6.35 0)
+		(at 285.75 71.12 0)
+		(mirror y)
 		(unit 3)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "fab5483d-fed1-4519-ab1c-2ea809345d0d")
 		(property "Reference" "U14"
-			(at 457.2 6.6674 0)
+			(at 283.21 71.4374 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29684,7 +29436,7 @@
 			)
 		)
 		(property "Value" "QSBT40-7-F"
-			(at 457.2 7.6199 0)
+			(at 283.21 72.3899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29694,7 +29446,7 @@
 			)
 		)
 		(property "Footprint" "Package_TO_SOT_SMD:SOT-363_SC-70-6"
-			(at 454.66 6.35 0)
+			(at 285.75 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29703,7 +29455,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.mouser.se/datasheet/2/115/DIODS15524_1-2541834.pdf"
-			(at 454.66 6.35 0)
+			(at 285.75 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -29712,7 +29464,7 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
-			(at 454.66 6.35 0)
+			(at 285.75 71.12 0)
 			(effects
 				(font
 					(size 1.27 1.27)
