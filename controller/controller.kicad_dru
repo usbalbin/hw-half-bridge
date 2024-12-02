@@ -23,3 +23,27 @@
    (constraint clearance (min "0.2mm"))
    (condition "A.NetName == '/VBUS2' && (B.NetName == '/OTHER_USB_CC1' || B.NetName == '/OTHER_USB_CC2')")
 )
+
+(rule VBUS1_to_EARTH
+   # Smaller clearance between VBUS and Earth near USB and 1.27mm pin connectors
+   (constraint clearance (min "0.2mm"))
+   (condition "A.memberOfFootprint('Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal') || A.memberOfFootprint('Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD') && ((A.NetName == '/VBUS1' && B.NetName == 'Earth') || (A.NetName == 'Earth' && B.NetName == '/VBUS1'))")
+)
+
+(rule VBUS2_to_EARTH
+   # Smaller clearance between VBUS and Earth near USB and 1.27mm pin connectors
+   (constraint clearance (min "0.2mm"))
+   (condition "A.memberOfFootprint('Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal') || A.memberOfFootprint('Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD') && ((A.NetName == '/VBUS2' && B.NetName == 'Earth') || (A.NetName == 'Earth' && B.NetName == '/VBUS2'))")
+)
+
+(rule VBUS_A_to_EARTH
+   # Smaller clearance between VBUS and Earth near USB and 1.27mm pin connectors
+   (constraint clearance (min "0.2mm"))
+   (condition "A.memberOfFootprint('Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal') || A.memberOfFootprint('Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD') && ((A.NetName == 'VBUS_A' && B.NetName == 'Earth') || (A.NetName == 'Earth' && B.NetName == 'VBUS_A'))")
+)
+
+(rule VBUS_B_to_EARTH
+   # Smaller clearance between VBUS and Earth near USB and 1.27mm pin connectors
+   (constraint clearance (min "0.2mm"))
+   (condition "A.memberOfFootprint('Connector_USB:USB_C_Receptacle_GCT_USB4105-xx-A_16P_TopMnt_Horizontal') || A.memberOfFootprint('Connector_PinHeader_1.27mm:PinHeader_2x05_P1.27mm_Vertical_SMD') && ((A.NetName == 'VBUS_B' && B.NetName == 'Earth') || (A.NetName == 'Earth' && B.NetName == 'VBUS_B'))")
+)
