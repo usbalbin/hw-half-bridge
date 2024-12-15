@@ -123,10 +123,6 @@
 	(constraint clearance (min 0.2mm))
 	(condition "A.isPlated() && B.Type == 'track'"))
 
-(rule "Minimum Annular ring size)"
-	(constraint annular_width (min 0.13mm))
-	(condition "A.type != 'via'"))
-
 # Add extra constrait for clearance between exposed copper where one pad is HV
 (rule "pad to pad clearance (without hole, different nets)"
 	(constraint clearance (min 0.3mm))
