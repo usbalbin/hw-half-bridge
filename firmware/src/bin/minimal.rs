@@ -18,11 +18,11 @@ mod app {
     // Local resources go here
     #[local]
     struct Local {
-        timers: hardware::Timers,
-        adcs: hardware::Adcs,
-        ad_channels: hardware::AdcChannels,
-        eevs: hardware::Eevs,
-        dacs: hardware::Dacs,
+        timers: hardware::timers::Timers,
+        adcs: hardware::adc::Adcs,
+        ad_channels: hardware::adc::AdcChannels,
+        eevs: hardware::external_events::Eevs,
+        dacs: hardware::dacs::Dacs,
     }
 
     #[init]

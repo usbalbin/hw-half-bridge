@@ -97,7 +97,12 @@ fn test_(start: i16, max: i16, f: impl Fn(i16) -> u32, descr: &str) {
         }
     }
 
-    defmt::println!("---- {} {:#x}-{:#x}, Done! Passed!🎉🚀😊 ----", descr, start, max);
+    defmt::println!(
+        "---- {} {:#x}-{:#x}, Done! Passed!🎉🚀😊 ----",
+        descr,
+        start,
+        max
+    );
 }
 
 pub fn test() {

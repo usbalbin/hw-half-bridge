@@ -1,0 +1,187 @@
+use cortex_m::delay::Delay;
+use stm32_hrtim::stm32;
+use stm32g4xx_hal::{
+    self as hal, adc::{self, Adc, AdcClaim}, gpio::{
+        self,
+        gpioa::{PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7},
+        gpiob::{PB0, PB11, PB14},
+        gpioc::{PC0, PC2, PC3, PC4, PC5},
+        gpiof::{PF0, PF1},
+    }, observable::ObservationToken, opamp, rcc::Rcc
+};
+
+pub struct Adcs {
+    adc1: Adc<stm32::ADC1, adc::Configured>,
+    adc2: Adc<stm32::ADC2, adc::Configured>,
+    adc3: Adc<stm32::ADC3, adc::Configured>,
+    adc4: Adc<stm32::ADC4, adc::Configured>,
+    adc5: Adc<stm32::ADC5, adc::Configured>,
+}
+
+impl Adcs {
+    pub(crate) fn init(
+        adc1: stm32::ADC1,
+        adc2: stm32::ADC2,
+        adc3: stm32::ADC3,
+        adc4: stm32::ADC4,
+        adc5: stm32::ADC5,
+        delay: &mut Delay,
+        rcc: &Rcc,
+    ) -> Self {
+        defmt::info!("Initializing ADCs...");
+
+        let adc1 = adc1.claim_and_configure(
+            hal::adc::ClockSource::SystemClock,
+            &rcc,
+            hal::adc::config::AdcConfig::default(),
+            delay,
+            false,
+        );
+
+        let adc2 = adc2.claim_and_configure(
+            hal::adc::ClockSource::SystemClock,
+            &rcc,
+            hal::adc::config::AdcConfig::default(),
+            delay,
+            false,
+        );
+
+        let adc3 = adc3.claim_and_configure(
+            hal::adc::ClockSource::SystemClock,
+            &rcc,
+            hal::adc::config::AdcConfig::default(),
+            delay,
+            false,
+        );
+
+        let adc4 = adc4.claim_and_configure(
+            hal::adc::ClockSource::SystemClock,
+            &rcc,
+            hal::adc::config::AdcConfig::default(),
+            delay,
+            false,
+        );
+
+        let adc5 = adc5.claim_and_configure(
+            hal::adc::ClockSource::SystemClock,
+            &rcc,
+            hal::adc::config::AdcConfig::default(),
+            delay,
+            false,
+        );
+
+        Adcs {
+            adc1,
+            adc2,
+            adc3,
+            adc4,
+            adc5,
+        }
+    }
+
+    pub fn read(&mut self, ad_channels: &AdcChannels) {
+        let sample_time = hal::adc::config::SampleTime::Cycles_12_5;
+        let fast_sample_time = hal::adc::config::SampleTime::Cycles_6_5; // Should be fine for current signals since come from the current amplifiers with ~20R @ 1MHz
+
+        //adc1.convert(&op1_comp1_b_cc4_pin_fb_a, sample_time);
+        self.adc1.convert(&ad_channels.ntc_1, sample_time);
+        self.adc1.convert(&ad_channels.ntc_2, sample_time);
+        self.adc1.convert(&ad_channels.ntc_3, sample_time);
+        self.adc1.convert(&ad_channels.ntc_4, sample_time);
+        self.adc1.convert(&ad_channels.ntc_5, sample_time);
+        self.adc1.convert(&ad_channels.adc12_in8_pot, sample_time);
+
+        #[cfg(feature = "cs-op")]
+        self.adc1.convert(&ad_channels.cc4, sample_time);
+
+        #[cfg(not(feature = "fb_a-op"))]
+        self.adc2.convert(&ad_channels.fb_a, sample_time);
+        //adc2.convert(&op1_comp1_b_cc4_pin_fb_a, sample_time);
+        //adc2.convert(&op2_pin_fb_b, sample_time);
+        self.adc2.convert(&ad_channels.ntc_1, sample_time);
+        self.adc2.convert(&ad_channels.ntc_2, sample_time);
+        //adc2.convert(&ntc_3, sample_time);
+        //adc2.convert(&ntc_4, sample_time);
+        self.adc2.convert(&ad_channels.ntc_5, sample_time);
+        self.adc2.convert(&ad_channels.fb_c, sample_time);
+        self.adc2.convert(&ad_channels.adc12_in8_pot, sample_time);
+        self.adc2.convert(&ad_channels.fb1_lo, sample_time);
+        self.adc2.convert(&ad_channels.fb1_hi, sample_time);
+        self.adc2.convert(&ad_channels.fb_d, sample_time);
+        self.adc2.convert(&ad_channels.fb_b, sample_time);
+        self.adc2.convert(&ad_channels.fb_a, sample_time);
+
+        #[cfg(feature = "cs-op")]
+        self.adc2.convert(&ad_channels.cc5, sample_time);
+
+        #[cfg(feature = "cs-op")]
+        self.adc2.convert(&ad_channels.cc1, sample_time);
+        //self.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
+
+        //self.adc2.convert(&ad_channels.cc1a, sample_time); // Use OP2 or OP3 instead
+        //self.adc2.convert(&ad_channels.cc1b, sample_time);
+        //self.adc2.convert(&ad_channels.cc3, sample_time); // Use OP2 or OP5 insead
+
+        #[cfg(feature = "cs-op")]
+        self.adc3.convert(&ad_channels.cc1, sample_time);
+
+        #[cfg(feature = "cs-op")]
+        self.adc5.convert(&ad_channels.cc2, sample_time);
+        #[cfg(feature = "cs-op")]
+        self.adc5.convert(&ad_channels.cc3, sample_time);
+        //self.adc5.convert(&op5, sample_time);
+    }
+}
+
+pub struct AdcChannels {
+    //op1_comp1_b_cc4_pin_fb_a: PA1<gpio::Analog>,
+    pub ntc_1: PC0<gpio::Analog>, //ok
+    pub ntc_2: PC3<gpio::Analog>, //ok
+    pub ntc_3: PA2<gpio::Analog>, //ok
+    pub ntc_4: PF0<gpio::Analog>, //ok
+    pub ntc_5: PA0<gpio::Analog>, //ok
+    pub adc12_in8_pot: PC2<gpio::Analog>,
+    pub adc1_in4_pot2_pwm_led5: PA3<gpio::Analog>,
+
+    #[cfg(not(feature = "cs-op"))]
+    pub cc1: ObservationToken<PB0<gpio::Analog>>,
+    //cc1b: PC1<gpio::Analog>, // No op available on this pin unless the signal is routed to cc5 by mounting R28
+    #[cfg(not(feature = "cs-op"))]
+    pub cc2: ObservationToken<PB11<gpio::Analog>>,
+    #[cfg(not(feature = "cs-op"))]
+    pub cc3: ObservationToken<PB14<gpio::Analog>>,
+    #[cfg(not(feature = "cs-op"))]
+    pub cc4: ObservationToken<PA1<gpio::Analog>>,
+    #[cfg(not(feature = "cs-op"))]
+    pub cc5: ObservationToken<PA7<gpio::Analog>>,
+
+    #[cfg(feature = "cs-op")]
+    pub cc1:
+        opamp::Follower<opamp::Opamp3, ObservationToken<PB0<gpio::Analog>>, opamp::InternalOutput>,
+    #[cfg(feature = "cs-op")]
+    pub cc2:
+        opamp::Follower<opamp::Opamp4, ObservationToken<PB11<gpio::Analog>>, opamp::InternalOutput>,
+    #[cfg(feature = "cs-op")]
+    pub cc3:
+        opamp::Follower<opamp::Opamp5, ObservationToken<PB14<gpio::Analog>>, opamp::InternalOutput>,
+    #[cfg(feature = "cs-op")]
+    pub cc4:
+        opamp::Follower<opamp::Opamp1, ObservationToken<PA1<gpio::Analog>>, opamp::InternalOutput>,
+    #[cfg(feature = "cs-op")]
+    pub cc5:
+        opamp::Follower<opamp::Opamp2, ObservationToken<PA7<gpio::Analog>>, opamp::InternalOutput>,
+
+    //op12_comp2_cc5_pin_b: PA7<gpio::Analog>,
+    pub fb1_lo: PA4<gpio::Analog>,
+    pub fb1_hi: PA5<gpio::Analog>,
+
+    #[cfg(not(feature = "fb_a-op"))]
+    pub fb_a: PC5<gpio::Analog>, // Replaces pwm_led5 pot2
+    pub fb_b: PF1<gpio::Analog>,
+    pub fb_c: PA6<gpio::Analog>,
+    pub fb_d: PC4<gpio::Analog>,
+
+    #[cfg(feature = "fb_a-op")]
+    pub fb_a: opamp1::Follower<PA3<gpio::Analog>>, // Replaces pwm_led7
+                                                   //pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
+}
