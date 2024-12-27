@@ -8,6 +8,15 @@ use half_bridge as _; // global logger + panicking-behavior + memory layout
 )]
 mod app {
     use cortex_m::delay::Delay;
+    use stm32_hrtim::{
+        self,
+        control::{HrControltExt, HrPwmControl, HrTimCalibrated},
+        external_event::{EevInput, EevInputs, EevSamplingFilter, ExternalEventSource},
+        output::HrOutput,
+        timer::HrSlaveTimer,
+        timer_eev_cfg::EevCfgs,
+        HrParts, HrPwmAdvExt,
+    };
     use stm32g4xx_hal::{
         self as hal,
         adc::{self, Adc, AdcClaim},
@@ -22,23 +31,8 @@ mod app {
             gpiof::{PF0, PF1},
             GpioExt,
         },
-        hrtim::{
-            self,
-            control::{HrControltExt, HrPwmControl, HrTimCalibrated},
-            external_event::{EevInput, EevInputs, EevSamplingFilter, ExternalEventSource},
-            output::HrOutput,
-            timer::HrSlaveTimer,
-            timer_eev_cfg::EevCfgs,
-            HrPwmAdvExt,
-        },
-        opamp::{
-            opamp1::{self, Follower, IntoFollower},
-            opamp2::{self, IntoFollower as _},
-            opamp3::{self, IntoFollower as _},
-            opamp4::{self, IntoFollower as _},
-            opamp5::{self, IntoFollower as _},
-            OpampEx,
-        },
+        observable::{Observable, ObservationLock, ObservationToken, Observed},
+        opamp::{Follower, IntoFollower, OpampEx},
         pwm::{self, PwmExt as _},
         pwr::{self, PwrExt},
         rcc::{self, Rcc, RccExt},
@@ -73,8 +67,8 @@ mod app {
     pub const PERIOD: u16 = try_down_cast!(F_SYS.raw() as u64 * 32 / F_SW.raw() as u64, u64, u16);
     const I_FILTER: EevSamplingFilter = EevSamplingFilter::None;
 
-    const ADC_POST_SCALER: hrtim::control::AdcTriggerPostscaler =
-        hrtim::control::AdcTriggerPostscaler::Div31;
+    const ADC_POST_SCALER: stm32_hrtim::control::AdcTriggerPostscaler =
+        stm32_hrtim::control::AdcTriggerPostscaler::Div31;
 
     // Shared resources go here
     #[shared]
@@ -90,27 +84,33 @@ mod app {
 
     macro_rules! init_hrtim {
         ($tim:expr, ($hi_pin:ident $(, $li_pin:ident)*), $comp_eev:expr, $deadtime:expr, $rst_evt:expr, $rcc:expr, $hr_control:expr) => {{
-            let (mut timer, (cr1, cr2, _cr3, _cr4), (mut $hi_pin $(, $li_pin)*), _) = $tim
-                .pwm_advanced(($hi_pin $(, $li_pin)*), &mut $rcc)
+            let mut timer = $tim
+                .pwm_advanced(($hi_pin $(, $li_pin)*))
                 .deadtime($deadtime)
-                .prescaler(hrtim::Pscl1)
+                .prescaler(stm32_hrtim::Pscl1)
                 .period(PERIOD)
-                .out1_polarity(pwm::Polarity::ActiveHigh)
-                .out2_polarity(pwm::Polarity::ActiveHigh)
-                .preload(hrtim::PreloadSource::OnCounterReset)
-                .timer_mode(hrtim::HrTimerMode::SingleShotRetriggerable)
-                .counting_direction(hrtim::HrCountingDirection::Up)
+                .out1_polarity(stm32_hrtim::Polarity::ActiveHigh)
+                .out2_polarity(stm32_hrtim::Polarity::ActiveHigh)
+                .preload(stm32_hrtim::PreloadSource::OnCounterReset)
+                .timer_mode(stm32_hrtim::HrTimerMode::SingleShotRetriggerable)
+                .counting_direction(stm32_hrtim::HrCountingDirection::Up)
                 .eev_cfg(EevCfgs::default())
                 //.repetition_counter(repetition_counter)
                 //.enable_repetition_interrupt()
                 .finalize(&mut $hr_control);
 
-            timer.enable_reset_event(&$rst_evt);
-            $hi_pin.enable_set_event(&$rst_evt);
-            $hi_pin.enable_rst_event(&cr1);
-            $hi_pin.enable_rst_event(&$comp_eev);
+            let pin = &mut timer.out;
+            $(
+                let $li_pin = ();
+                let pin = &mut pin.0;
+            )*
 
-            (timer, cr1, cr2, $hi_pin $(, $li_pin)*)
+            timer.timer.enable_reset_event(&$rst_evt);
+            pin.enable_set_event(&$rst_evt);
+            pin.enable_rst_event(&timer.cr1);
+            pin.enable_rst_event(&$comp_eev);
+
+            timer
         }};
     }
 
@@ -166,7 +166,7 @@ mod app {
             #[allow(dead_code)]
             #[cfg(feature = "usb-pd-db")]
             dbcc1: gpio::gpioa::PA9<gpio::Input<gpio::Floating>>,
-            
+
             #[allow(dead_code)]
             #[cfg(feature = "usb-pd-db")]
             dbcc2: gpio::gpioa::PA10<gpio::Input<gpio::Floating>>,
@@ -314,16 +314,19 @@ mod app {
         let pwm_led3 = pb9.into_alternate(); // 5v tol
 
         let pwm_led4 = pb10.into_alternate(); // 3.6v max
-        //let pwm_led5 = pa3.into_alternate(); // 3.6v max
-        let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate();  // 3.6v max
+                                              //let pwm_led5 = pa3.into_alternate(); // 3.6v max
+        let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate(); // 3.6v max
         let pwm_led7_adc2_in11 = pc5.into_analog(); // TIM1_CH4N  // 3.6v max
         let pwm_led8_adc2_in12 = pb2.into_alternate(); // 3.6v max
 
         let (led2_tim4, led3_tim4) = dp.TIM4.pwm((pwm_led2, pwm_led3), 20.kHz(), &mut rcc);
-        let (led3_tim3, led6_tim3) = dp.TIM3.pwm((pwm_led1, pwm_led6_pot3_adc1_in12_adc3_in1), 20.kHz(), &mut rcc);
+        let (led3_tim3, led6_tim3) = dp.TIM3.pwm(
+            (pwm_led1, pwm_led6_pot3_adc1_in12_adc3_in1),
+            20.kHz(),
+            &mut rcc,
+        );
         let (led4_tim2/*, led5_tim2*/) = dp.TIM2.pwm((pwm_led4/*, pwm_led5*/), 20.kHz(), &mut rcc);
         let led8_tim5 = dp.TIM5.pwm(pwm_led8_adc2_in12, 20.kHz(), &mut rcc);
-        
 
         let tx = pb3.into_alternate();
         let rx = pa15.into_alternate();
@@ -338,20 +341,20 @@ mod app {
             .unwrap();
 
         //let comp1_cc4_pin = pb1.into_analog();
-        let op1_comp1_b_cc4_pin = pa1.into_analog();
+        let (_, [op1_cc4_pin, comp1_b_cc4_pin]) = pa1.into_analog().observe();
 
         //let comp2_cc5_pin = pa3.into_analog(); // No filter and same DAC as comp4
-        let op12_comp2_cc5_pin_b = pa7.into_analog(); // CC5
-        // comp3_b_fb_d on pc1
+        let (_, [op12_cc5_pin_b, comp2_cc5_pin_b]) = pa7.into_analog().observe(); // CC5
+                                                                            // comp3_b_fb_d on pc1
 
-        let op3_comp4_cc1_pin = pb0.into_analog();
+        let (_, [op3_cc1_pin, comp4_cc1_pin]) = pb0.into_analog().observe();
         // let comp4_pin_b = pe7; only on LQFP80 and larger
 
         //let comp5_pin = pc7.into_analog(); // Used by HRTIMF_CH2
-        let op4_comp6_cc2_pin = pb11.into_analog();
+        let (_, [op4_cc2_pin, comp6_cc2_pin]) = pb11.into_analog().observe();
         //let comp6_pin_b = pd11; only on LQFP100 and larger
 
-        let op25_comp7_cc3_pin = pb14.into_analog();
+        let (_, [op25_cc3_pin, comp7_cc3_pin]) = pb14.into_analog().observe();
 
         //let comp7_pin_b = pd14; only on LQFP100 and larger
 
@@ -382,16 +385,16 @@ mod app {
             .set_adc4_trigger_psc(ADC_POST_SCALER)
             .wait_for_calibration();
 
-        let dacs = init_dacs(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &mut rcc);
+        let (dacs, dac_tokens) = init_dacs(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &mut rcc);
         let eevs = init_comparators(
-            &dacs,
+            dac_tokens,
             dp.COMP,
-            &op3_comp4_cc1_pin,
+            comp4_cc1_pin,
             //&comp3_b_cc1b_pin,
-            &op4_comp6_cc2_pin,
-            &op25_comp7_cc3_pin,
-            &op1_comp1_b_cc4_pin,
-            &op12_comp2_cc5_pin_b,
+            comp6_cc2_pin,
+            comp7_cc3_pin,
+            comp1_b_cc4_pin,
+            comp2_cc5_pin_b,
             eev_inputs,
             &mut rcc,
             &mut ctrl,
@@ -401,29 +404,20 @@ mod app {
 
         let (op1, op2, op3, op4, op5, _op6) = dp.OPAMP.split(&mut rcc);
 
-        let op1 = op1.follower(
-            &op1_comp1_b_cc4_pin,
-            None::<gpio::gpioa::PA2<hal::gpio::Analog>>,
-        ); // PA1 PA3(comp2) PA7
-        let op2 = op2.follower(
-            &op12_comp2_cc5_pin_b,
-            None::<gpio::gpioa::PA6<hal::gpio::Analog>>,
-        ); // PA7 PB0(comp4) PB14(comp7)
-        let op3 = op3.follower(
-            &op3_comp4_cc1_pin,
-            None::<gpio::gpiob::PB1<hal::gpio::Analog>>,
-        ); // PA1 PB0(comp4)
-        let op4 = op4.follower(
-            &op4_comp6_cc2_pin,
-            None::<gpio::gpiob::PB12<hal::gpio::Analog>>,
-        );
-        let op5 = op5.follower(
-            &op25_comp7_cc3_pin,
-            None::<gpio::gpioa::PA8<hal::gpio::Analog>>,
-        );
-         // PB11(comp6)
-           //let op5 = op5.follower(ntc_2_op5, None::<gpio::gpioa::PA8<hal::gpio::Analog>>); // PB14(comp7) PC3
-           // let op6 = op6.follower((), None);
+
+        #[cfg(feature = "cs-op")]
+        let op1 = op1.follower(op1_cc4_pin); // PA1 PA3(comp2) PA7
+        #[cfg(feature = "cs-op")]
+        let op2 = op2.follower(op12_cc5_pin_b); // PA7 PB0(comp4) PB14(comp7)
+        #[cfg(feature = "cs-op")]
+        let op3 = op3.follower(op3_cc1_pin); // PA1 PB0(comp4)
+        #[cfg(feature = "cs-op")]
+        let op4 = op4.follower(op4_cc2_pin);
+        #[cfg(feature = "cs-op")]
+        let op5 = op5.follower(op25_cc3_pin);
+        // PB11(comp6)
+        //let op5 = op5.follower(ntc_2_op5, None::<gpio::gpioa::PA8<hal::gpio::Analog>>); // PB14(comp7) PC3
+        // let op6 = op6.follower((), None);
 
         let ad_channels = AdcChannels {
             //op1_comp1_b_cc4_pin_fb_a,
@@ -436,17 +430,17 @@ mod app {
             adc12_in8_pot,
 
             #[cfg(not(feature = "cs-op"))]
-            cc1: op3_comp4_cc1_pin,
+            cc1: op3_cc1_pin,
             //#[cfg(not(feature = "cs-op"))]
             //cc1b: comp3_b_cc1b_pin,
             #[cfg(not(feature = "cs-op"))]
-            cc2: op4_comp6_cc2_pin,
+            cc2: op4_cc2_pin,
             #[cfg(not(feature = "cs-op"))]
-            cc3: op25_comp7_cc3_pin,
+            cc3: op25_cc3_pin,
             #[cfg(not(feature = "cs-op"))]
-            cc4: op1_comp1_b_cc4_pin,
+            cc4: op1_cc4_pin,
             #[cfg(not(feature = "cs-op"))]
-            cc5: op12_comp2_cc5_pin_b,
+            cc5: op12_cc5_pin_b,
 
             #[cfg(feature = "cs-op")]
             cc1: op3,
@@ -460,7 +454,6 @@ mod app {
             cc4: op1,
             #[cfg(feature = "cs-op")]
             cc5: op2,
-            
 
             //op12_comp2_cc5_pin_b,
             fb1_lo: fb1_lo_adc2_in17,
@@ -469,23 +462,29 @@ mod app {
             fb_b: fb_b_adc2_in10,
             fb_c,
             fb_d: fb_d_adc2_in5,
-            pwm_led7_adc2_in11,
             //pwm_led8_adc2_in12,
         };
 
-        let (master, (mcmp1, mcmp2, mcmp3, mcmp4), _dma) = dp
+        let HrParts {
+            timer: master,
+            cr1: mcmp1,
+            cr2: mcmp2,
+            cr3: mcmp3,
+            cr4: mcmp4,
+            ..
+        } = dp
             .HRTIM_MASTER
-            .pwm_advanced((), &mut rcc)
+            .pwm_advanced(())
             .enable_repetition_interrupt()
-            .prescaler(hrtim::Pscl1)
+            .prescaler(stm32_hrtim::Pscl1)
             .period(PERIOD)
             //.repetition_counter(repetition_counter)
             .enable_repetition_interrupt()
             .finalize(&mut hr_ctrl);
 
-        let dt = hrtim::deadtime::DeadtimeConfig::default();
+        let dt = stm32_hrtim::deadtime::DeadtimeConfig::default();
 
-        let (tim1, cr1, cr2, _out1, _out2) = init_hrtim!(
+        let timer1 = init_hrtim!(
             dp.HRTIM_TIMF,
             (hi1, li1),
             eevs.cc1,
@@ -494,7 +493,7 @@ mod app {
             rcc,
             hr_ctrl
         );
-        let (tim2, cr1, cr2, _out1, _out2) = init_hrtim!(
+        let timer2 = init_hrtim!(
             dp.HRTIM_TIMC,
             (hi_2, li_2),
             eevs.cc2,
@@ -503,7 +502,7 @@ mod app {
             rcc,
             hr_ctrl
         );
-        let (tim3, cr1, cr2, _out1, _out2) = init_hrtim!(
+        let timer3 = init_hrtim!(
             dp.HRTIM_TIME,
             (hi_3, li_3),
             eevs.cc3,
@@ -519,15 +518,15 @@ mod app {
         );
 
         #[cfg(feature = "hv4")]
-        let (tim4b, cr1, cr2, _out1) =
+        let timer4b =
             init_hrtim!(dp.HRTIM_TIMB, (hi_4), eevs.cc4, dt, mcmp3, rcc, hr_ctrl);
 
         #[cfg(feature = "hv4")]
-        let (tim4d, cr1, cr2, _out2) =
+        let timer4d =
             init_hrtim!(dp.HRTIM_TIMD, (li_4), eevs.cc4, dt, mcmp3, rcc, hr_ctrl);
 
         #[cfg(feature = "hv5")]
-        let (tim5a, cr1, cr2, _out1, _out2) = init_hrtim!(
+        let timer5a = init_hrtim!(
             dp.HRTIM_TIMA,
             (hi_5, li_5),
             eevs.cc4,
@@ -612,7 +611,7 @@ mod app {
         dac3: stm32::DAC3,
         dac4: stm32::DAC4,
         rcc: &mut Rcc,
-    ) -> Dacs {
+    ) -> (Dacs, DacTokens) {
         let dac_ampl = 0;
         // DAC1 and DAC2 are too slow to be useful for generating the sawtooth shape required for
         // slope compensation
@@ -647,12 +646,26 @@ mod app {
             )
         };
 
-        Dacs {
-            cc1_cc5: dac3ch2,
-            cc4: dac3ch1,
-            cc2: dac4ch2,
-            cc3: dac4ch1,
-        }
+        let (cc1_cc5, [cc1_ot, cc5_ot]) = dac3ch2.observe();
+        let (cc4, [cc4_ot]) = dac3ch1.observe();
+        let (cc2, [cc2_ot]) = dac4ch2.observe();
+        let (cc3, [cc3_ot]) = dac4ch1.observe();
+
+        (
+            Dacs {
+                cc1_cc5,
+                cc4,
+                cc2,
+                cc3,
+            },
+            DacTokens {
+                cc4: cc4_ot,
+                cc1: cc1_ot,
+                cc5: cc5_ot,
+                cc3: cc3_ot,
+                cc2: cc2_ot,
+            },
+        )
     }
 
     struct Eevs {
@@ -666,33 +679,42 @@ mod app {
     }
 
     struct Dacs {
-        cc4: Dac3Ch1<0b11, dac::WaveGenerator>,
-        cc1_cc5: Dac3Ch2<0b11, dac::WaveGenerator>,
+        cc4: Observed<Dac3Ch1<0b11, dac::WaveGenerator>, 1>,
+        cc1_cc5: Observed<Dac3Ch2<0b11, dac::WaveGenerator>, 2>,
 
-        cc3: Dac4Ch1<0b11, dac::WaveGenerator>,
-        cc2: Dac4Ch2<0b11, dac::WaveGenerator>,
+        cc3: Observed<Dac4Ch1<0b11, dac::WaveGenerator>, 1>,
+        cc2: Observed<Dac4Ch2<0b11, dac::WaveGenerator>, 1>,
+    }
+
+    struct DacTokens {
+        cc4: ObservationToken<Dac3Ch1<0b11, dac::WaveGenerator>>,
+        cc1: ObservationToken<Dac3Ch2<0b11, dac::WaveGenerator>>,
+        cc5: ObservationToken<Dac3Ch2<0b11, dac::WaveGenerator>>,
+
+        cc3: ObservationToken<Dac4Ch1<0b11, dac::WaveGenerator>>,
+        cc2: ObservationToken<Dac4Ch2<0b11, dac::WaveGenerator>>,
     }
 
     fn init_comparators(
-        dacs: &Dacs,
+        dacs: DacTokens,
         comp: stm32::COMP,
-        cc1_pin: &PB0<gpio::Analog>,
-        //cc1b_pin: &PC1<gpio::Analog>,
-        cc2_pin: &PB11<gpio::Analog>,
-        cc3_pin: &PB14<gpio::Analog>,
-        cc4_pin: &PA1<gpio::Analog>,
-        cc5_pin: &PA7<gpio::Analog>,
+        cc1_pin: ObservationToken<PB0<gpio::Analog>>,
+        //cc1b_pin: ObservationToken<PC1<gpio::Analog>>,
+        cc2_pin: ObservationToken<PB11<gpio::Analog>>,
+        cc3_pin: ObservationToken<PB14<gpio::Analog>>,
+        cc4_pin: ObservationToken<PA1<gpio::Analog>>,
+        cc5_pin: ObservationToken<PA7<gpio::Analog>>,
         eev_inputs: EevInputs,
         rcc: &mut Rcc,
         ctrl: &mut HrTimCalibrated,
     ) -> Eevs {
         macro_rules! init_comp {
             ($comp:expr, $pos_in:expr, $neg_in:expr, $eev_input:expr, $rcc:expr, $hr_control:expr, $($filter:expr)*) => {{
-                use stm32g4xx_hal::hrtim::external_event::ToExternalEventSource;
+                use stm32_hrtim::external_event::ToExternalEventSource;
                 let comp = $comp
                     .comparator(
                         $pos_in,
-                        &$neg_in,
+                        $neg_in,
                         comparator::Config::default(),
                         &$rcc.clocks,
                     )
@@ -702,8 +724,8 @@ mod app {
                 #[allow(unused_mut)]
                 let mut eev = $eev_input
                     .bind(&comp)
-                    .edge_or_polarity(hrtim::external_event::EdgeOrPolarity::Polarity(
-                        pwm::Polarity::ActiveHigh,
+                    .edge_or_polarity(stm32_hrtim::external_event::EdgeOrPolarity::Polarity(
+                        stm32_hrtim::Polarity::ActiveHigh,
                     ));
                 $(eev = eev.filter($filter);)*
 
@@ -728,7 +750,7 @@ mod app {
         let comp2_cc5 = init_comp!(
             comp2,
             cc5_pin, // ok
-            dacs.cc1_cc5,
+            dacs.cc5,
             eev_inputs.eev_input1,
             rcc,
             ctrl, /* No filter */
@@ -748,7 +770,7 @@ mod app {
         let comp4_cc1a = init_comp!(
             comp4,
             cc1_pin, // ok, TODO: Is ADC3 good enough?
-            dacs.cc1_cc5,
+            dacs.cc1,
             eev_inputs.eev_input7,
             rcc,
             ctrl,
@@ -800,28 +822,28 @@ mod app {
 
     struct AdcChannels {
         //op1_comp1_b_cc4_pin_fb_a: PA1<gpio::Analog>,
-        ntc_1: PC0<gpio::Analog>,           //ok
-        ntc_2: PC3<gpio::Analog>,       //ok
-        ntc_3: PA2<gpio::Analog>,           //ok
-        ntc_4: PF0<gpio::Analog>,           //ok
+        ntc_1: PC0<gpio::Analog>, //ok
+        ntc_2: PC3<gpio::Analog>, //ok
+        ntc_3: PA2<gpio::Analog>, //ok
+        ntc_4: PF0<gpio::Analog>, //ok
         ntc_5: PA0<gpio::Analog>, //ok
         adc12_in8_pot: PC2<gpio::Analog>,
         adc1_in4_pot2_pwm_led5: PA3<gpio::Analog>,
 
         #[cfg(not(feature = "cs-op"))]
-        cc1: PB0<gpio::Analog>,
+        cc1: ObservationToken<PB0<gpio::Analog>>,
         //cc1b: PC1<gpio::Analog>, // No op available on this pin unless the signal is routed to cc5 by mounting R28
         #[cfg(not(feature = "cs-op"))]
-        cc2: PB11<gpio::Analog>,
+        cc2: ObservationToken<PB11<gpio::Analog>>,
         #[cfg(not(feature = "cs-op"))]
-        cc3: PB14<gpio::Analog>,
+        cc3: ObservationToken<PB14<gpio::Analog>>,
         #[cfg(not(feature = "cs-op"))]
-        cc4: PA1<gpio::Analog>,
+        cc4: ObservationToken<PA1<gpio::Analog>>,
         #[cfg(not(feature = "cs-op"))]
-        cc5: PA7<gpio::Analog>,
+        cc5: ObservationToken<PA7<gpio::Analog>>,
 
         #[cfg(feature = "cs-op")]
-        cc1a: opamp3::Follower<PB0<gpio::Analog>>,
+        cc1: opamp3::Follower<PB0<gpio::Analog>>,
         #[cfg(feature = "cs-op")]
         cc2: opamp4::Follower<PB11<gpio::Analog>>,
         #[cfg(feature = "cs-op")]
@@ -834,7 +856,7 @@ mod app {
         //op12_comp2_cc5_pin_b: PA7<gpio::Analog>,
         fb1_lo: PA4<gpio::Analog>,
         fb1_hi: PA5<gpio::Analog>,
-        
+
         #[cfg(not(feature = "fb_a-op"))]
         fb_a: PC5<gpio::Analog>, // Replaces pwm_led5 pot2
         fb_b: PF1<gpio::Analog>,
@@ -843,15 +865,13 @@ mod app {
 
         #[cfg(feature = "fb_a-op")]
         fb_a: opamp1::Follower<PA3<gpio::Analog>>, // Replaces pwm_led7
-
-        pwm_led7_adc2_in11: PC5<gpio::Analog>,
         //pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
     }
 
     fn read_adcs(adcs: &mut Adcs, ad_channels: &AdcChannels) {
         let sample_time = hal::adc::config::SampleTime::Cycles_12_5;
         let fast_sample_time = hal::adc::config::SampleTime::Cycles_6_5; // Should be fine for current signals since come from the current amplifiers with ~20R @ 1MHz
-        
+
         //adc1.convert(&op1_comp1_b_cc4_pin_fb_a, sample_time);
         adcs.adc1.convert(&ad_channels.ntc_1, sample_time);
         adcs.adc1.convert(&ad_channels.ntc_2, sample_time);
@@ -875,24 +895,31 @@ mod app {
         adcs.adc2.convert(&ad_channels.fb1_hi, sample_time);
         adcs.adc2.convert(&ad_channels.fb_d, sample_time);
         adcs.adc2.convert(&ad_channels.fb_b, sample_time);
-        adcs.adc2.convert(&ad_channels.pwm_led7_adc2_in11, sample_time);
-        
-        adcs.adc2.convert(&ad_channels.op2, sample_time);
-        adcs.adc2.convert(&ad_channels.op3, sample_time);
+        adcs.adc2
+            .convert(&ad_channels.fb_a, sample_time);
+
+        #[cfg(feature = "cs-op")]
+        adcs.adc2.convert(&ad_channels.cc5, sample_time);
+
+        #[cfg(feature = "cs-op")]
+        adcs.adc2.convert(&ad_channels.cc1, sample_time);
         //adcs.adc2.convert(&ad_channels.pwm_led8_adc2_in12, sample_time);
-        
+
         //adcs.adc2.convert(&ad_channels.cc1a, sample_time); // Use OP2 or OP3 instead
         //adcs.adc2.convert(&ad_channels.cc1b, sample_time);
+        #[cfg(feature = "cs-op")]
         adcs.adc2.convert(&ad_channels.cc2, sample_time);
         //adcs.adc2.convert(&ad_channels.cc3, sample_time); // Use OP2 or OP5 insead
+        #[cfg(feature = "cs-op")]
         adcs.adc2.convert(&ad_channels.cc4, sample_time);
-        adcs.adc2.convert(&ad_channels.cc5, sample_time);
-        
 
-        adcs.adc3.convert(&ad_channels.op3, sample_time);
+        #[cfg(feature = "cs-op")]
+        adcs.adc3.convert(&ad_channels.cc1, sample_time);
 
-        adcs.adc5.convert(&ad_channels.op4, sample_time);
-        adcs.adc5.convert(&ad_channels.op5, sample_time);
+        #[cfg(feature = "cs-op")]
+        adcs.adc5.convert(&ad_channels.cc2, sample_time);
+        #[cfg(feature = "cs-op")]
+        adcs.adc5.convert(&ad_channels.cc3, sample_time);
         //adc5.convert(&op5, sample_time);
     }
 }
