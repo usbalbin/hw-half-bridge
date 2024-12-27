@@ -3,6 +3,7 @@
 
 //mod half_bridge;
 pub mod control_2p2z;
+pub mod hardware;
 
 use core::sync::atomic::{AtomicUsize, Ordering};
 use defmt_brtt as _; // global logger
