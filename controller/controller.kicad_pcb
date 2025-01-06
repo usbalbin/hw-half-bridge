@@ -32119,6 +32119,17 @@
 				(xyz 0 0 0)
 			)
 		)
+		(model "/home/albin/hw-half-bridge/dcdc-bypass/dcdc-bypass.wrl"
+			(offset
+				(xyz 0 4.5 5.6)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Resistor_SMD:R_0805_2012Metric"
 		(layer "F.Cu")
