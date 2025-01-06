@@ -16602,7 +16602,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "USB4105-GF-A"
+		(property "part-num" " USB4105-GF-A"
 			(at 29.21 237.49 0)
 			(effects
 				(font
@@ -17761,7 +17761,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 483.87 165.1 0)
 			(effects
 				(font
@@ -17770,7 +17770,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 483.87 165.1 0)
 			(effects
 				(font
@@ -22551,7 +22551,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 509.27 165.1 0)
 			(effects
 				(font
@@ -22560,7 +22560,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 509.27 165.1 0)
 			(effects
 				(font
@@ -22654,7 +22654,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 457.2 165.1 0)
 			(effects
 				(font
@@ -22663,7 +22663,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 457.2 165.1 0)
 			(effects
 				(font
@@ -22757,7 +22757,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 402.59 165.1 0)
 			(effects
 				(font
@@ -22766,7 +22766,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 402.59 165.1 0)
 			(effects
 				(font
@@ -23512,7 +23512,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 342.9 165.1 0)
 			(effects
 				(font
@@ -23521,7 +23521,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 342.9 165.1 0)
 			(effects
 				(font
@@ -25454,7 +25454,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 427.99 165.1 0)
 			(effects
 				(font
@@ -25463,7 +25463,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 427.99 165.1 0)
 			(effects
 				(font
@@ -30217,7 +30217,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "USB4105-GF-A"
+		(property "part-num" " USB4105-GF-A"
 			(at 30.48 350.52 0)
 			(effects
 				(font
@@ -30885,7 +30885,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" "SparkFun Electronics"
+		(property "MFR" ""
 			(at 374.65 165.1 0)
 			(effects
 				(font
@@ -30894,7 +30894,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" "COM-16347"
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 374.65 165.1 0)
 			(effects
 				(font
