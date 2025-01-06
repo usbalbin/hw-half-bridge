@@ -376,9 +376,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8c4bed8a-72af-4d21-9a51-821866dc667a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/6c3eb087-ca2e-49bd-bed9-f879cf51d55c")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -539,7 +552,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "c8a09dde-1b94-4625-a3c4-ad10a9323d8f")
@@ -680,9 +693,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1c1899d6-61b2-48eb-8eb6-1925c21d6ef4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/d7c2f17f-ad36-4b31-88f8-0ffc7cfd7d48")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -857,7 +883,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.43 180)
 			(layer "F.Fab")
 			(uuid "0a1ee3de-318b-4f61-bb35-b6071b750334")
@@ -998,9 +1024,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ada28f0e-3167-4d59-a046-c7a0531e6af1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/236d6eec-78ec-4ccc-b950-bf654e92d37a")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1297,9 +1336,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "446b5ebc-6141-4b82-9415-093eacfdd61a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/bf9455e8-98af-4e7c-9a61-a3df9c5e11ef")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1510,9 +1562,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "(035-00451 (15k))"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b938436e-48b4-41e9-a1cb-225dd2e51a2c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/c92f87c5-50e9-452b-99a1-203f86889dcd")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1809,9 +1874,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "de4d45d7-57dd-49ba-ad6a-9db7fd854f14")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/27f8a1bd-804c-461d-82ae-37ad7fa0607c")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -1972,7 +2050,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "daaad50e-1b77-4905-a330-1d0bd9619493")
@@ -2113,9 +2191,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "33c992ed-8179-4afe-bcc0-d86e44ce46ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e835ab63-7e7f-4cc3-9959-e6ee0831d9f2")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2412,9 +2503,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0f2fade8-7a21-4d3e-949a-bc88a8aec606")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e152766c-b010-4256-80ef-1ec75de52e0b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2716,9 +2820,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "aacafba1-e7e9-42a1-a6c1-d02fdc49e0bc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/08d14c4f-63a9-4734-ba79-1666bee8c4cc")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -2955,9 +3072,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3098c65b-602f-4e99-98c1-6961d396a041")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/13c0eb4d-32de-4f8c-94de-f45fe62b2373")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3168,9 +3298,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "(035-00451 (15k))"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5268dfe4-ca0c-4dd7-9d64-1f2ad464ff00")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/da72df96-48a7-4cd4-a1f9-515568d211e3")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3467,9 +3610,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ba4b5e29-e4e2-455f-a8c7-55a12a0f384d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/8d618e50-cef4-4cdf-8ec5-edd4eaa248ff")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -3630,7 +3786,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x14"
+		(property "Value" "Angled PinHeader 1x14"
 			(at 4.385 35.29 180)
 			(layer "F.Fab")
 			(uuid "bedea652-95ac-4a2a-a7f2-0cfacbfe3963")
@@ -3680,9 +3836,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "0.28st 081-00015"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0402b813-1872-4e43-b709-0773611e019a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/6d5c5d55-9122-4685-b190-9b5cef046d4c")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -5759,7 +5928,7 @@
 				)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "cap=10nF esr=26.96 srf=43.8"
 			(at 0 1.68 80)
 			(layer "F.Fab")
 			(uuid "40d79ac0-d01d-4879-adc3-7ca931ff8d35")
@@ -5895,9 +6064,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 0 0 80)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0926aef0-9f26-4c53-b84e-a986399461d7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/124b32c4-accf-4464-89b9-7edf1689bf9a")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -6134,9 +6316,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "2e555d83-3619-4868-bba0-b799548cd923")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/d326f45f-a176-41e1-a57f-9bffa77b1bef")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
@@ -6803,9 +6998,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "1ed783a0-68ce-4b74-a543-f4cbd978a473")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/b8337a56-fc80-4392-b85b-f7f6d7f9698e")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7102,9 +7310,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0ff42037-48f8-4c41-8489-3e8f258e8325")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/03e9e40d-3c72-4167-9b46-36fa5797f49d")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7401,9 +7622,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "039c9089-6ceb-4973-abc0-ea624cf4c747")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/06c9e532-3ae6-4ecb-8a04-9663543e7ee2")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7564,7 +7798,7 @@
 				)
 			)
 		)
-		(property "Value" "2R"
+		(property "Value" "1R"
 			(at 0 1.05 -60)
 			(layer "F.Fab")
 			(uuid "2be3c8ae-9cb1-4565-a584-a03acece8769")
@@ -7614,9 +7848,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "035-00363 (0603)"
+			(at 0 0 -60)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b9d844ea-a1cd-4b9d-a236-6ed369b7dd48")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/a5f4eca4-83b6-48ff-95cb-4cba5aae8156")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -7771,7 +8018,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "PinSocket 1x11"
 			(at 0 27.73 90)
 			(layer "F.Fab")
 			(uuid "9fd1af94-5ccb-45f4-84b2-a7a7115896f4")
@@ -7821,9 +8068,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "081-00363"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ad2444ae-6e70-4fab-9256-d58e3621b7d6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/25486736-e3cb-4393-9e52-1242b2bc1332")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -8148,7 +8408,7 @@
 				)
 			)
 		)
-		(property "Value" "2R"
+		(property "Value" "1R"
 			(at 0 1.05 60)
 			(layer "F.Fab")
 			(uuid "e503830e-8af0-433a-9042-7e02cab44ee8")
@@ -8198,9 +8458,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "035-00363 (0603)"
+			(at 0 0 60)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a2001fff-8273-4662-9171-b741c50d5555")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/362b0edb-2f2e-4d9f-a663-08f4e08b4d85")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -8355,7 +8628,7 @@
 				)
 			)
 		)
-		(property "Value" "C_Small"
+		(property "Value" "100nF"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "d734fa44-47fc-4473-8ee3-4c9b41a4ece1")
@@ -8405,9 +8678,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00064"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8a790f79-303e-4101-9ed8-f43be2a24058")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/9a9a9c2f-608b-4c84-b473-d8cc93356454")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -8568,7 +8854,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 -90)
 			(layer "F.Fab")
 			(uuid "722e0518-a3ea-4af9-bc25-62ac8bade4b7")
@@ -8709,9 +8995,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "92a85ac9-98f0-45e8-abda-730c566655a3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e1bfed30-900b-4270-81c3-1904e638e8c1")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -8925,9 +9224,9 @@
 		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/7d4eaf84-5618-44b7-8c53-eaa5216362f9")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 0.7)
@@ -9126,9 +9425,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c098f519-fbbb-46bf-aacd-b3431943357d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/db86077c-8124-4815-9eaa-a46d16a2bbcf")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -9339,9 +9651,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "042-00295 eller 035-00287 (0R)"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "375b5cb9-5ae1-455e-b33a-10f769121c57")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Inductor_* L_* *Ferrite*")
 		(path "/a0f730ee-c7d6-4295-a665-21832ceb3502")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -9579,9 +9904,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4cd72fb9-d9f0-449a-b00a-4ece1e1753f8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/1a10052b-604c-472b-b118-18a42c578575")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
@@ -10107,7 +10445,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "61d3c10b-3db0-49c1-8e84-bd09f5b35bda")
@@ -10248,9 +10586,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5aa7810e-412a-43e1-95d0-932efc58a548")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/2974e27d-f75f-41aa-8dfa-cf98a433daab")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -10550,9 +10901,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "finns på labt"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "623f9952-a3c6-4069-bf21-ceb3da0416b7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "SOIC*3.9x9.9*P1.27mm*")
 		(path "/506fd8e3-902b-4ba2-8582-f47e2c7852fa")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(solder_mask_margin 0.05)
 		(attr smd)
@@ -11070,9 +11434,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8a00dc14-17ea-4d05-bd03-7074e9459388")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/f2aa1bd5-d9b5-4e43-acaa-da9f2690a643")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11369,9 +11746,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "5854098c-0775-45c5-ac1f-821203645b85")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/a342301a-6e36-42b4-91ac-700acf58d3f7")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11673,9 +12063,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e1d3e0f5-4327-4924-bfd7-18a7a49907e6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/db18eed3-e66a-42fd-8afb-27fb5b1e7920")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -11836,7 +12239,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "PinSocket 1x11"
 			(at 0 27.73 90)
 			(layer "F.Fab")
 			(uuid "6eaa0cd5-f8cc-412f-aea0-656bcda2c566")
@@ -11886,9 +12289,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "081-00363"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "310c2784-e75c-4680-b9be-fd8cc8f26327")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/c90a13ff-ab15-4099-93e9-32a37d4bc5e1")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -12213,7 +12629,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "9c489480-b73e-4024-a1f1-545452d6b01a")
@@ -12354,9 +12770,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "db16939a-6ea8-473d-9798-a2ab87a19c14")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1a9062da-853a-4573-860a-2a9e219ea64f")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -12569,9 +12998,9 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/05ea9fae-9b57-49b4-bd45-ea139fe0e0a3")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.115835 0.36)
 			(end 0.115835 0.36)
@@ -12871,9 +13300,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "453de29f-84ca-4e09-a7ea-18d7b13fb76c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/17cd8c77-2349-4c43-a0b5-0677898fe66b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -13170,9 +13612,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b5e075b7-c614-4e65-94a1-bfed7c8d4bb1")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/feaaaf07-e7c3-4fa0-ac62-94861bcb8622")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -13469,9 +13924,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70296c8c-7733-4f9f-a36a-cb88009f32e3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/1de7c1c0-4051-4a8a-ba85-c29b36db1464")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -13758,8 +14226,21 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "61f82970-8fe4-4496-b2c1-363f7472340e")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/e29557da-881b-4e9d-8f79-515317bf8a9b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -14244,7 +14725,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "cbb6bf3b-1c5e-4471-ab27-571bb0d5f3d6")
@@ -14385,9 +14866,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "72f9fc2b-6a82-47c2-8c4c-8ede881a1e69")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/5e2bfb74-9af6-4820-85fe-a6c78a5cf7b4")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -14601,9 +15095,9 @@
 		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/fd27a40a-1fb3-4a8e-bb8f-cfb45a9afe50")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 0.7)
@@ -14662,7 +15156,7 @@
 				)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 0 6.35 -90)
 			(layer "F.Fab")
 			(uuid "321e936d-71dc-4490-b92d-299dcc79ec48")
@@ -14714,9 +15208,9 @@
 		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/a5173505-62d8-4dcf-bee8-a147e7fd8183")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_pos_files exclude_from_bom)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start 2.75 -5.25)
 			(end -2.75 -5.25)
@@ -14872,9 +15366,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9ac028a1-383e-4808-b74a-6e440c9708fa")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/2775625a-07d4-4329-8ada-eb41174d6471")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
@@ -15549,9 +16056,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "41c25d19-55db-40af-82bd-69dbda616971")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/7a8d9f2c-4859-4fed-a3f0-f1a5f6e44203")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -15853,9 +16373,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "70700843-6fdb-4788-8c1b-b3ef6e1f5931")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/57eed617-4276-4476-87a4-92eeaa6e597d")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -16093,9 +16626,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "210a8cee-b923-47a4-98a1-1ec235a39de3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/f966afea-c639-4425-a069-b37905ecd322")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
@@ -16697,9 +17243,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8defd609-f043-4e99-865a-f282d53dbe53")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
 		(path "/5d40dfb6-807f-4eea-8508-07fea4a4b713")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -16882,7 +17441,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "f934d5ac-f68e-4fef-a707-85b931e9e248")
@@ -17023,9 +17582,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "abc33d62-e2d6-4379-a51b-469d59915636")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/b22d3515-51b9-4497-9fa2-054d0023e891")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -17301,8 +17873,21 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "01aeed2d-e61f-430a-92cd-063ff2a2b603")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/c05031af-5c3e-4135-9c36-4fcbf17ae352")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -17587,9 +18172,9 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/592c43af-a301-420d-928e-18da1060d160")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 0.7)
@@ -17786,9 +18371,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "f1f8b7fc-44fc-440d-9c4d-f5b7e470ce49")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/481226e9-036d-4619-883a-7f187faa4cf9")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -18025,9 +18623,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d62c0b80-9d00-406c-8850-51dcdf9c9804")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/e299a38b-c938-46da-9b0a-3b1ee579a0e6")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -18325,9 +18936,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cbd82da3-e19a-459f-863a-67b568ad7cee")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/7f9a7528-2bca-4869-a3b9-42a3fb18b019")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -18619,7 +19243,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/93bafa97-b2e3-4c8e-aac0-74df4ad99d9b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom dnp)
 		(fp_circle
@@ -19450,7 +20074,7 @@
 		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/41e34cc7-4a30-4569-a7db-b24f570334a5")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom dnp)
 		(fp_line
@@ -19763,7 +20387,7 @@
 				)
 			)
 		)
-		(property "Value" "Thermistor_NTC"
+		(property "Value" "10k"
 			(at 0 1.43 -90)
 			(layer "F.Fab")
 			(uuid "be815a38-d252-4605-aed5-0239a34a9b54")
@@ -19813,9 +20437,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "035-00285"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8e969829-3d0b-443c-90c2-67130d163a00")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "*NTC* *Thermistor* PIN?ARRAY* bornier* *Terminal?Block* R_*")
 		(path "/dfc6e5ef-c016-40b3-9418-43bd19fc084a")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20112,9 +20749,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ff5656a9-aed7-4b7a-b710-c5350c15fc8a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/ce51ce4f-42b5-4147-b2cd-dfc3becff6e2")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20325,9 +20975,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "035-00202"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "88d5b28f-0a1e-41b1-8792-c209d768665b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/a5c96063-0d42-4da7-891f-682dc3d38bef")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20624,9 +21287,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4c264475-d6b9-4050-a6ef-c0d04dc666f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/dcf27cbd-253f-4d93-afd2-ff4b91439d30")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -20923,9 +21599,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6950b18b-3bdb-4aaf-afbe-cf5d09426d62")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/9edb8b44-6407-4954-9bf7-c3388fd2e2e9")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -21222,9 +21911,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3820bb4b-eb0f-42e0-8d1f-228130922e41")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/fc02df45-2563-4216-85e0-0f9e38eded87")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -21521,9 +22223,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "938c89e6-d5e0-4695-bdb2-2787c6c8362c")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/a4f2ef8e-010f-46fb-a602-3a8589081e6a")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -21810,8 +22525,21 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "cc53619a-930c-4ef3-9829-f45fff9deb77")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/b506933c-f15f-49c7-9a72-b28cb42753e5")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -22296,7 +23024,7 @@
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
+		(property "Value" "DFLS1100"
 			(at 0 2.5 90)
 			(layer "F.Fab")
 			(uuid "e0c1b775-a236-43d5-9c08-a1437719ab2e")
@@ -22424,7 +23152,7 @@
 				)
 			)
 		)
-		(property "part-num" "DFLS1200-7"
+		(property "part-num" "DFLS1100"
 			(at 0 0 -90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22437,9 +23165,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "071-00166"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6e4fd9e4-05c3-47f6-9934-57e9d893d0b7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
 		(path "/1c12b093-fb34-4466-b885-51bec2cdb437")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -22735,9 +23476,9 @@
 		)
 		(property ki_fp_filters "Fiducial*")
 		(path "/1ce90fbe-8ed7-47ea-8083-997df7463660")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 0.7)
@@ -22795,7 +23536,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "8ea83e61-d211-449e-a126-cc0040caae4f")
@@ -22936,9 +23677,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "14b8b8c0-e1cf-4b3d-99ba-e611158ec244")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/f5eb608e-06a3-4ded-9ebc-ad59bdca524d")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -23099,7 +23853,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 -90)
 			(layer "F.Fab")
 			(uuid "a3d80532-b813-4792-9e18-80b6a223d943")
@@ -23240,9 +23994,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c38ab3c7-b9cb-43bc-a420-6c812365bad8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/a2ee5646-8c9d-478b-8eb6-ea831293bf0f")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -23480,9 +24247,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9264386b-c9bd-411b-ba5d-00a57ebc2a8a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/f01c4f86-4b30-4e01-9e72-bcc396f88114")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd exclude_from_bom)
 		(fp_circle
@@ -24008,7 +24788,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 0)
 			(layer "F.Fab")
 			(uuid "6c6b1d64-2e03-42a8-855c-1b08ae21a32d")
@@ -24149,9 +24929,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "14a55618-5503-40d6-8fdf-bc4cc2db966f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/3fa6cbb5-0ac5-4b8d-b1a9-e6f5012b4c5c")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -24448,9 +25241,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "74b7e43b-b8a4-4861-ae33-3b4dd4615321")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/3eca8b94-d782-454b-bab7-bfb58f541447")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -24611,7 +25417,7 @@
 				)
 			)
 		)
-		(property "Value" "cap=64nF esr=16.09m srf=17.58MEG"
+		(property "Value" "220nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "90f1d848-8568-4662-9d5f-6b7ff234038d")
@@ -24752,9 +25558,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "8cb744c0-2a67-4dd0-b01d-3574b3a283fc")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/842e4510-4757-4fa5-90ac-7d42a0d2370a")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25051,9 +25870,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "d948be06-6526-48f2-b203-c9850a87f2be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/739d0bba-a60e-4fe0-bc47-c317d4f5bd8f")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25329,8 +26161,21 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "e6aac04b-706d-417e-96c4-549eee7b399f")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/24334849-b1c5-4a95-9287-d7d8ede65b02")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25612,9 +26457,48 @@
 				)
 			)
 		)
+		(property "MFR" "Allegro MicroSystems"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a5dd10fa-7dcb-468a-a50d-362f03cba6b0")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "part-num" "ACS37030"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "b80efddf-f933-45f9-b7b4-63d1e5fd9a4d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "620f4ee6-4643-4e3c-904e-872832a25271")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "ACS3703x")
 		(path "/f7188e07-73af-497e-b3cf-3630b2efe0ea")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -25871,7 +26755,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "PinSocket 1x11"
 			(at 0 27.73 90)
 			(layer "F.Fab")
 			(uuid "bfdd185f-fefe-4181-af2b-76bd81aba7c9")
@@ -25921,9 +26805,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "081-00363"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6610634c-00d3-47e0-b865-d30d86ea18ec")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/54763076-6b49-4e24-9308-dafeb585a041")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -26363,8 +27260,21 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "52d8a339-730d-44cd-bf3d-31ad1a71fcf6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/61c2b991-d753-4398-b307-e21f35d2e096")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -26732,9 +27642,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "4d682535-75e0-4f2f-bc94-716b3f2fd5b8")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/3c30aea1-df20-4249-91a2-0a7d2d941001")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -27048,9 +27971,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 0 0 100)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "6bd4a3a3-b59d-4d46-a1c4-f10fefc0371b")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/c754b568-4131-4061-b017-e32404a338b5")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -27347,9 +28283,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3f8ddd31-607e-4667-8140-07fb9f847cc3")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/ec7c33e7-b6e9-44b7-bd0e-f5c8270b37f8")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -27562,9 +28511,9 @@
 		)
 		(property ki_fp_filters "C_*")
 		(path "/9f6e28fd-5d48-49db-8867-3656c162a757")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.115835 -0.36)
 			(end 0.115835 -0.36)
@@ -27841,8 +28790,21 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "24eccc5a-5ebe-4402-a151-e4ab9c9bbba6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(path "/3cf8f83e-e559-4bfc-ab2c-0620f6162e64")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -28222,9 +29184,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "a740b95a-08ee-466f-95e2-944f36c61d38")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Choke_* *Coil* Inductor_* L_*")
 		(path "/cccb9fe2-708b-44bb-acf5-09a50fd12492")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -28475,9 +29450,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "035-00202"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0709ce60-3053-4395-8ee6-7304f5b7416a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "R_*")
 		(path "/d75a3568-87ca-4fc4-836f-32497154042f")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -28774,9 +29762,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "587401d4-9b84-456d-86a6-4eca5aa319e7")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/c42d7872-00cf-433b-a5f5-f929c63436d6")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29013,9 +30014,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "510ad19b-cac9-489d-b24a-e279db92d7f6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "TO-???* *_Diode_* *SingleDiode* D_*")
 		(path "/bcb0b807-ce84-4edf-b173-c3ddfcf0ea3d")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29334,9 +30348,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "342c25ce-1e7b-4c55-b54c-116ec0562b18")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/8c42c38e-e8e9-4483-af56-17f709c01fb0")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29573,9 +30600,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+			(at 0 0 -90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "12d4af70-cce9-41f4-96e1-b29326f79da6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/ef06c1ad-7001-4c96-8944-dce469bc1df3")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -29879,9 +30919,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "c8e9023a-fdc4-43ae-a6b8-85917da8dfaf")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/3664a3e3-261c-4f31-9a44-844041091701")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -30178,9 +31231,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 180)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "efb9d9cb-b5af-4c1d-8595-fa9bc05c5da6")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/8d1593c0-77e7-42c0-b950-2cad05ee550c")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -30341,7 +31407,7 @@
 				)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "cap=10nF esr=26.96 srf=43.8"
 			(at 0 1.68 80)
 			(layer "F.Fab")
 			(uuid "75821e9d-7425-4a9e-8c4b-d211516f368f")
@@ -30482,9 +31548,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 0 0 80)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "9498c3b7-7fb8-4b1c-beec-e10704c6825a")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/2b24fcd6-ed6b-4940-96b1-9a6ca3be2e83")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -30646,7 +31725,7 @@
 				)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 0 6.35 -90)
 			(layer "F.Fab")
 			(uuid "e55ec70f-c22a-42fc-b372-3a2dfbb2ff3c")
@@ -30698,9 +31777,9 @@
 		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/ae09c190-bba2-4ab4-9619-cb742994d45b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_pos_files exclude_from_bom)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start 2.75 -5.25)
 			(end -2.75 -5.25)
@@ -30779,7 +31858,7 @@
 				)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "cap=10nF esr=26.96 srf=43.8"
 			(at 0 1.68 -80)
 			(layer "F.Fab")
 			(uuid "c85e39e2-41b3-4107-b128-5ad4fc81e62f")
@@ -30915,9 +31994,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 0 0 100)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "55dabe9a-62ef-4747-9d86-54dbb8d38418")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/70caa811-c2bf-4f17-a4ff-4da53a7de2b6")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -31219,9 +32311,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00289"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "055546aa-8390-4063-a4f4-92931dad01be")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/d36e44b8-bdf2-4259-b10a-760f241e1e3a")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -31432,9 +32537,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "065-00178"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "0b84f4d6-6f05-4e26-ad18-95a08e1188e4")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "C_*")
 		(path "/cf62d08c-c070-46a1-ac33-b2768b744317")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr smd)
 		(fp_line
@@ -31595,7 +32713,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "PinSocket 1x11"
 			(at 0 27.73 90)
 			(layer "F.Fab")
 			(uuid "d10ff218-aa56-4e91-a8b0-0779a11359d3")
@@ -31645,9 +32763,22 @@
 				)
 			)
 		)
+		(property "ARTIKELKOD" "081-00363"
+			(at 0 0 90)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "3be6c5ff-5baf-4ca2-ad73-f48cdd943b67")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
 		(property ki_fp_filters "Connector*:*_1x??_*")
 		(path "/176d72d9-1997-4f46-b411-1d925bcf8c4d")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
 		(attr through_hole)
 		(fp_line
@@ -31973,7 +33104,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 0 -6.35 -90)
 			(layer "B.Fab")
 			(uuid "70ed366a-ab50-46e7-9d00-9ed97446ab3e")
@@ -32029,9 +33160,9 @@
 		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/47aa033a-a96c-427d-8981-a0b2cd06009b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_pos_files exclude_from_bom)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start 2.75 -5.25)
 			(end -2.75 -5.25)
@@ -34334,9 +35465,9 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/d989f217-2a9b-4e20-b956-c4850aa4f984")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 -1.2)
@@ -34456,9 +35587,9 @@
 		)
 		(property ki_fp_filters "Pin* Test*")
 		(path "/9bb4a8d5-801f-4ec5-b1b7-d053c1b8412b")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr exclude_from_pos_files exclude_from_bom)
+		(attr exclude_from_pos_files exclude_from_bom dnp)
 		(fp_circle
 			(center 0 0)
 			(end 0 -1.2)
@@ -34521,7 +35652,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 0 -6.35 -90)
 			(layer "B.Fab")
 			(uuid "3492a9bf-b389-4d03-adda-cbdf6062a821")
@@ -34577,9 +35708,9 @@
 		)
 		(property ki_fp_filters "MountingHole*Pad*")
 		(path "/06757b1f-49d5-4f1e-998c-7edb61081f76")
-		(sheetname "Root")
+		(sheetname "Rotark")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_pos_files exclude_from_bom)
+		(attr smd exclude_from_pos_files exclude_from_bom dnp)
 		(fp_line
 			(start 2.75 -5.25)
 			(end -2.75 -5.25)

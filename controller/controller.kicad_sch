@@ -12334,16 +12334,6 @@
 		)
 		(uuid "e8737fc5-636e-4d46-a934-6842bdc618a1")
 	)
-	(text "Route FB_A"
-		(exclude_from_sim no)
-		(at 125.73 102.108 0)
-		(effects
-			(font
-				(size 12.7 12.7)
-			)
-		)
-		(uuid "ee0ffdc7-3b0e-4de5-a4c7-7fe7d2e14743")
-	)
 	(text "TODO:\nThis is unlikely to work powered from USB\nsince the DC/DC does not operate with Vin < 6V\n\nWould it be possible to bypass the DC/DC when \"Logic DC/DC in\" < ~7V?\nMaybe use PGOOD for this?"
 		(exclude_from_sim no)
 		(at 234.442 306.07 0)
@@ -14408,6 +14398,28 @@
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SPI3_MOSI"
+		(shape input)
+		(at 102.87 102.87 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4a9550fa-f6db-441f-821a-f042e8131c14")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 90.0272 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
 				(hide yes)
 			)
 		)
