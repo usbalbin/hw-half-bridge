@@ -11069,6 +11069,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 78.74 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "13ca8f21-1a7b-4bfc-a3ef-75822baf59bf")
 		)
@@ -11091,7 +11100,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "05458701-aef7-4dd4-b3e1-ab46ee816d81")
 		(property "Reference" "Rsim2"
@@ -11159,9 +11168,9 @@
 		(at 96.52 96.52 0)
 		(unit 1)
 		(exclude_from_sim yes)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "05ea9fae-9b57-49b4-bd45-ea139fe0e0a3")
 		(property "Reference" "C5"
 			(at 94.615 102.87 0)
@@ -11230,7 +11239,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "06757b1f-49d5-4f1e-998c-7edb61081f76")
 		(property "Reference" "J2"
@@ -11242,7 +11251,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 326.39 208.2799 90)
 			(effects
 				(font
@@ -11399,6 +11408,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 85.09 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 85.09 200.66 0)
 			(effects
 				(font
@@ -11641,6 +11659,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 48.26 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e2d2c8db-d211-4522-8c76-6d7be7e97602")
 		)
@@ -11663,7 +11690,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "0c382f60-3e59-4a81-afe2-42353f84e85d")
 		(property "Reference" "Csim2"
@@ -11733,7 +11760,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "12305fad-a4dc-4701-a510-7a6977c314e1")
 		(property "Reference" "R28"
@@ -11830,13 +11857,14 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "${SIM.PARAMS}"
 			(at 134.62 156.21 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
@@ -11921,6 +11949,15 @@
 			)
 		)
 		(property "part-num" "C2012X7R2A225K125AC"
+			(at 134.62 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
 			(at 134.62 153.67 0)
 			(effects
 				(font
@@ -12017,6 +12054,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+			(at 99.06 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "65c9aaf6-8a0a-4293-a3ab-2ced29500681")
 		)
@@ -12039,7 +12085,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "14478273-24da-405a-9f96-b0766e3d6401")
 		(property "Reference" "Csim5"
@@ -12120,7 +12166,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "Hylslist 1x11"
 			(at 35.56 152.4 0)
 			(effects
 				(font
@@ -12149,6 +12195,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 34.29 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "081-00363"
 			(at 34.29 151.13 0)
 			(effects
 				(font
@@ -12316,6 +12371,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 46.99 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "4b795c57-1c83-4ead-82bd-48869203106b")
 		)
@@ -12397,6 +12461,15 @@
 			)
 		)
 		(property "part-num" "97730256330R"
+			(at 271.78 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 271.78 220.98 0)
 			(effects
 				(font
@@ -12527,6 +12600,15 @@
 			)
 		)
 		(property "part-num" "MBASH168SC7224KTCA01"
+			(at 219.71 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "får den plats?"
 			(at 219.71 153.67 0)
 			(effects
 				(font
@@ -12733,6 +12815,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 130.81 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ff3a41c3-6397-412f-a527-d2633dff9f1d")
 		)
@@ -12822,7 +12913,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1ce90fbe-8ed7-47ea-8083-997df7463660")
 		(property "Reference" "FID2"
@@ -12886,7 +12977,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1d2971bf-675d-4508-b4a1-af69a1791057")
 		(property "Reference" "L3"
@@ -13082,6 +13173,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 129.54 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3e8150b9-33ef-4e05-9468-a4f5dce0346a")
 		)
@@ -13104,7 +13204,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1f96f185-820c-4926-a5dd-6ff0ce1ec453")
 		(property "Reference" "R27"
@@ -13301,6 +13401,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 158.75 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e4b61fb1-cc1a-4bdf-b37f-7e2264f2ca47")
 		)
@@ -13413,6 +13522,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 60.96 107.95 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "cbee69bb-c78e-4c70-8c75-23c5fbd4994e")
 		)
@@ -13449,7 +13567,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "Hylslist 1x11"
 			(at 27.94 152.4 0)
 			(effects
 				(font
@@ -13478,6 +13596,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 26.67 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "081-00363"
 			(at 26.67 151.13 0)
 			(effects
 				(font
@@ -13594,6 +13721,15 @@
 			)
 		)
 		(property "part-num" "97730256330R"
+			(at 246.38 203.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 246.38 203.2 0)
 			(effects
 				(font
@@ -13723,6 +13859,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 99.06 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 99.06 153.67 0)
 			(effects
 				(font
@@ -13929,6 +14074,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 189.23 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "17eb6dbb-5b7d-43f0-a37e-d00fa2c3bd0e")
 		)
@@ -13962,13 +14116,14 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10nF"
-			(at 124.46 156.21 0)
+		(property "Value" "${SIM.PARAMS}"
+			(at 114.3 160.782 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
@@ -14061,6 +14216,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 124.46 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "cd4b158b-2d07-46b9-a86a-0d04b466bdb4")
 		)
@@ -14083,7 +14247,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "2ede4416-3631-4f6d-8d94-88056f59fa20")
 		(property "Reference" "Lsim4"
@@ -14217,6 +14381,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "(035-00439 (?))"
+			(at 142.24 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8cdc9ba9-5213-4a5c-949d-4121b9e6057d")
 		)
@@ -14341,6 +14514,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 59.69 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 59.69 200.66 0)
 			(effects
 				(font
@@ -14547,6 +14729,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 148.59 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bfc65b5b-ac8f-4cc7-a759-5694455440a0")
 		)
@@ -14651,6 +14842,15 @@
 			)
 		)
 		(property "part-num" "YFF18PW0J474MT0H0N"
+			(at 87.63 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 87.63 115.57 0)
 			(effects
 				(font
@@ -14794,6 +14994,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 142.24 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "61d9758e-7ab1-4e2e-8db8-0e7a1e22b754")
 		)
@@ -14927,6 +15136,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 228.6 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "93580352-4d78-445b-83c6-cabee136ffb0")
 		)
@@ -15016,7 +15234,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "443a6365-8ca6-422d-8177-bda3edeef9af")
 		(property "Reference" "L2"
@@ -15102,7 +15320,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "47aa033a-a96c-427d-8981-a0b2cd06009b")
 		(property "Reference" "J8"
@@ -15114,7 +15332,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 326.39 215.8999 90)
 			(effects
 				(font
@@ -15271,6 +15489,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 88.9 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 88.9 153.67 0)
 			(effects
 				(font
@@ -15603,6 +15830,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "finns på labt"
+			(at 124.46 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0909fd2f-1149-423c-b3d3-34f25062234a")
 		)
@@ -15693,7 +15929,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "Hylslist 1x11"
 			(at 181.61 194.31 0)
 			(effects
 				(font
@@ -15722,6 +15958,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 180.34 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "081-00363"
 			(at 180.34 193.04 0)
 			(effects
 				(font
@@ -15889,6 +16134,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 53.34 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a01879f4-d8e8-4898-921c-068a03a2e05c")
 		)
@@ -15911,7 +16165,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "592c43af-a301-420d-928e-18da1060d160")
 		(property "Reference" "TP3"
 			(at 267.208 166.878 0)
@@ -15978,7 +16232,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "595dbbe1-8d4a-418f-9c9f-649bc97e37a4")
 		(property "Reference" "Rsim_LOAD1"
@@ -16106,6 +16360,15 @@
 			)
 		)
 		(property "part-num" "V3PM10-M3/H"
+			(at 289.56 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 289.56 156.21 0)
 			(effects
 				(font
@@ -16247,6 +16510,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 194.31 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2ed5fa78-0937-4902-b7a3-e462d33d6a41")
 		)
@@ -16269,7 +16541,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "5f849eea-1d9d-4ff1-8f95-ac64b4002aca")
 		(property "Reference" "Rsim1"
@@ -16429,6 +16701,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 160.02 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0294d6ec-fd6e-41df-bad9-723461623c01")
 		)
@@ -16454,7 +16735,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "663fd676-d87f-4f85-a8f4-e1a9c996fb70")
 		(property "Reference" "V3"
@@ -16671,6 +16952,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 53.34 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "77c8e6b9-190e-46a7-8fe3-96fd7e08da93")
 		)
@@ -16704,7 +16994,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x14"
+		(property "Value" "Hylslist 1x14"
 			(at 19.05 67.31 0)
 			(effects
 				(font
@@ -16731,6 +17021,15 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x14, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 19.05 88.9 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "1.5st 081-00363"
 			(at 19.05 88.9 0)
 			(effects
 				(font
@@ -16875,13 +17174,14 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10nF"
-			(at 129.54 156.21 0)
+		(property "Value" "${SIM.PARAMS}"
+			(at 125.476 157.734 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
+				(hide yes)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0805_2012Metric"
@@ -16974,6 +17274,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 129.54 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7910c4fa-0fef-48c4-9f2a-a8f7a30ccee6")
 		)
@@ -16996,7 +17305,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "721ccc01-1b75-40ea-b164-04c303c6f5a5")
 		(property "Reference" "V4"
@@ -17204,6 +17513,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 93.98 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "2d63fd2c-566e-465d-96f7-b5deaa46bf4f")
 		)
@@ -17226,7 +17544,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "77bc7bac-4bad-4f3e-80dc-4c825d7bee26")
 		(property "Reference" "Rsim5"
@@ -17406,6 +17724,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 58.42 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "67d7ede7-531b-4971-88c5-1beb81982265")
 		)
@@ -17495,7 +17822,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "7d4eaf84-5618-44b7-8c53-eaa5216362f9")
 		(property "Reference" "FID3"
@@ -17736,6 +18063,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 97.79 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "39bbc677-645b-4633-9743-330cb0d94492")
 		)
@@ -17861,6 +18197,15 @@
 			)
 		)
 		(property "part-num" "MBASH168SC7224KTCA01"
+			(at 179.07 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "får den plats?"
 			(at 179.07 153.67 0)
 			(effects
 				(font
@@ -18001,6 +18346,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 63.5 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "a482d626-7b2a-47dd-ae33-bfb48525b58e")
 		)
@@ -18133,6 +18487,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 135.89 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9d158fdc-b9db-46b3-aca3-d5218100880a")
 		)
@@ -18257,6 +18620,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 123.19 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 123.19 200.66 0)
 			(effects
 				(font
@@ -18488,7 +18860,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(uuid "971581fe-4c8d-4a52-a82a-82f201818201")
 		(property "Reference" "Rsim4"
 			(at 259.588 98.298 0)
@@ -18569,7 +18941,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "C_Small"
+		(property "Value" "100nF"
 			(at 377.19 165.0935 0)
 			(effects
 				(font
@@ -18605,6 +18977,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00064"
+			(at 374.65 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "2599f958-cb87-4c9c-9fac-7120632ce5d1")
 		)
@@ -18627,7 +19008,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9bb4a8d5-801f-4ec5-b1b7-d053c1b8412b")
 		(property "Reference" "TP2"
 			(at 318.262 157.988 0)
@@ -18869,6 +19250,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 91.44 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "519e84a2-f4ee-4f10-ae44-7ce2275704b1")
 		)
@@ -18889,9 +19279,9 @@
 		(at 90.17 92.71 0)
 		(unit 1)
 		(exclude_from_sim yes)
-		(in_bom yes)
+		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "9f6e28fd-5d48-49db-8867-3656c162a757")
 		(property "Reference" "C4"
 			(at 87.884 99.06 0)
@@ -18998,6 +19388,15 @@
 			)
 		)
 		(property "Description" "Ferrite bead"
+			(at 203.2 191.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "042-00295 eller 035-00287 (0R)"
 			(at 203.2 191.77 0)
 			(effects
 				(font
@@ -19139,6 +19538,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 209.55 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "3c60dde3-d61f-49ec-9fa1-ade8c59f34cd")
 		)
@@ -19263,6 +19671,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 110.49 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 110.49 200.66 0)
 			(effects
 				(font
@@ -19403,6 +19820,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 104.14 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ab34bfe8-c35d-4919-9f60-b0b52061faa2")
 		)
@@ -19425,7 +19851,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "a5173505-62d8-4dcf-bee8-a147e7fd8183")
 		(property "Reference" "J7"
@@ -19437,7 +19863,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 326.39 201.9299 90)
 			(effects
 				(font
@@ -19538,6 +19964,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00202"
+			(at 73.66 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ae56c177-5583-40bc-831b-86800656b5ff")
 		)
@@ -19597,6 +20032,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 142.24 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "(035-00439 (?))"
 			(at 142.24 99.06 0)
 			(effects
 				(font
@@ -19761,7 +20205,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(uuid "ad07193f-7b76-4869-a65e-255bc304429f")
 		(property "Reference" "Rsim3"
 			(at 253.238 98.298 0)
@@ -19897,7 +20341,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "ae09c190-bba2-4ab4-9619-cb742994d45b")
 		(property "Reference" "J9"
@@ -19909,7 +20353,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "MountingHole_Pad"
+		(property "Value" "Solder_Pad"
 			(at 326.39 222.2499 90)
 			(effects
 				(font
@@ -19964,7 +20408,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(uuid "b03effe5-f493-42ee-a58b-7ed497717b7b")
 		(property "Reference" "Csim3"
 			(at 252.222 67.056 0)
@@ -20344,6 +20788,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 149.86 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "af0645b8-ac79-4d6f-ab6b-21cb54959c6a")
 		)
@@ -20431,7 +20884,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "b4641767-462b-4175-9ca5-f87c32003cc5")
 		(property "Reference" "V1"
@@ -20639,6 +21092,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 274.32 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dbb5093a-81ea-4a35-9247-c667c6970fae")
 		)
@@ -20676,7 +21138,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(uuid "b685819c-ffce-41ec-8bb7-b408d7a4f83b")
 		(property "Reference" "Csim4"
 			(at 259.334 67.056 0)
@@ -20854,6 +21316,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 43.18 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7a2829d1-4c51-47ea-80b1-6bb2a3314259")
 		)
@@ -20999,6 +21470,15 @@
 			)
 		)
 		(property "part-num" "V3PM10-M3/H"
+			(at 289.56 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 289.56 147.32 0)
 			(effects
 				(font
@@ -21204,6 +21684,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 116.84 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "725ffb2a-a60f-4000-ab89-44e1273e0314")
 		)
@@ -21308,6 +21797,15 @@
 			)
 		)
 		(property "part-num" "YFF18PW0J474MT0H0N"
+			(at 97.79 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 97.79 80.01 0)
 			(effects
 				(font
@@ -21518,6 +22016,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 34.29 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e7eeee55-6894-4693-9adf-eb168d115215")
 		)
@@ -21715,6 +22222,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "(065-149 (1uF)))"
+			(at 119.38 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "56185d8c-8b9f-44ae-b687-58d7498c0c05")
 		)
@@ -21748,7 +22264,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "Conn_01x11_Pin"
+		(property "Value" "Hylslist 1x11"
 			(at 172.72 194.31 0)
 			(effects
 				(font
@@ -21777,6 +22293,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 171.45 193.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "081-00363"
 			(at 171.45 193.04 0)
 			(effects
 				(font
@@ -21882,6 +22407,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "(035-00451 (15k))"
+			(at 52.07 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8b13df8e-9b3f-45b1-8494-af2d732f089c")
 		)
@@ -21904,7 +22438,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "cca1fe67-3f9c-4096-9cd9-f0f6d4bc816d")
 		(property "Reference" "Lsim3"
@@ -22108,6 +22642,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 330.2 152.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b4d2611e-ce1a-4655-92a6-92614752f9f7")
 		)
@@ -22240,6 +22783,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 154.94 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bc1f61c3-ba9d-4162-8318-b618e7dcfae7")
 		)
@@ -22309,6 +22861,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00178"
+			(at 212.09 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "dce3b2b8-84a8-4ae9-b9be-a6bbcab2c435")
 		)
@@ -22331,7 +22892,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "d2568c1b-ee75-42b1-a696-7cc2ad97583d")
 		(property "Reference" "V2"
@@ -22505,6 +23066,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 246.38 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0bca6a25-3513-4096-8c09-a7a8a5a6fb0e")
 		)
@@ -22626,6 +23196,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 66.04 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 66.04 200.66 0)
 			(effects
 				(font
@@ -22902,6 +23481,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00202"
+			(at 81.28 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e893e114-3376-4830-a100-93156eb4e63f")
 		)
@@ -23034,6 +23622,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 173.99 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0dee3a8d-7ffe-4ffd-8d6d-780c62df2a69")
 		)
@@ -23124,7 +23721,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d989f217-2a9b-4e20-b956-c4850aa4f984")
 		(property "Reference" "TP1"
 			(at 319.532 147.828 0)
@@ -23231,6 +23828,15 @@
 			)
 		)
 		(property "Description" ""
+			(at 63.5 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "(035-00451 (15k))"
 			(at 63.5 81.28 0)
 			(effects
 				(font
@@ -23438,6 +24044,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 40.64 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "b86662ae-a137-40fe-986f-e96992fd9105")
 		)
@@ -23562,6 +24177,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 72.39 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 72.39 200.66 0)
 			(effects
 				(font
@@ -23702,6 +24326,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 109.22 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "29f644c1-6577-4ee4-92cf-940d64f19c01")
 		)
@@ -23736,7 +24369,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Thermistor_NTC"
+		(property "Value" "10k"
 			(at 220.98 199.7074 0)
 			(effects
 				(font
@@ -23772,6 +24405,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00285"
+			(at 218.44 198.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "e52dcfe6-c6ca-4b14-9048-65df08c34e18")
 		)
@@ -23794,7 +24436,7 @@
 		(exclude_from_sim no)
 		(in_bom no)
 		(on_board no)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "e0755189-1b54-41e3-8636-696fdc52803c")
 		(property "Reference" "Csim1"
@@ -23974,6 +24616,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 78.74 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6fff7b67-8616-4c12-b2b7-2433ac834a0a")
 		)
@@ -24107,6 +24758,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 199.39 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ce3b5ac0-4198-4b7e-82c3-58bf54dbe15b")
 		)
@@ -24230,6 +24890,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "-"
+			(at 274.32 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "45554c2b-ffd4-4522-bc60-dcd15141d5a1")
 		)
@@ -24324,6 +24993,15 @@
 			)
 		)
 		(property "Sim.Pins" "1=+ 2=-"
+			(at 110.49 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00162 eller 065-00213"
 			(at 110.49 83.82 0)
 			(effects
 				(font
@@ -24597,6 +25275,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "får den plats?"
+			(at 214.63 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0af890c1-2ce9-4626-a393-79d02966a1aa")
 		)
@@ -24796,6 +25483,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 68.58 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "d1b34596-9ee7-48ab-94d1-943d82a2b054")
 		)
@@ -24950,6 +25646,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+			(at 90.17 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6fdd0c8b-2cdb-4435-b852-250c9e8e61d0")
 		)
@@ -25030,6 +25735,15 @@
 			)
 		)
 		(property "part-num" "97730256330R"
+			(at 271.78 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 271.78 200.66 0)
 			(effects
 				(font
@@ -25167,6 +25881,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 73.66 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8d1c9741-7056-4881-b892-d2647a05274f")
 		)
@@ -25292,6 +26015,15 @@
 			)
 		)
 		(property "part-num" "MBASH168SC7224KTCA01"
+			(at 184.15 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "får den plats?"
 			(at 184.15 153.67 0)
 			(effects
 				(font
@@ -25434,6 +26166,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Allegro MicroSystems"
+			(at 364.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "ACS37030"
+			(at 364.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 364.49 157.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1c30622d-464a-4dad-938e-90518adc1432")
 		)
@@ -25527,6 +26286,15 @@
 			)
 		)
 		(property "part-num" "97730256330R"
+			(at 259.08 220.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 259.08 220.98 0)
 			(effects
 				(font
@@ -25731,6 +26499,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00247"
+			(at 83.82 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "0dcaf537-94d9-4e85-9f7c-531bc35b10b0")
 		)
@@ -25753,7 +26530,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "fd27a40a-1fb3-4a8e-bb8f-cfb45a9afe50")
 		(property "Reference" "FID1"
@@ -25919,6 +26696,15 @@
 			)
 		)
 		(property "part-num" "GRM32EC72A106ME05L"
+			(at 104.14 200.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00247"
 			(at 104.14 200.66 0)
 			(effects
 				(font
