@@ -2324,6 +2324,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 151.13 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "66cc0eff-dfa5-432f-b6b4-fb9f36d8a8bc")
 		)
@@ -2469,6 +2478,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 90.17 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00134"
 			(at 90.17 91.44 0)
 			(effects
 				(font
@@ -2699,6 +2717,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 156.21 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a736f12e-d3d6-458e-900d-6ab6a17d7a2b")
 		)
@@ -2902,7 +2929,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Espressif Systems"
 			(at 128.27 101.6 0)
 			(effects
 				(font
@@ -2911,7 +2938,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "ESP32-C6-WROOM-1"
+			(at 128.27 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 128.27 101.6 0)
 			(effects
 				(font
@@ -3154,6 +3190,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00209"
+			(at 182.88 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "81c5e629-6545-4ed1-b15a-9fcc2be94199")
 		)
@@ -3309,6 +3354,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 146.05 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "482ac1f4-eaba-4651-a5b9-9a4f64311ad9")
 		)
@@ -3444,7 +3498,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Omron Electronics Inc-EMC Div"
 			(at 193.04 73.66 0)
 			(effects
 				(font
@@ -3453,7 +3507,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "B3U-1000P"
+			(at 193.04 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 193.04 73.66 0)
 			(effects
 				(font
@@ -3683,6 +3746,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 134.62 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "520f0864-82e8-439f-a80d-763a440c01c0")
 		)
@@ -3802,7 +3874,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://infocenter.arm.com/help/topic/com.arm.doc.ddi0314h/DDI0314H_coresight_components_trm.pdf"
+		(property "Datasheet" "~"
 			(at 193.04 133.35 90)
 			(effects
 				(font
@@ -3830,6 +3902,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 184.15 101.6 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 184.15 101.6 0)
 			(effects
 				(font
@@ -4017,6 +4098,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00451 (15k)"
+			(at 171.45 69.85 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "6e62771d-e662-4483-9796-8883f8a58dce")
 		)
@@ -4097,6 +4187,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 171.45 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 171.45 76.2 0)
 			(effects
 				(font
@@ -4240,7 +4339,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Omron Electronics Inc-EMC Div"
 			(at 85.09 100.33 0)
 			(effects
 				(font
@@ -4249,7 +4348,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "B3U-1000P"
+			(at 85.09 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 85.09 100.33 0)
 			(effects
 				(font

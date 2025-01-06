@@ -496,7 +496,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "R_Small"
+		(property "Value" "3k3"
 			(at 31.75 34.798 90)
 			(effects
 				(font
@@ -542,6 +542,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 31.75 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00261 (0603)"
 			(at 31.75 33.02 0)
 			(effects
 				(font
@@ -691,7 +700,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "1nF 9V"
 			(at 35.052 38.354 0)
 			(effects
 				(font
@@ -737,6 +746,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 38.1 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00227"
 			(at 38.1 33.02 0)
 			(effects
 				(font

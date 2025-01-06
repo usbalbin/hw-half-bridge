@@ -2591,7 +2591,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "0ebc10d3-18dc-4557-b5ad-444ac641c7a5")
 		(property "Reference" "R80"
 			(at 72.898 53.34 90)
@@ -2694,7 +2694,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "154c1b75-acfa-4f1d-95ab-614e371d958f")
 		(property "Reference" "R44"
 			(at 72.644 90.17 90)
@@ -2705,7 +2705,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 90.17 90)
 			(effects
 				(font
@@ -2759,6 +2759,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00040"
+			(at 77.47 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "6be2f615-035d-4ed4-95d2-63ac8a166188")
 		)
@@ -2797,7 +2806,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "17a07e20-d0e3-4d97-b467-91c35ebff13c")
 		(property "Reference" "R113"
 			(at 72.898 104.14 90)
@@ -2984,7 +2993,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "26e0b5fe-f374-4b4b-bd71-ad085317e069")
 		(property "Reference" "R46"
 			(at 78.486 97.282 90)
@@ -2995,7 +3004,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 95.25 90)
 			(effects
 				(font
@@ -3041,6 +3050,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 77.47 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 77.47 95.25 0)
 			(effects
 				(font
@@ -3170,7 +3188,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "2f2d02fb-31e5-4c22-bb72-ed3a9f0551fc")
 		(property "Reference" "R42"
 			(at 79.502 69.596 90)
@@ -3181,7 +3199,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 67.31 90)
 			(effects
 				(font
@@ -3227,6 +3245,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 77.47 67.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 77.47 67.31 0)
 			(effects
 				(font
@@ -3464,6 +3491,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "071-00178"
+			(at 50.8 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "bd9e09f6-a858-4ea6-b418-eb4434bf334c")
 		)
@@ -3566,6 +3602,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "1.5st 081-00363"
+			(at 35.56 76.2 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "9"
 			(uuid "8040dde6-e8ce-44da-80b6-1499cc745893")
 		)
@@ -3640,7 +3685,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "5d14aac8-7df4-456f-b201-066689c29ee4")
 		(property "Reference" "R18"
 			(at 78.74 57.658 90)
@@ -3651,7 +3696,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 59.69 90)
 			(effects
 				(font
@@ -3697,6 +3742,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 77.47 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 77.47 59.69 0)
 			(effects
 				(font
@@ -3754,7 +3808,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1nF 100VDC"
+		(property "Value" "10nF 100VDC"
 			(at 72.898 69.596 0)
 			(effects
 				(font
@@ -3800,6 +3854,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 64.77 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00284"
 			(at 64.77 63.5 0)
 			(effects
 				(font
@@ -3927,7 +3990,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "656cd31f-f377-4fc9-bead-8b1269dcad4a")
 		(property "Reference" "R23"
 			(at 72.898 62.23 90)
@@ -3938,7 +4001,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 62.23 90)
 			(effects
 				(font
@@ -3992,6 +4055,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00040"
+			(at 77.47 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "5a1baccf-8f5e-4b34-ae93-681004b20c94")
 		)
@@ -4030,7 +4102,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "7f972059-7b9a-4514-a350-9ec656399071")
 		(property "Reference" "R112"
 			(at 72.898 101.6 90)
@@ -4219,15 +4291,15 @@
 		(dnp no)
 		(uuid "89286642-11a5-4460-86f0-90e76cf7045c")
 		(property "Reference" "R130"
-			(at 126.492 81.28 90)
+			(at 131.826 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Value" "1k"
-			(at 128.27 81.534 90)
+		(property "Value" "100R"
+			(at 131.826 81.788 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4279,6 +4351,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00440"
+			(at 128.27 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "011322bb-b679-42a3-81d9-8accdf5404d3")
 		)
@@ -4317,7 +4398,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "915f933e-9085-40c4-aaeb-5ae333f4960e")
 		(property "Reference" "C37"
 			(at 125.73 86.868 0)
@@ -4622,6 +4703,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "071-00178"
+			(at 52.07 93.98 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "c38e43c4-a467-460a-95a1-c625d20443c0")
 		)
@@ -4660,7 +4750,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a9ec3643-a930-4a54-be24-700be1db9afa")
 		(property "Reference" "R45"
 			(at 72.898 91.948 90)
@@ -4671,7 +4761,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 92.71 90)
 			(effects
 				(font
@@ -4717,6 +4807,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 77.47 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 77.47 92.71 0)
 			(effects
 				(font
@@ -4847,7 +4946,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c03f46a8-8b72-4f87-a3e3-5c0d958161c4")
 		(property "Reference" "R79"
 			(at 72.644 50.8 90)
@@ -5045,7 +5144,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1nF 100VDC"
+		(property "Value" "10nF 100VDC"
 			(at 71.628 106.426 0)
 			(effects
 				(font
@@ -5099,6 +5198,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00284"
+			(at 63.5 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "9332267e-a61d-4523-b78c-5a65a2eb5586")
 		)
@@ -5137,7 +5245,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "c6e84388-80be-4567-a8d8-e4d546f255b3")
 		(property "Reference" "R43"
 			(at 78.74 85.598 90)
@@ -5148,7 +5256,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 87.63 90)
 			(effects
 				(font
@@ -5194,6 +5302,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 77.47 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 77.47 87.63 0)
 			(effects
 				(font
@@ -5298,6 +5415,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 52.07 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00450"
 			(at 52.07 73.66 0)
 			(effects
 				(font
@@ -5510,7 +5636,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "eb8ac822-2b99-477b-8c9e-a1868b3fec1f")
 		(property "Reference" "R24"
 			(at 73.66 64.77 90)
@@ -5521,7 +5647,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "100k"
 			(at 78.74 64.77 90)
 			(effects
 				(font
@@ -5567,6 +5693,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 77.47 64.77 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 77.47 64.77 0)
 			(effects
 				(font
@@ -5706,7 +5841,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "100nF 9V"
 			(at 35.052 114.554 0)
 			(effects
 				(font
@@ -5752,6 +5887,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 31.75 105.41 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 31.75 105.41 0)
 			(effects
 				(font

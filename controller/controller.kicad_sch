@@ -12273,7 +12273,7 @@
 		)
 		(uuid dd8d6012-c1e6-49ca-9461-6bf5f118f68e)
 	)
-	(text "TODO: Double check values, especially R1, C3, C4\n\nTypical load: 80mA-500mA\nMax load: 900mA(not allowed)\n\nMax allowed load 650mA"
+	(text "Typical load: 80mA-500mA\nMax load: 900mA(not allowed)\n\nMax allowed load 650mA"
 		(exclude_from_sim no)
 		(at 251.714 255.524 0)
 		(effects
@@ -12323,7 +12323,7 @@
 		)
 		(uuid "d8f1f709-4623-4d2c-bbb0-f1750f7ba892")
 	)
-	(text "Formulas:\n\n\nVref=1.2v\nTr=50us\nRon(kHz)=Vout*2500/Fsw(kHz)\nRfbt=Rfbb*(Vout/Vref - 1)\nDmin=50ns*Fsw\nVin(max)=min(120, Vout / (50ns * Fsw))\nL=Vout/(f_sw * ΔI)*(1-Vout/Vin)\nCa>=10/(Fsw*Rfbb||Rfbt)\nRa>=(Vin-Vout)*Vout/(20mV*Vin*Fsw*Ca)\nCb>=Tr/(3*Rfbt)\n\nDefines:\n\nVout=8v\nVin=24V\nf_sw=500kHz\nI_typ=250mA\nΔI=250mA*0.3\n\nResults:\n\nL=8V/(500kHz*250mA*0.3)*(1-(8V/24V))=142uH\nRon=8V*2500/500(kHz)=40(kHz)\nRfbt=22k\nRfbb=3k9\nCa = 10nF >= 10/(500kHz*3300ohm)=nF\nRa = 68k >= (Vin-Vout)*Vout/(20mV*Vin*Fsw*Ca)\nCb = 1nF >=Tr/(3*Rfbt)"
+	(text "Formulas:\n\n\nVref=1.2v\nTr=50us\nRon(kHz)=Vout*2500/Fsw(kHz)\nRfbt=Rfbb*(Vout/Vref - 1)\nDmin=50ns*Fsw\nVin(max)=min(120, Vout / (50ns * Fsw))\nL=Vout/(f_sw * ΔI)*(1-Vout/Vin)\nCa>=10/(Fsw*Rfbb||Rfbt)\nRa>=(Vin-Vout)*Vout/(20mV*Vin*Fsw*Ca)\nCb>=Tr/(3*Rfbt)\n\nDefines:\n\nVout=8v\nVin=24V\nf_sw=500kHz\nI_typ=250mA\nΔI=250mA*0.3\n\nResults:\n\nL1: L=8V/(500kHz*250mA*0.3)*(1-(8V/24V))=142uH\nR4: Ron=8V*2500/500(kHz)=40(kHz)\nR2: Rfbt=22k\nR3: Rfbb=3k9\nC3: Ca = 10nF >= 10/(500kHz*3300ohm)=nF\nR1: Ra = 68k >= (Vin-Vout)*Vout/(20mV*Vin*Fsw*Ca)\nC4: Cb = 1nF >=Tr/(3*Rfbt)"
 		(exclude_from_sim no)
 		(at 171.45 268.224 0)
 		(effects
@@ -15694,7 +15694,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "5k1"
 			(at 99.06 234.9499 0)
 			(effects
 				(font
@@ -15748,6 +15748,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00243 (0603)"
+			(at 101.6 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "25a8c06d-36b0-46c2-aa27-c4e12b9a5a26")
 		)
@@ -15770,7 +15779,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "04b240ed-d0b4-4944-87bf-ce6f8484bd88")
 		(property "Reference" "U9"
 			(at 54.356 67.31 0)
@@ -16078,6 +16087,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00287"
+			(at 125.73 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8266413b-08aa-408e-961a-841c89a3bf2a")
 		)
@@ -16346,7 +16364,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Omron Electronics Inc-EMC Div"
 			(at 227.33 113.03 0)
 			(effects
 				(font
@@ -16355,7 +16373,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "B3U-1000P"
+			(at 227.33 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 227.33 113.03 0)
 			(effects
 				(font
@@ -16566,7 +16593,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "GCT"
 			(at 29.21 237.49 0)
 			(effects
 				(font
@@ -16575,7 +16602,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "USB4105-GF-A"
+			(at 29.21 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 29.21 237.49 0)
 			(effects
 				(font
@@ -16662,7 +16698,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF 75V"
+		(property "Value" "1uF 75V"
 			(at 59.436 211.328 0)
 			(effects
 				(font
@@ -16708,6 +16744,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 53.34 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00149"
 			(at 53.34 208.28 0)
 			(effects
 				(font
@@ -16805,7 +16850,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "130a0c2a-4a74-4944-ba07-3f7f32e9daf7")
 		(property "Reference" "C25"
 			(at 268.732 283.21 0)
@@ -16958,6 +17003,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 163.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4e5efbd0-45e3-4e71-a2ee-4efe618d6dc8")
 		)
@@ -17029,7 +17083,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 440.69 35.56 0)
 			(effects
 				(font
@@ -17038,7 +17092,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 440.69 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 440.69 35.56 0)
 			(effects
 				(font
@@ -17127,7 +17190,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Omron Electronics Inc-EMC Div"
 			(at 102.87 43.18 0)
 			(effects
 				(font
@@ -17136,7 +17199,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "B3U-1000P"
+			(at 102.87 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 102.87 43.18 0)
 			(effects
 				(font
@@ -17179,7 +17251,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "101k"
+		(property "Value" "3k9"
 			(at 306.07 285.7499 0)
 			(effects
 				(font
@@ -17225,6 +17297,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 303.53 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00328"
 			(at 303.53 284.48 0)
 			(effects
 				(font
@@ -17333,7 +17414,7 @@
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
+		(property "Value" "DFLS1100"
 			(at 73.914 218.44 0)
 			(effects
 				(font
@@ -17350,7 +17431,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds30497.pdf"
 			(at 73.66 222.25 90)
 			(effects
 				(font
@@ -17431,6 +17512,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "071-00166"
+			(at 73.66 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7149e2ab-8ce8-4af6-89aa-cd6091d58c17")
 		)
@@ -17453,7 +17543,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1a02f172-f024-4f25-8202-29d07992d3f9")
 		(property "Reference" "Q2"
@@ -17671,7 +17761,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 483.87 165.1 0)
 			(effects
 				(font
@@ -17680,7 +17770,7 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
 			(at 483.87 165.1 0)
 			(effects
 				(font
@@ -17851,7 +17941,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1e924e24-775d-4eff-af2d-0fde64de802d")
 		(property "Reference" "R26"
 			(at 216.916 170.18 0)
@@ -17938,7 +18028,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1f332408-f2eb-4efe-8d2d-f38002e8f4f4")
 		(property "Reference" "Q1"
 			(at 204.216 167.64 0)
@@ -18032,7 +18122,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1f8e4504-a73d-4366-8c15-5367576ac478")
 		(property "Reference" "R20"
 			(at 109.22 223.5199 0)
@@ -18317,6 +18407,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 203.2 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "363483f7-57be-4f4e-a416-7c25d33d039a")
 		)
@@ -18397,6 +18496,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 378.46 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 378.46 153.67 0)
 			(effects
 				(font
@@ -18638,7 +18746,7 @@
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
+		(property "Value" "DFLS1100"
 			(at 70.104 331.47 0)
 			(effects
 				(font
@@ -18655,7 +18763,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds30497.pdf"
 			(at 69.85 335.28 90)
 			(effects
 				(font
@@ -18736,6 +18844,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "071-00166"
+			(at 69.85 335.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "1fc6300a-8553-43e9-a39c-48437a628d2d")
 		)
@@ -18804,7 +18921,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Texas Instruments"
 			(at 359.41 287.02 0)
 			(effects
 				(font
@@ -18813,7 +18930,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "TLV76133DCY"
+			(at 359.41 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 359.41 287.02 0)
 			(effects
 				(font
@@ -18961,7 +19087,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "STMicroelectronics"
 			(at 64.77 245.11 0)
 			(effects
 				(font
@@ -18970,7 +19096,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "ECMF02-2AMX6"
+			(at 64.77 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 64.77 245.11 0)
 			(effects
 				(font
@@ -19025,7 +19160,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "100nF 9V"
 			(at 102.108 89.154 0)
 			(effects
 				(font
@@ -19072,6 +19207,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 105.41 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 105.41 80.01 0)
 			(effects
 				(font
@@ -19159,6 +19303,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 99.06 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00450"
 			(at 99.06 85.09 0)
 			(effects
 				(font
@@ -19268,7 +19421,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "?k"
+		(property "Value" "1k"
 			(at 331.47 161.2899 0)
 			(effects
 				(font
@@ -19314,6 +19467,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 334.01 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 334.01 160.02 0)
 			(effects
 				(font
@@ -19457,7 +19619,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "STMicroelectronics"
 			(at 74.93 356.87 0)
 			(effects
 				(font
@@ -19466,7 +19628,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "ECMF02-2AMX6"
+			(at 74.93 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 74.93 356.87 0)
 			(effects
 				(font
@@ -19632,6 +19803,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 170.18 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 170.18 36.83 0)
 			(effects
 				(font
@@ -19808,8 +19988,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF 75V"
-			(at 58.166 342.138 0)
+		(property "Value" "1uF 75V"
+			(at 62.738 341.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19854,6 +20034,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 52.07 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00149"
 			(at 52.07 339.09 0)
 			(effects
 				(font
@@ -19997,7 +20186,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Alps Alpine"
 			(at 240.03 77.47 0)
 			(effects
 				(font
@@ -20006,7 +20195,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "EC11E15244G1"
+			(at 240.03 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 240.03 77.47 0)
 			(effects
 				(font
@@ -20114,7 +20312,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "44928366-e85d-4c9d-aefd-ae54577943f6")
 		(property "Reference" "J15"
@@ -20216,7 +20414,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 69.596 319.786 90)
 			(effects
 				(font
@@ -20262,6 +20460,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 71.12 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 71.12 320.04 0)
 			(effects
 				(font
@@ -20316,7 +20523,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "476e13ba-e977-463e-900a-cbd7d52dabe4")
 		(property "Reference" "R19"
 			(at 99.06 223.5199 0)
@@ -20453,7 +20660,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 359.41 24.13 0)
 			(effects
 				(font
@@ -20462,7 +20669,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 359.41 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 359.41 24.13 0)
 			(effects
 				(font
@@ -20563,6 +20779,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 346.71 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 346.71 153.67 0)
 			(effects
 				(font
@@ -20843,7 +21068,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 285.75 49.53 0)
 			(effects
 				(font
@@ -20852,7 +21077,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 285.75 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 285.75 49.53 0)
 			(effects
 				(font
@@ -20961,6 +21195,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 370.84 289.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "97e52bb2-cade-4fd3-bb7a-48ed99bbb6b2")
 		)
@@ -20996,7 +21239,7 @@
 			)
 		)
 		(property "Value" "1uF 6V"
-			(at 380.492 17.526 0)
+			(at 382.778 18.796 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21041,6 +21284,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00185"
 			(at 374.65 16.51 0)
 			(effects
 				(font
@@ -21130,6 +21382,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 149.86 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "076-00110"
 			(at 149.86 92.71 0)
 			(effects
 				(font
@@ -21477,7 +21738,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "585bf928-1be6-4c3f-a520-4cd12465ba1b")
 		(property "Reference" "RV1"
@@ -21647,7 +21908,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R"
+		(property "Value" "100k"
 			(at 332.74 24.13 90)
 			(effects
 				(font
@@ -21693,6 +21954,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 331.47 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 331.47 24.13 0)
 			(effects
 				(font
@@ -21855,6 +22125,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 176.53 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "624fbc77-96ed-4871-9c1c-68d08f713fda")
 		)
@@ -21954,8 +22233,8 @@
 				)
 			)
 		)
-		(property "Value" "duger CLF7045NIT-151M-D?"
-			(at 286.766 266.954 90)
+		(property "Value" "150uH"
+			(at 282.194 272.796 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21989,7 +22268,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "TDK"
 			(at 281.94 275.59 0)
 			(effects
 				(font
@@ -21998,7 +22277,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "CLF7045NIT-151M-D"
+			(at 281.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 281.94 275.59 0)
 			(effects
 				(font
@@ -22039,7 +22327,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 34.036 298.196 90)
 			(effects
 				(font
@@ -22085,6 +22373,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 35.56 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 35.56 298.45 0)
 			(effects
 				(font
@@ -22254,7 +22551,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 509.27 165.1 0)
 			(effects
 				(font
@@ -22263,7 +22560,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
+			(at 509.27 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 509.27 165.1 0)
 			(effects
 				(font
@@ -22348,7 +22654,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 457.2 165.1 0)
 			(effects
 				(font
@@ -22357,7 +22663,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
+			(at 457.2 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 457.2 165.1 0)
 			(effects
 				(font
@@ -22442,7 +22757,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 402.59 165.1 0)
 			(effects
 				(font
@@ -22451,7 +22766,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
+			(at 402.59 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 402.59 165.1 0)
 			(effects
 				(font
@@ -22544,6 +22868,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 106.68 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 106.68 55.88 0)
 			(effects
 				(font
@@ -22841,6 +23174,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 513.08 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "43725511-4c8d-4683-a148-425afa9049a0")
 		)
@@ -22996,6 +23338,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 406.4 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "45b21f5c-a319-4db8-bd34-ad54ff1e2cdf")
 		)
@@ -23082,6 +23433,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00450"
+			(at 205.74 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8d762e95-1ced-4b7c-b493-74e6cc3f5e87")
 		)
@@ -23152,7 +23512,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 342.9 165.1 0)
 			(effects
 				(font
@@ -23161,7 +23521,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
+			(at 342.9 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 342.9 165.1 0)
 			(effects
 				(font
@@ -23247,7 +23616,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 356.87 16.51 0)
 			(effects
 				(font
@@ -23256,7 +23625,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 356.87 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 356.87 16.51 0)
 			(effects
 				(font
@@ -23310,7 +23688,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "121k"
+		(property "Value" "68k"
 			(at 278.638 283.718 0)
 			(effects
 				(font
@@ -23356,6 +23734,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 278.13 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00263"
 			(at 278.13 280.67 0)
 			(effects
 				(font
@@ -23633,7 +24020,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "C&K"
 			(at 38.1 151.13 0)
 			(effects
 				(font
@@ -23642,7 +24029,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "OS102011MS2QN1C"
+			(at 38.1 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 38.1 151.13 0)
 			(effects
 				(font
@@ -23722,7 +24118,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Texas Instruments"
 			(at 248.92 278.13 0)
 			(effects
 				(font
@@ -23731,7 +24127,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "LM5169PDDAR"
+			(at 248.92 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 248.92 278.13 0)
 			(effects
 				(font
@@ -23914,6 +24319,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 431.8 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f354760e-a55c-4546-aefe-1f6bf9b42d99")
 		)
@@ -24051,7 +24465,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 434.34 16.51 0)
 			(effects
 				(font
@@ -24060,7 +24474,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 434.34 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 434.34 16.51 0)
 			(effects
 				(font
@@ -24104,7 +24527,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "80b30162-2df6-4bd2-a247-7034488c96cb")
 		(property "Reference" "C65"
 			(at 224.028 164.084 0)
@@ -24169,6 +24592,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 226.06 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "05d87690-31be-4943-af71-0631c837ed04")
 		)
@@ -24203,7 +24635,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "100nF 9V"
 			(at 180.848 108.204 0)
 			(effects
 				(font
@@ -24250,6 +24682,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 184.15 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 184.15 99.06 0)
 			(effects
 				(font
@@ -24813,7 +25254,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "88c33b3f-054b-4fe1-9720-fb51537232d6")
 		(property "Reference" "R94"
 			(at 35.306 62.992 90)
@@ -25013,7 +25454,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 427.99 165.1 0)
 			(effects
 				(font
@@ -25022,7 +25463,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
+			(at 427.99 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 427.99 165.1 0)
 			(effects
 				(font
@@ -25115,6 +25565,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 106.68 53.34 0)
 			(effects
 				(font
@@ -25413,7 +25872,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "950dae04-bc99-4e01-bdf3-d998e1a76a14")
 		(property "Reference" "C34"
 			(at 178.562 105.41 0)
@@ -25502,7 +25961,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "96168e0f-ce24-483f-b589-b215f1bfeba1")
 		(property "Reference" "RV3"
@@ -25716,6 +26175,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 128.27 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 128.27 43.18 0)
 			(effects
 				(font
@@ -25946,6 +26414,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00451 (15k)"
+			(at 299.72 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "00f11d78-4c99-4410-b1c2-5c2923d105a0")
 		)
@@ -26160,6 +26637,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 265.43 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00112"
 			(at 265.43 273.05 0)
 			(effects
 				(font
@@ -26388,6 +26874,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 487.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "49f98271-77d4-4229-b4ac-aceab2e138cf")
 		)
@@ -26456,7 +26951,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Texas Instruments"
 			(at 359.41 267.97 0)
 			(effects
 				(font
@@ -26465,7 +26960,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "TLV76150DCY"
+			(at 359.41 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 359.41 267.97 0)
 			(effects
 				(font
@@ -26547,7 +27051,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 281.94 172.72 0)
 			(effects
 				(font
@@ -26556,7 +27060,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "PI5C3257ZHDEX"
+			(at 281.94 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 281.94 172.72 0)
 			(effects
 				(font
@@ -26695,6 +27208,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 370.84 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1bc7b433-d722-4cb2-9d3f-6d2a2ea4eaa2")
 		)
@@ -26784,7 +27306,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a56159ed-a1d7-4347-adc5-d24207bd4e38")
 		(property "Reference" "R98"
 			(at 268.732 278.13 0)
@@ -26872,7 +27394,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a7715555-c973-4559-b8f0-89b3325cb810")
 		(property "Reference" "R96"
 			(at 20.828 70.866 90)
@@ -27008,7 +27530,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 434.34 29.21 0)
 			(effects
 				(font
@@ -27017,7 +27539,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 434.34 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 434.34 29.21 0)
 			(effects
 				(font
@@ -27072,7 +27603,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7uF 25V"
+		(property "Value" "10uF 25V"
 			(at 321.31 283.2162 0)
 			(effects
 				(font
@@ -27118,6 +27649,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 318.77 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00252"
 			(at 318.77 281.94 0)
 			(effects
 				(font
@@ -27281,6 +27821,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 461.01 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "fa77b422-28a8-4faf-8014-75d8a3ef2f2b")
 		)
@@ -27315,7 +27864,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "47pF"
+		(property "Value" "1nF"
 			(at 284.48 287.0262 0)
 			(effects
 				(font
@@ -27361,6 +27910,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 281.94 285.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00121"
 			(at 281.94 285.75 0)
 			(effects
 				(font
@@ -27449,6 +28007,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 128.27 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 128.27 55.88 0)
 			(effects
 				(font
@@ -27677,6 +28244,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00107"
+			(at 227.33 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "4fdcd8dd-b96c-4a60-b624-61e9a11e9de6")
 		)
@@ -27710,7 +28286,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R"
+		(property "Value" "100k"
 			(at 332.74 16.51 90)
 			(effects
 				(font
@@ -27756,6 +28332,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 331.47 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 331.47 16.51 0)
 			(effects
 				(font
@@ -27865,7 +28450,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "5k1"
 			(at 109.22 234.9499 0)
 			(effects
 				(font
@@ -27911,6 +28496,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 106.68 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00243 (0603)"
 			(at 106.68 233.68 0)
 			(effects
 				(font
@@ -28019,7 +28613,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "66.5k"
+		(property "Value" "40k"
 			(at 233.68 288.2899 0)
 			(effects
 				(font
@@ -28065,6 +28659,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 236.22 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "2st 035-00254 (20k)"
 			(at 236.22 287.02 0)
 			(effects
 				(font
@@ -28826,6 +29429,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 187.96 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "a3c303a4-c813-4301-826f-1760916b9b1c")
 		)
@@ -28858,7 +29470,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 34.036 279.146 90)
 			(effects
 				(font
@@ -28904,6 +29516,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 35.56 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 35.56 279.4 0)
 			(effects
 				(font
@@ -29015,6 +29636,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 207.01 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 207.01 109.22 0)
 			(effects
 				(font
@@ -29178,7 +29808,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d3317448-3e14-4aa1-bb77-a7ef31154706")
 		(property "Reference" "R95"
 			(at 30.226 62.992 90)
@@ -29578,7 +30208,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "GCT"
 			(at 30.48 350.52 0)
 			(effects
 				(font
@@ -29587,7 +30217,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "USB4105-GF-A"
+			(at 30.48 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 30.48 350.52 0)
 			(effects
 				(font
@@ -29778,7 +30417,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 440.69 22.86 0)
 			(effects
 				(font
@@ -29787,7 +30426,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 440.69 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 440.69 22.86 0)
 			(effects
 				(font
@@ -29842,7 +30490,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1.2nF"
+		(property "Value" "10nF"
 			(at 288.29 281.9462 0)
 			(effects
 				(font
@@ -29888,6 +30536,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 285.75 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00065"
 			(at 285.75 280.67 0)
 			(effects
 				(font
@@ -29997,7 +30654,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "576k"
+		(property "Value" "22k"
 			(at 306.07 279.3999 0)
 			(effects
 				(font
@@ -30051,6 +30708,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00225"
+			(at 303.53 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "586e23d3-5cf9-4db9-b80f-1a01aec51558")
 		)
@@ -30085,7 +30751,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "100nF 9V"
 			(at 55.118 162.814 0)
 			(effects
 				(font
@@ -30132,6 +30798,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 58.42 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 58.42 153.67 0)
 			(effects
 				(font
@@ -30210,7 +30885,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "SparkFun Electronics"
 			(at 374.65 165.1 0)
 			(effects
 				(font
@@ -30219,7 +30894,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "COM-16347"
+			(at 374.65 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 374.65 165.1 0)
 			(effects
 				(font
@@ -30287,7 +30971,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://infocenter.arm.com/help/topic/com.arm.doc.ddi0314h/DDI0314H_coresight_components_trm.pdf"
+		(property "Datasheet" "~"
 			(at 236.22 62.23 90)
 			(effects
 				(font
@@ -30315,6 +30999,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 227.33 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 227.33 30.48 0)
 			(effects
 				(font
@@ -30435,6 +31128,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "035-00451 (15k)"
+			(at 110.49 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "59a4148c-0a63-4adc-b10c-2d5d70e2b0d9")
 		)
@@ -30523,6 +31225,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 182.88 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "573ce107-0058-4e0c-b2d5-38a38d24f64a")
 		)
@@ -30594,7 +31305,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 469.9 21.59 0)
 			(effects
 				(font
@@ -30603,7 +31314,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 469.9 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 469.9 21.59 0)
 			(effects
 				(font
@@ -30658,7 +31378,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "1nF 9V"
 			(at 208.534 125.984 0)
 			(effects
 				(font
@@ -30704,6 +31424,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 210.82 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00227"
 			(at 210.82 116.84 0)
 			(effects
 				(font
@@ -30783,7 +31512,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 368.3 17.78 0)
 			(effects
 				(font
@@ -30792,7 +31521,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 368.3 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 368.3 17.78 0)
 			(effects
 				(font
@@ -30967,6 +31705,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00195"
+			(at 194.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "1ba899bc-0cd0-46bd-80f2-c79e9972b575")
 		)
@@ -31066,7 +31813,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 107.696 319.786 90)
 			(effects
 				(font
@@ -31112,6 +31859,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 109.22 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 109.22 320.04 0)
 			(effects
 				(font
@@ -31280,7 +32036,7 @@
 				(hide yes)
 			)
 		)
-		(property "MFR" ""
+		(property "MFR" "Diodes Incorporated"
 			(at 285.75 71.12 0)
 			(effects
 				(font
@@ -31289,7 +32045,16 @@
 				(hide yes)
 			)
 		)
-		(property "part-num" ""
+		(property "part-num" "QSBT40-7-F"
+			(at 285.75 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 285.75 71.12 0)
 			(effects
 				(font
@@ -31344,7 +32109,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF 9V"
+		(property "Value" "100nF 9V"
 			(at 98.298 96.774 0)
 			(effects
 				(font
@@ -31399,6 +32164,15 @@
 				(hide yes)
 			)
 		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 101.6 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f3bcda58-0e63-41a2-bc74-4d7463dca208")
 		)
@@ -31422,7 +32196,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "fc05cb93-0879-43f9-b9d2-266a4af7312a")
 		(property "Reference" "C28"
 			(at 52.578 54.356 90)
@@ -31632,6 +32406,15 @@
 			)
 		)
 		(property "part-num" ""
+			(at 50.8 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 50.8 151.13 0)
 			(effects
 				(font
