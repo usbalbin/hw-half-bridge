@@ -1,6 +1,6 @@
 use stm32_hrtim::{control::HrTimCalibrated, external_event::{EevInputs, ExternalEventSource}, stm32};
 use stm32g4xx_hal::{
-    comparator::{self, split, ComparatorExt, ComparatorSplit}, gpio::{self, gpioa::{PA1, PA7}, gpiob::{PB0, PB11, PB14}}, observable::ObservationToken, rcc::Rcc
+    comparator::{self, split, ComparatorExt, ComparatorSplit}, gpio::{self, gpioa::{PA1, PA7}, gpiob::{PB0, PB11, PB14}}, stasis::Entitlement, rcc::Rcc
 };
 
 use crate::hardware::stm32g4x4::I_FILTER;
@@ -21,12 +21,12 @@ impl Eevs {
     pub(crate) fn init(
         dacs: DacTokens,
         comp: stm32::COMP,
-        cc1_pin: ObservationToken<PB0<gpio::Analog>>,
-        //cc1b_pin: ObservationToken<PC1<gpio::Analog>>,
-        cc2_pin: ObservationToken<PB11<gpio::Analog>>,
-        cc3_pin: ObservationToken<PB14<gpio::Analog>>,
-        cc4_pin: ObservationToken<PA1<gpio::Analog>>,
-        cc5_pin: ObservationToken<PA7<gpio::Analog>>,
+        cc1_pin: Entitlement<PB0<gpio::Analog>>,
+        //cc1b_pin: Entitlement<PC1<gpio::Analog>>,
+        cc2_pin: Entitlement<PB11<gpio::Analog>>,
+        cc3_pin: Entitlement<PB14<gpio::Analog>>,
+        cc4_pin: Entitlement<PA1<gpio::Analog>>,
+        cc5_pin: Entitlement<PA7<gpio::Analog>>,
         eev_inputs: EevInputs,
         rcc: &mut Rcc,
         ctrl: &mut HrTimCalibrated,

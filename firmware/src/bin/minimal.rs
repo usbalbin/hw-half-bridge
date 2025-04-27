@@ -48,4 +48,14 @@ mod app {
             },
         )
     }
+
+    #[task(
+        binds = HRTIM_MASTER_IRQN,
+        shared = [ ],
+        local = [adcs, ad_channels],
+        priority = 15
+    )]
+    fn foo(mut ctx: foo::Context) {
+        ctx.local.adcs.read(ctx.local.ad_channels);
+    }
 }

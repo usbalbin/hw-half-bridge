@@ -2,6 +2,7 @@ pub mod adc;
 pub mod dacs;
 pub mod external_events;
 pub mod timers;
+pub mod comparators;
 
 use adc::{AdcChannels, Adcs};
 use cortex_m::delay::Delay;
@@ -20,14 +21,15 @@ use stm32g4xx_hal::{
         gpiof::{PF0, PF1},
         GpioExt,
     },
-    observable::{Observable, ObservationLock, ObservationToken, Observed},
-    opamp::{self, Follower, IntoFollower, OpampEx},
+    hal::spi,
+    opamp::{self, Follower, InternalOutput, IntoFollower, OpampEx},
     pwm::{self, PwmExt as _},
     pwr::{self, PwrExt},
     rcc::{self, Rcc, RccExt},
     serial::SerialExt,
-    stm32::Peripherals,
-    stm32::{self, UCPD1},
+    spi::SpiExt,
+    stasis::Freeze,
+    stm32::{self, Peripherals, UCPD1},
     time::{Hertz, RateExtU32 as _},
 };
 use timers::Timers;
@@ -56,8 +58,17 @@ pub const F_SYS: Hertz = Hertz::Hz(
 
 pub type Prescaler = stm32_hrtim::Pscl1;
 
+/// Switch frequency
 pub const F_SW: Hertz = Hertz::MHz(1);
+
+/// Switch period in number of ticks
 pub const PERIOD: u16 = try_down_cast!(F_SYS.raw() as u64 * 32 / F_SW.raw() as u64, u64, u16);
+
+/// Interrupt tick rate
+pub const TICK_RATE: Hertz = Hertz::kHz(10);
+
+pub const REPETITION_COUNTER: u8 = try_down_cast!(F_SW.raw() / TICK_RATE.raw() - 1, u32, u8);
+
 const I_FILTER: EevSamplingFilter = EevSamplingFilter::None;
 
 const ADC_POST_SCALER: stm32_hrtim::control::AdcTriggerPostscaler =
@@ -263,7 +274,7 @@ impl Hardware {
         #[cfg(feature = "hv5")]
         let li_5 = pa9; // Used by dbcc1
 
-        let pwm_led1 = pb5.into_alternate(); // 5v tol
+        let mosi_pin = pb5.into_alternate(); // 5v tol
         let pwm_led2 = pb7.into_alternate(); // 5v tol
         let pwm_led3 = pb9.into_alternate(); // 5v tol
 
@@ -274,11 +285,11 @@ impl Hardware {
         let pwm_led8_adc2_in12 = pb2.into_alternate(); // 3.6v max
 
         let (led2_tim4, led3_tim4) = dp.TIM4.pwm((pwm_led2, pwm_led3), 20.kHz(), &mut rcc);
-        let (led3_tim3, led6_tim3) = dp.TIM3.pwm(
+        /*let (led3_tim3, led6_tim3) = dp.TIM3.pwm(
             (pwm_led1, pwm_led6_pot3_adc1_in12_adc3_in1),
             20.kHz(),
             &mut rcc,
-        );
+        );*/
         let (led4_tim2/*, led5_tim2*/) = dp.TIM2.pwm((pwm_led4/*, pwm_led5*/), 20.kHz(), &mut rcc);
         let led8_tim5 = dp.TIM5.pwm(pwm_led8_adc2_in12, 20.kHz(), &mut rcc);
 
@@ -295,20 +306,20 @@ impl Hardware {
             .unwrap();
 
         //let comp1_cc4_pin = pb1.into_analog();
-        let (_, [op1_cc4_pin, comp1_b_cc4_pin]) = pa1.into_analog().observe();
+        let (_, [op1_cc4_pin, comp1_b_cc4_pin]) = pa1.into_analog().freeze();
 
         //let comp2_cc5_pin = pa3.into_analog(); // No filter and same DAC as comp4
-        let (_, [op12_cc5_pin_b, comp2_cc5_pin_b]) = pa7.into_analog().observe(); // CC5
+        let (_, [op12_cc5_pin_b, comp2_cc5_pin_b]) = pa7.into_analog().freeze(); // CC5
                                                                                   // comp3_b_fb_d on pc1
 
-        let (_, [op3_cc1_pin, comp4_cc1_pin]) = pb0.into_analog().observe();
+        let (_, [op3_cc1_pin, comp4_cc1_pin]) = pb0.into_analog().freeze();
         // let comp4_pin_b = pe7; only on LQFP80 and larger
 
         //let comp5_pin = pc7.into_analog(); // Used by HRTIMF_CH2
-        let (_, [op4_cc2_pin, comp6_cc2_pin]) = pb11.into_analog().observe();
+        let (_, [op4_cc2_pin, comp6_cc2_pin]) = pb11.into_analog().freeze();
         //let comp6_pin_b = pd11; only on LQFP100 and larger
 
-        let (_, [op25_cc3_pin, comp7_cc3_pin]) = pb14.into_analog().observe();
+        let (_, [op25_cc3_pin, comp7_cc3_pin]) = pb14.into_analog().freeze();
 
         //let comp7_pin_b = pd14; only on LQFP100 and larger
 
@@ -339,6 +350,33 @@ impl Hardware {
             .set_adc4_trigger_psc(ADC_POST_SCALER)
             .wait_for_calibration();
 
+        let mut hr_ctrl = ctrl.constrain();
+
+        let timers = Timers::init(
+            dp.HRTIM_MASTER,
+            dp.HRTIM_TIMA,
+            dp.HRTIM_TIMB,
+            dp.HRTIM_TIMC,
+            dp.HRTIM_TIMD,
+            dp.HRTIM_TIME,
+            dp.HRTIM_TIMF,
+            hi_1,
+            li_1,
+            hi_2,
+            li_2,
+            hi_3,
+            li_3,
+            #[cfg(feature = "hv4")]
+            li_4,
+            #[cfg(feature = "hv4")]
+            hi_4,
+            #[cfg(feature = "hv5")]
+            hi_5,
+            #[cfg(feature = "hv5")]
+            li_5,
+            hr_ctrl,
+        );
+        //DAC --ref-voltage--> Comp ----> Eev ----> HRTIM --dac-trigger--> DAC
         let (dacs, dac_tokens) = Dacs::init(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &mut rcc);
         let eevs = Eevs::init(
             dac_tokens,
@@ -354,20 +392,18 @@ impl Hardware {
             &mut ctrl,
         );
 
-        let mut hr_ctrl = ctrl.constrain();
-
         let (op1, op2, op3, op4, op5, _op6) = dp.OPAMP.split(&mut rcc);
 
         #[cfg(feature = "cs-op")]
-        let op1 = op1.follower(op1_cc4_pin); // PA1 PA3(comp2) PA7
+        let op1 = op1.follower(op1_cc4_pin, InternalOutput); // PA1 PA3(comp2) PA7
         #[cfg(feature = "cs-op")]
-        let op2 = op2.follower(op12_cc5_pin_b); // PA7 PB0(comp4) PB14(comp7)
+        let op2 = op2.follower(op12_cc5_pin_b, InternalOutput); // PA7 PB0(comp4) PB14(comp7)
         #[cfg(feature = "cs-op")]
-        let op3 = op3.follower(op3_cc1_pin); // PA1 PB0(comp4)
+        let op3 = op3.follower(op3_cc1_pin, InternalOutput); // PA1 PB0(comp4)
         #[cfg(feature = "cs-op")]
-        let op4 = op4.follower(op4_cc2_pin);
+        let op4 = op4.follower(op4_cc2_pin, InternalOutput);
         #[cfg(feature = "cs-op")]
-        let op5 = op5.follower(op25_cc3_pin);
+        let op5 = op5.follower(op25_cc3_pin, InternalOutput);
         // PB11(comp6)
         //let op5 = op5.follower(ntc_2_op5, None::<gpio::gpioa::PA8<hal::gpio::Analog>>); // PB14(comp7) PC3
         // let op6 = op6.follower((), None);
@@ -423,31 +459,11 @@ impl Hardware {
             dp.ADC1, dp.ADC2, dp.ADC3, dp.ADC4, dp.ADC5, &mut delay, &rcc,
         );
 
-        let timers = Timers::init(
-            dp.HRTIM_MASTER,
-            dp.HRTIM_TIMA,
-            dp.HRTIM_TIMB,
-            dp.HRTIM_TIMC,
-            dp.HRTIM_TIMD,
-            dp.HRTIM_TIME,
-            dp.HRTIM_TIMF,
-            hi_1,
-            li_1,
-            hi_2,
-            li_2,
-            hi_3,
-            li_3,
-            #[cfg(feature = "hv4")]
-            li_4,
-            #[cfg(feature = "hv4")]
-            hi_4,
-            #[cfg(feature = "hv5")]
-            hi_5,
-            #[cfg(feature = "hv5")]
-            li_5,
-            &eevs,
-            hr_ctrl,
-        );
+        // With a hardware modification this could be used to drive the WS2812b LEDs
+        let spi_mode = spi::Mode::default();
+        let spi = dp.SPI1.spi(mosi_pin, spi_mode, 3.MHz(), &mut rcc);
+
+        timers.connect_comparators(&eevs);
 
         defmt::info!("Initializing Hardware - Done");
 

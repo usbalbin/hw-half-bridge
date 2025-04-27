@@ -7,15 +7,36 @@ use stm32_hrtim::{
     timer_eev_cfg::EevCfgs,
     HrParts, HrPwmAdvExt,
 };
-use stm32g4xx_hal::{gpio, stm32::{
-    Peripherals, HRTIM_MASTER, HRTIM_TIMA, HRTIM_TIMB, HRTIM_TIMC, HRTIM_TIMD, HRTIM_TIME,
-    HRTIM_TIMF,
-}};
+use stm32g4xx_hal::{
+    gpio,
+    stm32::{
+        Peripherals, HRTIM_MASTER, HRTIM_TIMA, HRTIM_TIMB, HRTIM_TIMC, HRTIM_TIMD, HRTIM_TIME,
+        HRTIM_TIMF,
+    },
+};
+
+use crate::hardware::REPETITION_COUNTER;
 
 use super::{external_events::Eevs, Prescaler, PERIOD};
 
+type Timer<TIM> = HrParts<TIM, Prescaler, (HrOut1<TIM, Prescaler>, HrOut2<TIM, Prescaler>)>;
+
+type TimHb1 = HRTIM_TIMF;
+type TimHb2 = HRTIM_TIMC;
+type TimHb3 = HRTIM_TIME;
+type TimHb4b = HRTIM_TIMB;
+type TimHb4d = HRTIM_TIMD;
+type TimHb5 = HRTIM_TIMA;
+
+type TimerHb1 = Timer<TimHb1>;
+type TimerHb2 = Timer<TimHb2>;
+type TimerHb3 = Timer<TimHb3>;
+type TimerHb4b = HrParts<TimHb4b, Prescaler, HrOut1<TimHb4b, Prescaler>>;
+type TimerHb4d = HrParts<TimHb4d, Prescaler, HrOut2<TimHb4d, Prescaler>>;
+type TimerHb5 = Timer<TimHb5>;
+
 macro_rules! init_hrtim {
-    ($tim:expr, ($hi_pin:ident $(, $li_pin:ident)*), $comp_eev:expr, $deadtime:expr, $rst_evt:expr, $rcc:expr, $hr_control:expr) => {{
+    ($tim:expr, ($hi_pin:ident $(, $li_pin:ident)*), $deadtime:expr, $rst_evt:expr, $rcc:expr, $hr_control:expr) => {{
         let mut timer = $tim
             .pwm_advanced(($hi_pin $(, $li_pin)*))
             .deadtime($deadtime)
@@ -27,6 +48,7 @@ macro_rules! init_hrtim {
             .timer_mode(stm32_hrtim::HrTimerMode::SingleShotRetriggerable)
             .counting_direction(stm32_hrtim::HrCountingDirection::Up)
             .eev_cfg(EevCfgs::default())
+            .dac_trigger(DacTriggerCfg::edge_aligned_slope())
             //.repetition_counter(repetition_counter)
             //.enable_repetition_interrupt()
             .finalize(&mut $hr_control);
@@ -40,39 +62,22 @@ macro_rules! init_hrtim {
         timer.timer.enable_reset_event(&$rst_evt);
         pin.enable_set_event(&$rst_evt);
         pin.enable_rst_event(&timer.cr1);
-        pin.enable_rst_event(&$comp_eev);
 
         timer
     }};
 }
 
 pub struct Timers {
-    timer1: HrParts<
-        HRTIM_TIMF,
-        Prescaler,
-        (HrOut1<HRTIM_TIMF, Prescaler>, HrOut2<HRTIM_TIMF, Prescaler>),
-    >,
-    timer2: HrParts<
-        HRTIM_TIMC,
-        Prescaler,
-        (HrOut1<HRTIM_TIMC, Prescaler>, HrOut2<HRTIM_TIMC, Prescaler>),
-    >,
-    timer3: HrParts<
-        HRTIM_TIME,
-        Prescaler,
-        (HrOut1<HRTIM_TIME, Prescaler>, HrOut2<HRTIM_TIME, Prescaler>),
-    >,
+    timer1: TimerHb1,
+    timer2: TimerHb2,
+    timer3: TimerHb3,
 
     #[cfg(feature = "hv4")]
-    timer4b: HrParts<HRTIM_TIMB, Prescaler, HrOut1<HRTIM_TIMB, Prescaler>>,
+    timer4b: TimerHb4b,
     #[cfg(feature = "hv4")]
-    timer4d: HrParts<HRTIM_TIMD, Prescaler, HrOut2<HRTIM_TIMD, Prescaler>>,
+    timer4d: TimerHb4d,
     #[cfg(feature = "hv5")]
-    timer5a: HrParts<
-        HRTIM_TIMA,
-        Prescaler,
-        (HrOut1<HRTIM_TIMA, Prescaler>, HrOut2<HRTIM_TIMA, Prescaler>),
-    >,
+    timer5: TimerHb5,
 }
 
 impl Timers {
@@ -95,66 +100,32 @@ impl Timers {
         #[cfg(feature = "hv4")] hi_4: gpio::gpioa::PA10<gpio::Input<gpio::Floating>>,
         #[cfg(feature = "hv5")] hi_5: gpio::gpioa::PA8<gpio::Input<gpio::Floating>>,
         #[cfg(feature = "hv5")] li_5: gpio::gpioa::PA9<gpio::Input<gpio::Floating>>,
-        eevs: &Eevs,
         mut hr_ctrl: HrPwmControl,
     ) -> Timers {
         defmt::info!("Initializing Timers...");
 
         let timer_master = hrtim_master
             .pwm_advanced(())
-            .enable_repetition_interrupt()
             .prescaler(stm32_hrtim::Pscl1)
             .period(PERIOD)
-            //.repetition_counter(repetition_counter)
+            .repetition_counter(REPETITION_COUNTER)
             .enable_repetition_interrupt()
             .finalize(&mut hr_ctrl);
 
         let dt = stm32_hrtim::deadtime::DeadtimeConfig::default();
 
-        let timer1 = init_hrtim!(
-            hrtimf,
-            (hi_1, li_1),
-            eevs.cc1,
-            dt,
-            timer_master.timer,
-            rcc,
-            hr_ctrl
-        );
-        let timer2 = init_hrtim!(
-            hrtimc,
-            (hi_2, li_2),
-            eevs.cc2,
-            dt,
-            timer_master.cr1,
-            rcc,
-            hr_ctrl
-        );
-        let timer3 = init_hrtim!(
-            hrtime,
-            (hi_3, li_3),
-            eevs.cc3,
-            dt,
-            timer_master.cr2,
-            rcc,
-            hr_ctrl
-        );
+        let timer1 = init_hrtim!(hrtimf, (hi_1, li_1), dt, timer_master.timer, rcc, hr_ctrl);
+        let timer2 = init_hrtim!(hrtimc, (hi_2, li_2), dt, timer_master.cr1, rcc, hr_ctrl);
+        let timer3 = init_hrtim!(hrtime, (hi_3, li_3), dt, timer_master.cr2, rcc, hr_ctrl);
 
         #[cfg(feature = "hv4")]
-        let timer4b = init_hrtim!(hrtimb, (hi_4), eevs.cc4, dt, timer_master.cr3, rcc, hr_ctrl);
+        let timer4b = init_hrtim!(hrtimb, (hi_4), dt, timer_master.cr3, rcc, hr_ctrl);
 
         #[cfg(feature = "hv4")]
-        let timer4d = init_hrtim!(hrtimd, (li_4), eevs.cc4, dt, timer_master.cr3, rcc, hr_ctrl);
+        let timer4d = init_hrtim!(hrtimd, (li_4), dt, timer_master.cr3, rcc, hr_ctrl);
 
         #[cfg(feature = "hv5")]
-        let timer5a = init_hrtim!(
-            hrtima,
-            (hi_5, li_5),
-            eevs.cc4,
-            dt,
-            timer_master.cr4,
-            rcc,
-            hr_ctrl
-        );
+        let timer5 = init_hrtim!(hrtima, (hi_5, li_5), dt, timer_master.cr4, rcc, hr_ctrl);
         Timers {
             timer1,
             timer2,
@@ -164,7 +135,20 @@ impl Timers {
             #[cfg(feature = "hv4")]
             timer4d,
             #[cfg(feature = "hv5")]
-            timer5a,
+            timer5,
         }
+    }
+
+    pub fn connect_comparators(mut self, eevs: &Eevs) -> Self {
+        self.timer1.out.0.enable_rst_event(eevs.cc1);
+        self.timer2.out.0.enable_rst_event(eevs.cc2);
+        self.timer3.out.0.enable_rst_event(eevs.cc3);
+        #[cfg(feature = "hv4")]
+        self.timer4b.out.enable_rst_event(eevs.cc4);
+        #[cfg(feature = "hv4")]
+        self.timer4d.out.enable_rst_event(eevs.cc4);
+        #[cfg(feature = "hv5")]
+        self.timer5.out.0.enable_rst_event(eevs.cc4);
+        self
     }
 }

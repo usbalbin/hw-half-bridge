@@ -1,13 +1,12 @@
-use cortex_m::delay::Delay;
 use stm32_hrtim::stm32;
 use stm32g4xx_hal::{
-    self as hal, adc::{self, Adc, AdcClaim}, gpio::{
+    self as hal, adc::{self, Adc, AdcClaim}, delay::SystDelay, gpio::{
         self,
         gpioa::{PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7},
         gpiob::{PB0, PB11, PB14},
         gpioc::{PC0, PC2, PC3, PC4, PC5},
         gpiof::{PF0, PF1},
-    }, observable::ObservationToken, opamp, rcc::Rcc
+    }, opamp, rcc::Rcc, stasis::{Entitlement, Freeze}
 };
 
 pub struct Adcs {
@@ -25,7 +24,7 @@ impl Adcs {
         adc3: stm32::ADC3,
         adc4: stm32::ADC4,
         adc5: stm32::ADC5,
-        delay: &mut Delay,
+        delay: &mut SystDelay,
         rcc: &Rcc,
     ) -> Self {
         defmt::info!("Initializing ADCs...");
@@ -144,32 +143,32 @@ pub struct AdcChannels {
     pub adc1_in4_pot2_pwm_led5: PA3<gpio::Analog>,
 
     #[cfg(not(feature = "cs-op"))]
-    pub cc1: ObservationToken<PB0<gpio::Analog>>,
+    pub cc1: Entitlement<PB0<gpio::Analog>>,
     //cc1b: PC1<gpio::Analog>, // No op available on this pin unless the signal is routed to cc5 by mounting R28
     #[cfg(not(feature = "cs-op"))]
-    pub cc2: ObservationToken<PB11<gpio::Analog>>,
+    pub cc2: Entitlement<PB11<gpio::Analog>>,
     #[cfg(not(feature = "cs-op"))]
-    pub cc3: ObservationToken<PB14<gpio::Analog>>,
+    pub cc3: Entitlement<PB14<gpio::Analog>>,
     #[cfg(not(feature = "cs-op"))]
-    pub cc4: ObservationToken<PA1<gpio::Analog>>,
+    pub cc4: Entitlement<PA1<gpio::Analog>>,
     #[cfg(not(feature = "cs-op"))]
-    pub cc5: ObservationToken<PA7<gpio::Analog>>,
+    pub cc5: Entitlement<PA7<gpio::Analog>>,
 
     #[cfg(feature = "cs-op")]
     pub cc1:
-        opamp::Follower<opamp::Opamp3, ObservationToken<PB0<gpio::Analog>>, opamp::InternalOutput>,
+        opamp::Follower<opamp::Opamp3, Entitlement<PB0<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
     pub cc2:
-        opamp::Follower<opamp::Opamp4, ObservationToken<PB11<gpio::Analog>>, opamp::InternalOutput>,
+        opamp::Follower<opamp::Opamp4, Entitlement<PB11<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
     pub cc3:
-        opamp::Follower<opamp::Opamp5, ObservationToken<PB14<gpio::Analog>>, opamp::InternalOutput>,
+        opamp::Follower<opamp::Opamp5, Entitlement<PB14<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
     pub cc4:
-        opamp::Follower<opamp::Opamp1, ObservationToken<PA1<gpio::Analog>>, opamp::InternalOutput>,
+        opamp::Follower<opamp::Opamp1, Entitlement<PA1<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
     pub cc5:
-        opamp::Follower<opamp::Opamp2, ObservationToken<PA7<gpio::Analog>>, opamp::InternalOutput>,
+        opamp::Follower<opamp::Opamp2, Entitlement<PA7<gpio::Analog>>, opamp::InternalOutput>,
 
     //op12_comp2_cc5_pin_b: PA7<gpio::Analog>,
     pub fb1_lo: PA4<gpio::Analog>,

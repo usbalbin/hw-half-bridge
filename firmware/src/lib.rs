@@ -4,6 +4,8 @@
 //mod half_bridge;
 pub mod control_2p2z;
 pub mod hardware;
+pub mod half_bridge;
+pub mod types;
 
 use core::sync::atomic::{AtomicUsize, Ordering};
 use defmt_brtt as _; // global logger

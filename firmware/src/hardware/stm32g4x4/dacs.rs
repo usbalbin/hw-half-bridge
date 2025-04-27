@@ -1,8 +1,13 @@
 use stm32_hrtim::stm32;
 use stm32g4xx_hal::{
-    dac::{self, Dac3Ch1, Dac3Ch2, Dac4Ch1, Dac4Ch2, DacExt},
-    observable::{Observable, ObservationToken, Observed}, rcc::Rcc,
+    dac::{self, Dac3Ch1, Dac3Ch2, Dac4Ch1, Dac4Ch2, DacExt}, rcc::Rcc, stasis::{Entitlement, Freeze, Frozen}
 };
+
+pub type DacHb1 = Dac3Ch2<dac::M_INT_SIG, dac::SawtoothGenerator>;
+pub type DacHb2 = Dac4Ch2<dac::M_INT_SIG, dac::SawtoothGenerator>;
+pub type DacHb3 = Dac4Ch1<dac::M_INT_SIG, dac::SawtoothGenerator>;
+pub type DacHb4 = Dac3Ch1<dac::M_INT_SIG, dac::SawtoothGenerator>;
+pub type DacHb5 = DacHb1;
 
 impl Dacs {
     pub(crate) fn init(
@@ -10,6 +15,10 @@ impl Dacs {
         _dac2: stm32::DAC2,
         dac3: stm32::DAC3,
         dac4: stm32::DAC4,
+        inc_trigger_hb1: Entitlement<HrCr2<TimHb1, super::Prescaler>>,
+        inc_trigger_hb2: Entitlement<HrCr2<TimHb2, super::Prescaler>>,
+        inc_trigger_hb3: Entitlement<HrCr2<TimHb3, super::Prescaler>>,
+        inc_trigger_hb4: Entitlement<HrCr2<TimHb4, super::Prescaler>>,
         rcc: &mut Rcc,
     ) -> (Dacs, DacTokens) {
         defmt::info!("Initializing DACs...");
@@ -31,27 +40,30 @@ impl Dacs {
             .DAC2
             .constrain(dac::Dac2IntSig1, &mut rcc)
             .enable_generator(dac::GeneratorConfig::sawtooth(dac_ampl));*/
+        let dir = dac::CountingDirection::Increment;
+        let step_size = ();
+        let dac_cfg = dac::SawtoothConfig::with_slope(dir, step_size);
 
         let (dac3ch1, dac3ch2) = {
             let (ch1, ch2) = dac3.constrain((dac::Dac3IntSig1, dac::Dac3IntSig2), rcc);
             (
-                ch1.enable_generator(dac::GeneratorConfig::sawtooth(dac_ampl)),
-                ch2.enable_generator(dac::GeneratorConfig::sawtooth(dac_ampl)),
+                ch1.enable_generator(dac_cfg.inc_trigger(inc_trigger_hb4).reset_trigger(reset_trigger), &mut rcc),
+                ch2.enable_generator(dac_cfg.inc_trigger(inc_trigger_hb1).reset_trigger(reset_trigger), &mut rcc),
             )
         };
 
         let (dac4ch1, dac4ch2) = {
             let (ch1, ch2) = dac4.constrain((dac::Dac4IntSig1, dac::Dac4IntSig2), rcc);
             (
-                ch1.enable_generator(dac::GeneratorConfig::sawtooth(dac_ampl)),
-                ch2.enable_generator(dac::GeneratorConfig::sawtooth(dac_ampl)),
+                ch1.enable_sawtooth_generator(dac_cfg.inc_trigger(inc_trigger_hb3).reset_trigger(reset_trigger), &mut rcc),
+                ch2.enable_sawtooth_generator(dac_cfg.inc_trigger(inc_trigger_hb2).reset_trigger(reset_trigger), &mut rcc),
             )
         };
 
-        let (cc1_cc5, [cc1_ot, cc5_ot]) = dac3ch2.observe();
-        let (cc4, [cc4_ot]) = dac3ch1.observe();
-        let (cc2, [cc2_ot]) = dac4ch2.observe();
-        let (cc3, [cc3_ot]) = dac4ch1.observe();
+        let (cc1_cc5, [cc1_ot, cc5_ot]) = dac3ch2.freeze();
+        let (cc4, [cc4_ot]) = dac3ch1.freeze();
+        let (cc2, [cc2_ot]) = dac4ch2.freeze();
+        let (cc3, [cc3_ot]) = dac4ch1.freeze();
 
         (
             Dacs {
@@ -72,18 +84,16 @@ impl Dacs {
 }
 
 pub struct Dacs {
-    pub cc4: Observed<Dac3Ch1<0b11, dac::WaveGenerator>, 1>,
-    pub cc1_cc5: Observed<Dac3Ch2<0b11, dac::WaveGenerator>, 2>,
-
-    pub cc3: Observed<Dac4Ch1<0b11, dac::WaveGenerator>, 1>,
-    pub cc2: Observed<Dac4Ch2<0b11, dac::WaveGenerator>, 1>,
+    pub cc1_cc5: Frozen<DacHb1, 2>,
+    pub cc2: Frozen<DacHb2, 1>,
+    pub cc3: Frozen<DacHb3, 1>,
+    pub cc4: Frozen<DacHb4, 1>,
 }
 
 pub(crate) struct DacTokens {
-    pub(crate) cc4: ObservationToken<Dac3Ch1<0b11, dac::WaveGenerator>>,
-    pub(crate) cc1: ObservationToken<Dac3Ch2<0b11, dac::WaveGenerator>>,
-    pub(crate) cc5: ObservationToken<Dac3Ch2<0b11, dac::WaveGenerator>>,
-
-    pub(crate) cc3: ObservationToken<Dac4Ch1<0b11, dac::WaveGenerator>>,
-    pub(crate) cc2: ObservationToken<Dac4Ch2<0b11, dac::WaveGenerator>>,
+    pub(crate) cc1: Entitlement<DacHb1>,
+    pub(crate) cc2: Entitlement<DacHb2>,
+    pub(crate) cc3: Entitlement<DacHb3>,
+    pub(crate) cc4: Entitlement<DacHb4>,
+    pub(crate) cc5: Entitlement<DacHb5>,
 }
