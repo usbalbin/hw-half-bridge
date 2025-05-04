@@ -24,7 +24,7 @@ impl Dacs {
         defmt::info!("Initializing DACs...");
 
         let dac_ampl = 0;
-        // DAC1 and DAC2 are too slow to be useful for generating the sawtooth shape required for
+        // DAC1 and DAC2 might be too slow to be useful for generating the sawtooth shape required for
         // slope compensation
         /*let (dac1ch1, dac1ch2) = {
             let (mut dac1ch1, mut dac1ch2) = dp

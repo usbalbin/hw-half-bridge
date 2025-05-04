@@ -1,5 +1,5 @@
-use stm32_hrtim::stm32;
 use stm32g4xx_hal::{
+    stm32,
     self as hal, adc::{self, Adc, AdcClaim}, delay::SystDelay, gpio::{
         self,
         gpioa::{PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7},
