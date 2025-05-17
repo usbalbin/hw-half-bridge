@@ -1,0 +1,249 @@
+# Example KiBot config file for ardu_prog.pro
+kibot:
+  version: 1
+
+globals:
+  # Filters for KiBot warnings
+  filters:
+    - filter: Ignore PcbDraw missing components
+      number: 103
+    - filter: Ignore missing KiCad config, not in docker images
+      number: 8
+    - filter: Ignore missing KiCad 3D models, not in docker images
+      number: 10
+    - filter: Ignore missing KiCad config from KiAuto, not in docker images
+      number: 58
+      regex: kicad_common.json
+  # This will undo the `set_text_variables` when we run it locally
+  restore_project: true
+  # We will use a value externally formatted
+  time_reformat: false
+
+preflight:
+  check_zone_fills: true
+  run_erc: true
+  run_drc: true
+  # Filters for ERC/DRC errors/warnings
+  filters:
+    - filter: 'We know the potentiometer extends outside the board'
+      error: 'silk_over_copper'
+      regex: 'clipped by solder mask'
+    - filter: 'Unconnected MCU GPIO pins'
+      error: 'pin_not_connected'
+      regex: 'Symbol U3 Pin \d* \[P[A-Z]\d*[\/~{RESET}]*, Bidirectional, Line\]'
+    - filter: 'Unconnected Connector pins'
+      error: 'pin_not_connected'
+      regex: 'Symbol J\d[\d]* Pin \d\d* \[[a-zA-Z_\-\d]*, Passive, Line\]'
+
+  set_text_variables:
+    # The revision will be the short git hash
+    # We use ${git_hash} for the REV field in the worksheet (frame)
+    - name: 'git_hash'
+      command: 'git describe --exact-match --tags || git log -1 --format="%h" $KIBOT_PCB_NAME'
+      before: 'Git:'
+    # Coherent date and time for the schematic and PCB
+    # This will be the time stamp of the files generation, not the commit times
+    # We use `${date}` for the time field in the worksheet (frame)
+    - name: 'date'
+      command: 'date --iso-8601=minutes'
+
+outputs:
+  - name: 'navigate'
+    type: navigate_results
+
+  - name: 'panel'
+    comment: "Panelize PCB"
+    type: panelize
+    dir: Panel
+    options:
+      configs: '@PANEL_CFG@'
+      create_preview: true
+
+  - name: 'bom_xlsx'
+    comment: "Spreadsheet for the Bill of Materials"
+    type: bom
+    dir: BoM
+    options: &bom_options
+      xlsx:
+        datasheet_as_link: MFP
+        #title: 'KiBot variants example'
+        max_col_width: 40
+        highlight_empty: false
+      columns:
+        - Row
+        - References
+        - Quantity Per PCB
+        - field: Value
+          join: ['voltage', 'current', 'power', 'tolerance']
+        - field: MFN
+          name: Manufacturer
+        - field: MFP
+          name: Manf. Part
+        - Footprint
+        - field: ARTIKELKOD
+        - field: 'Status'
+        - field: 'Footprint Populate'
+        - field: 'Datasheet'
+      normalize_values: true
+  
+  - name: 'bom_smd'
+    comment: "SMD Bill of Materials"
+    type: bom
+    dir: BoM-SMD
+    options:
+      format: 'HRTXT'
+      hrtxt:
+        separator: ' '
+      exclude_filter: '_only_smd'
+      group_fields: []
+      sort_style: 'ref'
+      columns:
+        - References
+        #- field: Value
+        #  join: ['voltage', 'current', 'power', 'tolerance']
+        - field: 'Footprint X'
+        - field: 'Footprint Y'
+        - field: 'Footprint Rot'
+        - field: 'Footprint Side'
+        #- field: 'Status'
+        - field: 'ARTIKELKOD'
+        - Footprint
+      normalize_values: true
+
+  - name: 'bom_html'
+    comment: "HTML for the Bill of Materials"
+    type: bom
+    dir: BoM
+    options:
+      <<: *bom_options
+      format: HTML
+      html:
+        datasheet_as_link: MFP
+        title: 'KiBot variants example'
+        highlight_empty: false
+
+  - name: ibom
+    comment: 'Prototype mounting guide'
+    type: ibom
+    dir: BoM
+    options:
+      show_fields: 'Value,Footprint'
+      extra-fields: 'ARTIKELKOD'
+      layer_view: F
+
+  - name: 'print_sch'
+    comment: "Schematic PDF"
+    type: pdf_sch_print
+    dir: Schematic
+    options:
+      # Append the variant to the title
+      title: "+ (%V variant)"
+
+  - name: gerbers
+    comment: Gerbers
+    type: gerber
+    dir: Gerbers-single-PCB
+
+  - name: drill
+    comment: Drill files
+    type: excellon
+    dir: Drill-single-PCB
+    options:
+      map:
+        type: pdf
+      pth_and_npth_single_file: false
+
+  - name: position
+    comment: Pick & Place
+    type: position
+    dir: Position
+    options:
+      format: 'ASCII'
+      separate_files_for_front_and_back: true
+      only_smd: true
+      columns:
+        - id: Ref
+          name: Designator
+        - Val
+        - Package
+        - id: PosX
+          name: "Mid X"
+        - id: PosY
+          name: "Mid Y"
+        - id: Rot
+          name: Rotation
+        - id: Side
+          name: Layer
+
+  - name: print_pdf
+    comment: "PDF for the PCB"
+    type: pcb_print
+    dir: PCB
+    options:
+      force_edge_cuts: true
+      keep_temporal_files: true
+      # Append the variant to the title
+      title: "+ (%V variant)"
+      # This is the worksheet we selected in the project, no need to specify it again
+      # sheet_reference_layout: pcb_print.kicad_wks
+      scaling: 2.0
+      pages:
+        - layers: [ F.Paste, F.Adhes, Dwgs.User, F.Fab ]
+          sheet: 'Fabrication layers'
+        - layers:
+            - layer: F.Cu
+            - layer: F.Mask
+              color: '#14332440'
+            - layer: F.SilkS
+            - layer: Dwgs.User
+          sheet: 'Top layer'
+        #- layers: [ GND.Cu, Dwgs.User ]
+        #  sheet: 'GND plane'
+        #- layers: [ Power.Cu, Dwgs.User ]
+        #  sheet: 'Power plane'
+        - layers:
+            - layer: B.Cu
+            - layer: B.Mask
+              color: '#14332440'
+            - layer: B.SilkS
+            - layer: Dwgs.User
+          sheet: 'Bottom layer'
+          mirror: true
+
+  - name: board_top
+    comment: "Top layer view"
+    type: pcbdraw
+    dir: PCB
+    options:
+      format: jpg
+      dpi: 300
+
+  - name: board_top_filled
+    comment: "Top layer view with components"
+    type: pcbdraw
+    dir: PCB
+    output_id: '-filled'
+    options:
+      format: jpg
+      dpi: 300
+      show_components: all
+
+  - name: board_bottom
+    comment: "Bottom layer view"
+    type: pcbdraw
+    dir: PCB
+    options:
+      format: jpg
+      dpi: 300
+      bottom: true
+
+  - name: board_bottom_filled
+    comment: "Bottom layer view with components"
+    type: pcbdraw
+    dir: PCB
+    output_id: '-filled'
+    options:
+      format: jpg
+      dpi: 300
+      bottom: true
+      show_components: all
