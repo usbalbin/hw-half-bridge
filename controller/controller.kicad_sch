@@ -9371,7 +9371,7 @@
 	)
 	(wire
 		(pts
-			(xy 236.22 288.29) (xy 236.22 290.83)
+			(xy 236.22 289.56) (xy 236.22 290.83)
 		)
 		(stroke
 			(width 0)
@@ -11551,6 +11551,16 @@
 	)
 	(wire
 		(pts
+			(xy 236.22 284.48) (xy 236.22 283.21)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0d0b8b2-df1d-4053-ac6a-c2bc3a1291a1")
+	)
+	(wire
+		(pts
 			(xy 40.64 300.99) (xy 40.64 303.53)
 		)
 		(stroke
@@ -12263,15 +12273,35 @@
 		)
 		(uuid dd8d6012-c1e6-49ca-9461-6bf5f118f68e)
 	)
-	(text "TODO: Double check values, especially R1, C3, C4"
+	(text "Typical load: 80mA-500mA\nMax load: 900mA(not allowed)\n\nMax allowed load 650mA"
 		(exclude_from_sim no)
-		(at 254.508 261.112 0)
+		(at 251.714 255.524 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
 		(uuid "35594291-7ac0-4337-b948-9805fb8b062f")
+	)
+	(text "I_all_periph_no_rf=30mA\nI_wifi_tx=380mA\nI_wifi_rx=80mA\n\nI_max=410mA\n\nprobably\nmissing\nsome..."
+		(exclude_from_sim no)
+		(at 148.844 189.992 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "4e74868a-7510-40e5-b36b-9cdab5748080")
+	)
+	(text "I_max=3*20mA*7=420mA"
+		(exclude_from_sim no)
+		(at 423.418 141.986 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+		(uuid "88d060cb-6ac3-429c-aa22-6a16e427c408")
 	)
 	(text "USB PD Extension board"
 		(exclude_from_sim no)
@@ -12283,35 +12313,37 @@
 		)
 		(uuid "91775cc5-9ad3-40e9-9ea7-fde09c608e6d")
 	)
-	(text "page 37 layout i https://www.ti.com/lit/ds/symlink/lm5168.pdf?ts=1714923464346"
+	(text "f=170MHz\nI_no_periph=~30mA\nI_hrtim=12mA\nI_tim1=2mA\nI_usart1=1.8mA\nI_dac=1mA\nI_adc=1.3mA\nI_usb=0.3mA\nI_hsi48=0.4mA\nI_pll=0.6mA\n\nI_tot=50mA\n\nprobably\nmissing\nsome..."
 		(exclude_from_sim no)
-		(at 265.938 252.476 0)
+		(at 149.606 73.152 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 		)
-		(uuid "bcb4e156-11a4-4258-a141-6fed8d017146")
+		(uuid "d8f1f709-4623-4d2c-bbb0-f1750f7ba892")
 	)
-	(text "Ron=Vout*2500/Fsw(kHz)\nDmin=50ns*Fsw\nVin(max)=min(120, Vout / (50ns * Fsw))\nFB=1.2v"
+	(text "Formulas:\n\n\nVref=1.2v\nTr=50us\nRon(kHz)=Vout*2500/Fsw(kHz)\nRfbt=Rfbb*(Vout/Vref - 1)\nDmin=50ns*Fsw\nVin(max)=min(120, Vout / (50ns * Fsw))\nL=Vout/(f_sw * ΔI)*(1-Vout/Vin)\nCa>=10/(Fsw*Rfbb||Rfbt)\nRa>=(Vin-Vout)*Vout/(20mV*Vin*Fsw*Ca)\nCb>=Tr/(3*Rfbt)\n\nDefines:\n\nVout=8v\nVin=24V\nf_sw=500kHz\nI_typ=250mA\nΔI=250mA*0.3\n\nResults:\n\nL1: L=8V/(500kHz*250mA*0.3)*(1-(8V/24V))=142uH\nR4: Ron=8V*2500/500(kHz)=40(kHz)\nR2: Rfbt=22k\nR3: Rfbb=3k9\nC3: Ca = 10nF >= 10/(500kHz*3300ohm)=nF\nR1: Ra = 68k >= (Vin-Vout)*Vout/(20mV*Vin*Fsw*Ca)\nC4: Cb = 1nF >=Tr/(3*Rfbt)"
 		(exclude_from_sim no)
-		(at 217.17 292.608 0)
+		(at 171.45 268.224 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
+			(justify left)
 		)
 		(uuid "e8737fc5-636e-4d46-a934-6842bdc618a1")
 	)
-	(text "Route FB_A"
+	(text "TODO:\nThis is unlikely to work powered from USB\nsince the DC/DC does not operate with Vin < 6V\n\nWould it be possible to bypass the DC/DC when \"Logic DC/DC in\" < ~7V?\nMaybe use PGOOD for this?"
 		(exclude_from_sim no)
-		(at 125.73 102.108 0)
+		(at 234.442 306.07 0)
 		(effects
 			(font
-				(size 12.7 12.7)
+				(size 1.905 1.905)
 			)
+			(justify left)
 		)
-		(uuid "ee0ffdc7-3b0e-4de5-a4c7-7fe7d2e14743")
+		(uuid "ff8f244b-ae6e-4e98-adb6-8baba95fe2f1")
 	)
 	(label "FB_D"
 		(at 125.73 82.55 0)
@@ -14370,6 +14402,28 @@
 			)
 		)
 	)
+	(global_label "SPI3_MOSI"
+		(shape input)
+		(at 102.87 102.87 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4a9550fa-f6db-441f-821a-f042e8131c14")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 90.0272 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "TIM5_CH1"
 		(shape input)
 		(at 199.39 97.79 0)
@@ -15652,7 +15706,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "5k1"
 			(at 99.06 234.9499 0)
 			(effects
 				(font
@@ -15688,6 +15742,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 101.6 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 101.6 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00243 (0603)"
+			(at 101.6 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "25a8c06d-36b0-46c2-aa27-c4e12b9a5a26")
 		)
@@ -15710,7 +15791,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "04b240ed-d0b4-4944-87bf-ce6f8484bd88")
 		(property "Reference" "U9"
 			(at 54.356 67.31 0)
@@ -15747,6 +15828,24 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x05, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 53.34 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 53.34 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 53.34 66.04 0)
 			(effects
 				(font
@@ -15974,6 +16073,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 125.73 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 125.73 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 125.73 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00287"
 			(at 125.73 53.34 0)
 			(effects
 				(font
@@ -16250,6 +16376,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Omron Electronics Inc-EMC Div"
+			(at 227.33 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "B3U-1000P"
+			(at 227.33 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 227.33 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "06853bdb-a8aa-4596-ad32-4012bfc640d8")
 		)
@@ -16452,6 +16605,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "GCT"
+			(at 29.21 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" " USB4105-GF-A"
+			(at 29.21 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 29.21 237.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "A4"
 			(uuid "f3f27c00-a53c-43d1-b535-df16b1cf9480")
 		)
@@ -16530,7 +16710,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "1uF 75V"
 			(at 59.436 211.328 0)
 			(effects
 				(font
@@ -16558,6 +16738,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 53.34 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 53.34 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 53.34 208.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00149"
 			(at 53.34 208.28 0)
 			(effects
 				(font
@@ -16655,7 +16862,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "130a0c2a-4a74-4944-ba07-3f7f32e9daf7")
 		(property "Reference" "C25"
 			(at 268.732 283.21 0)
@@ -16702,6 +16909,24 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 270.51 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 270.51 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "c431035b-60cb-444c-8f57-d713cc157fda")
 		)
@@ -16736,7 +16961,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 160.782 42.164 0)
 			(effects
 				(font
@@ -16764,6 +16989,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 163.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 163.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 163.83 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 163.83 36.83 0)
 			(effects
 				(font
@@ -16835,6 +17087,33 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY BUS TERMINATOR 30V"
+			(at 440.69 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" "Diodes Incorporated"
+			(at 440.69 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 440.69 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 440.69 35.56 0)
 			(effects
 				(font
@@ -16923,6 +17202,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Omron Electronics Inc-EMC Div"
+			(at 102.87 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "B3U-1000P"
+			(at 102.87 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 102.87 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "7559e29f-0da4-4331-9120-ad5b165721d9")
 		)
@@ -16957,7 +17263,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "101k"
+		(property "Value" "3k9"
 			(at 306.07 285.7499 0)
 			(effects
 				(font
@@ -16985,6 +17291,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 303.53 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 303.53 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 303.53 284.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00328"
 			(at 303.53 284.48 0)
 			(effects
 				(font
@@ -17093,7 +17426,7 @@
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
+		(property "Value" "DFLS1100"
 			(at 73.914 218.44 0)
 			(effects
 				(font
@@ -17110,7 +17443,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds30497.pdf"
 			(at 73.66 222.25 90)
 			(effects
 				(font
@@ -17173,6 +17506,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 73.66 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 73.66 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "071-00166"
+			(at 73.66 222.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "7149e2ab-8ce8-4af6-89aa-cd6091d58c17")
 		)
@@ -17195,7 +17555,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "1a02f172-f024-4f25-8202-29d07992d3f9")
 		(property "Reference" "Q2"
@@ -17238,6 +17598,24 @@
 			)
 		)
 		(property "Description" "50V Vds, 0.22A Id, N-Channel MOSFET, SOT-23"
+			(at 212.09 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 212.09 181.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 212.09 181.61 0)
 			(effects
 				(font
@@ -17378,6 +17756,33 @@
 			)
 		)
 		(property "Description" "RGB LED with integrated controller"
+			(at 483.87 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 483.87 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 483.87 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
 			(at 483.87 165.1 0)
 			(effects
 				(font
@@ -17548,7 +17953,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1e924e24-775d-4eff-af2d-0fde64de802d")
 		(property "Reference" "R26"
 			(at 216.916 170.18 0)
@@ -17595,6 +18000,24 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 214.63 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 214.63 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "9ba99cce-de7d-4376-ad61-b8e07a678b51")
 		)
@@ -17617,7 +18040,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1f332408-f2eb-4efe-8d2d-f38002e8f4f4")
 		(property "Reference" "Q1"
 			(at 204.216 167.64 0)
@@ -17667,6 +18090,24 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 199.39 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 199.39 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "6680f959-6651-44a5-97a0-f2f78aad7726")
 		)
@@ -17693,7 +18134,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "1f8e4504-a73d-4366-8c15-5367576ac478")
 		(property "Reference" "R20"
 			(at 109.22 223.5199 0)
@@ -17732,6 +18173,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 106.68 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 106.68 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 106.68 224.79 0)
 			(effects
 				(font
@@ -17906,7 +18365,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10uF 9V"
 			(at 205.74 38.1062 0)
 			(effects
 				(font
@@ -17934,6 +18393,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 203.2 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 203.2 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 203.2 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00195"
 			(at 203.2 36.83 0)
 			(effects
 				(font
@@ -17976,7 +18462,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 379.984 155.702 0)
 			(effects
 				(font
@@ -18004,6 +18490,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 378.46 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 378.46 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 378.46 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 378.46 153.67 0)
 			(effects
 				(font
@@ -18245,7 +18758,7 @@
 				)
 			)
 		)
-		(property "Value" "DFLS1200"
+		(property "Value" "DFLS1100"
 			(at 70.104 331.47 0)
 			(effects
 				(font
@@ -18262,7 +18775,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/ds30497.pdf"
 			(at 69.85 335.28 90)
 			(effects
 				(font
@@ -18317,6 +18830,33 @@
 			)
 		)
 		(property "Sim.Params" "temp=50"
+			(at 69.85 335.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 69.85 335.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 69.85 335.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "071-00166"
 			(at 69.85 335.28 0)
 			(effects
 				(font
@@ -18385,6 +18925,33 @@
 			)
 		)
 		(property "Description" "3.3V, 1A, Low Noise, High-PSRR LDO Regulator, 2.5V...16V input, SOT-223"
+			(at 359.41 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" "Texas Instruments"
+			(at 359.41 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "TLV76133DCY"
+			(at 359.41 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 359.41 287.02 0)
 			(effects
 				(font
@@ -18532,6 +19099,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "STMicroelectronics"
+			(at 64.77 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "ECMF02-2AMX6"
+			(at 64.77 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 64.77 245.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "65dd5e41-6a97-4322-aeea-f278012edfbb")
 		)
@@ -18578,7 +19172,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "100nF 9V"
 			(at 102.108 89.154 0)
 			(effects
 				(font
@@ -18607,6 +19201,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 105.41 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 105.41 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 105.41 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 105.41 80.01 0)
 			(effects
 				(font
@@ -18676,6 +19297,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 99.06 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 99.06 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 99.06 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00450"
 			(at 99.06 85.09 0)
 			(effects
 				(font
@@ -18785,7 +19433,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "?k"
+		(property "Value" "1k"
 			(at 331.47 161.2899 0)
 			(effects
 				(font
@@ -18813,6 +19461,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 334.01 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 334.01 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 334.01 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 334.01 160.02 0)
 			(effects
 				(font
@@ -18956,6 +19631,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "STMicroelectronics"
+			(at 74.93 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "ECMF02-2AMX6"
+			(at 74.93 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 74.93 356.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "078d26b3-78e6-43be-9898-569cc05c37b3")
 		)
@@ -19067,7 +19769,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 167.132 42.164 0)
 			(effects
 				(font
@@ -19095,6 +19797,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 170.18 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 170.18 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 170.18 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 170.18 36.83 0)
 			(effects
 				(font
@@ -19271,8 +20000,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF"
-			(at 58.166 342.138 0)
+		(property "Value" "1uF 75V"
+			(at 62.738 341.63 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -19299,6 +20028,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 52.07 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 52.07 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 52.07 339.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00149"
 			(at 52.07 339.09 0)
 			(effects
 				(font
@@ -19442,6 +20198,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Alps Alpine"
+			(at 240.03 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "EC11E15244G1"
+			(at 240.03 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 240.03 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "MP"
 			(uuid "a8320853-371d-440b-97c7-a25736aff700")
 		)
@@ -19541,7 +20324,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "44928366-e85d-4c9d-aefd-ae54577943f6")
 		(property "Reference" "J15"
@@ -19590,6 +20373,24 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 243.84 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 243.84 173.99 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "7d01c97e-e63a-4704-a233-a7bb4371566b")
 		)
@@ -19625,7 +20426,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 69.596 319.786 90)
 			(effects
 				(font
@@ -19653,6 +20454,33 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 71.12 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 71.12 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 71.12 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 71.12 320.04 0)
 			(effects
 				(font
@@ -19707,7 +20535,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "476e13ba-e977-463e-900a-cbd7d52dabe4")
 		(property "Reference" "R19"
 			(at 99.06 223.5199 0)
@@ -19746,6 +20574,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 101.6 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 101.6 224.79 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 101.6 224.79 0)
 			(effects
 				(font
@@ -19826,6 +20672,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 359.41 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 359.41 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 359.41 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "749c0668-b0e7-4ab9-aa21-a24c8f12766e")
 		)
@@ -19872,7 +20745,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 348.234 155.702 0)
 			(effects
 				(font
@@ -19900,6 +20773,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 346.71 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 346.71 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 346.71 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 346.71 153.67 0)
 			(effects
 				(font
@@ -20180,6 +21080,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 285.75 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 285.75 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 285.75 49.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04b")
 		)
@@ -20226,7 +21153,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10uF 9V"
 			(at 373.38 290.8362 0)
 			(effects
 				(font
@@ -20254,6 +21181,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 370.84 289.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 370.84 289.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 370.84 289.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00195"
 			(at 370.84 289.56 0)
 			(effects
 				(font
@@ -20296,8 +21250,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1uF"
-			(at 380.492 17.526 0)
+		(property "Value" "1uF 6V"
+			(at 382.778 18.796 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -20324,6 +21278,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 374.65 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00185"
 			(at 374.65 16.51 0)
 			(effects
 				(font
@@ -20395,6 +21376,33 @@
 			)
 		)
 		(property "Description" "STMicroelectronics Arm Cortex-M4 MCU, 256KB flash, 128KB RAM, 170 MHz, 1.71-3.6V, 52 GPIO, LQFP64"
+			(at 149.86 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 149.86 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 149.86 92.71 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "076-00110"
 			(at 149.86 92.71 0)
 			(effects
 				(font
@@ -20742,7 +21750,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "585bf928-1be6-4c3f-a520-4cd12465ba1b")
 		(property "Reference" "RV1"
@@ -20782,6 +21790,24 @@
 			)
 		)
 		(property "Description" "Potentiometer"
+			(at 90.17 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 90.17 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 90.17 77.47 0)
 			(effects
 				(font
@@ -20894,7 +21920,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R"
+		(property "Value" "100k"
 			(at 332.74 24.13 90)
 			(effects
 				(font
@@ -20922,6 +21948,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 331.47 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 331.47 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 331.47 24.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 331.47 24.13 0)
 			(effects
 				(font
@@ -21030,7 +22083,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 173.482 42.164 0)
 			(effects
 				(font
@@ -21058,6 +22111,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 176.53 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 176.53 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 176.53 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 176.53 36.83 0)
 			(effects
 				(font
@@ -21165,8 +22245,8 @@
 				)
 			)
 		)
-		(property "Value" "duger CLF7045NIT-151M-D?"
-			(at 286.766 266.954 90)
+		(property "Value" "150uH"
+			(at 282.194 272.796 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -21192,6 +22272,33 @@
 			)
 		)
 		(property "Description" "Inductor"
+			(at 281.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" "TDK"
+			(at 281.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "CLF7045NIT-151M-D"
+			(at 281.94 275.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 281.94 275.59 0)
 			(effects
 				(font
@@ -21232,7 +22339,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 34.036 298.196 90)
 			(effects
 				(font
@@ -21260,6 +22367,33 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 35.56 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 35.56 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 35.56 298.45 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 35.56 298.45 0)
 			(effects
 				(font
@@ -21429,6 +22563,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 509.27 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
+			(at 509.27 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 509.27 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "d7d08dd1-2dc2-44bb-be16-1128768efc20")
 		)
@@ -21497,6 +22658,33 @@
 			)
 		)
 		(property "Description" "RGB LED with integrated controller"
+			(at 457.2 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 457.2 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
+			(at 457.2 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 457.2 165.1 0)
 			(effects
 				(font
@@ -21581,6 +22769,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 402.59 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
+			(at 402.59 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 402.59 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "1066847a-23a1-4848-8963-41444eb21333")
 		)
@@ -21647,6 +22862,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 106.68 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 106.68 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 106.68 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 106.68 55.88 0)
 			(effects
 				(font
@@ -21890,7 +23132,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 514.604 155.702 0)
 			(effects
 				(font
@@ -21918,6 +23160,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 513.08 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 513.08 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 513.08 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 513.08 153.67 0)
 			(effects
 				(font
@@ -22027,7 +23296,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 407.924 155.702 0)
 			(effects
 				(font
@@ -22055,6 +23324,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 406.4 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 406.4 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 406.4 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 406.4 153.67 0)
 			(effects
 				(font
@@ -22131,6 +23427,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 205.74 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 205.74 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00450"
+			(at 205.74 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "8d762e95-1ced-4b7c-b493-74e6cc3f5e87")
 		)
@@ -22193,6 +23516,33 @@
 			)
 		)
 		(property "Description" "RGB LED with integrated controller"
+			(at 342.9 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 342.9 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
+			(at 342.9 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 342.9 165.1 0)
 			(effects
 				(font
@@ -22278,6 +23628,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 356.87 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 356.87 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 356.87 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "749c0668-b0e7-4ab9-aa21-a24c8f12766f")
 		)
@@ -22323,7 +23700,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "121k"
+		(property "Value" "68k"
 			(at 278.638 283.718 0)
 			(effects
 				(font
@@ -22351,6 +23728,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 278.13 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 278.13 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 278.13 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00263"
 			(at 278.13 280.67 0)
 			(effects
 				(font
@@ -22628,6 +24032,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "C&K"
+			(at 38.1 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "OS102011MS2QN1C"
+			(at 38.1 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 38.1 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f21909ef-01cb-4d58-a3a1-01d4d444f9f6")
 		)
@@ -22691,6 +24122,33 @@
 			)
 		)
 		(property "Description" "0.65-A 120-V, Step-Down Converter with Fly-Buck™ Converter Capability"
+			(at 248.92 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" "Texas Instruments"
+			(at 248.92 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "LM5169PDDAR"
+			(at 248.92 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 248.92 278.13 0)
 			(effects
 				(font
@@ -22819,7 +24277,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 433.324 155.702 0)
 			(effects
 				(font
@@ -22847,6 +24305,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 431.8 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 431.8 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 431.8 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 431.8 153.67 0)
 			(effects
 				(font
@@ -22992,6 +24477,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 434.34 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 434.34 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 434.34 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "749c0668-b0e7-4ab9-aa21-a24c8f127670")
 		)
@@ -23027,7 +24539,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "80b30162-2df6-4bd2-a247-7034488c96cb")
 		(property "Reference" "C65"
 			(at 224.028 164.084 0)
@@ -23038,7 +24550,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 228.092 168.91 0)
 			(effects
 				(font
@@ -23066,6 +24578,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 226.06 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 226.06 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 226.06 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 226.06 168.91 0)
 			(effects
 				(font
@@ -23108,7 +24647,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "100nF 9V"
 			(at 180.848 108.204 0)
 			(effects
 				(font
@@ -23137,6 +24676,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 184.15 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 184.15 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 184.15 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 184.15 99.06 0)
 			(effects
 				(font
@@ -23700,7 +25266,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "88c33b3f-054b-4fe1-9720-fb51537232d6")
 		(property "Reference" "R94"
 			(at 35.306 62.992 90)
@@ -23739,6 +25305,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 33.02 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 33.02 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 33.02 60.96 0)
 			(effects
 				(font
@@ -23882,6 +25466,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 427.99 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
+			(at 427.99 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 427.99 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "434c66dc-6c13-45d7-9da2-45805210913b")
 		)
@@ -23948,6 +25559,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 106.68 53.34 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 106.68 53.34 0)
 			(effects
 				(font
@@ -24246,7 +25884,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "950dae04-bc99-4e01-bdf3-d998e1a76a14")
 		(property "Reference" "C34"
 			(at 178.562 105.41 0)
@@ -24257,7 +25895,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "10nF 9V"
 			(at 177.038 108.204 0)
 			(effects
 				(font
@@ -24294,6 +25932,24 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 180.34 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 180.34 99.06 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d224a66b-9840-44c8-8e19-f5e1e0fd71a1")
 		)
@@ -24317,7 +25973,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(fields_autoplaced yes)
 		(uuid "96168e0f-ce24-483f-b589-b215f1bfeba1")
 		(property "Reference" "RV3"
@@ -24357,6 +26013,24 @@
 			)
 		)
 		(property "Description" "Potentiometer"
+			(at 219.71 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 219.71 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 219.71 95.25 0)
 			(effects
 				(font
@@ -24467,7 +26141,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 120.142 40.894 0)
 			(effects
 				(font
@@ -24495,6 +26169,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 128.27 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 128.27 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 128.27 43.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 128.27 43.18 0)
 			(effects
 				(font
@@ -24707,6 +26408,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 299.72 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 299.72 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00451 (15k)"
+			(at 299.72 194.31 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "00f11d78-4c99-4410-b1c2-5c2923d105a0")
 		)
@@ -24911,6 +26639,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 265.43 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 265.43 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00112"
+			(at 265.43 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "588312fc-f4f6-472e-a124-9d372be8f44c")
 		)
@@ -25077,7 +26832,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 489.204 155.702 0)
 			(effects
 				(font
@@ -25105,6 +26860,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 487.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 487.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 487.68 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 487.68 153.67 0)
 			(effects
 				(font
@@ -25181,6 +26963,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Texas Instruments"
+			(at 359.41 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "TLV76150DCY"
+			(at 359.41 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 359.41 267.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "46a9d57c-6642-4a1c-b11e-1b53ece5e51c")
 		)
@@ -25246,6 +27055,33 @@
 			)
 		)
 		(property "Description" "Quad 2 to 1 Multiplexer"
+			(at 281.94 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" "Diodes Incorporated"
+			(at 281.94 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "PI5C3257ZHDEX"
+			(at 281.94 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 281.94 172.72 0)
 			(effects
 				(font
@@ -25330,7 +27166,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10uF 9V"
 			(at 373.38 271.7862 0)
 			(effects
 				(font
@@ -25358,6 +27194,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 370.84 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 370.84 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 370.84 270.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00195"
 			(at 370.84 270.51 0)
 			(effects
 				(font
@@ -25455,7 +27318,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a56159ed-a1d7-4347-adc5-d24207bd4e38")
 		(property "Reference" "R98"
 			(at 268.732 278.13 0)
@@ -25502,6 +27365,24 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 270.51 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 270.51 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "60a50550-2c34-488b-b1a7-9885ceea9e77")
 		)
@@ -25525,7 +27406,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "a7715555-c973-4559-b8f0-89b3325cb810")
 		(property "Reference" "R96"
 			(at 20.828 70.866 90)
@@ -25564,6 +27445,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 22.86 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 22.86 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 22.86 68.58 0)
 			(effects
 				(font
@@ -25643,6 +27542,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 434.34 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 434.34 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 434.34 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "749c0668-b0e7-4ab9-aa21-a24c8f127671")
 		)
@@ -25689,7 +27615,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "4.7uF"
+		(property "Value" "10uF 25V"
 			(at 321.31 283.2162 0)
 			(effects
 				(font
@@ -25717,6 +27643,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 318.77 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 318.77 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 318.77 281.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00252"
 			(at 318.77 281.94 0)
 			(effects
 				(font
@@ -25826,7 +27779,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 462.534 155.702 0)
 			(effects
 				(font
@@ -25854,6 +27807,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 461.01 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 461.01 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 461.01 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 461.01 153.67 0)
 			(effects
 				(font
@@ -25896,7 +27876,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "47pF"
+		(property "Value" "1nF"
 			(at 284.48 287.0262 0)
 			(effects
 				(font
@@ -25924,6 +27904,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 281.94 285.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 281.94 285.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 281.94 285.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00121"
 			(at 281.94 285.75 0)
 			(effects
 				(font
@@ -25966,7 +27973,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 120.65 60.198 0)
 			(effects
 				(font
@@ -25994,6 +28001,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 128.27 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 128.27 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 128.27 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 128.27 55.88 0)
 			(effects
 				(font
@@ -26168,7 +28202,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "2.2uF 100V"
 			(at 224.79 274.3262 0)
 			(effects
 				(font
@@ -26196,6 +28230,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 227.33 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 227.33 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 227.33 273.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00107"
 			(at 227.33 273.05 0)
 			(effects
 				(font
@@ -26237,7 +28298,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R"
+		(property "Value" "100k"
 			(at 332.74 16.51 90)
 			(effects
 				(font
@@ -26265,6 +28326,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 331.47 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 331.47 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 331.47 16.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00040"
 			(at 331.47 16.51 0)
 			(effects
 				(font
@@ -26374,7 +28462,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "?R"
+		(property "Value" "5k1"
 			(at 109.22 234.9499 0)
 			(effects
 				(font
@@ -26402,6 +28490,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 106.68 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 106.68 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 106.68 233.68 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00243 (0603)"
 			(at 106.68 233.68 0)
 			(effects
 				(font
@@ -26494,7 +28609,7 @@
 	)
 	(symbol
 		(lib_id "Device:R_Small")
-		(at 236.22 285.75 0)
+		(at 236.22 287.02 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -26502,7 +28617,7 @@
 		(dnp no)
 		(uuid "bab10505-4b8d-4a52-9693-0a684cbe7e91")
 		(property "Reference" "R4"
-			(at 233.68 284.4799 0)
+			(at 233.68 285.7499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26510,8 +28625,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "66.5k"
-			(at 233.68 287.0199 0)
+		(property "Value" "40k"
+			(at 233.68 288.2899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26520,7 +28635,7 @@
 			)
 		)
 		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 236.22 285.75 0)
+			(at 236.22 287.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26529,7 +28644,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 236.22 285.75 0)
+			(at 236.22 287.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -26538,7 +28653,34 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
-			(at 236.22 285.75 0)
+			(at 236.22 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 236.22 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 236.22 287.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "2st 035-00254 (20k)"
+			(at 236.22 287.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -27245,7 +29387,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 184.912 42.164 0)
 			(effects
 				(font
@@ -27273,6 +29415,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 187.96 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 187.96 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 187.96 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 187.96 36.83 0)
 			(effects
 				(font
@@ -27313,7 +29482,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 34.036 279.146 90)
 			(effects
 				(font
@@ -27341,6 +29510,33 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 35.56 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 35.56 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 35.56 279.4 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 35.56 279.4 0)
 			(effects
 				(font
@@ -27434,6 +29630,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 207.01 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 207.01 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 207.01 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 207.01 109.22 0)
 			(effects
 				(font
@@ -27597,7 +29820,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "d3317448-3e14-4aa1-bb77-a7ef31154706")
 		(property "Reference" "R95"
 			(at 30.226 62.992 90)
@@ -27636,6 +29859,24 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 27.94 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 27.94 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 27.94 60.96 0)
 			(effects
 				(font
@@ -27979,6 +30220,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "GCT"
+			(at 30.48 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" " USB4105-GF-A"
+			(at 30.48 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 30.48 350.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "A4"
 			(uuid "f2f1c42d-8a0d-4154-a58a-7c69655d0744")
 		)
@@ -28161,6 +30429,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 440.69 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 440.69 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 440.69 22.86 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c04f")
 		)
@@ -28207,7 +30502,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1.2nF"
+		(property "Value" "10nF"
 			(at 288.29 281.9462 0)
 			(effects
 				(font
@@ -28235,6 +30530,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 285.75 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 285.75 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 285.75 280.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00065"
 			(at 285.75 280.67 0)
 			(effects
 				(font
@@ -28344,7 +30666,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "576k"
+		(property "Value" "22k"
 			(at 306.07 279.3999 0)
 			(effects
 				(font
@@ -28372,6 +30694,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 303.53 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 303.53 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 303.53 278.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00225"
 			(at 303.53 278.13 0)
 			(effects
 				(font
@@ -28414,7 +30763,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "100nF 9V"
 			(at 55.118 162.814 0)
 			(effects
 				(font
@@ -28443,6 +30792,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 58.42 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 58.42 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 58.42 153.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 58.42 153.67 0)
 			(effects
 				(font
@@ -28521,6 +30897,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 374.65 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "SparkFun Electronics COM-16347"
+			(at 374.65 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 374.65 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "4"
 			(uuid "f0afb37f-8ca7-44a8-b4a0-7920c6c5e861")
 		)
@@ -28580,7 +30983,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://infocenter.arm.com/help/topic/com.arm.doc.ddi0314h/DDI0314H_coresight_components_trm.pdf"
+		(property "Datasheet" "~"
 			(at 236.22 62.23 90)
 			(effects
 				(font
@@ -28590,6 +30993,33 @@
 			)
 		)
 		(property "Description" "Cortex Debug Connector, standard ARM Cortex-M SWD and JTAG interface"
+			(at 227.33 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 227.33 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 227.33 30.48 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 227.33 30.48 0)
 			(effects
 				(font
@@ -28692,6 +31122,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 110.49 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 110.49 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00451 (15k)"
+			(at 110.49 39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "59a4148c-0a63-4adc-b10c-2d5d70e2b0d9")
 		)
@@ -28726,7 +31183,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 179.832 42.164 0)
 			(effects
 				(font
@@ -28754,6 +31211,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 182.88 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 182.88 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 182.88 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
 			(at 182.88 36.83 0)
 			(effects
 				(font
@@ -28833,6 +31317,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 469.9 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 469.9 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 469.9 21.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "67fe3a52-6739-48e5-8a36-acfc7b56c050")
 		)
@@ -28879,7 +31390,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "1nF 9V"
 			(at 208.534 125.984 0)
 			(effects
 				(font
@@ -28907,6 +31418,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 210.82 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 210.82 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 210.82 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00227"
 			(at 210.82 116.84 0)
 			(effects
 				(font
@@ -28978,6 +31516,33 @@
 			)
 		)
 		(property "Description" "QUAD DATA LINE SCHOTTKY DIODE BUS TERMINATOR 30V"
+			(at 368.3 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" "Diodes Incorporated"
+			(at 368.3 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 368.3 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
 			(at 368.3 17.78 0)
 			(effects
 				(font
@@ -29098,7 +31663,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10uF 9V"
 			(at 196.85 38.1062 0)
 			(effects
 				(font
@@ -29126,6 +31691,33 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 194.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 194.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 194.31 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00195"
 			(at 194.31 36.83 0)
 			(effects
 				(font
@@ -29233,7 +31825,7 @@
 				)
 			)
 		)
-		(property "Value" "GRPB072VWQS-RC"
+		(property "Value" "Conn_ARM_JTAG_SWD_10"
 			(at 107.696 319.786 90)
 			(effects
 				(font
@@ -29261,6 +31853,33 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x05, odd/even pin numbering scheme (row 1 odd numbers, row 2 even numbers), script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 109.22 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 109.22 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 109.22 320.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "?"
 			(at 109.22 320.04 0)
 			(effects
 				(font
@@ -29429,6 +32048,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" "Diodes Incorporated"
+			(at 285.75 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" "QSBT40-7-F"
+			(at 285.75 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "-"
+			(at 285.75 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "3"
 			(uuid "c4f84028-b25d-4380-87f3-d501ecdf866e")
 		)
@@ -29475,7 +32121,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10nF"
+		(property "Value" "100nF 9V"
 			(at 98.298 96.774 0)
 			(effects
 				(font
@@ -29512,6 +32158,33 @@
 				(hide yes)
 			)
 		)
+		(property "MFR" ""
+			(at 101.6 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 101.6 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "065-00248"
+			(at 101.6 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "f3bcda58-0e63-41a2-bc74-4d7463dca208")
 		)
@@ -29535,7 +32208,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "fc05cb93-0879-43f9-b9d2-266a4af7312a")
 		(property "Reference" "C28"
 			(at 52.578 54.356 90)
@@ -29546,7 +32219,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "100nF"
+		(property "Value" "100nF 9V"
 			(at 57.404 54.356 90)
 			(effects
 				(font
@@ -29574,6 +32247,24 @@
 			)
 		)
 		(property "Description" "Unpolarized capacitor, small symbol"
+			(at 54.61 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 54.61 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
 			(at 54.61 57.15 0)
 			(effects
 				(font
@@ -29709,6 +32400,33 @@
 			)
 		)
 		(property "Description" "Resistor, small symbol"
+			(at 50.8 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MFR" ""
+			(at 50.8 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "part-num" ""
+			(at 50.8 151.13 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "ARTIKELKOD" "035-00440"
 			(at 50.8 151.13 0)
 			(effects
 				(font

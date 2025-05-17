@@ -1,0 +1,147 @@
+name: "HW - Controller"
+
+# Controls when the action will run.
+on:
+  push:
+    paths:
+      - 'controller/*.kicad_sch'
+      - 'controller/*.kicad_pcb'
+      - 'controller/*.kibot.yaml'
+      - 'config.kibot.yaml'
+      - '.github/workflows/controller.yaml'
+    branches:
+      - main
+      - master
+  pull_request:
+    paths:
+      - 'controller/*.kicad_sch'
+      - 'controller/*.kicad_pcb'
+      - 'controller/*.kibot.yaml'
+      - 'config.kibot.yaml'
+      - '.github/workflows/controller.yaml'
+  repository_dispatch:
+    types: [run_gha]
+  merge_group:
+  release:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  ERC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run ERC
+      uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/controller
+        config: 'controller/config.kibot.yaml'
+        schema: 'controller/controller.kicad_sch'
+        board: 'controller/controller.kicad_pcb'
+        skip: run_drc
+        targets: __NONE__
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: ERC_Output
+        path: controller
+
+  DRC:
+    runs-on: ubuntu-latest
+    needs: ERC
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run DRC
+      uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/controller
+        config: 'controller/config.kibot.yaml'
+        schema: 'controller/controller.kicad_sch'
+        board: 'controller/controller.kicad_pcb'
+        skip: run_erc
+        targets: __NONE__
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: DRC_Output
+        path: controller
+
+  default:
+    runs-on: ubuntu-latest
+    #needs: [ERC, DRC]
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/controller
+        config: 'controller/config.kibot.yaml'
+        schema: 'controller/controller.kicad_sch'
+        board: 'controller/controller.kicad_pcb'
+        skip: run_erc,run_drc
+
+    - name: "Fixup SMD BoM"
+      run: |
+        sudo chown $USER . -R
+        cd out/controller/BoM-SMD/
+        echo "" > new.txt
+        echo "---------------Ref-punkter---------------" >> new.txt
+        cat controller-bom.txt | grep -i '^.REF\|^.FID' | grep -iv 'Footprint X' >> new.txt || true
+        echo "-----------------------------------------" >> new.txt
+        echo "" >> new.txt
+        echo "" >> new.txt
+        head -n 1 controller-bom.txt >> new.txt
+        cat controller-bom.txt | grep -iv '^.REF' | grep -iv '^.FID' >> new.txt || true
+        mv new.txt controller-bom.txt
+        cat controller-bom.txt
+    
+    - name: "Generate outputs for panel"
+      uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/controller
+        config: 'panel.kibot.yaml'
+        board: 'out/controller/Panel/controller-panel.kicad_pcb'
+        skip: run_erc,run_drc
+    - name: "Rename V-cut layer for panel"
+      run: sudo chown $USER . -R && mv out/controller/Gerbers-panel/controller-panel-User_Eco1.gbr out/controller/Gerbers-panel/controller-panel-V-cuts.gbr
+    - name: "Copy drill files to gerber for panel"
+      run: cp out/controller/Drill-panel/controller-panel-PTH_drill.drl out/controller/Gerbers-panel/ && cp out/controller/Drill-panel/controller-panel-NPTH_drill.drl out/controller/Gerbers-panel/
+    - name: upload controller-panel.zip
+      uses: actions/upload-artifact@v4
+      with:
+        name: controller-panel-gerbers
+        path: out/controller/Gerbers-panel/
+    - name: upload controller-bom
+      uses: actions/upload-artifact@v4
+      with:
+        name: controller-smd-bom.txt
+        path: out/controller/BoM-SMD/controller-bom.txt
+    - name: upload controller.zip
+      uses: actions/upload-artifact@v4
+      with:
+        name: controller
+        path: out/controller
+  render:
+    runs-on: ubuntu-latest
+    needs: [default]
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/controller-render
+        config: 'render.kibot.yaml'
+        schema: 'controller/controller.kicad_sch'
+        board: 'controller/controller.kicad_pcb'
+        skip: run_erc,run_drc
+
+    - name: upload results
+      uses: actions/upload-artifact@v4
+      with:
+        name: controller-render
+        path: out/controller-render

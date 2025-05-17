@@ -1,0 +1,147 @@
+name: "HW - Half-Bridge"
+
+# Controls when the action will run.
+on:
+  push:
+    paths:
+      - 'half-bridge/*.kicad_sch'
+      - 'half-bridge/*.kicad_pcb'
+      - 'half-bridge/*.kibot.yaml'
+      - 'config.kibot.yaml'
+      - '.github/workflows/half-bridge.yaml'
+    branches:
+      - main
+      - master
+  pull_request:
+    paths:
+      - 'half-bridge/*.kicad_sch'
+      - 'half-bridge/*.kicad_pcb'
+      - 'half-bridge/*.kibot.yaml'
+      - 'config.kibot.yaml'
+      - '.github/workflows/half-bridge.yaml'
+  repository_dispatch:
+    types: [run_gha]
+  merge_group:
+  release:
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  ERC:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Run ERC
+      uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/half-bridge
+        config: 'half-bridge/config.kibot.yaml'
+        schema: 'half-bridge/half-bridge.kicad_sch'
+        board: 'half-bridge/half-bridge.kicad_pcb'
+        skip: run_drc
+        targets: __NONE__
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: ERC_Output
+        path: half-bridge
+
+  DRC:
+    runs-on: ubuntu-latest
+    needs: ERC
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run DRC
+      uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/half-bridge
+        config: 'half-bridge/config.kibot.yaml'
+        schema: 'half-bridge/half-bridge.kicad_sch'
+        board: 'half-bridge/half-bridge.kicad_pcb'
+        skip: run_erc
+        targets: __NONE__
+
+    - name: Retrieve results
+      uses: actions/upload-artifact@v4
+      with:
+        name: DRC_Output
+        path: half-bridge
+
+  default:
+    runs-on: ubuntu-latest
+    #needs: [ERC, DRC]
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/half-bridge
+        config: 'half-bridge/config.kibot.yaml'
+        schema: 'half-bridge/half-bridge.kicad_sch'
+        board: 'half-bridge/half-bridge.kicad_pcb'
+        skip: run_erc,run_drc
+
+    - name: "Fixup SMD BoM"
+      run: |
+        sudo chown $USER . -R
+        cd out/half-bridge/BoM-SMD/
+        echo "" > new.txt
+        echo "---------------Ref-punkter---------------" >> new.txt
+        cat half-bridge-bom.txt | grep -i '^.REF\|^.FID' | grep -iv 'Footprint X' >> new.txt || true
+        echo "-----------------------------------------" >> new.txt
+        echo "" >> new.txt
+        echo "" >> new.txt
+        head -n 1 half-bridge-bom.txt >> new.txt
+        cat half-bridge-bom.txt | grep -iv '^.REF' | grep -iv '^.FID' >> new.txt || true
+        mv new.txt half-bridge-bom.txt
+        cat half-bridge-bom.txt
+    
+    - name: "Generate outputs for panel"
+      uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/half-bridge
+        config: 'panel.kibot.yaml'
+        board: 'out/half-bridge/Panel/half-bridge-panel.kicad_pcb'
+        skip: run_erc,run_drc
+    - name: "Rename V-cut layer for panel"
+      run: sudo chown $USER . -R && mv out/half-bridge/Gerbers-panel/half-bridge-panel-User_Eco1.gbr out/half-bridge/Gerbers-panel/half-bridge-panel-V-cuts.gbr
+    - name: "Copy drill files to gerber for panel"
+      run: cp out/half-bridge/Drill-panel/half-bridge-panel-PTH_drill.drl out/half-bridge/Gerbers-panel/ && cp out/half-bridge/Drill-panel/half-bridge-panel-NPTH_drill.drl out/half-bridge/Gerbers-panel/
+    - name: upload half-bridge-panel.zip
+      uses: actions/upload-artifact@v4
+      with:
+        name: half-bridge-panel-gerbers
+        path: out/half-bridge/Gerbers-panel/
+    - name: upload half-bridge-bom
+      uses: actions/upload-artifact@v4
+      with:
+        name: half-bridge-smd-bom.txt
+        path: out/half-bridge/BoM-SMD/half-bridge-bom.txt
+    - name: upload half-bridge.zip
+      uses: actions/upload-artifact@v4
+      with:
+        name: half-bridge
+        path: out/half-bridge
+  render:
+    runs-on: ubuntu-latest
+    needs: [default]
+    steps:
+    - uses: actions/checkout@v4
+
+    - uses: INTI-CMNB/KiBot@v2_k9
+      with:
+        dir: out/half-bridge-render
+        config: 'render.kibot.yaml'
+        schema: 'half-bridge/half-bridge.kicad_sch'
+        board: 'half-bridge/half-bridge.kicad_pcb'
+        skip: run_erc,run_drc
+
+    - name: upload results
+      uses: actions/upload-artifact@v4
+      with:
+        name: half-bridge-render
+        path: out/half-bridge-render

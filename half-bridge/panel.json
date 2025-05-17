@@ -1,0 +1,31 @@
+{
+    "layout": {
+        "rows": "2"
+    },
+    "tabs": {
+        "type": "full"
+    },
+    "cuts": {
+        "type": "vcuts",
+        "cutcurves": "True",
+        "layer": "Eco1.User"
+    },
+    "framing": {
+        "type": "tightframe",
+        "hspace": "2.5mm",
+        "vspace": "2.5mm",
+        "width": "2.5mm",
+        "slotwidth": "1mm",
+        "fillet": "2mm"
+    },
+    "fiducials": {
+        "type": "3fid",
+        "hoffset": "10mm",
+        "voffset": "2.5mm",
+        "opening": "2mm",
+        "paste": "True"
+    },
+    "post": {
+        "millradius": "0.5mm"
+    }
+}
