@@ -127,8 +127,8 @@ outputs:
     type: ibom
     dir: BoM
     options:
-      show_fields: 'Value,Footprint'
-      extra-fields: 'ARTIKELKOD'
+      show_fields: 'Value,Footprint,ARTIKELKOD'
+      group-fields: 'Value,Footprint,ARTIKELKOD'
       layer_view: F
 
   - name: 'print_sch'
