@@ -543,7 +543,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "c8a09dde-1b94-4625-a3c4-ad10a9323d8f")
@@ -671,7 +671,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1467,7 +1467,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "15k"
 			(at 0 1.17 270)
 			(layer "F.Fab")
 			(uuid "7ec867ab-cd56-475c-8d62-636961be6a89")
@@ -1504,7 +1504,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "035-00451 (15k)"
+		(property "ARTIKELKOD" "035-00451"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1981,7 +1981,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "daaad50e-1b77-4905-a330-1d0bd9619493")
@@ -2109,7 +2109,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2954,7 +2954,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+		(property "ARTIKELKOD" "065-00162"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3131,7 +3131,7 @@
 				)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "15k"
 			(at 0 1.17 180)
 			(layer "F.Fab")
 			(uuid "d978a48f-4601-429f-b328-988d88a3f084")
@@ -3168,7 +3168,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "035-00451 (15k)"
+		(property "ARTIKELKOD" "035-00451"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5775,7 +5775,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "1uF"
 			(at 0 1.68 80)
 			(layer "F.Fab")
 			(uuid "40d79ac0-d01d-4879-adc3-7ca931ff8d35")
@@ -5898,7 +5898,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-149 (1uF)"
+		(property "ARTIKELKOD" "065-00149"
 			(at 0 0 80)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6155,7 +6155,7 @@
 		(path "/d326f45f-a176-41e1-a57f-9bffa77b1bef")
 		(sheetname "/")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_circle
 			(center 0 0)
 			(end 2.25 0)
@@ -8361,6 +8361,17 @@
 				(xyz 0 0 0)
 			)
 		)
+		(model "${KICAD8_3DMODEL_DIR}/Capacitor_SMD.3dshapes/C_0603_1608Metric.wrl"
+			(offset
+				(xyz 0 0 0)
+			)
+			(scale
+				(xyz 1 1 1)
+			)
+			(rotate
+				(xyz 0 0 0)
+			)
+		)
 	)
 	(footprint "Capacitor_SMD:C_0603_1608Metric"
 		(layer "F.Cu")
@@ -8593,7 +8604,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 270)
 			(layer "F.Fab")
 			(uuid "722e0518-a3ea-4af9-bc25-62ac8bade4b7")
@@ -8721,7 +8732,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9599,7 +9610,7 @@
 		(path "/1a10052b-604c-472b-b118-18a42c578575")
 		(sheetname "/")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_circle
 			(center 0 0)
 			(end 2.25 0)
@@ -10124,7 +10135,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "61d3c10b-3db0-49c1-8e84-bd09f5b35bda")
@@ -10252,7 +10263,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10555,7 +10566,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "finns på labt"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12236,7 +12247,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "9c489480-b73e-4024-a1f1-545452d6b01a")
@@ -12364,7 +12375,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14260,7 +14271,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "cbb6bf3b-1c5e-4471-ab27-571bb0d5f3d6")
@@ -14388,7 +14399,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -14869,7 +14880,7 @@
 		(path "/2775625a-07d4-4329-8ada-eb41174d6471")
 		(sheetname "/")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_circle
 			(center 0 0)
 			(end 2.25 0)
@@ -16093,7 +16104,7 @@
 		(path "/f966afea-c639-4425-a069-b37905ecd322")
 		(sheetname "/")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_circle
 			(center 0 0)
 			(end 2.25 0)
@@ -18001,7 +18012,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+		(property "ARTIKELKOD" "065-00162"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -22759,7 +22770,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "8ea83e61-d211-449e-a126-cc0040caae4f")
@@ -22887,7 +22898,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23064,7 +23075,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 270)
 			(layer "F.Fab")
 			(uuid "a3d80532-b813-4792-9e18-80b6a223d943")
@@ -23192,7 +23203,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -23450,7 +23461,7 @@
 		(path "/f01c4f86-4b30-4e01-9e72-bcc396f88114")
 		(sheetname "/")
 		(sheetfile "half-bridge.kicad_sch")
-		(attr smd exclude_from_bom)
+		(attr smd)
 		(fp_circle
 			(center 0 0)
 			(end 2.25 0)
@@ -23975,7 +23986,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 0)
 			(layer "F.Fab")
 			(uuid "6c6b1d64-2e03-42a8-855c-1b08ae21a32d")
@@ -24103,7 +24114,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -24580,7 +24591,7 @@
 				)
 			)
 		)
-		(property "Value" "220nF"
+		(property "Value" "100nF"
 			(at 0 1.16 90)
 			(layer "F.Fab")
 			(uuid "90f1d848-8568-4662-9d5f-6b7ff234038d")
@@ -24708,7 +24719,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "får den plats?"
+		(property "ARTIKELKOD" "-"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -26909,7 +26920,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "1uF"
 			(at 0 1.68 280)
 			(layer "F.Fab")
 			(uuid "8190272c-1c0b-4150-8fe2-72b62b1217fd")
@@ -27037,7 +27048,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-149 (1uF)"
+		(property "ARTIKELKOD" "065-00149"
 			(at 0 0 100)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -29558,7 +29569,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-00162 eller 065-00213"
+		(property "ARTIKELKOD" "065-00162"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -30342,7 +30353,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "1uF"
 			(at 0 1.68 80)
 			(layer "F.Fab")
 			(uuid "75821e9d-7425-4a9e-8c4b-d211516f368f")
@@ -30470,7 +30481,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-149 (1uF)"
+		(property "ARTIKELKOD" "065-00149"
 			(at 0 0 80)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -30769,7 +30780,7 @@
 				)
 			)
 		)
-		(property "Value" "2.2uF"
+		(property "Value" "1uF"
 			(at 0 1.68 280)
 			(layer "F.Fab")
 			(uuid "c85e39e2-41b3-4107-b128-5ad4fc81e62f")
@@ -30892,7 +30903,7 @@
 				)
 			)
 		)
-		(property "ARTIKELKOD" "065-149 (1uF)"
+		(property "ARTIKELKOD" "065-00149"
 			(at 0 0 100)
 			(unlocked yes)
 			(layer "F.Fab")
