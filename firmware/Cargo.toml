@@ -28,8 +28,8 @@ rtic = { version = "2.0.0", features = [ "thumbv7-backend" ] }
 
 #stm32g4xx-hal = { git = "https://github.com/usbalbin/stm32g4xx-hal", branch = "hrtim", features = ["stm32g474"] }
 stm32g4xx-hal = { path = "../../stm32g4xx-hal", features = ["stm32g474"] }
-#stm32-hrtim = { git = "https://github.com/usbalbin/stm32-hrtim", rev = "e8ab6db", features = ["stm32g474"] }
-stm32-hrtim = { path = "../../stm32-hrtim", features = ["stm32g474"] }
+stm32-hrtim = { git = "https://github.com/usbalbin/stm32-hrtim", rev = "cb7c960", features = ["stm32g474"] }
+#stm32-hrtim = { path = "../../stm32-hrtim", features = ["stm32g474"] }
 usb-device = "0.3.2"
 usbd-serial = "0.2.2"
 embedded-hal = "1.0.0"
