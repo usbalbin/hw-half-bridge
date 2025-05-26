@@ -2,34 +2,25 @@ pub mod adc;
 pub mod dacs;
 pub mod external_events;
 pub mod timers;
-pub mod comparators;
+//pub mod comparators;
+
+use core::mem;
 
 use adc::{AdcChannels, Adcs};
-use cortex_m::delay::Delay;
 use dacs::Dacs;
 use external_events::Eevs;
-use stm32_hrtim::{control::HrControltExt, external_event::EevSamplingFilter};
+use stm32_hrtim::external_event::EevSamplingFilter;
 use stm32g4xx_hal::{
-    self as hal,
-    adc::{Adc, AdcClaim},
     delay::SYSTDelayExt,
-    gpio::{
-        self,
-        gpioa::{PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7},
-        gpiob::{PB0, PB11, PB14, PB2},
-        gpioc::{PC0, PC1, PC2, PC3, PC4, PC5},
-        gpiof::{PF0, PF1},
-        GpioExt,
-    },
-    hal::spi,
-    opamp::{self, Follower, InternalOutput, IntoFollower, OpampEx},
-    pwm::{self, PwmExt as _},
+    gpio::{self, GpioExt},
+    hrtim::HrControltExt,
+    opamp::OpampEx,
+    pwm::PwmExt as _,
     pwr::{self, PwrExt},
-    rcc::{self, Rcc, RccExt},
+    rcc::{self, RccExt},
     serial::SerialExt,
-    spi::SpiExt,
     stasis::Freeze,
-    stm32::{self, Peripherals, UCPD1},
+    stm32::{self, Peripherals},
     time::{Hertz, RateExtU32 as _},
 };
 use timers::Timers;
@@ -136,16 +127,21 @@ impl Hardware {
             #[cfg(feature = "usb-pd-db")]
             dbcc2: gpio::gpioa::PA10<gpio::Input<gpio::Floating>>,
 
+            #[cfg(feature = "usb-pd-db")]
             frs: gpio::gpioc::PC12<gpio::Input<gpio::Floating>>,
 
+            #[cfg(feature = "usb-pd-db")]
             en_vconn: gpio::gpioc::PC10<gpio::Input<gpio::Floating>>,
 
+            #[cfg(feature = "usb-pd-db")]
             en_cc: gpio::gpioc::PC13<gpio::Input<gpio::Floating>>,
 
             // Used to select cc-line for usb pd cable orientation
+            #[cfg(feature = "usb-pd-db")]
             cc_select: gpio::gpioc::PC14<gpio::Input<gpio::Floating>>,
 
             // Use to select direction of current measurements 2-5
+            #[cfg(feature = "usb-pd-db")]
             cc_dir: gpio::gpioc::PC15<gpio::Input<gpio::Floating>>,
         }
 
@@ -200,11 +196,16 @@ impl Hardware {
         let pc7 = gpioc.pc7;
         let pc8 = gpioc.pc8;
         let pc9 = gpioc.pc9;
+        #[cfg(feature = "usb-pd-db")]
         let pc10 = gpioc.pc10;
         let pc11 = gpioc.pc11;
+        #[cfg(feature = "usb-pd-db")]
         let pc12 = gpioc.pc12;
+        #[cfg(feature = "usb-pd-db")]
         let pc13 = gpioc.pc13;
+        #[cfg(feature = "usb-pd-db")]
         let pc14 = gpioc.pc14;
+        #[cfg(feature = "usb-pd-db")]
         let pc15 = gpioc.pc15;
 
         let pd2 = gpiod.pd2;
@@ -240,11 +241,16 @@ impl Hardware {
             #[cfg(feature = "usb-pd-db")]
             dbcc2: pa10,
 
+            #[cfg(feature = "usb-pd-db")]
             frs: pc12,
+            #[cfg(feature = "usb-pd-db")]
             en_vconn: pc10,
+            #[cfg(feature = "usb-pd-db")]
             en_cc: pc13,
 
+            #[cfg(feature = "usb-pd-db")]
             cc_select: pc14,
+            #[cfg(feature = "usb-pd-db")]
             cc_dir: pc15,
         };
 
@@ -274,13 +280,13 @@ impl Hardware {
         #[cfg(feature = "hv5")]
         let li_5 = pa9; // Used by dbcc1
 
-        let mosi_pin = pb5.into_alternate(); // 5v tol
+        //let mosi_pin = pb5.into_alternate(); // 5v tol
         let pwm_led2 = pb7.into_alternate(); // 5v tol
         let pwm_led3 = pb9.into_alternate(); // 5v tol
 
         let pwm_led4 = pb10.into_alternate(); // 3.6v max
                                               //let pwm_led5 = pa3.into_alternate(); // 3.6v max
-        let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate(); // 3.6v max
+                                              //let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate(); // 3.6v max
         let pwm_led7_adc2_in11 = pc5.into_analog(); // TIM1_CH4N  // 3.6v max
         let pwm_led8_adc2_in12 = pb2.into_alternate(); // 3.6v max
 
@@ -310,7 +316,7 @@ impl Hardware {
 
         //let comp2_cc5_pin = pa3.into_analog(); // No filter and same DAC as comp4
         let (_, [op12_cc5_pin_b, comp2_cc5_pin_b]) = pa7.into_analog().freeze(); // CC5
-                                                                                  // comp3_b_fb_d on pc1
+                                                                                 // comp3_b_fb_d on pc1
 
         let (_, [op3_cc1_pin, comp4_cc1_pin]) = pb0.into_analog().freeze();
         // let comp4_pin_b = pe7; only on LQFP80 and larger
@@ -350,6 +356,22 @@ impl Hardware {
             .set_adc4_trigger_psc(ADC_POST_SCALER)
             .wait_for_calibration();
 
+        // TODO: Figure out something safer
+        let dac_tokens = unsafe { mem::transmute(()) };
+        let eevs = Eevs::init(
+            dac_tokens,
+            dp.COMP,
+            comp4_cc1_pin,
+            //&comp3_b_cc1b_pin,
+            comp6_cc2_pin,
+            comp7_cc3_pin,
+            comp1_b_cc4_pin,
+            comp2_cc5_pin_b,
+            eev_inputs,
+            &mut rcc,
+            &mut ctrl,
+        );
+
         let mut hr_ctrl = ctrl.constrain();
 
         let timers = Timers::init(
@@ -377,20 +399,7 @@ impl Hardware {
             hr_ctrl,
         );
         //DAC --ref-voltage--> Comp ----> Eev ----> HRTIM --dac-trigger--> DAC
-        let (dacs, dac_tokens) = Dacs::init(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &mut rcc);
-        let eevs = Eevs::init(
-            dac_tokens,
-            dp.COMP,
-            comp4_cc1_pin,
-            //&comp3_b_cc1b_pin,
-            comp6_cc2_pin,
-            comp7_cc3_pin,
-            comp1_b_cc4_pin,
-            comp2_cc5_pin_b,
-            eev_inputs,
-            &mut rcc,
-            &mut ctrl,
-        );
+        let (dacs, dac_tokens) = Dacs::init(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &timers, &mut rcc);
 
         let (op1, op2, op3, op4, op5, _op6) = dp.OPAMP.split(&mut rcc);
 
@@ -456,14 +465,22 @@ impl Hardware {
 
         let mut delay = cp.SYST.delay(&rcc.clocks);
         let adcs = Adcs::init(
-            dp.ADC1, dp.ADC2, dp.ADC3, dp.ADC4, dp.ADC5, &mut delay, &rcc,
+            dp.ADC12_COMMON,
+            dp.ADC345_COMMON,
+            dp.ADC1,
+            dp.ADC2,
+            dp.ADC3,
+            dp.ADC4,
+            dp.ADC5,
+            &mut delay,
+            &mut rcc,
         );
 
         // With a hardware modification this could be used to drive the WS2812b LEDs
-        let spi_mode = spi::Mode::default();
-        let spi = dp.SPI1.spi(mosi_pin, spi_mode, 3.MHz(), &mut rcc);
+        //let spi_mode = spi::Mode::default();
+        //let spi = dp.SPI1.spi(mosi_pin, spi_mode, 3.MHz(), &mut rcc);
 
-        timers.connect_comparators(&eevs);
+        let timers = timers.connect_comparators(&eevs);
 
         defmt::info!("Initializing Hardware - Done");
 

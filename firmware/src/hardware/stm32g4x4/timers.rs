@@ -1,14 +1,15 @@
 use stm32_hrtim::{
     self,
-    control::{HrControltExt, HrPwmControl, HrTimCalibrated},
+    control::{HrPwmControl, HrTimCalibrated},
     external_event::{EevInput, EevInputs, EevSamplingFilter, ExternalEventSource},
-    output::{HrOut1, HrOut2, HrOutput},
+    output::{HrOut1, HrOut2, HrOutput, ToHrOut},
     timer::HrSlaveTimer,
     timer_eev_cfg::EevCfgs,
-    HrParts, HrPwmAdvExt,
+    DacResetOnCounterReset, DacStepOnCmp2, HrParts, HrPwmAdvExt,
 };
 use stm32g4xx_hal::{
-    gpio,
+    gpio::{self, gpioa::PA8},
+    hrtim::{HrControltExt, HrPwmBuilderExt},
     stm32::{
         Peripherals, HRTIM_MASTER, HRTIM_TIMA, HRTIM_TIMB, HRTIM_TIMC, HRTIM_TIMD, HRTIM_TIME,
         HRTIM_TIMF,
@@ -19,21 +20,34 @@ use crate::hardware::REPETITION_COUNTER;
 
 use super::{external_events::Eevs, Prescaler, PERIOD};
 
-type Timer<TIM> = HrParts<TIM, Prescaler, (HrOut1<TIM, Prescaler>, HrOut2<TIM, Prescaler>)>;
+type DacRst = DacResetOnCounterReset;
+type DacStp = DacStepOnCmp2;
+type Timer<TIM> = HrParts<
+    TIM,
+    Prescaler,
+    (
+        HrOut1<TIM, Prescaler, DacRst, DacStp>,
+        HrOut2<TIM, Prescaler, DacRst, DacStp>,
+    ),
+    DacRst,
+    DacStp,
+>;
 
-type TimHb1 = HRTIM_TIMF;
-type TimHb2 = HRTIM_TIMC;
-type TimHb3 = HRTIM_TIME;
-type TimHb4b = HRTIM_TIMB;
-type TimHb4d = HRTIM_TIMD;
-type TimHb5 = HRTIM_TIMA;
+pub type TimHb1 = HRTIM_TIMF;
+pub type TimHb2 = HRTIM_TIMC;
+pub type TimHb3 = HRTIM_TIME;
+pub type TimHb4b = HRTIM_TIMB;
+pub type TimHb4d = HRTIM_TIMD;
+pub type TimHb5 = HRTIM_TIMA;
 
-type TimerHb1 = Timer<TimHb1>;
-type TimerHb2 = Timer<TimHb2>;
-type TimerHb3 = Timer<TimHb3>;
-type TimerHb4b = HrParts<TimHb4b, Prescaler, HrOut1<TimHb4b, Prescaler>>;
-type TimerHb4d = HrParts<TimHb4d, Prescaler, HrOut2<TimHb4d, Prescaler>>;
-type TimerHb5 = Timer<TimHb5>;
+pub type TimerHb1 = Timer<TimHb1>;
+pub type TimerHb2 = Timer<TimHb2>;
+pub type TimerHb3 = Timer<TimHb3>;
+pub type TimerHb4b =
+    HrParts<TimHb4b, Prescaler, HrOut1<TimHb4b, Prescaler, DacRst, DacStp>, DacRst, DacStp>;
+pub type TimerHb4d =
+    HrParts<TimHb4d, Prescaler, HrOut2<TimHb4d, Prescaler, DacRst, DacStp>, DacRst, DacStp>;
+pub type TimerHb5 = Timer<TimHb5>;
 
 macro_rules! init_hrtim {
     ($tim:expr, ($hi_pin:ident $(, $li_pin:ident)*), $deadtime:expr, $rst_evt:expr, $rcc:expr, $hr_control:expr) => {{
@@ -48,7 +62,7 @@ macro_rules! init_hrtim {
             .timer_mode(stm32_hrtim::HrTimerMode::SingleShotRetriggerable)
             .counting_direction(stm32_hrtim::HrCountingDirection::Up)
             .eev_cfg(EevCfgs::default())
-            .dac_trigger(DacTriggerCfg::edge_aligned_slope())
+            .dac_trigger_cfg(DacResetOnCounterReset, DacStepOnCmp2)
             //.repetition_counter(repetition_counter)
             //.enable_repetition_interrupt()
             .finalize(&mut $hr_control);
@@ -68,16 +82,16 @@ macro_rules! init_hrtim {
 }
 
 pub struct Timers {
-    timer1: TimerHb1,
-    timer2: TimerHb2,
-    timer3: TimerHb3,
+    pub timer1: TimerHb1,
+    pub timer2: TimerHb2,
+    pub timer3: TimerHb3,
 
     #[cfg(feature = "hv4")]
-    timer4b: TimerHb4b,
+    pub timer4b: TimerHb4b,
     #[cfg(feature = "hv4")]
-    timer4d: TimerHb4d,
+    pub timer4d: TimerHb4d,
     #[cfg(feature = "hv5")]
-    timer5: TimerHb5,
+    pub timer5: TimerHb5,
 }
 
 impl Timers {
@@ -140,15 +154,15 @@ impl Timers {
     }
 
     pub fn connect_comparators(mut self, eevs: &Eevs) -> Self {
-        self.timer1.out.0.enable_rst_event(eevs.cc1);
-        self.timer2.out.0.enable_rst_event(eevs.cc2);
-        self.timer3.out.0.enable_rst_event(eevs.cc3);
+        self.timer1.out.0.enable_rst_event(&eevs.cc1);
+        self.timer2.out.0.enable_rst_event(&eevs.cc2);
+        self.timer3.out.0.enable_rst_event(&eevs.cc3);
         #[cfg(feature = "hv4")]
-        self.timer4b.out.enable_rst_event(eevs.cc4);
+        self.timer4b.out.enable_rst_event(&eevs.cc4);
         #[cfg(feature = "hv4")]
-        self.timer4d.out.enable_rst_event(eevs.cc4);
+        self.timer4d.out.enable_rst_event(&eevs.cc4);
         #[cfg(feature = "hv5")]
-        self.timer5.out.0.enable_rst_event(eevs.cc4);
+        self.timer5.out.0.enable_rst_event(&eevs.cc4);
         self
     }
 }

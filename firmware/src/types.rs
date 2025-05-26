@@ -69,11 +69,11 @@ impl_ops!(Seconds);
 
 impl Voltage {
     pub fn to_adc_value(self)-> u16 {
-        (self / Voltage(3.3)).clamp(0, 1.0) * f32::from(0xFFF) as u16
+        ((self / Voltage(3.3)).clamp(0.0, 1.0) * f32::from(0xFFFu16)).clamp(0.0, u16::MAX as _) as u16
     }
     
     pub fn to_dac_value(self)-> u16 {
-        (self / Voltage(3.3)).clamp(0, 1.0) * f32::from(0xFFF) as u16
+        self.to_adc_value()
     }
 }
 
@@ -81,7 +81,7 @@ impl ops::Div<Henries> for f32 {
     type Output = InvHenries;
 
     fn div(self, rhs: Henries) -> Self::Output {
-        Self::Output(self / rhs.0)
+        InvHenries(self / rhs.0)
     }
 }
 

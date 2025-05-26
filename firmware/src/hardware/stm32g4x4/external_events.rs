@@ -1,6 +1,18 @@
-use stm32_hrtim::{control::HrTimCalibrated, external_event::{EevInputs, ExternalEventSource}, stm32};
+use stm32_hrtim::{
+    control::HrTimCalibrated,
+    external_event::{EevInputs, ExternalEventSource},
+};
 use stm32g4xx_hal::{
-    comparator::{self, split, ComparatorExt, ComparatorSplit}, gpio::{self, gpioa::{PA1, PA7}, gpiob::{PB0, PB11, PB14}}, stasis::Entitlement, rcc::Rcc
+    comparator::{self, ComparatorExt, ComparatorSplit},
+    gpio::{
+        self,
+        gpioa::{PA1, PA7},
+        gpiob::{PB0, PB11, PB14},
+    },
+    hrtim::external_event::EevInputExt,
+    rcc::Rcc,
+    stasis::Entitlement,
+    stm32,
 };
 
 use crate::hardware::stm32g4x4::I_FILTER;
@@ -58,7 +70,7 @@ impl Eevs {
         }};
     }
 
-        let (comp1, comp2, comp3, comp4, _comp5, comp6, comp7) = comp.split(rcc);
+        let (comp1, comp2, _comp3, comp4, _comp5, comp6, comp7) = comp.split(rcc);
 
         // filt=eev6 // fast=eev4,
         let comp1_cc4 = init_comp!(

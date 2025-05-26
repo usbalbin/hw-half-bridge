@@ -1,12 +1,17 @@
 use stm32g4xx_hal::{
-    stm32,
-    self as hal, adc::{self, Adc, AdcClaim}, delay::SystDelay, gpio::{
+    self as hal,
+    adc::{self, Adc, AdcClaim, AdcCommonExt},
+    delay::SystDelay,
+    gpio::{
         self,
         gpioa::{PA0, PA1, PA2, PA3, PA4, PA5, PA6, PA7},
         gpiob::{PB0, PB11, PB14},
         gpioc::{PC0, PC2, PC3, PC4, PC5},
         gpiof::{PF0, PF1},
-    }, opamp, rcc::Rcc, stasis::{Entitlement, Freeze}
+    },
+    rcc::Rcc,
+    stasis::Entitlement,
+    stm32,
 };
 
 pub struct Adcs {
@@ -19,55 +24,35 @@ pub struct Adcs {
 
 impl Adcs {
     pub(crate) fn init(
+        adc12_common: stm32::ADC12_COMMON,
+        adc345_common: stm32::ADC345_COMMON,
         adc1: stm32::ADC1,
         adc2: stm32::ADC2,
         adc3: stm32::ADC3,
         adc4: stm32::ADC4,
         adc5: stm32::ADC5,
         delay: &mut SystDelay,
-        rcc: &Rcc,
+        rcc: &mut Rcc,
     ) -> Self {
         defmt::info!("Initializing ADCs...");
 
-        let adc1 = adc1.claim_and_configure(
-            hal::adc::ClockSource::SystemClock,
-            &rcc,
-            hal::adc::config::AdcConfig::default(),
-            delay,
-            false,
-        );
+        let adc12_common = adc12_common.claim(adc::config::ClockMode::AdcHclkDiv4, rcc);
+        let adc345_common = adc345_common.claim(adc::config::ClockMode::AdcHclkDiv4, rcc);
 
-        let adc2 = adc2.claim_and_configure(
-            hal::adc::ClockSource::SystemClock,
-            &rcc,
-            hal::adc::config::AdcConfig::default(),
-            delay,
-            false,
-        );
+        let adc1 =
+            adc12_common.claim_and_configure(adc1, hal::adc::config::AdcConfig::default(), delay);
 
-        let adc3 = adc3.claim_and_configure(
-            hal::adc::ClockSource::SystemClock,
-            &rcc,
-            hal::adc::config::AdcConfig::default(),
-            delay,
-            false,
-        );
+        let adc2 =
+            adc12_common.claim_and_configure(adc2, hal::adc::config::AdcConfig::default(), delay);
 
-        let adc4 = adc4.claim_and_configure(
-            hal::adc::ClockSource::SystemClock,
-            &rcc,
-            hal::adc::config::AdcConfig::default(),
-            delay,
-            false,
-        );
+        let adc3 =
+            adc345_common.claim_and_configure(adc3, hal::adc::config::AdcConfig::default(), delay);
 
-        let adc5 = adc5.claim_and_configure(
-            hal::adc::ClockSource::SystemClock,
-            &rcc,
-            hal::adc::config::AdcConfig::default(),
-            delay,
-            false,
-        );
+        let adc4 =
+            adc345_common.claim_and_configure(adc4, hal::adc::config::AdcConfig::default(), delay);
+
+        let adc5 =
+            adc345_common.claim_and_configure(adc5, hal::adc::config::AdcConfig::default(), delay);
 
         Adcs {
             adc1,
@@ -80,7 +65,7 @@ impl Adcs {
 
     pub fn read(&mut self, ad_channels: &AdcChannels) {
         let sample_time = hal::adc::config::SampleTime::Cycles_12_5;
-        let fast_sample_time = hal::adc::config::SampleTime::Cycles_6_5; // Should be fine for current signals since come from the current amplifiers with ~20R @ 1MHz
+        //let fast_sample_time = hal::adc::config::SampleTime::Cycles_6_5; // Should be fine for current signals since come from the current amplifiers with ~20R @ 1MHz
 
         //adc1.convert(&op1_comp1_b_cc4_pin_fb_a, sample_time);
         self.adc1.convert(&ad_channels.ntc_1, sample_time);
@@ -155,20 +140,15 @@ pub struct AdcChannels {
     pub cc5: Entitlement<PA7<gpio::Analog>>,
 
     #[cfg(feature = "cs-op")]
-    pub cc1:
-        opamp::Follower<opamp::Opamp3, Entitlement<PB0<gpio::Analog>>, opamp::InternalOutput>,
+    pub cc1: opamp::Follower<opamp::Opamp3, Entitlement<PB0<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
-    pub cc2:
-        opamp::Follower<opamp::Opamp4, Entitlement<PB11<gpio::Analog>>, opamp::InternalOutput>,
+    pub cc2: opamp::Follower<opamp::Opamp4, Entitlement<PB11<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
-    pub cc3:
-        opamp::Follower<opamp::Opamp5, Entitlement<PB14<gpio::Analog>>, opamp::InternalOutput>,
+    pub cc3: opamp::Follower<opamp::Opamp5, Entitlement<PB14<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
-    pub cc4:
-        opamp::Follower<opamp::Opamp1, Entitlement<PA1<gpio::Analog>>, opamp::InternalOutput>,
+    pub cc4: opamp::Follower<opamp::Opamp1, Entitlement<PA1<gpio::Analog>>, opamp::InternalOutput>,
     #[cfg(feature = "cs-op")]
-    pub cc5:
-        opamp::Follower<opamp::Opamp2, Entitlement<PA7<gpio::Analog>>, opamp::InternalOutput>,
+    pub cc5: opamp::Follower<opamp::Opamp2, Entitlement<PA7<gpio::Analog>>, opamp::InternalOutput>,
 
     //op12_comp2_cc5_pin_b: PA7<gpio::Analog>,
     pub fb1_lo: PA4<gpio::Analog>,
