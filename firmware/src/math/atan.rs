@@ -34,6 +34,7 @@
 
 
 use core::f64;
+use std::f64::consts::PI;
 
 use super::{fabs, i};
 
@@ -133,4 +134,20 @@ pub const fn atan(x: f64) -> f64 {
     let z = i!(ATANHI, id as usize) - (x * (s1 + s2) - i!(ATANLO, id as usize) - x);
 
     if sign != 0 { -z } else { z }
+}
+
+pub const fn atan2(y: f64, x: f64) -> f64 {
+    if x > 0.0 {
+        atan(y / x)
+    } else if x < 0.0 && y >= 0.0 {
+        atan(y / x) + PI
+    } else if x < 0.0 && y < 0.0 {
+         atan(y / x) - PI
+    } else if x == 0.0 && y > 0.0 {
+        PI / 2.0
+    } else if x == 0.0 && y < 0.0 {
+        -PI / 2.0
+    } else {
+        panic!("undefined")
+    }
 }

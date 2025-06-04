@@ -1,8 +1,9 @@
 #![no_main]
-#![no_std]
+#[cfg_attr(feature = "hardware", no_std)]
 
 //mod half_bridge;
 pub mod control_2p2z;
+#[cfg(feature = "hardware")]
 pub mod hardware;
 pub mod half_bridge;
 pub mod types;

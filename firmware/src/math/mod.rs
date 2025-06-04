@@ -1,14 +1,30 @@
 mod atan;
+mod complex;
+mod exp;
+mod expm1;
+mod expo2;
 mod floor;
 mod generic_floor;
 mod k_tan;
+mod log;
 mod rem_pio2;
 mod rem_pio2_large;
 mod scalbn;
 mod support_env;
 mod tan;
+mod vector;
+mod k_sin;
+mod k_cos;
+mod k_expo2;
+mod hypot;
+
+mod cos;
+mod cosh;
+mod sin;
+mod sinh;
 
 pub use atan::atan;
+pub use complex::Complex;
 pub use tan::tan;
 
 // Significant number of bits for f64
@@ -18,15 +34,9 @@ pub const EXP_SAT: u32 = 0b11111111111;
 pub const EXP_BIAS: u32 = 1023;
 
 const fn from_parts(negative: bool, exponent: u32, significand: u64) -> f64 {
-    let sign = if negative {
-        1
-    } else {
-        0
-    };
+    let sign = if negative { 1 } else { 0 };
     f64::from_bits(
-        (sign << (64 - 1))
-            | (((exponent & EXP_SAT) as u64) << SIG_BITS)
-            | (significand & SIG_MASK),
+        (sign << (64 - 1)) | (((exponent & EXP_SAT) as u64) << SIG_BITS) | (significand & SIG_MASK),
     )
 }
 
@@ -122,5 +132,12 @@ macro_rules! div {
     };
 }
 
-pub(crate) use i;
 pub(crate) use div;
+pub(crate) use i;
+
+// From https://github.com/rust-lang/libm/blob/master/libm/src/math/mod.rs#L394
+
+#[inline]
+const fn combine_words(hi: u32, lo: u32) -> f64 {
+    f64::from_bits(((hi as u64) << 32) | lo as u64)
+}
