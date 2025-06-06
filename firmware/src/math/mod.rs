@@ -70,37 +70,6 @@ pub const fn pow2(x: f64) -> f64 {
 
 // From https://github.com/rust-lang/libm/blob/8f7436d260f000f054042545bb6e4c0d99fe35b2/libm/src/math/mod.rs
 
-#[cfg(not(debug_assertions))]
-macro_rules! i {
-    ($array:expr, $index:expr) => {
-        unsafe { *$array.get_unchecked($index) }
-    };
-    ($array:expr, $index:expr, = , $rhs:expr) => {
-        unsafe {
-            *$array.get_unchecked_mut($index) = $rhs;
-        }
-    };
-    ($array:expr, $index:expr, += , $rhs:expr) => {
-        unsafe {
-            *$array.get_unchecked_mut($index) += $rhs;
-        }
-    };
-    ($array:expr, $index:expr, -= , $rhs:expr) => {
-        unsafe {
-            *$array.get_unchecked_mut($index) -= $rhs;
-        }
-    };
-    ($array:expr, $index:expr, &= , $rhs:expr) => {
-        unsafe {
-            *$array.get_unchecked_mut($index) &= $rhs;
-        }
-    };
-    ($array:expr, $index:expr, == , $rhs:expr) => {
-        unsafe { *$array.get_unchecked_mut($index) == $rhs }
-    };
-}
-
-#[cfg(debug_assertions)]
 macro_rules! i {
     ($array:expr, $index:expr) => {
         $array[$index]

@@ -1,4 +1,4 @@
-use std::ops::Mul;
+use std::{fmt::write, ops::Mul};
 
 use super::{
     atan::{self, atan2},
@@ -6,10 +6,32 @@ use super::{
     sqrt,
 };
 
-#[derive(Debug, Clone, Copy)]
+#[derive(Clone, Copy)]
 pub struct Complex {
     pub re: f64,
     pub im: f64,
+}
+
+impl core::fmt::Debug for Complex {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        core::fmt::Display::fmt(&self, f)
+    }
+}
+
+impl core::fmt::Display for Complex {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match (self.re, self.im) {
+            (0.0, 1.0) => write!(f, "i"),
+            (0.0, -1.0) => write!(f, "-i"),
+            (0.0, im) if im.is_infinite() => write!(f, "inf*i"),
+            (0.0, im) => write!(f, "{im}i"),
+            (re, 0.0) => write!(f, "{re}", ),
+            (re, 1.0) => write!(f, "{re} + i"),
+            (re, -1.0) => write!(f, "{re} - i"),
+            (re, im) if im < 0.0 => write!(f, "({re} - {}i)", -im),
+            (re, im)  => write!(f, "({re} + {im}i)")
+        }
+    }
 }
 
 impl Complex {
@@ -43,6 +65,13 @@ impl Complex {
         Self::new(
             re * other.re / norm_sqr,
             0.0 - re * other.im / norm_sqr,
+        )
+    }
+
+    /// z / re
+    pub const fn div_r(self, re: f64) -> Self {        
+        Self::new(
+            self.re / re, self.im / re
         )
     }
 
@@ -93,13 +122,6 @@ impl Complex {
         Self {
             re: re / norm_sqr,
             im: im / norm_sqr,
-        }
-    }
-
-    const fn div_r(self, rhs: f64) -> Self {
-        Self {
-            re: self.re / rhs,
-            im: self.im / rhs,
         }
     }
 
@@ -279,9 +301,6 @@ impl core::ops::Div<Complex> for f64 {
     type Output = Complex;
 
     fn div(self, rhs: Complex) -> Self::Output {
-        Complex {
-            re: self / rhs.re,
-            im: self / rhs.im,
-        }
+        Complex::r_div(self, rhs)
     }
 }

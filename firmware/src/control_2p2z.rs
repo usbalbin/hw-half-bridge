@@ -43,6 +43,20 @@ pub struct DacSettings {
     dac_down_slope: f64,
 }
 
+macro_rules! p {
+    ($val:expr, $val2:expr) => {
+        eprintln!(
+            "[{}:{}:{}] {} = {:#?}, {}",
+            file!(),
+            line!(),
+            column!(),
+            stringify!($val),
+            &$val,
+            $val2
+        );
+    };
+}
+
 impl ParametersBuck {
     pub fn to_transfer_function(self) -> (TransferFunction, DacSettings) {
         // https://www.biricha.com/articles/step-by-step-design-guide-for-digital-peak-current-mode-control-a-single-chip-solution
@@ -75,15 +89,21 @@ impl ParametersBuck {
         // Time taken in seconds from the ADC reading of Vout, the calculation of the control function and to setting the DAC value
         let t_adc_sample_to_dac_out = 0.0;
 
-        let steady_state_duty = v_out / v_in + diode_drop; // Assuming zero Rds(on) and Rdc drops
+        let steady_state_duty = (v_out + diode_drop) / v_in; // Assuming zero Rds(on) and Rdc drops
         let inv_steady_state_duty = 1.0 - steady_state_duty;
 
+        p!(steady_state_duty, "0.5375");
+
         // S_n
-        let inductor_current_up_slope = ((v_in - v_out - diode_drop) * current_sense_gain) / l_inductor; // volts/second
+        let inductor_current_up_slope =
+            ((v_in - v_out - diode_drop) * current_sense_gain) / l_inductor; // volts/second
 
         // m_c
         let slope_compensation_factor = (1.0 + PI / 2.0) / (PI * inv_steady_state_duty);
-        dbg!(slope_compensation_factor);
+        {
+            let m_c = slope_compensation_factor;
+            p!(m_c, "1.7693");
+        }
         // m_c
         //let slope_compensation_factor = 1.0 + dac_down_slope / inductor_current_up_slope;
 
@@ -100,15 +120,15 @@ impl ParametersBuck {
         // st+ba
         let h_dc = r_load / current_sense_gain * 1.0
             / (1.0 + (q_inv_no_pi * r_load * t_sw / (l_inductor)));
-        
+
         let ohmega_p1 = (1.0 / (r_load * c_out)) + (q_inv_no_pi * t_sw / (l_inductor * c_out));
-        let ohmega_esr = 1.0 / c_out * r_esr_out_cap;
-        dbg!(ohmega_p1);
-        dbg!(ohmega_esr);
+        let ohmega_esr = 1.0 / (c_out * r_esr_out_cap);
+        p!(ohmega_p1, "732.6");
+        p!(ohmega_esr, "73 310");
         // let h_ctrl_to_output = |s| h_h(s) * h_p(s) * h_dc;
 
         //------------------------
-
+        p!(h_dc, "6.4631");
         (
             TransferFunction {
                 f_sw,
@@ -148,30 +168,36 @@ impl TransferFunction {
             h_dc,
         } = self;
 
-        dbg!(ohmega_p1);
-
         let ohmega_n = self.ohmega_n();
+        p!(ohmega_n, "628 300");
 
         // Crossover frequency
         // TODO: Is this a good value?
-        let f_x = f_sw / 13.0;
+        let f_x = f_sw / 13.33333333333333333333;
+        dbg!(f_x);
+
+        println!("----------------------------------");
+        println!("----------------------------------");
+        println!("----------------------------------");
 
         // Crossover frequency as rad/s
         let ohmega_x = 2.0 * PI * f_x;
+        dbg!(ohmega_x);
 
         let phase_erosion = 2.0 * PI * f_x * t_adc_sample_to_dac_out;
         assert!(phase_erosion < 90.0f64.to_radians());
 
         // TODO: Is this enough?
-        let phase_margin: f64 = 50.0f64.to_radians() + phase_erosion;
+        let phase_margin: f64 = 75.0f64.to_radians(); //50.0f64.to_radians() + phase_erosion;
 
         // Compensate for pole placed at frequency of the zero formed by capacitor and its esr
         let ohmega_n1;
         let ohmega_n2;
 
         {
+            // n ok
             let x = 1.0 / pow2(ohmega_n) - 2.0;
-            println!("x: {}", x);
+            println!("x: {:.2}", x);
             let sqrt = Complex::sqrt_r(x);
             // ohmega_n1 = sqrt.add_r(-0.5 * ohmega_n); // -0.5 * ohmega_n + sqrt
             // ohmega_n2 = Complex::r_sub(-0.5 * ohmega_n, sqrt); // -0.5 * ohmega_n - sqrt
@@ -180,10 +206,15 @@ impl TransferFunction {
             ohmega_n2 = -0.5 * ohmega_n - sqrt;
         }
 
+        // p1 ok
         let phi_v = -0.5 * PI + phase_margin
             + (ohmega_x / ohmega_p1).atan()
             + (ohmega_x / ohmega_n1).atan() // The imaginary parts from n1 and n2 cancel out here
             + (ohmega_x / ohmega_n2).atan();
+        dbg!(ohmega_n1); // Kanske rätt
+        dbg!(ohmega_n2); // Kanske rätt
+        dbg!(ohmega_x);
+        dbg!((ohmega_x / ohmega_n1).atan());
 
         /*let phi_v = ((Complex::r_div(ohmega_x, ohmega_n1)).atan())
         .add((Complex::r_div(ohmega_x, ohmega_n2)).atan())
@@ -193,20 +224,23 @@ impl TransferFunction {
         assert_eq!(phi_v.im, 0.0);
 
         let phi_v = phi_v.re;
-        dbg!(phi_v.to_degrees());
+        dbg!(phi_v);
+        //p!(phi_v.to_degrees(), "?");
 
-        let ohmega_cp1 = ohmega_esr;
-        let ohmega_cz1 = ohmega_x / phi_v;
-        dbg!(ohmega_cp1);
-        dbg!(ohmega_cz1);
-        dbg!(ohmega_cp1);
+        p!(phi_v.tan(), "0.874095");
 
-        let k1 =
-            sqrt(1.0 + pow2(ohmega_x / ohmega_cz1)) / sqrt(1.0 + (ohmega_x * ohmega_x) / ohmega_p1);
-        let k2 = 1.0 / sqrt(pow2(1.0 - ohmega_x / ohmega_n) + pow2(ohmega_x / ohmega_n));
+        let ohmega_cp1 = ohmega_esr; // Rätt
+        let ohmega_cz1 = ohmega_x / phi_v.tan(); // <------------------- Fel
+        p!(ohmega_cp1, "73_310"); // Rätt
+        p!(ohmega_cz1, "11_110"); // Fel
+
+        let k1 = f64::sqrt(1.0 + pow2(ohmega_x / ohmega_cz1))
+            / f64::sqrt(1.0 + pow2(ohmega_x / ohmega_p1));
+        let k2 = 1.0 / f64::sqrt(pow2(1.0 - ohmega_x / pow2(ohmega_n)) + pow2(ohmega_x / ohmega_n));
 
         // pole at origin
-        let ohmega_cp0 = ohmega_x / (h_dc * k1 * k2);
+        let ohmega_cp0 = ohmega_x / (h_dc * k1 * k2); // Fel
+        p!(ohmega_cp0, "217_100");
 
         // Compensator transfer function in the analog domain
         // let h_c = |s: Complex| ohmega_cp0 / s * (1.0 + s / ohmega_cz1) / (1.0 + s / ohmega_cp1);
@@ -245,7 +279,10 @@ impl TransferFunction {
 
         //let h_p = |s: Complex| (1.0 + s / ohmega_esr) / (1.0 + s / ohmega_p1);
 
-        println!("(1.0 + s / {}) / (1.0 + s / {})", ohmega_esr, ohmega_p1);
+        println!(
+            "(1.0 + s / {:.2}) / (1.0 + s / {:.2})",
+            ohmega_esr, ohmega_p1
+        );
     }
 
     pub fn print_high_freq_transfer_func(&self) {
@@ -255,12 +292,12 @@ impl TransferFunction {
         // let h_h = |s: Complex| 1.0 / (s * s / (ohmega_n * ohmega_n) + s * q_inv / ohmega_n + 1.0);
 
         println!(
-            "1.0 / (s * s / {}^2 + s * {} / {} + 1.0)",
+            "1.0 / (s * s / {:.2}^2 + s * {:.2} / {:.2} + 1.0)",
             ohmega_n, q_inv, ohmega_n
         );
     }
 
     pub fn print_dc_gain(&self) {
-        println!("{}", self.h_dc);
+        println!("{:.2}", self.h_dc);
     }
 }
