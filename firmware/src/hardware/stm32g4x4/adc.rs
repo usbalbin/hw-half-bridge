@@ -1,3 +1,4 @@
+use micromath::F32;
 use stm32g4xx_hal::{
     self as hal,
     adc::{self, Adc, AdcClaim, AdcCommonExt},
@@ -15,11 +16,14 @@ use stm32g4xx_hal::{
 };
 
 pub struct Adcs {
-    adc1: Adc<stm32::ADC1, adc::Configured>,
-    adc2: Adc<stm32::ADC2, adc::Configured>,
-    adc3: Adc<stm32::ADC3, adc::Configured>,
-    adc4: Adc<stm32::ADC4, adc::Configured>,
-    adc5: Adc<stm32::ADC5, adc::Configured>,
+    pub adc1: Adc<stm32::ADC1, adc::Configured>,
+    pub adc2: Adc<stm32::ADC2, adc::Configured>,
+    #[allow(dead_code)]
+    pub adc3: Adc<stm32::ADC3, adc::Configured>,
+    #[allow(dead_code)]
+    pub adc4: Adc<stm32::ADC4, adc::Configured>,
+    #[allow(dead_code)]
+    pub adc5: Adc<stm32::ADC5, adc::Configured>,
 }
 
 impl Adcs {
@@ -36,8 +40,13 @@ impl Adcs {
     ) -> Self {
         defmt::info!("Initializing ADCs...");
 
-        let adc12_common = adc12_common.claim(adc::config::ClockMode::AdcHclkDiv4, rcc);
-        let adc345_common = adc345_common.claim(adc::config::ClockMode::AdcHclkDiv4, rcc);
+        let cfg = adc::config::ClockMode::AdcKerCk {
+            prescaler: adc::config::Prescaler::Div_1,
+            src: adc::config::ClockSource::PllP,
+        };
+
+        let adc12_common = adc12_common.claim(cfg, rcc);
+        let adc345_common = adc345_common.claim(cfg, rcc);
 
         let adc1 =
             adc12_common.claim_and_configure(adc1, hal::adc::config::AdcConfig::default(), delay);
@@ -114,6 +123,31 @@ impl Adcs {
         #[cfg(feature = "cs-op")]
         self.adc5.convert(&ad_channels.cc3, sample_time);
         //self.adc5.convert(&op5, sample_time);
+    }
+
+    pub fn adc_to_voltage(x: u16) -> f32 {
+        const X: f32 = 3.3 / 4095.0;
+        f32::from(x) * X
+    }
+
+    pub fn adc_to_degreec_c(x: u16) -> f32 {
+        let r_pull_up = 10_000.0;
+        let r_ntc_25c = 10_000.0;
+        let beta = 4100.0;
+        let t_ref = 273.15 + 25.0;
+        let vcc = 3.3;
+
+        let v_adc = Self::adc_to_voltage(x);
+        let r_ntc = (r_pull_up * v_adc) / (vcc - v_adc);
+
+        //let r_ntc / r_ntc_25c = e.pow(beta * (t1_inv - t0_inv));
+
+        // ln e^x = x;
+
+        //let beta * (1.0/t1 - 1.0/t0) = ln(r_ntc / r_ntc_25c);
+        let t = 1.0 / ((F32::ln(F32(r_ntc / r_ntc_25c)).0 / beta) + 1.0 / t_ref);
+
+        t - 273.15
     }
 }
 

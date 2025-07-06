@@ -1,7 +1,7 @@
 use core::f64::consts::PI;
 
 #[cfg(feature = "hardware")]
-use defmt::{assert, println};
+use defmt::{assert, println, println as eprintln, dbg};
 
 use crate::math::{atan, pow2, sqrt, tan, Complex};
 
@@ -197,7 +197,7 @@ impl TransferFunction {
         {
             // n ok
             let x = 1.0 / pow2(ohmega_n) - 2.0;
-            println!("x: {:.2}", x);
+            println!("x: {}", x);
             let sqrt = Complex::sqrt_r(x);
             // ohmega_n1 = sqrt.add_r(-0.5 * ohmega_n); // -0.5 * ohmega_n + sqrt
             // ohmega_n2 = Complex::r_sub(-0.5 * ohmega_n, sqrt); // -0.5 * ohmega_n - sqrt
@@ -208,7 +208,7 @@ impl TransferFunction {
 
         // p1 ok
         let phi_v = -0.5 * PI + phase_margin
-            + (ohmega_x / ohmega_p1).atan()
+            + atan(ohmega_x / ohmega_p1)
             + (ohmega_x / ohmega_n1).atan() // The imaginary parts from n1 and n2 cancel out here
             + (ohmega_x / ohmega_n2).atan();
         dbg!(ohmega_n1); // Kanske rätt
@@ -227,7 +227,7 @@ impl TransferFunction {
         dbg!(phi_v);
         //p!(phi_v.to_degrees(), "?");
 
-        p!(phi_v.tan(), "0.874095");
+        //p!(phi_v.tan(), "0.874095");
 
         let ohmega_cp1 = ohmega_esr; // Rätt
         let ohmega_cz1 = ohmega_x / phi_v.tan(); // <------------------- Fel

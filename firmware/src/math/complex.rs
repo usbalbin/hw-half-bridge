@@ -1,4 +1,4 @@
-use std::{fmt::write, ops::Mul};
+use core::{fmt::write, ops::Mul};
 
 use super::{
     atan::{self, atan2},
@@ -13,13 +13,13 @@ pub struct Complex {
 }
 
 impl core::fmt::Debug for Complex {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         core::fmt::Display::fmt(&self, f)
     }
 }
 
 impl core::fmt::Display for Complex {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         match (self.re, self.im) {
             (0.0, 1.0) => write!(f, "i"),
             (0.0, -1.0) => write!(f, "-i"),

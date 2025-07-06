@@ -4,8 +4,9 @@
     "--bins",
   ],
   "rust-analyzer.cargo.target": "thumbv7em-none-eabihf",
+  //"rust-analyzer.cargo.target": "x86_64-unknown-linux-gnu",
   "rust-analyzer.cargo.features": ["current-mode"],
   "rust-analyzer.cargo.extraEnv": {
-    "DEFMT": "trace",
+    "DEFMT_LOG": "trace",
   }
 }

@@ -1,5 +1,5 @@
 use stm32g4xx_hal::{
-    dac::{self, Dac3Ch1, Dac3Ch2, Dac4Ch1, Dac4Ch2, DacExt},
+    dac::{self, Dac3Ch1, Dac3Ch2, Dac4Ch1, Dac4Ch2, DacExt, DacOut},
     rcc::Rcc,
     stasis::{Entitlement, Freeze, Frozen},
     stm32,
@@ -27,7 +27,7 @@ impl Dacs {
         // slope compensation
         /*
         let dac_ampl = 0;
-        
+
         let (dac1ch1, dac1ch2) = {
             let (mut dac1ch1, mut dac1ch2) = dp
                 .DAC1
@@ -102,6 +102,13 @@ impl Dacs {
                 cc2: cc2_ot,
             },
         )
+    }
+
+    pub fn set_all_currents(&mut self, currents: [u16; 4]) {
+        self.cc1_cc5.set_value(currents[0]);
+        self.cc2.set_value(currents[1]);
+        self.cc3.set_value(currents[2]);
+        self.cc4.set_value(currents[3]);
     }
 }
 

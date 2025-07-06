@@ -9,19 +9,19 @@ use core::mem;
 use adc::{AdcChannels, Adcs};
 use dacs::Dacs;
 use external_events::Eevs;
+use fugit::NanosDurationU32;
 use stm32_hrtim::external_event::EevSamplingFilter;
 use stm32g4xx_hal::{
-    delay::SYSTDelayExt,
+    delay::{SYSTDelayExt, SystDelay},
     gpio::{self, GpioExt},
     hrtim::HrControltExt,
     opamp::OpampEx,
-    pwm::PwmExt as _,
     pwr::{self, PwrExt},
     rcc::{self, RccExt},
     serial::SerialExt,
     stasis::Freeze,
     stm32::{self, Peripherals},
-    time::{Hertz, RateExtU32 as _},
+    time::Hertz,
 };
 use timers::Timers;
 
@@ -37,9 +37,11 @@ macro_rules! try_down_cast {
 
 // <System Clocks>
 pub const SYS_PLL_SOURCE: rcc::PllSrc = rcc::PllSrc::HSI;
-pub const SYS_PLL_N_MUL: rcc::PllNMul = rcc::PllNMul::MUL_80;
+pub const SYS_PLL_N_MUL: rcc::PllNMul = rcc::PllNMul::MUL_85;
 pub const SYS_PLL_M_DIV: rcc::PllMDiv = rcc::PllMDiv::DIV_4;
 pub const SYS_PLL_R_DIV: rcc::PllRDiv = rcc::PllRDiv::DIV_2;
+
+pub const SYS_PLL_P_DIV: rcc::PllPDiv = rcc::PllPDiv::DIV_7; // For ADC
 
 pub const F_SYS: Hertz = Hertz::Hz(
     SYS_PLL_SOURCE.frequency().raw() * SYS_PLL_N_MUL.multiplier()
@@ -52,6 +54,17 @@ pub type Prescaler = stm32_hrtim::Pscl1;
 /// Switch frequency
 pub const F_SW: Hertz = Hertz::MHz(1);
 
+pub const DEADTIME: NanosDurationU32 = NanosDurationU32::nanos(32);
+
+pub const DEADTIME_TICKS: u16 = try_down_cast!(
+    (DEADTIME.ticks() as u32 * 8 * F_SYS.to_MHz() as u32).div_ceil(1000),
+    u32,
+    u16
+);
+
+pub const DEADTIME_FALLING_TICKS: u16 = DEADTIME_TICKS;
+pub const DEADTIME_RISING_TICKS: u16 = DEADTIME_TICKS;
+
 /// Switch period in number of ticks
 pub const PERIOD: u16 = try_down_cast!(F_SYS.raw() as u64 * 32 / F_SW.raw() as u64, u64, u16);
 
@@ -60,9 +73,9 @@ pub const TICK_RATE: Hertz = Hertz::kHz(10);
 
 pub const REPETITION_COUNTER: u8 = try_down_cast!(F_SW.raw() / TICK_RATE.raw() - 1, u32, u8);
 
-const I_FILTER: EevSamplingFilter = EevSamplingFilter::None;
+pub const I_FILTER: EevSamplingFilter = EevSamplingFilter::None;
 
-const ADC_POST_SCALER: stm32_hrtim::control::AdcTriggerPostscaler =
+pub const ADC_POST_SCALER: stm32_hrtim::control::AdcTriggerPostscaler =
     stm32_hrtim::control::AdcTriggerPostscaler::Div31;
 
 pub struct Hardware {
@@ -71,6 +84,7 @@ pub struct Hardware {
     pub ad_channels: AdcChannels,
     pub eevs: Eevs,
     pub dacs: Dacs,
+    pub delay: SystDelay,
 }
 
 impl Hardware {
@@ -81,14 +95,12 @@ impl Hardware {
         let pwr_cfg = pwr // Enable boost mode to allow f_sys > 150MHz
             .vos(pwr::VoltageScale::Range1 { enable_boost: true })
             .freeze();
-
-        // Set system frequency to 16MHz * 80/4/2 = 160MHz
-        // This would lead to HrTim running at 160MHz * 32 = 5.12...
         let rcc_cfg = rcc::Config::pll().pll_cfg(rcc::PllConfig {
             mux: SYS_PLL_SOURCE,
             n: SYS_PLL_N_MUL,
             m: SYS_PLL_M_DIV,
-            r: Some(SYS_PLL_R_DIV),
+            r: Some(SYS_PLL_R_DIV), // Set system frequency to 16MHz * 85/4/2 = 170MHz
+            p: Some(SYS_PLL_P_DIV), // Set adc input frequency to 16MHz * 85/4/7 = ~48.6MHz
 
             ..Default::default()
         });
@@ -105,51 +117,52 @@ impl Hardware {
         let usb = dp.USB;
 
         struct FakeUsb {
+            #[allow(dead_code)]
             usb: stm32::USB,
             #[allow(dead_code)]
             usb_pd: stm32::UCPD1,
 
             #[allow(dead_code)]
-            usb_dm: gpio::gpioa::PA11<gpio::Input<gpio::Floating>>,
+            usb_dm: gpio::gpioa::PA11,
             #[allow(dead_code)]
-            usb_dp: gpio::gpioa::PA12<gpio::Input<gpio::Floating>>,
+            usb_dp: gpio::gpioa::PA12,
 
             #[allow(dead_code)]
-            cc1: gpio::gpiob::PB6<gpio::Input<gpio::Floating>>,
+            cc1: gpio::gpiob::PB6,
             #[allow(dead_code)]
-            cc2: gpio::gpiob::PB4<gpio::Input<gpio::Floating>>,
-
-            #[allow(dead_code)]
-            #[cfg(feature = "usb-pd-db")]
-            dbcc1: gpio::gpioa::PA9<gpio::Input<gpio::Floating>>,
+            cc2: gpio::gpiob::PB4<gpio::Debugger>,
 
             #[allow(dead_code)]
             #[cfg(feature = "usb-pd-db")]
-            dbcc2: gpio::gpioa::PA10<gpio::Input<gpio::Floating>>,
+            dbcc1: gpio::gpioa::PA9,
+
+            #[allow(dead_code)]
+            #[cfg(feature = "usb-pd-db")]
+            dbcc2: gpio::gpioa::PA10,
 
             #[cfg(feature = "usb-pd-db")]
-            frs: gpio::gpioc::PC12<gpio::Input<gpio::Floating>>,
+            frs: gpio::gpioc::PC12,
 
             #[cfg(feature = "usb-pd-db")]
-            en_vconn: gpio::gpioc::PC10<gpio::Input<gpio::Floating>>,
+            en_vconn: gpio::gpioc::PC10,
 
             #[cfg(feature = "usb-pd-db")]
-            en_cc: gpio::gpioc::PC13<gpio::Input<gpio::Floating>>,
+            en_cc: gpio::gpioc::PC13,
 
             // Used to select cc-line for usb pd cable orientation
             #[cfg(feature = "usb-pd-db")]
-            cc_select: gpio::gpioc::PC14<gpio::Input<gpio::Floating>>,
+            cc_select: gpio::gpioc::PC14,
 
             // Use to select direction of current measurements 2-5
             #[cfg(feature = "usb-pd-db")]
-            cc_dir: gpio::gpioc::PC15<gpio::Input<gpio::Floating>>,
+            cc_dir: gpio::gpioc::PC15,
         }
 
         struct Swd {
             #[allow(dead_code)]
-            swdio: gpio::gpioa::PA13<gpio::Input<gpio::Floating>>,
+            swdio: gpio::gpioa::PA13<gpio::Debugger>,
             #[allow(dead_code)]
-            swc: gpio::gpioa::PA14<gpio::Input<gpio::Floating>>,
+            swc: gpio::gpioa::PA14<gpio::Debugger>,
         }
 
         let pa0 = gpioa.pa0;
@@ -281,22 +294,24 @@ impl Hardware {
         let li_5 = pa9; // Used by dbcc1
 
         //let mosi_pin = pb5.into_alternate(); // 5v tol
+
+        #[cfg(feature = "leds")]
         let pwm_led2 = pb7.into_alternate(); // 5v tol
+        #[cfg(feature = "leds")]
         let pwm_led3 = pb9.into_alternate(); // 5v tol
 
+        #[cfg(feature = "leds")]
         let pwm_led4 = pb10.into_alternate(); // 3.6v max
-                                              //let pwm_led5 = pa3.into_alternate(); // 3.6v max
-                                              //let pwm_led6_pot3_adc1_in12_adc3_in1 = pb1.into_alternate(); // 3.6v max
+
         let pwm_led7_adc2_in11 = pc5.into_analog(); // TIM1_CH4N  // 3.6v max
+        #[cfg(feature = "leds")]
         let pwm_led8_adc2_in12 = pb2.into_alternate(); // 3.6v max
 
+        #[cfg(feature = "leds")]
         let (led2_tim4, led3_tim4) = dp.TIM4.pwm((pwm_led2, pwm_led3), 20.kHz(), &mut rcc);
-        /*let (led3_tim3, led6_tim3) = dp.TIM3.pwm(
-            (pwm_led1, pwm_led6_pot3_adc1_in12_adc3_in1),
-            20.kHz(),
-            &mut rcc,
-        );*/
-        let (led4_tim2/*, led5_tim2*/) = dp.TIM2.pwm((pwm_led4/*, pwm_led5*/), 20.kHz(), &mut rcc);
+        #[cfg(feature = "leds")]
+        let led4_tim2 = dp.TIM2.pwm((pwm_led4/*, pwm_led5*/), 20.kHz(), &mut rcc);
+        #[cfg(feature = "leds")]
         let led8_tim5 = dp.TIM5.pwm(pwm_led8_adc2_in12, 20.kHz(), &mut rcc);
 
         let tx = pb3.into_alternate();
@@ -372,7 +387,7 @@ impl Hardware {
             &mut ctrl,
         );
 
-        let mut hr_ctrl = ctrl.constrain();
+        let hr_ctrl = ctrl.constrain();
 
         let timers = Timers::init(
             dp.HRTIM_MASTER,
@@ -480,7 +495,7 @@ impl Hardware {
         //let spi_mode = spi::Mode::default();
         //let spi = dp.SPI1.spi(mosi_pin, spi_mode, 3.MHz(), &mut rcc);
 
-        let timers = timers.connect_comparators(&eevs);
+        let timers = timers.connect_fast_comparators(&eevs);
 
         defmt::info!("Initializing Hardware - Done");
 
@@ -490,6 +505,7 @@ impl Hardware {
             ad_channels,
             eevs,
             dacs,
+            delay,
         }
     }
 }

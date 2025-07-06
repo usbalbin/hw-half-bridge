@@ -1,13 +1,6 @@
-use stm32_hrtim::pac::dac1::mcr::HFSEL;
-use stm32g4xx_hal::{
-    dac::{self, Dac1Ch1},
-    rcc::Rcc,
-};
+use core::array;
 
-use crate::{
-    math::{atan, pow2, sqrt, tan},
-    types::{Amperes, Henries, Seconds, Voltage},
-};
+use crate::hardware::{dacs::Dacs, timers::Timers};
 
 pub struct Input {
     /// Voltage at LO-side
@@ -56,11 +49,26 @@ pub struct Input {
     dac.enable_generator(dac::GeneratorConfig::sawtooth(amplitude), rcc);
 }*/
 
-pub struct HalfBridge<P: embedded_hal::pwm::SetDutyCycle> {
-    pwm_control: P,
+pub struct HalfBridge {
+    timers: Timers,
+    dacs: Dacs,
+
+    /// The ADC(and DAC) value at zero current
+    ///
+    /// Values less than this indicate a current from HI->LO(buck)
+    /// Values greater than this indicates a current from LO->HI(boost)
+    zero_current_offsets: [u16; 5],
 }
 
-impl<P: embedded_hal::pwm::SetDutyCycle> HalfBridge<P> {
+impl HalfBridge {
+    pub fn init(timers: Timers, dacs: Dacs, zero_current_offsets: [u16; 5]) -> Self {
+        Self {
+            timers,
+            dacs,
+            zero_current_offsets,
+        }
+    }
+
     /// vout = vin * d
     //#[cfg(feature = "current-mode")]
     pub const fn update_buck(&mut self, target_u_lo: f32, measured: Input) {
@@ -70,8 +78,20 @@ impl<P: embedded_hal::pwm::SetDutyCycle> HalfBridge<P> {
         // https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/171/Presentation_5F002D005F00_Mr._5F00_Ali_5F00_Shirsavar.pdf
         // https://www.st.com/resource/en/application_note/an5497-introduction-to-the-buck-current-mode-with-the-bg474edpow1-discovery-kit-stmicroelectronics.pdf
         // https://centaur.reading.ac.uk/31751/1/Microcontroller%20Based%20Peak%20Current%20Mode%20Control%20Using%20Digital%20Slope%20Compensation%20-%20Hallworth%202012.pdf
+    }
 
-        
+    /// Set peak current
+    ///
+    /// Values less than 0 indicate a current from HI->LO(buck)
+    /// Values greater than 0 indicates a current from LO->HI(boost)
+    pub fn update_set_all_currents_buck(&mut self, current: i16) {
+        // Note cc5 will be ignored
+        let currents = array::from_fn(|i| {
+            (self.zero_current_offsets[i] as i16)
+                .saturating_sub(current)
+                .clamp(0, 4095) as u16
+        });
+        self.dacs.set_all_currents(currents);
     }
 
     /// vout = vin * d

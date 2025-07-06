@@ -4,7 +4,7 @@ macro_rules! impl_ops {
     ($t:ident) => {
         impl ops::Neg for $t {
             type Output = Self;
-        
+
             fn neg(self) -> Self::Output {
                 Self(-self.0)
             }
@@ -12,31 +12,31 @@ macro_rules! impl_ops {
 
         impl ops::Add<Self> for $t {
             type Output = Self;
-        
+
             fn add(self, rhs: Self) -> Self::Output {
                 Self(self.0 + rhs.0)
             }
         }
-        
+
         impl ops::Sub<Self> for $t {
             type Output = Self;
-        
+
             fn sub(self, rhs: Self) -> Self::Output {
                 Self(self.0 - rhs.0)
             }
         }
-        
+
         impl ops::Mul<$t> for f32 {
             type Output = $t;
-        
+
             fn mul(self, rhs: $t) -> Self::Output {
                 $t(self * rhs.0)
             }
         }
-        
+
         impl ops::Mul<f32> for $t {
             type Output = $t;
-        
+
             fn mul(self, rhs: f32) -> Self::Output {
                 Self(self.0 * rhs)
             }
@@ -44,7 +44,7 @@ macro_rules! impl_ops {
 
         impl ops::Div<Self> for $t {
             type Output = f32;
-        
+
             fn div(self, rhs: Self) -> Self::Output {
                 self.0 / rhs.0
             }
@@ -68,11 +68,12 @@ impl_ops!(Farads);
 impl_ops!(Seconds);
 
 impl Voltage {
-    pub fn to_adc_value(self)-> u16 {
-        ((self / Voltage(3.3)).clamp(0.0, 1.0) * f32::from(0xFFFu16)).clamp(0.0, u16::MAX as _) as u16
+    pub fn to_adc_value(self) -> u16 {
+        ((self / Voltage(3.3)).clamp(0.0, 1.0) * f32::from(0xFFFu16)).clamp(0.0, u16::MAX as _)
+            as u16
     }
-    
-    pub fn to_dac_value(self)-> u16 {
+
+    pub fn to_dac_value(self) -> u16 {
         self.to_adc_value()
     }
 }

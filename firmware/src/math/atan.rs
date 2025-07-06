@@ -34,7 +34,7 @@
 
 
 use core::f64;
-use std::f64::consts::PI;
+use core::f64::consts::PI;
 
 use super::{fabs, i};
 
