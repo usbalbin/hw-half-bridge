@@ -9,6 +9,7 @@ use half_bridge as _; // global logger + panicking-behavior + memory layout
 mod app {
     use embedded_hal::delay::DelayNs;
     use half_bridge::{half_bridge::HalfBridge, hardware};
+    use stm32_hrtim::{compare_register::HrCompareRegister, output::HrOutput};
     use stm32g4xx_hal::adc::config::SampleTime;
 
     // Shared resources go here
@@ -78,14 +79,25 @@ mod app {
         defmt::dbg!(zero_current_offsets);
 
         defmt::info!("Starting timers");
+        timers.timer1.cr1.set_duty(hardware::PERIOD / 50); // Set max duty to 50%
+        //timers.timer1.out.0.enable();
+        //timers.timer1.out.1.enable();
+        
         timers.control.control.start_stop_timers(|w| {
-            w.start(&mut timers.master_timer.timer)
-                .start(&mut timers.timer1.timer)
-                .start(&mut timers.timer2.timer)
-                .start(&mut timers.timer3.timer)
-                .start(&mut timers.timer4b.timer)
-                .start(&mut timers.timer4d.timer)
-                .start(&mut timers.timer5.timer)
+            let w = w.start(&mut timers.master_timer.timer);
+            #[cfg(feature = "hv1")]
+            let w = w.start(&mut timers.timer1.timer);
+            #[cfg(feature = "hv2")]
+            let w = w.start(&mut timers.timer2.timer);
+            #[cfg(feature = "hv3")]
+            let w = w.start(&mut timers.timer3.timer);
+            #[cfg(feature = "hv4")]
+            let w = w.start(&mut timers.timer4b.timer);
+            #[cfg(feature = "hv4")]
+            let w = w.start(&mut timers.timer4d.timer);
+            #[cfg(feature = "hv5")]
+            let w = w.start(&mut timers.timer5.timer);
+            w
         });
 
         (
@@ -106,8 +118,9 @@ mod app {
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
-        ctx.local.adcs.read(ctx.local.ad_channels);
-        ctx.local.half_bridge.update_set_all_currents_buck(0);
-        defmt::println!(".");
+        //ctx.local.adcs.read(ctx.local.ad_channels);
+        let i = ctx.local.adcs.adc3.convert(&ctx.local.ad_channels.cc1, SampleTime::Cycles_12_5);
+        defmt::info!("i: {}", i);
+        ctx.local.half_bridge.update_set_all_currents_buck(50);
     }
 }

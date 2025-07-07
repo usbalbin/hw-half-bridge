@@ -5,12 +5,15 @@ edition = "2021"
 version = "0.1.0"
 
 [features]
-default = ["hv4", "hv5", "hardware"]
+default = ["hv1", "hardware"]
 hardware = []
 
 fb_a-op = [] # Op on fb_a, else R32
 cs-op = [] # Op's as follower on all current sense signals
 usb-pd-db = []
+hv1 = []
+hv2 = []
+hv3 = []
 hv4 = []
 hv5 = []
 

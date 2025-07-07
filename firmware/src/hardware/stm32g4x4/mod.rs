@@ -268,30 +268,30 @@ impl Hardware {
         };
 
         // HRTIMF
-        let hi_1 = pc6;
-        let li_1 = pc7;
+        let f_hi = pc6;
+        let f_li = pc7;
 
         // HRTIMC
-        let hi_2 = pb12;
-        let li_2 = pb13;
+        let c_hi = pb12;
+        let c_li = pb13;
 
         // HRTIME
-        let hi_3 = pc8;
-        let li_3 = pc9;
+        let e_hi = pc8;
+        let e_li = pc9;
 
         // HRTIMD
         #[cfg(feature = "hv4")]
-        let li_4 = pb15; // HRTIMD
+        let d_li = pb15; // HRTIMD
 
         #[cfg(feature = "hv4")]
-        let hi_4 = pa10; // HRTIMB
+        let b_li = pa10; // HRTIMB
                          //let li_b = pa11; // HRTIMB <--- Used by USB_DP
 
         // HRTIMA
-        #[cfg(feature = "hv5")]
-        let hi_5 = pa8;
-        #[cfg(feature = "hv5")]
-        let li_5 = pa9; // Used by dbcc1
+        //#[cfg(feature = "hv5")]
+        let a_hi = pa8;
+        //#[cfg(feature = "hv5")]
+        let a_li = pa9; // Used by dbcc1
 
         //let mosi_pin = pb5.into_alternate(); // 5v tol
 
@@ -397,22 +397,29 @@ impl Hardware {
             dp.HRTIM_TIMD,
             dp.HRTIM_TIME,
             dp.HRTIM_TIMF,
-            hi_1,
-            li_1,
-            hi_2,
-            li_2,
-            hi_3,
-            li_3,
+            /*#[cfg(feature = "hv5")]
+            a_hi,*/
+            /*#[cfg(feature = "hv5")]
+            a_li,*/
+            #[cfg(feature = "hv1")]
+            a_hi,//f_hi,
+            #[cfg(feature = "hv1")]
+            a_li,//f_li,
+            #[cfg(feature = "hv2")]
+            c_hi,
+            #[cfg(feature = "hv2")]
+            c_li,
+            #[cfg(feature = "hv3")]
+            e_hi,
+            #[cfg(feature = "hv3")]
+            e_li,
             #[cfg(feature = "hv4")]
-            li_4,
+            d_li,
             #[cfg(feature = "hv4")]
-            hi_4,
-            #[cfg(feature = "hv5")]
-            hi_5,
-            #[cfg(feature = "hv5")]
-            li_5,
+            b_li,
             hr_ctrl,
         );
+
         //DAC --ref-voltage--> Comp ----> Eev ----> HRTIM --dac-trigger--> DAC
         let (dacs, dac_tokens) = Dacs::init(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &timers, &mut rcc);
 

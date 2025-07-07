@@ -46,83 +46,109 @@ impl Dacs {
         let step_size = 1; // todo
         let dac_cfg = dac::SawtoothConfig::with_slope(dir, step_size);
 
-        let (dac3ch1, dac3ch2) = {
-            let (ch1, ch2) = dac3.constrain((dac::Dac3IntSig1, dac::Dac3IntSig2), rcc);
-            (
-                ch1.enable_sawtooth_generator(
-                    dac_cfg
-                        .inc_trigger(&timers.timer4b.cr2)
-                        .reset_trigger(&timers.timer4b.timer),
-                    rcc,
-                ),
-                ch2.enable_sawtooth_generator(
-                    dac_cfg
-                        .inc_trigger(&timers.timer1.cr2)
-                        .reset_trigger(&timers.timer1.timer),
-                    rcc,
-                ),
-            )
-        };
+        #[cfg(any(feature = "hv1", feature = "hv4"))]
+        let (dac3ch1, dac3ch2) = dac3.constrain((dac::Dac3IntSig1, dac::Dac3IntSig2), rcc);
 
-        let (dac4ch1, dac4ch2) = {
-            let (ch1, ch2) = dac4.constrain((dac::Dac4IntSig1, dac::Dac4IntSig2), rcc);
-            (
-                ch1.enable_sawtooth_generator(
-                    dac_cfg
-                        .inc_trigger(&timers.timer3.cr2)
-                        .reset_trigger(&timers.timer3.timer),
-                    rcc,
-                ),
-                ch2.enable_sawtooth_generator(
-                    dac_cfg
-                        .inc_trigger(&timers.timer2.cr2)
-                        .reset_trigger(&timers.timer2.timer),
-                    rcc,
-                ),
-            )
-        };
+        #[cfg(feature = "hv4")]
+        let dac3ch1 = dac3ch1.enable_sawtooth_generator(
+            dac_cfg
+                .inc_trigger(&timers.timer4b.cr2)
+                .reset_trigger(&timers.timer4b.timer),
+            rcc,
+        );
+        #[cfg(feature = "hv1")]
+        let dac3ch2 = dac3ch2.enable_sawtooth_generator(
+            dac_cfg
+                .inc_trigger(&timers.timer1.cr2)
+                .reset_trigger(&timers.timer1.timer),
+            rcc,
+        );
 
+        #[cfg(any(feature = "hv2", feature = "hv3"))]
+        let (dac4ch1, dac4ch2) = dac4.constrain((dac::Dac4IntSig1, dac::Dac4IntSig2), rcc);
+
+        #[cfg(feature = "hv3")]
+        let dac4ch1 = dac4ch1.enable_sawtooth_generator(
+            dac_cfg
+                .inc_trigger(&timers.timer3.cr2)
+                .reset_trigger(&timers.timer3.timer),
+            rcc,
+        );
+        #[cfg(feature = "hv2")]
+        let dac4ch2 = dac4ch2.enable_sawtooth_generator(
+            dac_cfg
+                .inc_trigger(&timers.timer2.cr2)
+                .reset_trigger(&timers.timer2.timer),
+            rcc,
+        );
+
+        #[cfg(any(feature = "hv1", feature = "hv5"))]
         let (cc1_cc5, [cc1_ot, cc5_ot]) = dac3ch2.freeze();
-        let (cc4, [cc4_ot]) = dac3ch1.freeze();
+        #[cfg(feature = "hv2")]
         let (cc2, [cc2_ot]) = dac4ch2.freeze();
+        #[cfg(feature = "hv3")]
         let (cc3, [cc3_ot]) = dac4ch1.freeze();
+        #[cfg(feature = "hv4")]
+        let (cc4, [cc4_ot]) = dac3ch1.freeze();
 
         (
             Dacs {
+                #[cfg(any(feature = "hv1", feature = "hv5"))]
                 cc1_cc5,
-                cc4,
+                #[cfg(feature = "hv2")]
                 cc2,
+                #[cfg(feature = "hv3")]
                 cc3,
+                #[cfg(feature = "hv4")]
+                cc4,
             },
             DacTokens {
-                cc4: cc4_ot,
+                #[cfg(feature = "hv1")]
                 cc1: cc1_ot,
-                cc5: cc5_ot,
-                cc3: cc3_ot,
+                #[cfg(feature = "hv2")]
                 cc2: cc2_ot,
+                #[cfg(feature = "hv3")]
+                cc3: cc3_ot,
+                #[cfg(feature = "hv4")]
+                cc4: cc4_ot,
+                #[cfg(feature = "hv5")]
+                cc5: cc5_ot,
             },
         )
     }
 
     pub fn set_all_currents(&mut self, currents: [u16; 4]) {
+        #[cfg(any(feature = "hv1", feature = "hv5"))]
         self.cc1_cc5.set_value(currents[0]);
+        #[cfg(feature = "hv2")]
         self.cc2.set_value(currents[1]);
+        #[cfg(feature = "hv3")]
         self.cc3.set_value(currents[2]);
+        #[cfg(feature = "hv4")]
         self.cc4.set_value(currents[3]);
     }
 }
 
 pub struct Dacs {
+    #[cfg(any(feature = "hv1", feature = "hv5"))]
     pub cc1_cc5: Frozen<DacHb1, 2>,
+    #[cfg(feature = "hv2")]
     pub cc2: Frozen<DacHb2, 1>,
+    #[cfg(feature = "hv3")]
     pub cc3: Frozen<DacHb3, 1>,
+    #[cfg(feature = "hv4")]
     pub cc4: Frozen<DacHb4, 1>,
 }
 
 pub(crate) struct DacTokens {
+    #[cfg(feature = "hv1")]
     pub(crate) cc1: Entitlement<DacHb1>,
+    #[cfg(feature = "hv2")]
     pub(crate) cc2: Entitlement<DacHb2>,
+    #[cfg(feature = "hv3")]
     pub(crate) cc3: Entitlement<DacHb3>,
+    #[cfg(feature = "hv4")]
     pub(crate) cc4: Entitlement<DacHb4>,
+    #[cfg(feature = "hv5")]
     pub(crate) cc5: Entitlement<DacHb5>,
 }
