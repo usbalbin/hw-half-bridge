@@ -149,6 +149,18 @@ impl Adcs {
 
         t - 273.15
     }
+
+    pub fn adc_to_ma_buck(x: u16, zero: u16) -> f32 {
+        let v_adc = Self::adc_to_voltage(x);
+        let v_zero = Self::adc_to_voltage(zero);
+
+        let v_relative = v_adc - v_zero;
+
+        let volts_per_amp = -0.066; // Negative in buck direction
+        let amp = v_relative / volts_per_amp;
+
+        amp * 1000.0
+    }
 }
 
 pub struct AdcChannels {

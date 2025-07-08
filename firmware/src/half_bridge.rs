@@ -1,5 +1,7 @@
 use core::array;
 
+use stm32_hrtim::output::HrOutput;
+
 use crate::hardware::{dacs::Dacs, timers::Timers};
 
 pub struct Input {
@@ -57,7 +59,7 @@ pub struct HalfBridge {
     ///
     /// Values less than this indicate a current from HI->LO(buck)
     /// Values greater than this indicates a current from LO->HI(boost)
-    zero_current_offsets: [u16; 5],
+    pub zero_current_offsets: [u16; 5],
 }
 
 impl HalfBridge {
@@ -105,4 +107,13 @@ impl HalfBridge {
     /// vout = vin/(1-d)
     #[cfg(feature = "voltage-mode")]
     pub fn update_boost(&mut self, target_u_hi: f32, measured: Input) {}
+
+    pub fn disable(&mut self) {
+        self.timers.timer1.out.0.disable();
+        self.timers.timer1.out.1.disable();
+    }
+
+    pub fn status(&self) -> stm32_hrtim::output::State {
+        self.timers.timer1.out.0.get_state()
+    }
 }

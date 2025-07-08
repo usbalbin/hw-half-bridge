@@ -29,12 +29,12 @@ type Timer<TIM> = HrParts<
     DacStp,
 >;
 
-pub type TimHb1 = HRTIM_TIMA;//HRTIM_TIMF; // This should be HRTIM_TIMF for the real board
-/*pub type TimHb2 = HRTIM_TIMC;
-pub type TimHb3 = HRTIM_TIME;
-pub type TimHb4b = HRTIM_TIMB;
-pub type TimHb4d = HRTIM_TIMD;
-pub type TimHb5 = HRTIM_TIMA;*/
+pub type TimHb1 = HRTIM_TIMA; //HRTIM_TIMF; // This should be HRTIM_TIMF for the real board
+                              /*pub type TimHb2 = HRTIM_TIMC;
+                              pub type TimHb3 = HRTIM_TIME;
+                              pub type TimHb4b = HRTIM_TIMB;
+                              pub type TimHb4d = HRTIM_TIMD;
+                              pub type TimHb5 = HRTIM_TIMA;*/
 
 pub type MasterTimer = HrParts<HRTIM_MASTER, Prescaler, ()>;
 pub type TimerHb1 = Timer<TimHb1>;
@@ -106,7 +106,6 @@ impl Timers {
         hrtimd: HRTIM_TIMD,
         hrtime: HRTIM_TIME,
         hrtimf: HRTIM_TIMF,
-
 
         /*#[cfg(feature = "hv5")]*/ a_hi: gpio::gpioa::PA8,
         /*#[cfg(feature = "hv5")]*/ a_li: gpio::gpioa::PA9,

@@ -24,11 +24,11 @@ pub struct Eevs {
     pub cc1_filt: ExternalEventSource<7, false>, //Comp4
     //cc1b: ExternalEventSource<5, false>,
     #[cfg(feature = "hv2")]
-    pub cc2_filt: ExternalEventSource<8, false>,  //Comp6
+    pub cc2_filt: ExternalEventSource<8, false>, //Comp6
     #[cfg(feature = "hv3")]
     pub cc3_filt: ExternalEventSource<10, false>, //Comp7
     #[cfg(feature = "hv4")]
-    pub cc4_filt: ExternalEventSource<6, false>,  //Comp1
+    pub cc4_filt: ExternalEventSource<6, false>, //Comp1
 
     #[cfg(feature = "hv1")]
     pub cc1_fast: ExternalEventSource<2, true>, //Comp4

@@ -8,8 +8,11 @@ use half_bridge as _; // global logger + panicking-behavior + memory layout
 )]
 mod app {
     use embedded_hal::delay::DelayNs;
-    use half_bridge::{half_bridge::HalfBridge, hardware};
-    use stm32_hrtim::{compare_register::HrCompareRegister, output::HrOutput};
+    use half_bridge::{
+        half_bridge::HalfBridge,
+        hardware::{self, adc::Adcs},
+    };
+    use stm32_hrtim::compare_register::HrCompareRegister;
     use stm32g4xx_hal::adc::config::SampleTime;
 
     // Shared resources go here
@@ -25,6 +28,7 @@ mod app {
         adcs: hardware::adc::Adcs,
         ad_channels: hardware::adc::AdcChannels,
         eevs: hardware::external_events::Eevs,
+        i: u32,
     }
 
     #[init]
@@ -80,9 +84,9 @@ mod app {
 
         defmt::info!("Starting timers");
         timers.timer1.cr1.set_duty(hardware::PERIOD / 50); // Set max duty to 50%
-        //timers.timer1.out.0.enable();
-        //timers.timer1.out.1.enable();
-        
+                                                           //timers.timer1.out.0.enable();
+                                                           //timers.timer1.out.1.enable();
+
         timers.control.control.start_stop_timers(|w| {
             let w = w.start(&mut timers.master_timer.timer);
             #[cfg(feature = "hv1")]
@@ -107,6 +111,7 @@ mod app {
                 adcs,
                 ad_channels,
                 eevs,
+                i: 0,
             },
         )
     }
@@ -114,13 +119,45 @@ mod app {
     #[task(
         binds = HRTIM_MASTER_IRQN,
         shared = [ ],
-        local = [adcs, ad_channels, half_bridge],
+        local = [adcs, ad_channels, half_bridge, i],
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
+        *ctx.local.i = ctx.local.i.wrapping_add(1);
+        if *ctx.local.i & 0x1F != 0 {
+            return;
+        }
+
         //ctx.local.adcs.read(ctx.local.ad_channels);
-        let i = ctx.local.adcs.adc3.convert(&ctx.local.ad_channels.cc1, SampleTime::Cycles_12_5);
-        defmt::info!("i: {}", i);
+        let t = ctx
+            .local
+            .adcs
+            .adc1
+            .convert(&ctx.local.ad_channels.ntc_5, SampleTime::Cycles_640_5);
+        let t = Adcs::adc_to_degreec_c(t);
+
+        if *ctx.local.i & 0x1FFF == 0 {
+            let i = ctx
+                .local
+                .adcs
+                .adc3
+                .convert(&ctx.local.ad_channels.cc1, SampleTime::Cycles_12_5);
+            let i = Adcs::adc_to_ma_buck(i, ctx.local.half_bridge.zero_current_offsets[0]);
+            let status = ctx.local.half_bridge.status();
+            match status {
+                stm32_hrtim::output::State::Idle => {
+                    defmt::warn!("{}, t: {}°C, i: {}mA", status, t, i as i32)
+                }
+                stm32_hrtim::output::State::Running => {
+                    defmt::info!("{}, t: {}°C, i: {}mA", status, t, i as i32)
+                }
+                stm32_hrtim::output::State::Fault => todo!(),
+            }
+        }
         ctx.local.half_bridge.update_set_all_currents_buck(50);
+
+        if t > 70.0 {
+            ctx.local.half_bridge.disable();
+        }
     }
 }
