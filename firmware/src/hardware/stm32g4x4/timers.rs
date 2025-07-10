@@ -2,7 +2,7 @@ use stm32_hrtim::{
     self,
     control::HrPwmControl,
     output::{HrOut1, HrOut2, HrOutput},
-    timer::HrSlaveTimer,
+    timer::{HrSlaveTimer, HrTimer},
     timer_eev_cfg::EevCfgs,
     DacResetOnCounterReset, DacStepOnCmp2, HrParts, HrPwmAdvExt,
 };
@@ -203,5 +203,9 @@ impl Timers {
         #[cfg(feature = "hv5")]
         self.timer5.out.0.enable_rst_event(&eevs.cc5_fast);
         self
+    }
+
+    pub fn clear_repetition_interrupt(&mut self) {
+        self.master_timer.timer.clear_repetition_interrupt();
     }
 }

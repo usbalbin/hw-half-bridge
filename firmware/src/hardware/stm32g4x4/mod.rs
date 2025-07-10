@@ -85,6 +85,7 @@ pub struct Hardware {
     pub eevs: Eevs,
     pub dacs: Dacs,
     pub delay: SystDelay,
+    pub nucleo_user_button: gpio::PC13<gpio::Input>,
 }
 
 impl Hardware {
@@ -216,6 +217,8 @@ impl Hardware {
         let pc12 = gpioc.pc12;
         #[cfg(feature = "usb-pd-db")]
         let pc13 = gpioc.pc13;
+        #[cfg(not(feature = "usb-pd-db"))]
+        let pc13 = gpioc.pc13.into_floating_input();
         #[cfg(feature = "usb-pd-db")]
         let pc14 = gpioc.pc14;
         #[cfg(feature = "usb-pd-db")]
@@ -439,6 +442,8 @@ impl Hardware {
         //let op5 = op5.follower(ntc_2_op5, None::<gpio::gpioa::PA8<hal::gpio::Analog>>); // PB14(comp7) PC3
         // let op6 = op6.follower((), None);
 
+        let nucleo_user_button = pc13;
+
         let ad_channels = AdcChannels {
             //op1_comp1_b_cc4_pin_fb_a,
             ntc_1,
@@ -513,6 +518,7 @@ impl Hardware {
             eevs,
             dacs,
             delay,
+            nucleo_user_button,
         }
     }
 }

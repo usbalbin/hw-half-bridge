@@ -113,7 +113,16 @@ impl HalfBridge {
         self.timers.timer1.out.1.disable();
     }
 
+    pub fn enable(&mut self) {
+        self.timers.timer1.out.0.enable();
+        self.timers.timer1.out.1.enable();
+    }
+
     pub fn status(&self) -> stm32_hrtim::output::State {
         self.timers.timer1.out.0.get_state()
+    }
+
+    pub fn clear_repetition_interrupt(&mut self) {
+        self.timers.clear_repetition_interrupt();
     }
 }
