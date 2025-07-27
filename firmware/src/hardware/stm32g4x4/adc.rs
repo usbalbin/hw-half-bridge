@@ -130,6 +130,28 @@ impl Adcs {
         f32::from(x) * X
     }
 
+    pub fn voltage_to_adc(v: f32) -> u16 {
+        const X: f32 = 4095.0 / 3.3;
+        (v * X).clamp(u16::MIN as _, u16::MAX as _) as u16
+    }
+
+    pub fn degrees_c_to_adc(t: f32) -> u16 {
+        use micromath::F32Ext;
+
+        let t: f32 = t + 273.15; // To kelvin
+        let r_pull_up = 10_000.0;
+        let r_ntc_25c = 10_000.0;
+        let beta = 4100.0;
+        let t_ref = 273.15 + 25.0;
+        let vcc = 3.3;
+
+        let r_ntc = r_ntc_25c * (beta * (1.0 / t - 1.0 / t_ref)).exp();
+
+        let v_adc = (r_ntc * vcc) / (r_pull_up + r_ntc);
+
+        Self::voltage_to_adc(v_adc)
+    }
+
     pub fn adc_to_degreec_c(x: u16) -> f32 {
         let r_pull_up = 10_000.0;
         let r_ntc_25c = 10_000.0;

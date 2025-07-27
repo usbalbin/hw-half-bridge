@@ -8,10 +8,9 @@ use half_bridge::{self as _, hardware::TICK_RATE}; // global logger + panicking-
 )]
 mod app {
     use embedded_hal::delay::DelayNs;
-    use fugit::ExtU32;
     use half_bridge::{
         half_bridge::HalfBridge,
-        hardware::{self, adc::Adcs, REPETITION_COUNTER, TICK_RATE},
+        hardware::{self, adc::Adcs},
     };
     use stm32_hrtim::compare_register::HrCompareRegister;
     use stm32g4xx_hal::{adc::config::SampleTime, gpio};
@@ -35,6 +34,9 @@ mod app {
         i: u32,
         btn_iter_pressed: u32,
         is_wait_for_btn_release: bool,
+
+        max_temp_adc: u16,
+        temp_metric: probe_plotter::Metric<u16>,
     }
 
     #[init]
@@ -91,8 +93,8 @@ mod app {
 
         defmt::info!("Starting timers");
         timers.timer1.cr1.set_duty(hardware::PERIOD / 2); // Set max duty to 50%
-                                                           //timers.timer1.out.0.enable();
-                                                           //timers.timer1.out.1.enable();
+                                                          //timers.timer1.out.0.enable();
+                                                          //timers.timer1.out.1.enable();
 
         timers.control.control.start_stop_timers(|w| {
             let w = w.start(&mut timers.master_timer.timer);
@@ -111,6 +113,15 @@ mod app {
             w
         });
 
+        //let r_ntc = (r_pull_up * v_adc) / (vcc - v_adc);
+        //let r_ntc = (10000 * (x * 3.3 / 4095.0)) / (3.3 - (x * 3.3 / 4095.0));
+
+        //let r_ntc / r_ntc_25c = e.pow(beta * (t1_inv - t0_inv));
+
+        // ln e^x = x;
+
+        //let beta * (1.0/t1 - 1.0/t0) = ln(r_ntc / r_ntc_25c);
+
         (
             Shared {},
             Local {
@@ -122,6 +133,12 @@ mod app {
                 i: 0,
                 btn_iter_pressed: 0,
                 is_wait_for_btn_release: true,
+                
+                max_temp_adc: Adcs::degrees_c_to_adc(70.0),
+                temp_metric: probe_plotter::make_metric!(
+                    TEMP: u16 = 0,
+                    "(1.0 / ((ln((10000 * (x * 3.3 / 4095.0)) / (3.3 - (x * 3.3 / 4095.0)) / 10000) / 4100) + 1.0 / (273.15 + 25))) - 273.15"
+                ).unwrap()
             },
         )
     }
@@ -129,7 +146,7 @@ mod app {
     #[task(
         binds = HRTIM_MASTER_IRQN,
         shared = [ ],
-        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release],
+        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, temp_metric, max_temp_adc],
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
@@ -173,7 +190,8 @@ mod app {
             .adcs
             .adc1
             .convert(&ctx.local.ad_channels.ntc_5, SampleTime::Cycles_640_5);
-        let t = Adcs::adc_to_degreec_c(t);
+        //let t = Adcs::adc_to_degreec_c(t);
+        ctx.local.temp_metric.set(t);
 
         if *ctx.local.i & 0x1FFF == 0 {
             let i = ctx
@@ -204,9 +222,9 @@ mod app {
                 stm32_hrtim::output::State::Fault => todo!(),
             }
         }
-        ctx.local.half_bridge.update_set_all_currents_buck(50);
+        ctx.local.half_bridge.update_set_all_currents_buck(-2000);
 
-        if t > 70.0 {
+        if t > *ctx.local.max_temp_adc {
             ctx.local.half_bridge.disable();
             defmt::error!("Disabled due to overheat");
         }
