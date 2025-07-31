@@ -36,6 +36,8 @@ mod app {
         is_wait_for_btn_release: bool,
 
         max_temp_adc: u16,
+
+        current_metric: probe_plotter::Metric<u16>,
         temp_metric: probe_plotter::Metric<u16>,
     }
 
@@ -122,6 +124,7 @@ mod app {
 
         //let beta * (1.0/t1 - 1.0/t0) = ln(r_ntc / r_ntc_25c);
 
+        let max_temp_adc = defmt::dbg!(Adcs::degrees_c_to_adc(70.0));
         (
             Shared {},
             Local {
@@ -134,10 +137,14 @@ mod app {
                 btn_iter_pressed: 0,
                 is_wait_for_btn_release: true,
                 
-                max_temp_adc: Adcs::degrees_c_to_adc(70.0),
+                max_temp_adc,
                 temp_metric: probe_plotter::make_metric!(
                     TEMP: u16 = 0,
                     "(1.0 / ((ln((10000 * (x * 3.3 / 4095.0)) / (3.3 - (x * 3.3 / 4095.0)) / 10000) / 4100) + 1.0 / (273.15 + 25))) - 273.15"
+                ).unwrap(),
+                current_metric: probe_plotter::make_metric!(
+                    CURRENT: u16 = 0,
+                    "((x * 3.3 / 4095.0) - (3.3 / 2)) / -0.066"// Negative in buck direction
                 ).unwrap()
             },
         )
@@ -146,7 +153,7 @@ mod app {
     #[task(
         binds = HRTIM_MASTER_IRQN,
         shared = [ ],
-        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, temp_metric, max_temp_adc],
+        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, current_metric, temp_metric, max_temp_adc],
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
@@ -179,26 +186,29 @@ mod app {
             *ctx.local.btn_iter_pressed = 0;
         }
 
-        if *ctx.local.i & 0xFFF != 0 {
-            ctx.local.half_bridge.clear_repetition_interrupt();
-            return;
-        }
+        //if *ctx.local.i & 0xFFF != 0 {
+        //    ctx.local.half_bridge.clear_repetition_interrupt();
+        //    return;
+        //}
 
         //ctx.local.adcs.read(ctx.local.ad_channels);
         let t = ctx
             .local
             .adcs
             .adc1
-            .convert(&ctx.local.ad_channels.ntc_5, SampleTime::Cycles_640_5);
+            .convert(&ctx.local.ad_channels.ntc_5, SampleTime::Cycles_247_5);
+        let i = ctx
+            .local
+            .adcs
+            .adc3
+            .convert(&ctx.local.ad_channels.cc1, SampleTime::Cycles_12_5);
+
         //let t = Adcs::adc_to_degreec_c(t);
         ctx.local.temp_metric.set(t);
+        ctx.local.current_metric.set(i);
 
-        if *ctx.local.i & 0x1FFF == 0 {
-            let i = ctx
-                .local
-                .adcs
-                .adc3
-                .convert(&ctx.local.ad_channels.cc1, SampleTime::Cycles_12_5);
+        /*if *ctx.local.i & 0x1FFF == 0 {
+            let t = Adcs::adc_to_degreec_c(t);
             let i = Adcs::adc_to_ma_buck(i, ctx.local.half_bridge.zero_current_offsets[0]);
             match status {
                 stm32_hrtim::output::State::Idle => {
@@ -221,10 +231,11 @@ mod app {
                 }
                 stm32_hrtim::output::State::Fault => todo!(),
             }
-        }
+        }*/
         ctx.local.half_bridge.update_set_all_currents_buck(-2000);
 
-        if t > *ctx.local.max_temp_adc {
+        // NTC: Small value is hot
+        if t < *ctx.local.max_temp_adc {
             ctx.local.half_bridge.disable();
             defmt::error!("Disabled due to overheat");
         }

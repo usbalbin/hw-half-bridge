@@ -29,7 +29,6 @@ stm32-hrtim = { path = "../../stm32-hrtim" }
 
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
-cortex-m-rt = "0.7.3" ## <--- Probably not needed
 defmt = { version = "0.3", features = ["encoding-rzcobs"] }
 defmt-brtt = { version = "0.1", default-features = false, features = ["rtt"] }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
@@ -46,6 +45,7 @@ micromath = "2.1.0"
 fugit = { version = "0.3.7", features = ["defmt"] }
 # TODO add a monotonic if you use scheduling
 # rtic-monotonics = { version = "1.0.0", features = [ "cortex-m-systick" ]}
+probe-plotter = { git = "https://github.com/usbalbin/probe-plotter", branch = "syn2" }
 
 # cargo build/run
 [profile.dev]
