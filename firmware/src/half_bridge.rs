@@ -1,6 +1,6 @@
 use core::array;
 
-use stm32_hrtim::output::HrOutput;
+use stm32_hrtim::{compare_register::HrCompareRegister, output::HrOutput};
 
 use crate::hardware::{dacs::Dacs, timers::Timers};
 
@@ -107,6 +107,11 @@ impl HalfBridge {
     /// vout = vin/(1-d)
     #[cfg(feature = "voltage-mode")]
     pub fn update_boost(&mut self, target_u_hi: f32, measured: Input) {}
+
+    #[inline(always)]
+    pub fn set_duty(&mut self, duty: u16) {
+        self.timers.timer1.cr1.set_duty(duty);
+    }
 
     pub fn disable(&mut self) {
         self.timers.timer1.out.0.disable();

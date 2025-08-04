@@ -25,7 +25,7 @@ leds = []
 stm32g4xx-hal = { path = "../../stm32g4xx-hal" }
 
 [patch.crates-io]
-stm32-hrtim = { path = "../../stm32-hrtim" }
+stm32-hrtim = { git = "https://github.com/usbalbin/stm32-hrtim" }
 
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
@@ -45,7 +45,8 @@ micromath = "2.1.0"
 fugit = { version = "0.3.7", features = ["defmt"] }
 # TODO add a monotonic if you use scheduling
 # rtic-monotonics = { version = "1.0.0", features = [ "cortex-m-systick" ]}
-probe-plotter = { git = "https://github.com/usbalbin/probe-plotter", branch = "syn2" }
+#probe-plotter = { git = "https://github.com/usbalbin/probe-plotter", branch = "add-ln" }
+probe-plotter = { path = "../../probe-plotter/probe-plotter" }
 
 # cargo build/run
 [profile.dev]

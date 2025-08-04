@@ -37,8 +37,13 @@ mod app {
 
         max_temp_adc: u16,
 
+        vin_metric: probe_plotter::Metric<u16>,
+        vout_metric: probe_plotter::Metric<u16>,
+
         current_metric: probe_plotter::Metric<u16>,
         temp_metric: probe_plotter::Metric<u16>,
+        duty: probe_plotter::Setting<u16>,
+        duty_metric: probe_plotter::Metric<u16>,
     }
 
     #[init]
@@ -94,9 +99,9 @@ mod app {
         defmt::dbg!(zero_current_offsets);
 
         defmt::info!("Starting timers");
-        timers.timer1.cr1.set_duty(hardware::PERIOD / 2); // Set max duty to 50%
-                                                          //timers.timer1.out.0.enable();
-                                                          //timers.timer1.out.1.enable();
+        timers.timer1.cr1.set_duty(544); // Set max duty to 50%
+                                         //timers.timer1.out.0.enable();
+                                         //timers.timer1.out.1.enable();
 
         timers.control.control.start_stop_timers(|w| {
             let w = w.start(&mut timers.master_timer.timer);
@@ -136,16 +141,20 @@ mod app {
                 i: 0,
                 btn_iter_pressed: 0,
                 is_wait_for_btn_release: true,
-                
+
                 max_temp_adc,
                 temp_metric: probe_plotter::make_metric!(
                     TEMP: u16 = 0,
-                    "(1.0 / ((ln((10000 * (x * 3.3 / 4095.0)) / (3.3 - (x * 3.3 / 4095.0)) / 10000) / 4100) + 1.0 / (273.15 + 25))) - 273.15"
+                    "(1.0 / ((ln((10000 * (TEMP * 3.3 / 4095.0)) / (3.3 - (TEMP * 3.3 / 4095.0)) / 10000) / 4100) + 1.0 / (273.15 + 25))) - 273.15"
                 ).unwrap(),
+                vin_metric: probe_plotter::make_metric!(VIN: u16 = 0, "(3.3 * VIN / 4095) * (20000 + 1000) / 1000").unwrap(),
+                vout_metric: probe_plotter::make_metric!(VOUT: u16 = 0, "(3.3 * VOUT / 4095) * (20000 + 1000) / 1000").unwrap(),
                 current_metric: probe_plotter::make_metric!(
                     CURRENT: u16 = 0,
-                    "((x * 3.3 / 4095.0) - (3.3 / 2)) / -0.066"// Negative in buck direction
-                ).unwrap()
+                    "((CURRENT * 3.3 / 4095.0) - (3.3 / 2)) / -0.066"// Negate to get positive current in buck direction
+                ).unwrap(),
+                duty: probe_plotter::make_setting!(DUTY: u16 = 544, 544..=4896, 1.0).unwrap(),
+                duty_metric: probe_plotter::make_metric!(DUTY_M: u16 = 0, "DUTY_M").unwrap() 
             },
         )
     }
@@ -153,7 +162,7 @@ mod app {
     #[task(
         binds = HRTIM_MASTER_IRQN,
         shared = [ ],
-        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, current_metric, temp_metric, max_temp_adc],
+        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, vin_metric, vout_metric, current_metric, temp_metric, max_temp_adc, duty, duty_metric],
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
@@ -206,6 +215,23 @@ mod app {
         //let t = Adcs::adc_to_degreec_c(t);
         ctx.local.temp_metric.set(t);
         ctx.local.current_metric.set(i);
+        let duty = ctx.local.duty.get();
+        ctx.local.half_bridge.set_duty(hardware::PERIOD - duty);
+        ctx.local.duty_metric.set(duty);
+
+        let vout = ctx
+            .local
+            .adcs
+            .adc2
+            .convert(&ctx.local.ad_channels.fb_a, SampleTime::Cycles_47_5); // PC5 D0 LOW
+        let vin = ctx
+            .local
+            .adcs
+            .adc2
+            .convert(&ctx.local.ad_channels.fb_d, SampleTime::Cycles_47_5); // PC4 D1 HI
+
+        ctx.local.vout_metric.set(vout);
+        ctx.local.vin_metric.set(vin);
 
         /*if *ctx.local.i & 0x1FFF == 0 {
             let t = Adcs::adc_to_degreec_c(t);
