@@ -43,6 +43,8 @@ mod app {
         current_metric: probe_plotter::Metric<u16>,
         temp_metric: probe_plotter::Metric<u16>,
         duty: probe_plotter::Setting<u16>,
+        current_limit: probe_plotter::Setting<i16>,
+
         duty_metric: probe_plotter::Metric<u16>,
     }
 
@@ -154,7 +156,8 @@ mod app {
                     "((CURRENT * 3.3 / 4095.0) - (3.3 / 2)) / -0.066"// Negate to get positive current in buck direction
                 ).unwrap(),
                 duty: probe_plotter::make_setting!(DUTY: u16 = 544, 544..=4896, 1.0).unwrap(),
-                duty_metric: probe_plotter::make_metric!(DUTY_M: u16 = 0, "DUTY_M").unwrap() 
+                duty_metric: probe_plotter::make_metric!(DUTY_M: u16 = 0, "DUTY_M").unwrap(),
+                current_limit: probe_plotter::make_setting!(CURRENT_LIMIT: i16 = 0, -2048..=2047, 1).unwrap(),
             },
         )
     }
@@ -162,7 +165,7 @@ mod app {
     #[task(
         binds = HRTIM_MASTER_IRQN,
         shared = [ ],
-        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, vin_metric, vout_metric, current_metric, temp_metric, max_temp_adc, duty, duty_metric],
+        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, vin_metric, vout_metric, current_metric, temp_metric, max_temp_adc, duty, duty_metric, current_limit],
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
@@ -216,8 +219,12 @@ mod app {
         ctx.local.temp_metric.set(t);
         ctx.local.current_metric.set(i);
         let duty = ctx.local.duty.get();
-        ctx.local.half_bridge.set_duty(hardware::PERIOD - duty);
+        ctx.local.half_bridge.set_duty(duty);
         ctx.local.duty_metric.set(duty);
+        let current_limit = ctx.local.current_limit.get();
+        ctx.local
+            .half_bridge
+            .update_set_all_currents_buck(current_limit);
 
         let vout = ctx
             .local
@@ -233,7 +240,7 @@ mod app {
         ctx.local.vout_metric.set(vout);
         ctx.local.vin_metric.set(vin);
 
-        /*if *ctx.local.i & 0x1FFF == 0 {
+        if *ctx.local.i & 0x1FFF == 0 {
             let t = Adcs::adc_to_degreec_c(t);
             let i = Adcs::adc_to_ma_buck(i, ctx.local.half_bridge.zero_current_offsets[0]);
             match status {
@@ -257,8 +264,7 @@ mod app {
                 }
                 stm32_hrtim::output::State::Fault => todo!(),
             }
-        }*/
-        ctx.local.half_bridge.update_set_all_currents_buck(-2000);
+        }
 
         // NTC: Small value is hot
         if t < *ctx.local.max_temp_adc {

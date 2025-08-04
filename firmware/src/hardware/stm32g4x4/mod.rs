@@ -507,7 +507,7 @@ impl Hardware {
         //let spi_mode = spi::Mode::default();
         //let spi = dp.SPI1.spi(mosi_pin, spi_mode, 3.MHz(), &mut rcc);
 
-        //let timers = timers.connect_fast_comparators(&eevs);
+        let timers = timers.connect_fast_comparators(&eevs);
 
         defmt::info!("Initializing Hardware - Done");
 

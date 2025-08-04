@@ -97,6 +97,11 @@ pub struct Timers {
     pub timer5: TimerHb5,
 }
 
+pub enum Direction {
+    Buck,
+    Boost,
+}
+
 impl Timers {
     pub(crate) fn init(
         hrtim_master: HRTIM_MASTER,
