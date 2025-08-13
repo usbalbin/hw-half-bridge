@@ -7,12 +7,12 @@ use crate::math::{atan, pow2, sqrt, tan, Complex};
 
 #[derive(Debug, defmt::Format)]
 pub struct TwoPoleTwoZero {
-    a1: f32,
-    a2: f32,
+    pub a1: f32,
+    pub a2: f32,
 
-    b0: f32,
-    b1: f32,
-    b2: f32,
+    pub b0: f32,
+    pub b1: f32,
+    pub b2: f32,
 }
 
 const P: ParametersBuck = ParametersBuck {
@@ -45,6 +45,7 @@ pub struct DacSettings {
 
 macro_rules! p {
     ($val:expr, $val2:expr) => {
+        #[cfg(false)]
         eprintln!(
             "[{}:{}:{}] {} = {:#?}, {}",
             file!(),
@@ -58,7 +59,7 @@ macro_rules! p {
 }
 
 impl ParametersBuck {
-    pub fn to_transfer_function(self) -> (TransferFunction, DacSettings) {
+    pub const fn to_transfer_function(self) -> (TransferFunction, DacSettings) {
         // https://www.biricha.com/articles/step-by-step-design-guide-for-digital-peak-current-mode-control-a-single-chip-solution
         // https://www.st.com/en/embedded-software/x-cube-dpower.html
         // https://www.ti.com/lit/an/sprabe7a/sprabe7a.pdf?ts=1723931480534
@@ -155,7 +156,7 @@ impl ParametersBuck {
     }
 }
 
-#[derive(Debug)]
+#[derive(Debug, defmt::Format)]
 pub struct TransferFunction {
     f_sw: f64,
     t_adc_sample_to_dac_out: f64,
@@ -168,7 +169,7 @@ pub struct TransferFunction {
 }
 
 impl TransferFunction {
-    pub fn to_2p2z(self) -> TwoPoleTwoZero {
+    pub const fn to_2p2z(self) -> TwoPoleTwoZero {
         let TransferFunction {
             f_sw,
             t_adc_sample_to_dac_out,
@@ -186,57 +187,40 @@ impl TransferFunction {
         let f_x = f_sw / 13.33333333333333333333;
         p!(f_x, "15000");
 
-        println!("----------------------------------");
-        println!("----------------------------------");
-        println!("----------------------------------");
+        //println!("----------------------------------");
+        //println!("----------------------------------");
+        //println!("----------------------------------");
 
         // Crossover frequency as rad/s
         let ohmega_x = 2.0 * PI * f_x;
         p!(ohmega_x, "?");
 
         let phase_erosion = 2.0 * PI * f_x * t_adc_sample_to_dac_out;
-        assert!(phase_erosion < 90.0f64.to_radians());
+
+        //#[cfg(not(feature = "hardware"))]
+        //assert!(phase_erosion < 90.0f64.to_radians());
 
         // TODO: Is this enough?
         let phase_margin: f64 = 75.0f64.to_radians(); //50.0f64.to_radians() + phase_erosion;
 
-        dbg!(phase_margin);
-
         // ChatGPT's suggestion
         let r = ohmega_x / ohmega_n;
-        let complex_pole_pair = (r / (1.0 - pow2(r))).atan();
-        dbg!(complex_pole_pair);
+        let complex_pole_pair = atan(r / (1.0 - pow2(r)));
+        //dbg!(complex_pole_pair);
 
         // p1 ok
-        let phi_v = -0.5 * PI + phase_margin + (ohmega_x / ohmega_p1).atan() + complex_pole_pair;
-        dbg!(ohmega_x);
-
-        /*let phi_v = ((Complex::r_div(ohmega_x, ohmega_n1)).atan())
-        .add((Complex::r_div(ohmega_x, ohmega_n2)).atan())
-        .add_r((-0.5 * PI + phase_margin) + (ohmega_x / ohmega_p1).atan());*/
-
-        // phi_v should end up being only real at this point
-        //assert_eq!(phi_v.im, 0.0);
-
-        //let phi_v = phi_v.re;
-        dbg!(phi_v);
-        //p!(phi_v.to_degrees(), "?");
-
-        //p!(phi_v.tan(), "0.874095");
+        let phi_v = -0.5 * PI + phase_margin + atan(ohmega_x / ohmega_p1) + complex_pole_pair;
+        //dbg!(ohmega_x);
 
         let ohmega_cp1 = ohmega_esr; // Rätt
-        let ohmega_cz1 = ohmega_x / phi_v.tan();
+        let ohmega_cz1 = ohmega_x / tan(phi_v);
         p!(ohmega_cp1, "73_310"); // Rätt
         p!(ohmega_cz1, "11_110"); // Fel
 
-        let k1 =
-            f64::sqrt((1.0 + pow2(ohmega_x / ohmega_cz1)) / (1.0 + pow2(ohmega_x / ohmega_p1)));
+        let k1 = sqrt((1.0 + pow2(ohmega_x / ohmega_cz1)) / (1.0 + pow2(ohmega_x / ohmega_p1)));
         //let k2 = 1.0 / f64::sqrt(pow2(1.0 - ohmega_x / pow2(ohmega_n)) + pow2(ohmega_x / ohmega_n));
-        let k2 =
-            f64::sqrt(1.0 / (pow2(1.0 - pow2(ohmega_x / ohmega_n)) + pow2(ohmega_x / ohmega_n)));
+        let k2 = sqrt(1.0 / (pow2(1.0 - pow2(ohmega_x / ohmega_n)) + pow2(ohmega_x / ohmega_n)));
 
-        dbg!(k1);
-        dbg!(k2);
         // pole at origin
         let ohmega_cp0 = ohmega_x / (h_dc * k1 * k2); // Fel
         p!(ohmega_cp0, "217_100");
@@ -278,6 +262,10 @@ impl TransferFunction {
 
         //let h_p = |s: Complex| (1.0 + s / ohmega_esr) / (1.0 + s / ohmega_p1);
 
+        #[cfg(feature = "hardware")]
+        println!("(1.0 + s / {}) / (1.0 + s / {})", ohmega_esr, ohmega_p1);
+
+        #[cfg(not(feature = "hardware"))]
         println!(
             "(1.0 + s / {:.2}) / (1.0 + s / {:.2})",
             ohmega_esr, ohmega_p1
@@ -290,6 +278,13 @@ impl TransferFunction {
         // High frequency transfer function
         // let h_h = |s: Complex| 1.0 / (s * s / (ohmega_n * ohmega_n) + s * q_inv / ohmega_n + 1.0);
 
+        #[cfg(feature = "hardware")]
+        println!(
+            "1.0 / (s * s / {}^2 + s * {} / {} + 1.0)",
+            ohmega_n, q_inv, ohmega_n
+        );
+
+        #[cfg(not(feature = "hardware"))]
         println!(
             "1.0 / (s * s / {:.2}^2 + s * {:.2} / {:.2} + 1.0)",
             ohmega_n, q_inv, ohmega_n
@@ -297,6 +292,10 @@ impl TransferFunction {
     }
 
     pub fn print_dc_gain(&self) {
+        #[cfg(feature = "hardware")]
+        println!("{}", self.h_dc);
+
+        #[cfg(not(feature = "hardware"))]
         println!("{:.2}", self.h_dc);
     }
 }
