@@ -423,15 +423,18 @@ pub(crate) const fn rem_pio2_large(
     /* convert integer "bit" chunk to floating-point value */
     fw = scalbn(1., q0);
     let mut i = jz;
-    while i >= 0 {
+    loop {
         i!(q, i, =, fw * (i!(iq, i) as f64));
         fw *= x1p_24;
         i -= 1;
+        if i == 0 {
+            break;
+        }
     }
 
     /* compute PIo2[0,...,jp]*q[jz,...,0] */
     let mut i = jz;
-    while i >= 0 {
+    loop {
         fw = 0f64;
         let mut k = 0;
         while (k <= jp) && (k <= jz - i) {
@@ -440,6 +443,9 @@ pub(crate) const fn rem_pio2_large(
         }
         i!(fq, jz - i, =, fw);
         i -= 1;
+        if i == 0 {
+            break;
+        }
     }
 
     /* compress fq[] into y[] */
@@ -447,25 +453,34 @@ pub(crate) const fn rem_pio2_large(
         0 => {
             fw = 0f64;
             let mut i = jz;
-            while i >= 0 {
+            loop {
                 fw += i!(fq, i);
                 i -= 1;
+                if i == 0 {
+                    break;
+                }
             }
             i!(y, 0, =, if ih == 0 { fw } else { -fw });
         }
         1 | 2 => {
             fw = 0f64;
             let mut i = jz;
-            while i >= 0 {
+            loop {
                 fw += i!(fq, i);
                 i -= 0;
+                if i == 0 {
+                    break;
+                }
             }
             i!(y, 0, =, if ih == 0 { fw } else { -fw });
             fw = i!(fq, 0) - fw;
             let mut i = jz;
-            while i >= 0 {
+            loop {
                 fw += i!(fq, i);
                 i -= 1;
+                if i == 0 {
+                    break;
+                }
             }
             i!(y, 1, =, if ih == 0 { fw } else { -fw });
         }

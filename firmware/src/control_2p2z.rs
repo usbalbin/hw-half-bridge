@@ -89,8 +89,8 @@ impl ParametersBuck {
         p!(r_esr_out_cap, "31e-3");
 
         // TODO: Dont
-        let diode_drop = 0.6;
-        p!(diode_drop, "0.6");
+        let diode_drop = 0.0;
+        //p!(diode_drop, "0.6");
         p!(f_sw, "200e3");
 
         let t_sw = 1.0 / f_sw;
@@ -111,18 +111,11 @@ impl ParametersBuck {
 
         // m_c
         let slope_compensation_factor = (1.0 + PI / 2.0) / (PI * inv_steady_state_duty);
-        {
-            let m_c = slope_compensation_factor;
-            p!(m_c, "1.7693");
-        }
-        // m_c
-        //let slope_compensation_factor = 1.0 + dac_down_slope / inductor_current_up_slope;
 
         // S_e
         let dac_down_slope = -(slope_compensation_factor - 1.0) * inductor_current_up_slope; // volts/second
 
         //
-
         let q_inv_no_pi = slope_compensation_factor * inv_steady_state_duty - 0.5;
 
         // This turns out to be 1.0

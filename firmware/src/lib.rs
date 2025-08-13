@@ -7,7 +7,7 @@ pub mod control_2p2z;
 pub mod half_bridge;
 #[cfg(feature = "hardware")]
 pub mod hardware;
-pub mod math;
+mod math;
 pub mod types;
 
 use core::sync::atomic::{AtomicUsize, Ordering};

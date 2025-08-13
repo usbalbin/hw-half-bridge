@@ -21,7 +21,7 @@ const P: ParametersBuck = ParametersBuck {
     f_sw: 1e6,
     l_inductor: 22e-6, // 2.2 @ 0A, 2.0 at 8A, ~1.5 @ 24A
     //r_esr_inductor: 4.08e-3,   // 4.08mOhm typical
-    r_esr_out_cap: 31e-3,     // todo
+    r_esr_out_cap: 31e-3,      // todo
     current_sense_gain: 66e-3, // 66mV/A
     i_load: 10.0,              // 10A
 };
@@ -111,7 +111,7 @@ fn main() {
             l_inductor: P.l_inductor,
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
-            i_load: f64::from(i_load).max(f64::EPSILON),      // 10A
+            i_load: f64::from(i_load).max(f64::EPSILON), // 10A
         };
 
         let (tf, _dac) = params.to_transfer_function();

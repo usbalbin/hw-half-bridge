@@ -1,11 +1,3 @@
-use core::{fmt::write, ops::Mul};
-
-use super::{
-    atan::{self, atan2},
-    hypot::hypot,
-    sqrt,
-};
-
 #[derive(Clone, Copy)]
 pub struct Complex {
     pub re: f64,
@@ -35,8 +27,11 @@ impl core::fmt::Display for Complex {
 }
 
 impl Complex {
-    const i: Self = Self::new(0.0, 1.0);
-    const j: Self = Self::i;
+    #[allow(non_upper_case_globals)]
+    pub const i: Self = Self::new(0.0, 1.0);
+    #[allow(non_upper_case_globals)]
+    pub const j: Self = Self::i;
+
     const ONE: Self = Self::new(1.0, 0.0);
 
     pub const fn sqrt_r(re: f64) -> Self {

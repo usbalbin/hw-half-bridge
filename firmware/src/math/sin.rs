@@ -11,11 +11,7 @@
 
 // From https://github.com/rust-lang/libm/blob/master/libm/src/math/sin.rs
 
-use super::{
-    k_cos::{self, k_cos},
-    k_sin::{self, k_sin},
-    rem_pio2::{self, rem_pio2},
-};
+use super::{k_cos::k_cos, k_sin::k_sin, rem_pio2::rem_pio2};
 
 // sin(x)
 // Return sine function of x.
@@ -51,8 +47,6 @@ use super::{
 ///
 /// `x` is specified in radians.
 pub const fn sin(x: f64) -> f64 {
-    let x1p120 = f64::from_bits(0x4770000000000000); // 0x1p120f === 2 ^ 120
-
     /* High word of x. */
     let ix = (f64::to_bits(x) >> 32) as u32 & 0x7fffffff;
 

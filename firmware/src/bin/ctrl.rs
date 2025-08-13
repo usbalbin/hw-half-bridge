@@ -31,7 +31,6 @@ const S: ParametersBuck = ParametersBuck {
 const TRANSFER_FUNCTION_AND_DAC_SETTINGS: (TransferFunction, DacSettings) =
     S.to_transfer_function();
 const TRANSFER_FUNCTION: TransferFunction = TRANSFER_FUNCTION_AND_DAC_SETTINGS.0;
-
 const COMPENSATOR: TwoPoleTwoZero = TRANSFER_FUNCTION.to_2p2z();
 
 use cortex_m_rt::entry;

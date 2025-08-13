@@ -7,10 +7,7 @@
 //! performance seems to be better (based on icount) and it does not seem to experience rounding
 //! errors on i386.
 
-use super::{
-    support_env::{FpResult, Status},
-    EXP_BIAS, EXP_SAT, SIG_BITS, SIG_MASK,
-};
+use super::{support_env::FpResult, EXP_BIAS, EXP_SAT, SIG_BITS, SIG_MASK};
 
 #[inline]
 pub const fn floor(x: f64) -> f64 {
@@ -37,7 +34,6 @@ pub const fn floor_status(x: f64) -> FpResult<f64> {
         return FpResult::ok(x);
     }
 
-    let status;
     let res = if e >= 0 {
         // |x| >= 1.0
         let m = (SIG_MASK >> e) as u64;
@@ -46,9 +42,6 @@ pub const fn floor_status(x: f64) -> FpResult<f64> {
             return FpResult::ok(x);
         }
 
-        // Otherwise, raise an inexact exception.
-        status = Status::INEXACT;
-
         if x.is_sign_negative() {
             ix += m;
         }
@@ -56,13 +49,6 @@ pub const fn floor_status(x: f64) -> FpResult<f64> {
         ix &= !m;
         f64::from_bits(ix)
     } else {
-        // |x| < 1.0, raise an inexact exception since truncation will happen.
-        if ix & SIG_MASK == 0 {
-            status = Status::OK;
-        } else {
-            status = Status::INEXACT;
-        }
-
         if x.is_sign_positive() {
             // 0.0 <= x < 1.0; rounding down goes toward +0.0.
             0.0
@@ -75,5 +61,5 @@ pub const fn floor_status(x: f64) -> FpResult<f64> {
         }
     };
 
-    FpResult::new(res, status)
+    FpResult::new(res)
 }
