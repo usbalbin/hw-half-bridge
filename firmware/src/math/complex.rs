@@ -25,11 +25,11 @@ impl core::fmt::Display for Complex {
             (0.0, -1.0) => write!(f, "-i"),
             (0.0, im) if im.is_infinite() => write!(f, "inf*i"),
             (0.0, im) => write!(f, "{im}i"),
-            (re, 0.0) => write!(f, "{re}", ),
+            (re, 0.0) => write!(f, "{re}",),
             (re, 1.0) => write!(f, "{re} + i"),
             (re, -1.0) => write!(f, "{re} - i"),
             (re, im) if im < 0.0 => write!(f, "({re} - {}i)", -im),
-            (re, im)  => write!(f, "({re} + {im}i)")
+            (re, im) => write!(f, "({re} + {im}i)"),
         }
     }
 }
@@ -62,17 +62,12 @@ impl Complex {
     pub const fn r_div(re: f64, other: Complex) -> Self {
         // a / (c + i d) == [a * (c - i d)] / (c*c + d*d)
         let norm_sqr = other.norm_sqr();
-        Self::new(
-            re * other.re / norm_sqr,
-            0.0 - re * other.im / norm_sqr,
-        )
+        Self::new(re * other.re / norm_sqr, 0.0 - re * other.im / norm_sqr)
     }
 
     /// z / re
-    pub const fn div_r(self, re: f64) -> Self {        
-        Self::new(
-            self.re / re, self.im / re
-        )
+    pub const fn div_r(self, re: f64) -> Self {
+        Self::new(self.re / re, self.im / re)
     }
 
     pub const fn add(self, rhs: Self) -> Self {

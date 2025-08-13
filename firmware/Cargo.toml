@@ -5,7 +5,7 @@ edition = "2021"
 version = "0.1.0"
 
 [features]
-default = ["hv1", "hardware"]
+default = ["hv1"] #, "hardware"]
 hardware = []
 
 fb_a-op = [] # Op on fb_a, else R32

@@ -11,7 +11,11 @@
 
 // From https://github.com/rust-lang/libm/blob/master/libm/src/math/sin.rs
 
-use super::{k_cos::{self, k_cos}, k_sin::{self, k_sin}, rem_pio2::{self, rem_pio2}};
+use super::{
+    k_cos::{self, k_cos},
+    k_sin::{self, k_sin},
+    rem_pio2::{self, rem_pio2},
+};
 
 // sin(x)
 // Return sine function of x.

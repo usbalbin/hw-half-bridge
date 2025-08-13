@@ -32,7 +32,6 @@
  * to produce the hexadecimal values shown.
  */
 
-
 use core::f64;
 use core::f64::consts::PI;
 
@@ -133,7 +132,11 @@ pub const fn atan(x: f64) -> f64 {
 
     let z = i!(ATANHI, id as usize) - (x * (s1 + s2) - i!(ATANLO, id as usize) - x);
 
-    if sign != 0 { -z } else { z }
+    if sign != 0 {
+        -z
+    } else {
+        z
+    }
 }
 
 pub const fn atan2(y: f64, x: f64) -> f64 {
@@ -142,7 +145,7 @@ pub const fn atan2(y: f64, x: f64) -> f64 {
     } else if x < 0.0 && y >= 0.0 {
         atan(y / x) + PI
     } else if x < 0.0 && y < 0.0 {
-         atan(y / x) - PI
+        atan(y / x) - PI
     } else if x == 0.0 && y > 0.0 {
         PI / 2.0
     } else if x == 0.0 && y < 0.0 {

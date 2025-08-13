@@ -7,7 +7,10 @@
 //! performance seems to be better (based on icount) and it does not seem to experience rounding
 //! errors on i386.
 
-use super::{support_env::{FpResult, Status}, EXP_BIAS, EXP_SAT, SIG_BITS, SIG_MASK};
+use super::{
+    support_env::{FpResult, Status},
+    EXP_BIAS, EXP_SAT, SIG_BITS, SIG_MASK,
+};
 
 #[inline]
 pub const fn floor(x: f64) -> f64 {

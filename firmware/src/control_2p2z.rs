@@ -1,7 +1,7 @@
 use core::f64::consts::PI;
 
 #[cfg(feature = "hardware")]
-use defmt::{assert, println, println as eprintln, dbg};
+use defmt::{assert, dbg, println, println as eprintln};
 
 use crate::math::{atan, pow2, sqrt, tan, Complex};
 
@@ -16,15 +16,15 @@ pub struct TwoPoleTwoZero {
 }
 
 const P: ParametersBuck = ParametersBuck {
-    v_in: 48.0,
-    v_out: 12.0,
-    c_out: 2.0 * 7.7e-6, // 2 * ~7.7uF @ 12V
-    f_sw: 1e6,
-    l_inductor: 2e-6, // 2.2 @ 0A, 2.0 at 8A, ~1.5 @ 24A
+    v_in: 16.0,
+    v_out: 8.0,
+    c_out: 440.0e-6, // 2 * ~7.7uF @ 12V
+    f_sw: 2e5,
+    l_inductor: 22e-6, // 2.2 @ 0A, 2.0 at 8A, ~1.5 @ 24A
     //r_esr_inductor: 4.08e-3,   // 4.08mOhm typical
-    r_esr_out_cap: 1.5e-3,     // todo
+    r_esr_out_cap: 31e-3,      // todo
     current_sense_gain: 66e-3, // 66mV/A
-    i_load: 10.0,              // 10A
+    i_load: 2.0,               // 10A
 };
 
 pub struct ParametersBuck {
@@ -79,8 +79,18 @@ impl ParametersBuck {
             i_load,
         } = self;
 
+        p!(v_in, "16");
+        p!(v_out, "8");
+        p!(i_load, "2");
+        p!(c_out, "440e-6");
+        p!(l_inductor, "22e-6");
+        p!(current_sense_gain, "0.48");
+        p!(r_esr_out_cap, "31e-3");
+
         // TODO: Dont
         let diode_drop = 0.6;
+        p!(diode_drop, "0.6");
+        p!(f_sw, "200e3");
 
         let t_sw = 1.0 / f_sw;
         let r_load = v_out / i_load; // ohm
@@ -124,7 +134,7 @@ impl ParametersBuck {
         let ohmega_p1 = (1.0 / (r_load * c_out)) + (q_inv_no_pi * t_sw / (l_inductor * c_out));
         let ohmega_esr = 1.0 / (c_out * r_esr_out_cap);
         p!(ohmega_p1, "732.6");
-        p!(ohmega_esr, "73 310");
+        p!(ohmega_esr, "aka ωCP1 (and ωZ1 ?) 73 310");
         // let h_ctrl_to_output = |s| h_h(s) * h_p(s) * h_dc;
 
         //------------------------
@@ -174,7 +184,7 @@ impl TransferFunction {
         // Crossover frequency
         // TODO: Is this a good value?
         let f_x = f_sw / 13.33333333333333333333;
-        dbg!(f_x);
+        p!(f_x, "15000");
 
         println!("----------------------------------");
         println!("----------------------------------");
@@ -182,7 +192,7 @@ impl TransferFunction {
 
         // Crossover frequency as rad/s
         let ohmega_x = 2.0 * PI * f_x;
-        dbg!(ohmega_x);
+        p!(ohmega_x, "?");
 
         let phase_erosion = 2.0 * PI * f_x * t_adc_sample_to_dac_out;
         assert!(phase_erosion < 90.0f64.to_radians());
@@ -190,54 +200,43 @@ impl TransferFunction {
         // TODO: Is this enough?
         let phase_margin: f64 = 75.0f64.to_radians(); //50.0f64.to_radians() + phase_erosion;
 
-        // Compensate for pole placed at frequency of the zero formed by capacitor and its esr
-        let ohmega_n1;
-        let ohmega_n2;
+        dbg!(phase_margin);
 
-        {
-            // n ok
-            let x = 1.0 / pow2(ohmega_n) - 2.0;
-            println!("x: {}", x);
-            let sqrt = Complex::sqrt_r(x);
-            // ohmega_n1 = sqrt.add_r(-0.5 * ohmega_n); // -0.5 * ohmega_n + sqrt
-            // ohmega_n2 = Complex::r_sub(-0.5 * ohmega_n, sqrt); // -0.5 * ohmega_n - sqrt
-
-            ohmega_n1 = -0.5 * ohmega_n + sqrt;
-            ohmega_n2 = -0.5 * ohmega_n - sqrt;
-        }
+        // ChatGPT's suggestion
+        let r = ohmega_x / ohmega_n;
+        let complex_pole_pair = (r / (1.0 - pow2(r))).atan();
+        dbg!(complex_pole_pair);
 
         // p1 ok
-        let phi_v = -0.5 * PI + phase_margin
-            + atan(ohmega_x / ohmega_p1)
-            + (ohmega_x / ohmega_n1).atan() // The imaginary parts from n1 and n2 cancel out here
-            + (ohmega_x / ohmega_n2).atan();
-        dbg!(ohmega_n1); // Kanske rätt
-        dbg!(ohmega_n2); // Kanske rätt
+        let phi_v = -0.5 * PI + phase_margin + (ohmega_x / ohmega_p1).atan() + complex_pole_pair;
         dbg!(ohmega_x);
-        dbg!((ohmega_x / ohmega_n1).atan());
 
         /*let phi_v = ((Complex::r_div(ohmega_x, ohmega_n1)).atan())
         .add((Complex::r_div(ohmega_x, ohmega_n2)).atan())
         .add_r((-0.5 * PI + phase_margin) + (ohmega_x / ohmega_p1).atan());*/
 
         // phi_v should end up being only real at this point
-        assert_eq!(phi_v.im, 0.0);
+        //assert_eq!(phi_v.im, 0.0);
 
-        let phi_v = phi_v.re;
+        //let phi_v = phi_v.re;
         dbg!(phi_v);
         //p!(phi_v.to_degrees(), "?");
 
         //p!(phi_v.tan(), "0.874095");
 
         let ohmega_cp1 = ohmega_esr; // Rätt
-        let ohmega_cz1 = ohmega_x / phi_v.tan(); // <------------------- Fel
+        let ohmega_cz1 = ohmega_x / phi_v.tan();
         p!(ohmega_cp1, "73_310"); // Rätt
         p!(ohmega_cz1, "11_110"); // Fel
 
-        let k1 = f64::sqrt(1.0 + pow2(ohmega_x / ohmega_cz1))
-            / f64::sqrt(1.0 + pow2(ohmega_x / ohmega_p1));
-        let k2 = 1.0 / f64::sqrt(pow2(1.0 - ohmega_x / pow2(ohmega_n)) + pow2(ohmega_x / ohmega_n));
+        let k1 =
+            f64::sqrt((1.0 + pow2(ohmega_x / ohmega_cz1)) / (1.0 + pow2(ohmega_x / ohmega_p1)));
+        //let k2 = 1.0 / f64::sqrt(pow2(1.0 - ohmega_x / pow2(ohmega_n)) + pow2(ohmega_x / ohmega_n));
+        let k2 =
+            f64::sqrt(1.0 / (pow2(1.0 - pow2(ohmega_x / ohmega_n)) + pow2(ohmega_x / ohmega_n)));
 
+        dbg!(k1);
+        dbg!(k2);
         // pole at origin
         let ohmega_cp0 = ohmega_x / (h_dc * k1 * k2); // Fel
         p!(ohmega_cp0, "217_100");

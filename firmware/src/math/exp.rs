@@ -68,7 +68,10 @@
  *          if x < -745.133219101941108420 then exp(x) underflows
  */
 
-use super::{i, scalbn::{self, scalbn}};
+use super::{
+    i,
+    scalbn::{self, scalbn},
+};
 
 const HALF: [f64; 2] = [0.5, -0.5];
 const LN2HI: f64 = 6.93147180369123816490e-01; /* 0x3fe62e42, 0xfee00000 */
@@ -148,5 +151,9 @@ pub const fn exp(mut x: f64) -> f64 {
     xx = x * x;
     c = x - xx * (P1 + xx * (P2 + xx * (P3 + xx * (P4 + xx * P5))));
     y = 1. + (x * c / (2. - c) - lo + hi);
-    if k == 0 { y } else { scalbn(y, k) }
+    if k == 0 {
+        y
+    } else {
+        scalbn(y, k)
+    }
 }

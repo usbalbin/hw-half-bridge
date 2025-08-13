@@ -10,7 +10,6 @@
 // ====================================================
 //
 // Optimized by Bruce D. Evans. */
-
 // From https://github.com/rust-lang/libm/blob/8f7436d260f000f054042545bb6e4c0d99fe35b2/libm/src/math/rem_pio2.rs#L45
 
 use crate::math::{i, rem_pio2_large::rem_pio2_large};

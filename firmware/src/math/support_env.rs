@@ -24,7 +24,10 @@ impl<T> FpResult<T> {
 
     /// Return `val` with `Status::OK`.
     pub const fn ok(val: T) -> Self {
-        Self { val, status: Status::OK }
+        Self {
+            val,
+            status: Status::OK,
+        }
     }
 }
 

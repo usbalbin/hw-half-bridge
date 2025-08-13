@@ -60,7 +60,7 @@ pub const fn scalbn(mut x: f64, mut n: i32) -> f64 {
     } else if n < exp_min {
         // When scaling toward 0, the prescaling is limited to a value that does not allow `x` to
         // go subnormal. This avoids double rounding.
-        
+
         // `mul` s.t. `!(x * mul).is_subnormal() ∀ x`
         let mul = f_exp_min * f_pow_subnorm;
         let add = -exp_min - sig_total_bits as i32;
