@@ -1,7 +1,8 @@
+use fugit::NanosDurationU32;
 use micromath::F32;
 use stm32g4xx_hal::{
     self as hal,
-    adc::{self, Adc, AdcClaim, AdcCommonExt},
+    adc::{self, config::{Resolution, SampleTime}, Adc, AdcClaim, AdcCommonExt},
     delay::SystDelay,
     gpio::{
         self,
@@ -14,6 +15,8 @@ use stm32g4xx_hal::{
     stasis::Entitlement,
     stm32,
 };
+
+use crate::hardware::F_ADC;
 
 pub struct Adcs {
     pub adc1: Adc<stm32::ADC1, adc::Configured>,
@@ -231,4 +234,30 @@ pub struct AdcChannels {
     #[cfg(feature = "fb_a-op")]
     pub fb_a: opamp1::Follower<PA3<gpio::Analog>>, // Replaces pwm_led7
                                                    //pwm_led8_adc2_in12: PB2<gpio::Analog>,// already used
+}
+
+pub const fn sampling_time(sample_time: SampleTime, res: Resolution) -> NanosDurationU32 {
+    // All these should have an additional 0.5 cycle.
+    // However the same thing for the `res` so we just add 1 in the end
+    let cycles_sampl = match sample_time {
+        SampleTime::Cycles_2_5 => 2,
+        SampleTime::Cycles_6_5 => 6,
+        SampleTime::Cycles_12_5 => 12,
+        SampleTime::Cycles_24_5 => 24,
+        SampleTime::Cycles_47_5 => 47,
+        SampleTime::Cycles_92_5 => 92,
+        SampleTime::Cycles_247_5 => 247,
+        SampleTime::Cycles_640_5 => 640,
+    };
+
+    let cycles_sar = match res {
+        Resolution::Twelve => 12,
+        Resolution::Ten => 10,
+        Resolution::Eight => 8,
+        Resolution::Six => 6,
+    };
+
+    let cycles: u64 = cycles_sampl + cycles_sar + 1;
+
+    NanosDurationU32::nanos((cycles * 1_000_000_000 / F_ADC.raw() as u64) as u32)
 }

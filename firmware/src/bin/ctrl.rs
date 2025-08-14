@@ -2,7 +2,7 @@
 #![no_main]
 
 use defmt::{dbg, println};
-use half_bridge::control_2p2z::{DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZero};
+use half_bridge::control_2p2z::{DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZeroParams};
 
 const S: ParametersBuck = ParametersBuck {
     v_in: 16.0,
@@ -14,6 +14,7 @@ const S: ParametersBuck = ParametersBuck {
     r_esr_out_cap: 31e-3,     // todo
     current_sense_gain: 0.48, // 66mV/A
     i_load: 2.0,              // 10A
+    t_adc_sample_to_dac_out: 0.0,
 };
 
 /*const P: ParametersBuck = ParametersBuck {
@@ -31,7 +32,7 @@ const S: ParametersBuck = ParametersBuck {
 const TRANSFER_FUNCTION_AND_DAC_SETTINGS: (TransferFunction, DacSettings) =
     S.to_transfer_function();
 const TRANSFER_FUNCTION: TransferFunction = TRANSFER_FUNCTION_AND_DAC_SETTINGS.0;
-const COMPENSATOR: TwoPoleTwoZero = TRANSFER_FUNCTION.to_2p2z();
+const COMPENSATOR: TwoPoleTwoZeroParams = TRANSFER_FUNCTION.to_2p2z();
 
 use cortex_m_rt::entry;
 
@@ -63,6 +64,7 @@ fn main() -> ! {
             r_esr_out_cap: 31e-3,     // todo
             current_sense_gain: 0.48, // 66mV/A
             i_load: 2.0,              // 10A
+            t_adc_sample_to_dac_out: 0.0,
         };
 
         let (tf, _dac) = params.to_transfer_function();
@@ -82,6 +84,7 @@ fn main() -> ! {
             r_esr_out_cap: 31e-3,     // todo
             current_sense_gain: 0.48, // 66mV/A
             i_load: 2.0 as _,         // 10A
+            t_adc_sample_to_dac_out: 0.0,
         };
 
         let (tf, _dac) = params.to_transfer_function();
@@ -101,6 +104,7 @@ fn main() -> ! {
             r_esr_out_cap: 31e-3,     // todo
             current_sense_gain: 0.48, // 66mV/A
             i_load: i_load as _,      // 10A
+            t_adc_sample_to_dac_out: 0.0,
         };
 
         let (tf, _dac) = params.to_transfer_function();

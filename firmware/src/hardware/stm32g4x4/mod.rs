@@ -36,17 +36,22 @@ macro_rules! try_down_cast {
 }
 
 // <System Clocks>
-pub const SYS_PLL_SOURCE: rcc::PllSrc = rcc::PllSrc::HSI;
+pub const SYS_PLL_SOURCE: rcc::PllSrc = rcc::PllSrc::HSI;// 16MHz
 pub const SYS_PLL_N_MUL: rcc::PllNMul = rcc::PllNMul::MUL_85;
 pub const SYS_PLL_M_DIV: rcc::PllMDiv = rcc::PllMDiv::DIV_4;
 pub const SYS_PLL_R_DIV: rcc::PllRDiv = rcc::PllRDiv::DIV_2;
 
 pub const SYS_PLL_P_DIV: rcc::PllPDiv = rcc::PllPDiv::DIV_7; // For ADC
+pub const F_ADC: Hertz = Hertz::Hz(
+    SYS_PLL_SOURCE.frequency().raw() * SYS_PLL_N_MUL.multiplier()
+        / SYS_PLL_M_DIV.divisor()
+        / SYS_PLL_P_DIV.divisor()
+);
 
 pub const F_SYS: Hertz = Hertz::Hz(
     SYS_PLL_SOURCE.frequency().raw() * SYS_PLL_N_MUL.multiplier()
         / SYS_PLL_M_DIV.divisor()
-        / SYS_PLL_R_DIV.divisor(),
+        / SYS_PLL_R_DIV.divisor()
 );
 
 pub type Prescaler = stm32_hrtim::Pscl1;

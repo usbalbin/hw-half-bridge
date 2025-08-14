@@ -1,6 +1,18 @@
 use core::f64;
 
-use half_bridge::control_2p2z::{DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZero};
+use fugit::NanosDurationU32;
+use half_bridge::{
+    control_2p2z::{DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZeroParams},
+    hardware,
+};
+use stm32g4xx_hal::adc;
+
+const T_ADC: NanosDurationU32 = hardware::adc::sampling_time(
+    adc::config::SampleTime::Cycles_24_5,
+    adc::config::Resolution::Twelve,
+);
+const T_PROCESSING: NanosDurationU32 = NanosDurationU32::nanos(todo!());
+const T_DAC: NanosDurationU32 = hardware::dacs::T_FAST_DAC_SETTLE_MIN_TO_MAX_1LSB;
 
 const S: ParametersBuck = ParametersBuck {
     v_in: 16.0,
@@ -12,6 +24,9 @@ const S: ParametersBuck = ParametersBuck {
     r_esr_out_cap: 31e-3,     // todo
     current_sense_gain: 0.48, // 66mV/A
     i_load: 2.0,              // 10A
+    t_adc: 0.0,               // TODO
+    t_processing: 0.0,
+    t_dac: 0.0,
 };
 
 const P: ParametersBuck = ParametersBuck {
@@ -24,13 +39,16 @@ const P: ParametersBuck = ParametersBuck {
     r_esr_out_cap: 31e-3,      // todo
     current_sense_gain: 66e-3, // 66mV/A
     i_load: 10.0,              // 10A
+    t_adc: T_ADC,
+    t_processing: T_PROCESSING,
+    t_dac: T_DAC,
 };
 
 const TRANSFER_FUNCTION_AND_DAC_SETTINGS: (TransferFunction, DacSettings) =
     S.to_transfer_function();
 const TRANSFER_FUNCTION: TransferFunction = TRANSFER_FUNCTION_AND_DAC_SETTINGS.0;
 
-const COMPENSATOR: TwoPoleTwoZero = TRANSFER_FUNCTION.to_2p2z();
+const COMPENSATOR: TwoPoleTwoZeroParams = TRANSFER_FUNCTION.to_2p2z();
 
 fn main() {
     println!("{:?}", TRANSFER_FUNCTION);
@@ -56,12 +74,15 @@ fn main() {
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
             i_load: P.i_load,
+            t_adc: T_ADC,
+            t_processing: T_PROCESSING,
+            t_dac: T_DAC,
         };
 
         let (tf, _dac) = params.to_transfer_function();
         let comp = tf.to_2p2z();
 
-        let diff = TwoPoleTwoZero {
+        let diff = TwoPoleTwoZeroParams {
             a1: P.to_transfer_function().0.to_2p2z().a1 - comp.a1,
             a2: P.to_transfer_function().0.to_2p2z().a2 - comp.a2,
             b0: P.to_transfer_function().0.to_2p2z().b0 - comp.b0,
@@ -84,12 +105,15 @@ fn main() {
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
             i_load: P.i_load,
+            t_adc: T_ADC,
+            t_processing: T_PROCESSING,
+            t_dac: T_DAC,
         };
 
         let (tf, _dac) = params.to_transfer_function();
         let comp = tf.to_2p2z();
 
-        let diff = TwoPoleTwoZero {
+        let diff = TwoPoleTwoZeroParams {
             a1: P.to_transfer_function().0.to_2p2z().a1 - comp.a1,
             a2: P.to_transfer_function().0.to_2p2z().a2 - comp.a2,
             b0: P.to_transfer_function().0.to_2p2z().b0 - comp.b0,
@@ -112,12 +136,15 @@ fn main() {
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
             i_load: f64::from(i_load).max(f64::EPSILON), // 10A
+            t_adc: T_ADC,
+            t_processing: T_PROCESSING,
+            t_dac: T_DAC,
         };
 
         let (tf, _dac) = params.to_transfer_function();
         let comp = tf.to_2p2z();
 
-        let diff = TwoPoleTwoZero {
+        let diff = TwoPoleTwoZeroParams {
             a1: P.to_transfer_function().0.to_2p2z().a1 - comp.a1,
             a2: P.to_transfer_function().0.to_2p2z().a2 - comp.a2,
             b0: P.to_transfer_function().0.to_2p2z().b0 - comp.b0,

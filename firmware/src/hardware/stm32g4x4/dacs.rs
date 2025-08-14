@@ -1,3 +1,4 @@
+use fugit::NanosDurationU32;
 use stm32g4xx_hal::{
     dac::{self, Dac3Ch1, Dac3Ch2, Dac4Ch1, Dac4Ch2, DacExt, DacOut},
     rcc::Rcc,
@@ -12,6 +13,9 @@ pub type DacHb2 = Dac4Ch2<{ dac::M_INT_SIG }, dac::SawtoothGenerator>;
 pub type DacHb3 = Dac4Ch1<{ dac::M_INT_SIG }, dac::SawtoothGenerator>;
 pub type DacHb4 = Dac3Ch1<{ dac::M_INT_SIG }, dac::SawtoothGenerator>;
 pub type DacHb5 = DacHb1;
+
+pub const T_SLOW_DAC_SETTLE_MIN_TO_MAX_1LSB: NanosDurationU32 = NanosDurationU32::nanos(2900);
+pub const T_FAST_DAC_SETTLE_MIN_TO_MAX_1LSB: NanosDurationU32 = NanosDurationU32::nanos(125);
 
 impl Dacs {
     pub(crate) fn init(

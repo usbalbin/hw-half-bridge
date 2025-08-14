@@ -1,30 +1,16 @@
 mod atan;
-mod complex;
-mod exp;
-mod expm1;
-mod expo2;
 mod floor;
 mod generic_floor;
-mod hypot;
-mod k_cos;
-mod k_expo2;
-mod k_sin;
-mod k_tan;
-mod log;
 mod rem_pio2;
 mod rem_pio2_large;
 mod scalbn;
 mod support_env;
-mod tan;
 mod vector;
 
-mod cos;
-mod cosh;
-mod sin;
-mod sinh;
+mod tan;
+mod k_tan;
 
 pub use atan::atan;
-pub use complex::Complex;
 pub use tan::tan;
 
 // Significant number of bits for f64

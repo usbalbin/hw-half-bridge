@@ -1,12 +1,12 @@
 use core::f64::consts::PI;
 
 #[cfg(feature = "hardware")]
-use defmt::{assert, dbg, println, println as eprintln};
+use defmt::println;
 
-use crate::math::{atan, pow2, sqrt, tan, Complex};
+use crate::math::{atan, pow2, sqrt, tan};
 
-#[derive(Debug, defmt::Format)]
-pub struct TwoPoleTwoZero {
+#[derive(Debug, Clone, Copy, defmt::Format)]
+pub struct TwoPoleTwoZeroParams {
     pub a1: f32,
     pub a2: f32,
 
@@ -15,17 +15,43 @@ pub struct TwoPoleTwoZero {
     pub b2: f32,
 }
 
-const P: ParametersBuck = ParametersBuck {
-    v_in: 16.0,
-    v_out: 8.0,
-    c_out: 440.0e-6, // 2 * ~7.7uF @ 12V
-    f_sw: 2e5,
-    l_inductor: 22e-6, // 2.2 @ 0A, 2.0 at 8A, ~1.5 @ 24A
-    //r_esr_inductor: 4.08e-3,   // 4.08mOhm typical
-    r_esr_out_cap: 31e-3,      // todo
-    current_sense_gain: 66e-3, // 66mV/A
-    i_load: 2.0,               // 10A
-};
+impl TwoPoleTwoZeroParams {
+    pub fn to_controller(self) -> TwoPoleTwoZero {
+        TwoPoleTwoZero {
+            params: self,
+            outputs: [0.0; _],
+            errors: [0.0; _],
+        }
+    }
+}
+
+pub struct TwoPoleTwoZero {
+    params: TwoPoleTwoZeroParams,
+
+    /// History of outputs with newest value at index 0
+    outputs: [f32; 2],
+
+    /// History of errors with newest value at index 0
+    errors: [f32; 2],
+}
+
+impl TwoPoleTwoZero {
+    pub fn update(&mut self, error: f32) -> f32 {
+        let output = 
+              self.params.a1 * self.outputs[0]
+            + self.params.a2 * self.outputs[1]
+            + self.params.b0 * error
+            + self.params.b1 * self.errors[0]
+            + self.params.b2 * self.errors[1];
+        self.outputs.rotate_right(1);
+        self.outputs[0] = output;
+
+        self.errors.rotate_right(1);
+        self.errors[0] = error;
+
+        output
+    }
+}
 
 pub struct ParametersBuck {
     pub v_in: f64,
@@ -36,6 +62,12 @@ pub struct ParametersBuck {
     pub r_esr_out_cap: f64,
     pub current_sense_gain: f64,
     pub i_load: f64,
+
+    /// TODO: Figure out this
+    /// Time taken in seconds from the ADC reading of Vout, the calculation of the control function and to setting the DAC value
+    pub t_adc: f64,
+    pub t_processing: f64,
+    pub t_dac: f64,
 }
 
 pub struct DacSettings {
@@ -60,12 +92,15 @@ macro_rules! p {
 
 impl ParametersBuck {
     pub const fn to_transfer_function(self) -> (TransferFunction, DacSettings) {
+        //
+        // https://centaur.reading.ac.uk/31751/1/Microcontroller%20Based%20Peak%20Current%20Mode%20Control%20Using%20Digital%20Slope%20Compensation%20-%20Hallworth%202012.pdf
+        //
+
         // https://www.biricha.com/articles/step-by-step-design-guide-for-digital-peak-current-mode-control-a-single-chip-solution
         // https://www.st.com/en/embedded-software/x-cube-dpower.html
         // https://www.ti.com/lit/an/sprabe7a/sprabe7a.pdf?ts=1723931480534
         // https://e2e.ti.com/cfs-file/__key/communityserver-discussions-components-files/171/Presentation_5F002D005F00_Mr._5F00_Ali_5F00_Shirsavar.pdf
         // https://www.st.com/resource/en/application_note/an5497-introduction-to-the-buck-current-mode-with-the-bg474edpow1-discovery-kit-stmicroelectronics.pdf
-        // https://centaur.reading.ac.uk/31751/1/Microcontroller%20Based%20Peak%20Current%20Mode%20Control%20Using%20Digital%20Slope%20Compensation%20-%20Hallworth%202012.pdf
 
         use core::f64::consts::PI;
 
@@ -78,6 +113,9 @@ impl ParametersBuck {
             r_esr_out_cap,
             current_sense_gain,
             i_load,
+            t_adc,
+            t_processing,
+            t_dac
         } = self;
 
         p!(v_in, "16");
@@ -95,10 +133,6 @@ impl ParametersBuck {
 
         let t_sw = 1.0 / f_sw;
         let r_load = v_out / i_load; // ohm
-
-        // TODO: Figure out this
-        // Time taken in seconds from the ADC reading of Vout, the calculation of the control function and to setting the DAC value
-        let t_adc_sample_to_dac_out = 0.0;
 
         let steady_state_duty = (v_out + diode_drop) / v_in; // Assuming zero Rds(on) and Rdc drops
         let inv_steady_state_duty = 1.0 - steady_state_duty;
@@ -136,7 +170,7 @@ impl ParametersBuck {
         (
             TransferFunction {
                 f_sw,
-                t_adc_sample_to_dac_out,
+                t_adc_sample_to_dac_out: t_adc + t_processing + t_dac,
 
                 q_inv,
 
@@ -162,7 +196,7 @@ pub struct TransferFunction {
 }
 
 impl TransferFunction {
-    pub const fn to_2p2z(self) -> TwoPoleTwoZero {
+    pub const fn to_2p2z(self) -> TwoPoleTwoZeroParams {
         let TransferFunction {
             f_sw,
             t_adc_sample_to_dac_out,
@@ -178,7 +212,7 @@ impl TransferFunction {
         // Crossover frequency
         // TODO: Is this a good value?
         let f_x = f_sw / 13.33333333333333333333;
-        p!(f_x, "15000");
+        //p!(f_x, "15000");
 
         //println!("----------------------------------");
         //println!("----------------------------------");
@@ -194,7 +228,8 @@ impl TransferFunction {
         //assert!(phase_erosion < 90.0f64.to_radians());
 
         // TODO: Is this enough?
-        let phase_margin: f64 = 75.0f64.to_radians(); //50.0f64.to_radians() + phase_erosion;
+        //let phase_margin: f64 = 75.0f64.to_radians();
+        let phase_margin: f64 = 50.0f64.to_radians() + phase_erosion;
 
         // ChatGPT's suggestion
         let r = ohmega_x / ohmega_n;
@@ -236,7 +271,7 @@ impl TransferFunction {
         let a1 = 4.0 / (2.0 + t_sw * ohmega_cp1);
         let a2 = (-2.0 + t_sw * ohmega_cp1) / (2.0 + t_sw * ohmega_cp1);
 
-        TwoPoleTwoZero {
+        TwoPoleTwoZeroParams {
             a1: a1 as _,
             a2: a2 as _,
             b0: b0 as _,
