@@ -21,7 +21,7 @@ use stm32g4xx_hal::{
     serial::SerialExt,
     stasis::Freeze,
     stm32::{self, Peripherals},
-    time::Hertz,
+    time::Hertz, timer::MonoTimer,
 };
 use timers::Timers;
 
@@ -91,6 +91,7 @@ pub struct Hardware {
     pub dacs: Dacs,
     pub delay: SystDelay,
     pub nucleo_user_button: gpio::PC13<gpio::Input>,
+    pub debug_timer: MonoTimer,
 }
 
 impl Hardware {
@@ -274,6 +275,8 @@ impl Hardware {
             #[cfg(feature = "usb-pd-db")]
             cc_dir: pc15,
         };
+
+        let debug_timer = MonoTimer::new(cp.DWT, cp.DCB, &rcc.clocks);
 
         // HRTIMF
         let f_hi = pc6;
@@ -524,6 +527,7 @@ impl Hardware {
             dacs,
             delay,
             nucleo_user_button,
+            debug_timer,
         }
     }
 }

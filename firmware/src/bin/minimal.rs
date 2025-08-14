@@ -13,7 +13,7 @@ mod app {
         hardware::{self, adc::Adcs},
     };
     use stm32_hrtim::compare_register::HrCompareRegister;
-    use stm32g4xx_hal::{adc::config::SampleTime, gpio};
+    use stm32g4xx_hal::{adc::config::SampleTime, gpio, timer::MonoTimer};
 
     use crate::millis_to_ticks;
 
@@ -21,6 +21,7 @@ mod app {
     #[shared]
     struct Shared {
         // TODO: Add resources
+        debug_timer: MonoTimer,
     }
 
     // Local resources go here
@@ -46,6 +47,7 @@ mod app {
         current_limit: probe_plotter::Setting<i16>,
 
         duty_metric: probe_plotter::Metric<u16>,
+        runtime_metric: probe_plotter::Metric<u32>,
     }
 
     #[init]
@@ -69,6 +71,7 @@ mod app {
             dacs,
             mut delay,
             nucleo_user_button,
+            debug_timer,
         } = hardware::Hardware::init(cx.device, cx.core);
 
         delay.delay_ms(1000);
@@ -133,7 +136,9 @@ mod app {
 
         let max_temp_adc = defmt::dbg!(Adcs::degrees_c_to_adc(70.0));
         (
-            Shared {},
+            Shared {
+                debug_timer,
+            },
             Local {
                 half_bridge: HalfBridge::init(timers, dacs, zero_current_offsets),
                 nucleo_user_button,
@@ -158,17 +163,19 @@ mod app {
                 duty: probe_plotter::make_setting!(DUTY: u16 = 544, 544..=4896, 1.0).unwrap(),
                 duty_metric: probe_plotter::make_metric!(DUTY_M: u16 = 0, "DUTY_M").unwrap(),
                 current_limit: probe_plotter::make_setting!(CURRENT_LIMIT: i16 = 0, -2048..=2047, 1).unwrap(),
+                runtime_metric: probe_plotter::make_metric!(RUNTIME: u32 = 0, "RUNTIME / 170").unwrap()
             },
         )
     }
 
     #[task(
         binds = HRTIM_MASTER_IRQN,
-        shared = [ ],
-        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, vin_metric, vout_metric, current_metric, temp_metric, max_temp_adc, duty, duty_metric, current_limit],
+        shared = [&debug_timer],
+        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, vin_metric, vout_metric, current_metric, temp_metric, max_temp_adc, duty, duty_metric, current_limit, runtime_metric],
         priority = 15
     )]
     fn foo(ctx: foo::Context) {
+        let start = ctx.shared.debug_timer.now();
         *ctx.local.i = ctx.local.i.wrapping_add(1);
         let is_btn_pressed = ctx.local.nucleo_user_button.is_high();
         let status = ctx.local.half_bridge.status();
@@ -272,6 +279,7 @@ mod app {
             defmt::error!("Disabled due to overheat");
         }
         ctx.local.half_bridge.clear_repetition_interrupt();
+        ctx.local.runtime_metric.set(start.elapsed());
     }
 }
 
