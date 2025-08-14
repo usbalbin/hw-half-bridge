@@ -7,8 +7,8 @@ mod scalbn;
 mod support_env;
 mod vector;
 
-mod tan;
 mod k_tan;
+mod tan;
 
 pub use atan::atan;
 pub use tan::tan;

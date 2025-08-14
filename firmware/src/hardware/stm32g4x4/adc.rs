@@ -2,7 +2,11 @@ use fugit::NanosDurationU32;
 use micromath::F32;
 use stm32g4xx_hal::{
     self as hal,
-    adc::{self, config::{Resolution, SampleTime}, Adc, AdcClaim, AdcCommonExt},
+    adc::{
+        self,
+        config::{Resolution, SampleTime},
+        Adc, AdcClaim, AdcCommonExt,
+    },
     delay::SystDelay,
     gpio::{
         self,

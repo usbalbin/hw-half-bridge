@@ -9,30 +9,43 @@ use half_bridge::{self as _, hardware::TICK_RATE}; // global logger + panicking-
 mod app {
     use embedded_hal::delay::DelayNs;
     use half_bridge::{
+        control_2p2z::TwoPoleTwoZero,
         half_bridge::HalfBridge,
-        hardware::{self, adc::Adcs},
+        hardware::{self, adc::Adcs, dacs::Dacs, timers::Timers},
     };
     use stm32_hrtim::compare_register::HrCompareRegister;
-    use stm32g4xx_hal::{
-        self as hal, adc::config::SampleTime, dac::SawtoothConfig, gpio, timer::MonoTimer,
-    };
+    use stm32g4xx_hal::{self as hal, dac::SawtoothConfig, stm32};
+    use stm32g4xx_hal::{adc::config::SampleTime, gpio, timer::MonoTimer};
 
     use crate::millis_to_ticks;
+
+    const DONT_FORGET_DAC_STEP_SIZE: () = ();
+    pub const DAC_STEP_SIZE: u16 = 1;
+    pub const DAC_STEP_DIR: hal::dac::CountingDirection = hal::dac::CountingDirection::Increment; // Increment for buck, decrement for boost
+    pub const DAC_CFG: SawtoothConfig = SawtoothConfig::with_slope(DAC_STEP_DIR, DAC_STEP_SIZE);
 
     // Shared resources go here
     #[shared]
     struct Shared {
         // TODO: Add resources
         debug_timer: MonoTimer,
+
+        ad_channels: hardware::adc::AdcChannels,
     }
 
     // Local resources go here
     #[local]
     struct Local {
         half_bridge: HalfBridge,
+        dacs: Dacs,
+        timers: Timers,
         nucleo_user_button: gpio::PC13<gpio::Input>,
-        adcs: hardware::adc::Adcs,
-        ad_channels: hardware::adc::AdcChannels,
+        adc1: hal::adc::Adc<stm32::ADC1, hal::adc::Configured>,
+        adc2: hal::adc::Adc<stm32::ADC2, hal::adc::Configured>,
+        adc3: hal::adc::Adc<stm32::ADC3, hal::adc::Configured>,
+        adc4: hal::adc::Adc<stm32::ADC4, hal::adc::Configured>,
+        adc5: hal::adc::Adc<stm32::ADC5, hal::adc::Configured>,
+
         eevs: hardware::external_events::Eevs,
         i: u32,
         btn_iter_pressed: u32,
@@ -40,15 +53,17 @@ mod app {
 
         max_temp_adc: u16,
 
+        controller: TwoPoleTwoZero,
+
         vin_metric: probe_plotter::Metric<u16>,
         vout_metric: probe_plotter::Metric<u16>,
 
         current_metric: probe_plotter::Metric<u16>,
         temp_metric: probe_plotter::Metric<u16>,
-        duty: probe_plotter::Setting<u16>,
+        duty_limit: probe_plotter::Setting<u16>,
         current_limit: probe_plotter::Setting<i16>,
 
-        duty_metric: probe_plotter::Metric<u16>,
+        current_limit_metric: probe_plotter::Metric<u16>,
         runtime_metric: probe_plotter::Metric<u32>,
     }
 
@@ -74,11 +89,7 @@ mod app {
             mut delay,
             nucleo_user_button,
             debug_timer,
-        } = hardware::Hardware::init(
-            cx.device,
-            cx.core,
-            SawtoothConfig::with_slope(hal::dac::CountingDirection::Increment, 0),
-        );
+        } = hardware::Hardware::init(cx.device, cx.core, DAC_CFG);
 
         delay.delay_ms(1000);
 
@@ -143,13 +154,17 @@ mod app {
         let max_temp_adc = defmt::dbg!(Adcs::degrees_c_to_adc(70.0));
         (
             Shared {
+                ad_channels,
                 debug_timer,
             },
             Local {
                 half_bridge: HalfBridge::init(timers, dacs, zero_current_offsets),
                 nucleo_user_button,
-                adcs,
-                ad_channels,
+                adc1: adcs.adc1,
+                adc2: adcs.adc2,
+                adc3: adcs.adc3,
+                adc4: adcs.adc4,
+                adc5: adcs.adc5,
                 eevs,
                 i: 0,
                 btn_iter_pressed: 0,
@@ -166,24 +181,22 @@ mod app {
                     CURRENT: u16 = 0,
                     "((CURRENT * 3.3 / 4095.0) - (3.3 / 2)) / -0.066"// Negate to get positive current in buck direction
                 ).unwrap(),
-                duty: probe_plotter::make_setting!(DUTY: u16 = 544, 544..=4896, 1.0).unwrap(),
-                duty_metric: probe_plotter::make_metric!(DUTY_M: u16 = 0, "DUTY_M").unwrap(),
-                current_limit: probe_plotter::make_setting!(CURRENT_LIMIT: i16 = 0, -2048..=2047, 1).unwrap(),
+                duty_limit: probe_plotter::make_setting!(DUTY_LIMIT: u16 = 544, 544..=4896, 1.0).unwrap(),
+                current_limit_metric: probe_plotter::make_metric!(DUTY_M: u16 = 0, "DUTY_M").unwrap(),
                 runtime_metric: probe_plotter::make_metric!(RUNTIME: u32 = 0, "RUNTIME / 170").unwrap()
             },
         )
     }
 
     #[task(
-        binds = HRTIM_MASTER_IRQN,
-        shared = [&debug_timer],
-        local = [adcs, ad_channels, half_bridge, nucleo_user_button, i, btn_iter_pressed, is_wait_for_btn_release, vin_metric, vout_metric, current_metric, temp_metric, max_temp_adc, duty, duty_metric, current_limit, runtime_metric],
-        priority = 15
+        binds = SPI1,
+        shared = [&debug_timer, &ad_channels],
+        local = [adc1, adc3, vin_metric, current_metric, temp_metric, i, max_temp_adc],
+        priority = 1,
     )]
-    fn foo(ctx: foo::Context) {
-        let start = ctx.shared.debug_timer.now();
+    fn not_fast(ctx: not_fast::Context) {
         *ctx.local.i = ctx.local.i.wrapping_add(1);
-        let is_btn_pressed = ctx.local.nucleo_user_button.is_high();
+
         let status = ctx.local.half_bridge.status();
         if is_btn_pressed && !*ctx.local.is_wait_for_btn_release {
             match status {
@@ -211,47 +224,28 @@ mod app {
             *ctx.local.btn_iter_pressed = 0;
         }
 
-        //if *ctx.local.i & 0xFFF != 0 {
-        //    ctx.local.half_bridge.clear_repetition_interrupt();
-        //    return;
-        //}
-
-        //ctx.local.adcs.read(ctx.local.ad_channels);
+        let vin = ctx
+            .local
+            .adc3
+            .convert(&ctx.shared.ad_channels.fb_d, SampleTime::Cycles_47_5); // PC4 D1 HI
         let t = ctx
             .local
-            .adcs
             .adc1
-            .convert(&ctx.local.ad_channels.ntc_5, SampleTime::Cycles_247_5);
+            .convert(&ctx.shared.ad_channels.ntc_5, SampleTime::Cycles_247_5);
         let i = ctx
             .local
-            .adcs
             .adc3
-            .convert(&ctx.local.ad_channels.cc1, SampleTime::Cycles_12_5);
+            .convert(&ctx.shared.ad_channels.cc1, SampleTime::Cycles_12_5);
 
         //let t = Adcs::adc_to_degreec_c(t);
         ctx.local.temp_metric.set(t);
         ctx.local.current_metric.set(i);
-        let duty = ctx.local.duty.get();
-        ctx.local.half_bridge.set_duty(duty);
-        ctx.local.duty_metric.set(duty);
-        let current_limit = ctx.local.current_limit.get();
-        ctx.local
-            .half_bridge
-            .update_set_all_currents_buck(current_limit);
-
-        let vout = ctx
-            .local
-            .adcs
-            .adc2
-            .convert(&ctx.local.ad_channels.fb_a, SampleTime::Cycles_47_5); // PC5 D0 LOW
-        let vin = ctx
-            .local
-            .adcs
-            .adc2
-            .convert(&ctx.local.ad_channels.fb_d, SampleTime::Cycles_47_5); // PC4 D1 HI
-
-        ctx.local.vout_metric.set(vout);
         ctx.local.vin_metric.set(vin);
+
+        let duty_limit = ctx.local.duty_limit.get();
+        ctx.local.half_bridge.set_duty(duty_limit);
+
+        let is_btn_pressed = ctx.local.nucleo_user_button.is_high();
 
         if *ctx.local.i & 0x1FFF == 0 {
             let t = Adcs::adc_to_degreec_c(t);
@@ -284,6 +278,38 @@ mod app {
             ctx.local.half_bridge.disable();
             defmt::error!("Disabled due to overheat");
         }
+    }
+
+    #[task(
+        binds = HRTIM_MASTER_IRQN,
+        shared = [&debug_timer, &ad_channels],
+        local = [adc2, is_wait_for_btn_release, vout_metric, current_limit_metric, runtime_metric, controller],
+        priority = 15
+    )]
+    fn foo(ctx: foo::Context) {
+        let start = ctx.shared.debug_timer.now();
+
+        let vout = ctx
+            .local
+            .adc2
+            .convert(&ctx.shared.ad_channels.fb_a, SampleTime::Cycles_24_5); // PC5 D0 LOW
+
+        if !is_on {
+            ctx.local.controller.reset();
+            ctx.local.vout_metric.set(vout);
+            ctx.local.half_bridge.clear_repetition_interrupt();
+            ctx.local.runtime_metric.set(start.elapsed());
+            return;
+        }
+
+        let error = todo!();
+        let out = ctx.local.controller.update(error);
+        let current_limit = todo!();
+
+        ctx.local.dacs.update_set_all_currents_buck(current_limit);
+        ctx.local.current_limit_metric.set(current_limit);
+
+        ctx.local.vout_metric.set(vout); // Move this to other isr?
         ctx.local.half_bridge.clear_repetition_interrupt();
         ctx.local.runtime_metric.set(start.elapsed());
     }

@@ -16,6 +16,7 @@ pub struct TwoPoleTwoZeroParams {
 }
 
 impl TwoPoleTwoZeroParams {
+    #[inline(always)]
     pub fn to_controller(self) -> TwoPoleTwoZero {
         TwoPoleTwoZero {
             params: self,
@@ -37,8 +38,7 @@ pub struct TwoPoleTwoZero {
 
 impl TwoPoleTwoZero {
     pub fn update(&mut self, error: f32) -> f32 {
-        let output = 
-              self.params.a1 * self.outputs[0]
+        let output = self.params.a1 * self.outputs[0]
             + self.params.a2 * self.outputs[1]
             + self.params.b0 * error
             + self.params.b1 * self.errors[0]
@@ -50,6 +50,10 @@ impl TwoPoleTwoZero {
         self.errors[0] = error;
 
         output
+    }
+
+    pub fn reset(&mut self) {
+        *self = self.params.to_controller();
     }
 }
 
@@ -115,7 +119,7 @@ impl ParametersBuck {
             i_load,
             t_adc,
             t_processing,
-            t_dac
+            t_dac,
         } = self;
 
         p!(v_in, "16");

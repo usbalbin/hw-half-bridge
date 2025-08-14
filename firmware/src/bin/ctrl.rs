@@ -2,7 +2,9 @@
 #![no_main]
 
 use defmt::{dbg, println};
-use half_bridge::control_2p2z::{DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZeroParams};
+use half_bridge::control_2p2z::{
+    DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZeroParams,
+};
 
 const S: ParametersBuck = ParametersBuck {
     v_in: 16.0,

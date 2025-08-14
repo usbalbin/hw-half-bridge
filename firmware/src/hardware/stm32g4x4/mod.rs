@@ -12,6 +12,8 @@ use external_events::Eevs;
 use fugit::NanosDurationU32;
 use stm32_hrtim::external_event::EevSamplingFilter;
 use stm32g4xx_hal::{
+    self as hal,
+    dac::SawtoothConfig,
     delay::{SYSTDelayExt, SystDelay},
     gpio::{self, GpioExt},
     hrtim::HrControltExt,
@@ -21,9 +23,12 @@ use stm32g4xx_hal::{
     serial::SerialExt,
     stasis::Freeze,
     stm32::{self, Peripherals},
-    time::Hertz, timer::MonoTimer,
+    time::Hertz,
+    timer::MonoTimer,
 };
 use timers::Timers;
+
+use crate::control_2p2z::DacSettings;
 
 macro_rules! try_down_cast {
     ($x:expr, $from_t:ty, $t:ty) => {{
@@ -36,7 +41,7 @@ macro_rules! try_down_cast {
 }
 
 // <System Clocks>
-pub const SYS_PLL_SOURCE: rcc::PllSrc = rcc::PllSrc::HSI;// 16MHz
+pub const SYS_PLL_SOURCE: rcc::PllSrc = rcc::PllSrc::HSI; // 16MHz
 pub const SYS_PLL_N_MUL: rcc::PllNMul = rcc::PllNMul::MUL_85;
 pub const SYS_PLL_M_DIV: rcc::PllMDiv = rcc::PllMDiv::DIV_4;
 pub const SYS_PLL_R_DIV: rcc::PllRDiv = rcc::PllRDiv::DIV_2;
@@ -45,13 +50,13 @@ pub const SYS_PLL_P_DIV: rcc::PllPDiv = rcc::PllPDiv::DIV_7; // For ADC
 pub const F_ADC: Hertz = Hertz::Hz(
     SYS_PLL_SOURCE.frequency().raw() * SYS_PLL_N_MUL.multiplier()
         / SYS_PLL_M_DIV.divisor()
-        / SYS_PLL_P_DIV.divisor()
+        / SYS_PLL_P_DIV.divisor(),
 );
 
 pub const F_SYS: Hertz = Hertz::Hz(
     SYS_PLL_SOURCE.frequency().raw() * SYS_PLL_N_MUL.multiplier()
         / SYS_PLL_M_DIV.divisor()
-        / SYS_PLL_R_DIV.divisor()
+        / SYS_PLL_R_DIV.divisor(),
 );
 
 pub type Prescaler = stm32_hrtim::Pscl1;
@@ -95,7 +100,7 @@ pub struct Hardware {
 }
 
 impl Hardware {
-    pub fn init(dp: Peripherals, cp: cortex_m::Peripherals) -> Hardware {
+    pub fn init(dp: Peripherals, cp: cortex_m::Peripherals, dac_cfg: SawtoothConfig) -> Hardware {
         defmt::info!("Initializing Hardware...");
 
         let pwr = dp.PWR.constrain();
@@ -432,7 +437,9 @@ impl Hardware {
         );
 
         //DAC --ref-voltage--> Comp ----> Eev ----> HRTIM --dac-trigger--> DAC
-        let (dacs, dac_tokens) = Dacs::init(dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &timers, &mut rcc);
+        let (dacs, dac_tokens) = Dacs::init(
+            dp.DAC1, dp.DAC2, dp.DAC3, dp.DAC4, &timers, &mut rcc, dac_cfg,
+        );
 
         let (op1, op2, op3, op4, op5, _op6) = dp.OPAMP.split(&mut rcc);
 

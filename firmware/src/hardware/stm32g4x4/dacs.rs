@@ -25,6 +25,7 @@ impl Dacs {
         dac4: stm32::DAC4,
         timers: &Timers,
         rcc: &mut Rcc,
+        cfg: dac::SawtoothConfig,
     ) -> (Dacs, DacTokens) {
         defmt::info!("Initializing DACs...");
         // DAC1 and DAC2 might be too slow to be useful for generating the sawtooth shape required for
@@ -46,24 +47,19 @@ impl Dacs {
             .DAC2
             .constrain(dac::Dac2IntSig1, &mut rcc)
             .enable_generator(dac::GeneratorConfig::sawtooth(dac_ampl));*/
-        let dir = dac::CountingDirection::Increment;
-        let step_size = 1; // todo
-        let dac_cfg = dac::SawtoothConfig::with_slope(dir, step_size);
 
         #[cfg(any(feature = "hv1", feature = "hv4"))]
         let (dac3ch1, dac3ch2) = dac3.constrain((dac::Dac3IntSig1, dac::Dac3IntSig2), rcc);
 
         #[cfg(feature = "hv4")]
         let dac3ch1 = dac3ch1.enable_sawtooth_generator(
-            dac_cfg
-                .inc_trigger(&timers.timer4b.cr2)
+            cfg.inc_trigger(&timers.timer4b.cr2)
                 .reset_trigger(&timers.timer4b.timer),
             rcc,
         );
         #[cfg(feature = "hv1")]
         let dac3ch2 = dac3ch2.enable_sawtooth_generator(
-            dac_cfg
-                .inc_trigger(&timers.timer1.cr2)
+            cfg.inc_trigger(&timers.timer1.cr2)
                 .reset_trigger(&timers.timer1.timer),
             rcc,
         );
@@ -73,15 +69,13 @@ impl Dacs {
 
         #[cfg(feature = "hv3")]
         let dac4ch1 = dac4ch1.enable_sawtooth_generator(
-            dac_cfg
-                .inc_trigger(&timers.timer3.cr2)
+            cfg.inc_trigger(&timers.timer3.cr2)
                 .reset_trigger(&timers.timer3.timer),
             rcc,
         );
         #[cfg(feature = "hv2")]
         let dac4ch2 = dac4ch2.enable_sawtooth_generator(
-            dac_cfg
-                .inc_trigger(&timers.timer2.cr2)
+            cfg.inc_trigger(&timers.timer2.cr2)
                 .reset_trigger(&timers.timer2.timer),
             rcc,
         );
