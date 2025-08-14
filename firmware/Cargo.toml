@@ -5,26 +5,49 @@ edition = "2021"
 version = "0.1.0"
 
 [features]
-default = ["hv4", "hv5"]
+default = ["hv1", "hardware"]
+hardware = []
+
 fb_a-op = [] # Op on fb_a, else R32
 cs-op = [] # Op's as follower on all current sense signals
 usb-pd-db = []
+hv1 = []
+hv2 = []
+hv3 = []
 hv4 = []
 hv5 = []
 
+voltage-mode = []
+current-mode = []
+leds = []
+
+[patch."https://github.com/stm32-rs/stm32g4xx-hal"]
+stm32g4xx-hal = { path = "../../stm32g4xx-hal" }
+
+[patch.crates-io]
+stm32-hrtim = { git = "https://github.com/usbalbin/stm32-hrtim" }
+
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
-cortex-m-rt = "0.7.3" ## <--- Probably not needed
 defmt = { version = "0.3", features = ["encoding-rzcobs"] }
 defmt-brtt = { version = "0.1", default-features = false, features = ["rtt"] }
 panic-probe = { version = "0.3", features = ["print-defmt"] }
 rtic = { version = "2.0.0", features = [ "thumbv7-backend" ] }
 
-stm32g4xx-hal = { git = "https://github.com/usbalbin/stm32g4xx-hal", branch = "hrtim4", features = ["stm32g474"] }
+#stm32g4xx-hal = { git = "https://github.com/usbalbin/stm32g4xx-hal", branch = "hrtim", features = ["stm32g474"] }
+stm32g4xx-hal = { path = "../../stm32g4xx-hal", features = ["stm32g474", "hrtim"] }
+stm32-hrtim = { version = "0.1.0", features = ["stm32g474", "defmt"] } 
+#stm32-hrtim = { path = "../../stm32-hrtim", features = ["stm32g474", "defmt"] }
 usb-device = "0.3.2"
 usbd-serial = "0.2.2"
+embedded-hal = "1.0.0"
+micromath = "2.1.0"
+fugit = { version = "0.3.7", features = ["defmt"] }
 # TODO add a monotonic if you use scheduling
 # rtic-monotonics = { version = "1.0.0", features = [ "cortex-m-systick" ]}
+#probe-plotter = { git = "https://github.com/usbalbin/probe-plotter", branch = "add-ln" }
+probe-plotter = { path = "../../probe-plotter/probe-plotter" }
+cortex-m-rt = "0.7.5"
 
 # cargo build/run
 [profile.dev]

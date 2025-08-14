@@ -1,8 +1,14 @@
 #![no_main]
-#![no_std]
+#![cfg_attr(feature = "hardware", no_std)]
 
 //mod half_bridge;
 pub mod control_2p2z;
+#[cfg(feature = "hardware")]
+pub mod half_bridge;
+#[cfg(feature = "hardware")]
+pub mod hardware;
+mod math;
+pub mod types;
 
 use core::sync::atomic::{AtomicUsize, Ordering};
 use defmt_brtt as _; // global logger

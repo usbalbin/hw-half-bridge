@@ -1,11 +1,12 @@
 {
   "rust-analyzer.check.allTargets": false,
   "rust-analyzer.check.extraArgs": [
-    "--examples",
+    "--bins",
   ],
-  "rust-analyzer.cargo.target": "thumbv7em-none-eabihf",
-  "rust-analyzer.cargo.features": [ ],
+  //"rust-analyzer.cargo.target": "thumbv7em-none-eabihf",
+  "rust-analyzer.cargo.target": "x86_64-unknown-linux-gnu",
+  "rust-analyzer.cargo.features": ["hv1", "current-mode"],
   "rust-analyzer.cargo.extraEnv": {
-    "DEFMT": "trace",
-  }
+    "DEFMT_LOG": "trace",
+  },
 }

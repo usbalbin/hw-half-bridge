@@ -12,7 +12,7 @@ use defmt::println;
 #[entry]
 fn main() -> ! {
     defmt::println!("Hello, STM32G4!");
-    
+
     //let x = half_bridge::control_2p2z::smlad(u32::MAX, u32::MAX, u32::MAX);
 
     half_bridge::control_2p2z::test();
