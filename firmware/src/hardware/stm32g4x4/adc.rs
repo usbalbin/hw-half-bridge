@@ -1,8 +1,12 @@
-use fugit::NanosDurationU32;
+use fugit::{HertzU32, NanosDurationU32};
 use micromath::F32;
 use stm32g4xx_hal::{
     self as hal,
-    adc::{self, config::{Resolution, SampleTime}, Adc, AdcClaim, AdcCommonExt},
+    adc::{
+        self,
+        config::{Resolution, SampleTime},
+        Adc, AdcClaim, AdcCommonExt,
+    },
     delay::SystDelay,
     gpio::{
         self,
@@ -16,10 +20,46 @@ use stm32g4xx_hal::{
     stm32,
 };
 
-use crate::hardware::F_ADC;
+use crate::hardware::{F_PLL_P, F_SYS};
+
+pub const ADC_CLOCK_MODE: adc::config::ClockMode = adc::config::ClockMode::AdcHclkDiv4;
+
+const F_ADC: HertzU32 = match ADC_CLOCK_MODE {
+    adc::config::ClockMode::AdcKerCk { prescaler, src } => {
+        let src = match src {
+            adc::config::ClockSource::SystemClock => F_SYS,
+            adc::config::ClockSource::PllP => F_PLL_P,
+        };
+
+        let prescaler = match prescaler {
+            adc::config::Prescaler::Div_1 => 1,
+            adc::config::Prescaler::Div_2 => 2,
+            adc::config::Prescaler::Div_4 => 4,
+            adc::config::Prescaler::Div_6 => 6,
+            adc::config::Prescaler::Div_8 => 8,
+            adc::config::Prescaler::Div_10 => 10,
+            adc::config::Prescaler::Div_12 => 12,
+            adc::config::Prescaler::Div_16 => 16,
+            adc::config::Prescaler::Div_32 => 32,
+            adc::config::Prescaler::Div_64 => 64,
+            adc::config::Prescaler::Div_128 => 128,
+            adc::config::Prescaler::Div_256 => 256,
+        };
+
+        HertzU32::Hz(src.to_Hz() / prescaler)
+    }
+    adc::config::ClockMode::AdcHclkDiv1 => F_SYS,
+    adc::config::ClockMode::AdcHclkDiv2 => HertzU32::Hz(F_SYS.to_Hz() / 2),
+    adc::config::ClockMode::AdcHclkDiv4 => HertzU32::Hz(F_SYS.to_Hz() / 4),
+};
 
 pub struct Adcs {
     pub adc1: Adc<stm32::ADC1, adc::Configured>,
+
+    #[cfg(feature = "hw_triggered_adc2")]
+    pub adc2: adc::DynamicAdc<stm32::ADC2>,
+
+    #[cfg(not(feature = "hw_triggered_adc2"))]
     pub adc2: Adc<stm32::ADC2, adc::Configured>,
     #[allow(dead_code)]
     pub adc3: Adc<stm32::ADC3, adc::Configured>,
@@ -31,6 +71,8 @@ pub struct Adcs {
 
 impl Adcs {
     pub(crate) fn init(
+        ad_channels: &AdcChannels,
+        adc2_trigger: impl Into<adc::config::ExternalTrigger12>,
         adc12_common: stm32::ADC12_COMMON,
         adc345_common: stm32::ADC345_COMMON,
         adc1: stm32::ADC1,
@@ -43,10 +85,9 @@ impl Adcs {
     ) -> Self {
         defmt::info!("Initializing ADCs...");
 
-        let cfg = adc::config::ClockMode::AdcKerCk {
-            prescaler: adc::config::Prescaler::Div_1,
-            src: adc::config::ClockSource::PllP,
-        };
+        let cfg = ADC_CLOCK_MODE;
+
+        defmt::assert!(F_ADC.to_MHz() <= 52);
 
         let adc12_common = adc12_common.claim(cfg, rcc);
         let adc345_common = adc345_common.claim(cfg, rcc);
@@ -54,8 +95,30 @@ impl Adcs {
         let adc1 =
             adc12_common.claim_and_configure(adc1, hal::adc::config::AdcConfig::default(), delay);
 
+        #[cfg(not(feature = "hw_triggered_adc2"))]
         let adc2 =
             adc12_common.claim_and_configure(adc2, hal::adc::config::AdcConfig::default(), delay);
+
+        #[cfg(feature = "hw_triggered_adc2")]
+        let adc2 = {
+            let cfg = hal::adc::config::AdcConfig::<adc::config::ExternalTrigger12>::default()
+                .external_trigger(adc::config::TriggerMode::RisingEdge, adc2_trigger.into())
+                .end_of_conversion_interrupt(adc::config::Eoc::Sequence)
+                .continuous(adc::config::Continuous::Single)
+                .subgroup_len(adc::config::SubGroupLength::One);
+
+            let adc = adc12_common.claim_and_configure(adc2, cfg, delay);
+
+            let mut adc = adc.into_dynamic_adc();
+            adc.reset_sequence();
+            adc.configure_channel(
+                &ad_channels.fb_a,
+                adc::config::Sequence::One,
+                adc::config::SampleTime::Cycles_12_5,
+            );
+
+            adc
+        };
 
         let adc3 =
             adc345_common.claim_and_configure(adc3, hal::adc::config::AdcConfig::default(), delay);

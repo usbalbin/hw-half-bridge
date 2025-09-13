@@ -5,40 +5,89 @@ use defmt::println;
 
 use crate::math::{atan, pow2, sqrt, tan};
 
-#[derive(Debug, Clone, Copy, defmt::Format)]
-pub struct TwoPoleTwoZeroParams {
-    pub a1: f32,
-    pub a2: f32,
-
-    pub b0: f32,
-    pub b1: f32,
-    pub b2: f32,
+pub trait Scalar:
+    Sized + Copy + core::ops::Add<Self, Output = Self> + core::ops::Mul<Self, Output = Self>
+{
+    const ZERO: Self;
+    fn from_f32(f: f32) -> Self;
 }
 
-impl TwoPoleTwoZeroParams {
-    pub fn to_controller(self) -> TwoPoleTwoZero {
+impl Scalar for f32 {
+    const ZERO: Self = 0.0;
+    fn from_f32(f: f32) -> Self {
+        f as _
+    }
+}
+
+macro_rules! impl_scalar {
+    ($($t:ident),*) => {$(
+        impl Scalar for fixed::types::$t {
+            const ZERO: Self = Self::ZERO;
+            fn from_f32(f: f32) -> Self {
+                Self::from_num(f)
+            }
+        }
+    )*};
+}
+
+impl_scalar!(
+    I32F0, I31F1, I30F2, I29F3, I28F4, I27F5, I26F6, I25F7, I24F8, I23F9, I22F10, I21F11, I20F12,
+    I19F13, I18F14, I17F15, I16F16, I15F17, I14F18, I13F19, I12F20, I11F21, I10F22, I9F23, I8F24,
+    I7F25, I6F26, I5F27, I4F28, I3F29, I2F30, I1F31, I0F32
+);
+impl_scalar!(
+    I0F16, I1F15, I2F14, I3F13, I4F12, I5F11, I6F10, I7F9, I8F8, I9F7, I10F6, I11F5, I12F4, I13F3,
+    I14F2, I15F1, I16F0
+);
+
+#[derive(Debug, Clone, Copy, defmt::Format)]
+pub struct TwoPoleTwoZeroParams<T> {
+    pub a1: T,
+    pub a2: T,
+
+    pub b0: T,
+    pub b1: T,
+    pub b2: T,
+}
+
+impl<T: Scalar> TwoPoleTwoZeroParams<T> {
+    #[inline(always)]
+    pub const fn to_controller(self) -> TwoPoleTwoZero<T> {
         TwoPoleTwoZero {
             params: self,
-            outputs: [0.0; _],
-            errors: [0.0; _],
+            outputs: [T::ZERO; _],
+            errors: [T::ZERO; _],
         }
     }
 }
 
-pub struct TwoPoleTwoZero {
-    params: TwoPoleTwoZeroParams,
-
-    /// History of outputs with newest value at index 0
-    outputs: [f32; 2],
-
-    /// History of errors with newest value at index 0
-    errors: [f32; 2],
+impl TwoPoleTwoZeroParams<f32> {
+    pub fn to_t<T: Scalar>(self) -> TwoPoleTwoZeroParams<T> {
+        let Self { a1, a2, b0, b1, b2 } = self;
+        TwoPoleTwoZeroParams {
+            a1: T::from_f32(a1),
+            a2: T::from_f32(a2),
+            b0: T::from_f32(b0),
+            b1: T::from_f32(b1),
+            b2: T::from_f32(b2),
+        }
+    }
 }
 
-impl TwoPoleTwoZero {
-    pub fn update(&mut self, error: f32) -> f32 {
-        let output = 
-              self.params.a1 * self.outputs[0]
+pub struct TwoPoleTwoZero<T> {
+    params: TwoPoleTwoZeroParams<T>,
+
+    /// History of outputs with newest value at index 0
+    outputs: [T; 2],
+
+    /// History of errors with newest value at index 0
+    errors: [T; 2],
+}
+
+impl<T: Scalar> TwoPoleTwoZero<T> {
+    #[inline(always)]
+    pub fn update(&mut self, error: T) -> T {
+        let output = self.params.a1 * self.outputs[0]
             + self.params.a2 * self.outputs[1]
             + self.params.b0 * error
             + self.params.b1 * self.errors[0]
@@ -51,11 +100,16 @@ impl TwoPoleTwoZero {
 
         output
     }
+
+    pub fn reset(&mut self) {
+        *self = self.params.to_controller();
+    }
 }
 
 pub struct ParametersBuck {
     pub v_in: f64,
     pub v_out: f64,
+    pub v_diode: f64,
     pub c_out: f64,
     pub f_sw: f64,
     pub l_inductor: f64,
@@ -70,9 +124,13 @@ pub struct ParametersBuck {
     pub t_dac: f64,
 }
 
+#[derive(Copy, Clone, Debug, defmt::Format)]
 pub struct DacSettings {
     /// DAC slope in Volts/second
-    dac_down_slope: f64,
+    pub dac_slope: f64,
+
+    /// Voltage peak to peak in Volts
+    vpp: f64,
 }
 
 macro_rules! p {
@@ -108,6 +166,7 @@ impl ParametersBuck {
             v_in,
             v_out,
             c_out,
+            v_diode: diode_drop,
             f_sw,
             l_inductor,
             r_esr_out_cap,
@@ -115,7 +174,7 @@ impl ParametersBuck {
             i_load,
             t_adc,
             t_processing,
-            t_dac
+            t_dac,
         } = self;
 
         p!(v_in, "16");
@@ -126,9 +185,6 @@ impl ParametersBuck {
         p!(current_sense_gain, "0.48");
         p!(r_esr_out_cap, "31e-3");
 
-        // TODO: Dont
-        let diode_drop = 0.0;
-        //p!(diode_drop, "0.6");
         p!(f_sw, "200e3");
 
         let t_sw = 1.0 / f_sw;
@@ -148,6 +204,8 @@ impl ParametersBuck {
 
         // S_e
         let dac_down_slope = -(slope_compensation_factor - 1.0) * inductor_current_up_slope; // volts/second
+
+        let vpp = dac_down_slope * t_sw;
 
         //
         let q_inv_no_pi = slope_compensation_factor * inv_steady_state_duty - 0.5;
@@ -178,7 +236,10 @@ impl ParametersBuck {
                 ohmega_esr,
                 h_dc,
             },
-            DacSettings { dac_down_slope },
+            DacSettings {
+                dac_slope: dac_down_slope,
+                vpp,
+            },
         )
     }
 }
@@ -196,7 +257,7 @@ pub struct TransferFunction {
 }
 
 impl TransferFunction {
-    pub const fn to_2p2z(self) -> TwoPoleTwoZeroParams {
+    pub const fn to_2p2z(self) -> TwoPoleTwoZeroParams<f32> {
         let TransferFunction {
             f_sw,
             t_adc_sample_to_dac_out,

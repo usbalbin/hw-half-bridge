@@ -1,3 +1,4 @@
+use fugit::{ExtU32, MicrosDuration, RateExtU32};
 use stm32_hrtim::{
     self,
     control::HrPwmControl,
@@ -7,12 +8,14 @@ use stm32_hrtim::{
     DacResetOnCounterReset, DacStepOnCmp2, HrParts, HrPwmAdvExt,
 };
 use stm32g4xx_hal::{
-    gpio,
+    self as hal, gpio,
     hrtim::HrPwmBuilderExt,
+    rcc,
     stm32::{HRTIM_MASTER, HRTIM_TIMA, HRTIM_TIMB, HRTIM_TIMC, HRTIM_TIMD, HRTIM_TIME, HRTIM_TIMF},
+    timer,
 };
 
-use crate::hardware::REPETITION_COUNTER;
+use crate::hardware::TICK_RATE;
 
 use super::{external_events::Eevs, Prescaler, PERIOD};
 
@@ -95,6 +98,8 @@ pub struct Timers {
     pub timer4d: TimerHb4d,
     #[cfg(feature = "hv5")]
     pub timer5: TimerHb5,
+
+    pub slow_tick_timer: hal::timer::CountDownTimer<hal::pac::TIM7>,
 }
 
 pub enum Direction {
@@ -112,6 +117,8 @@ impl Timers {
         hrtime: HRTIM_TIME,
         hrtimf: HRTIM_TIMF,
 
+        slow_tick_timer: hal::pac::TIM7,
+
         /*#[cfg(feature = "hv5")]*/ a_hi: gpio::gpioa::PA8,
         /*#[cfg(feature = "hv5")]*/ a_li: gpio::gpioa::PA9,
         #[cfg(feature = "hv4")] b_hi: gpio::gpioa::PA10,
@@ -122,16 +129,17 @@ impl Timers {
         #[cfg(feature = "hv3")] e_li: gpio::gpioc::PC9,
         //#[cfg(feature = "hv1")] f_hi: gpio::gpioc::PC6,
         //#[cfg(feature = "hv1")] f_li: gpio::gpioc::PC7,
+        rcc: &mut rcc::Rcc,
         mut hr_ctrl: HrPwmControl,
     ) -> Timers {
         defmt::info!("Initializing Timers...");
 
         let master_timer = hrtim_master
             .pwm_advanced(())
-            .prescaler(stm32_hrtim::Pscl1)
+            .prescaler(Prescaler::default())
             .period(PERIOD)
-            .repetition_counter(REPETITION_COUNTER)
-            .enable_repetition_interrupt()
+            //.repetition_counter(REPETITION_COUNTER)
+            //.enable_repetition_interrupt()
             .finalize(&mut hr_ctrl);
 
         let dt = stm32_hrtim::deadtime::DeadtimeConfig::default()
@@ -161,6 +169,10 @@ impl Timers {
 
         #[cfg(feature = "hv5")]
         let timer5 = init_hrtim!(hrtima, (a_hi, a_li), dt, master_timer.cr4, rcc, hr_ctrl);
+
+        let mut timer7 = hal::timer::Timer::new(slow_tick_timer, &rcc.clocks)
+            .start_count_down(TICK_RATE.into_duration());
+        //timer7.listen(timer::Event::TimeOut);
         Timers {
             control: hr_ctrl,
             master_timer,
@@ -176,6 +188,8 @@ impl Timers {
             timer4d,
             #[cfg(feature = "hv5")]
             timer5,
+
+            slow_tick_timer: timer7,
         }
     }
 

@@ -13,7 +13,9 @@ mod app {
         hardware::{self, adc::Adcs},
     };
     use stm32_hrtim::compare_register::HrCompareRegister;
-    use stm32g4xx_hal::{adc::config::SampleTime, gpio, timer::MonoTimer};
+    use stm32g4xx_hal::{
+        self as hal, adc::config::SampleTime, dac::SawtoothConfig, gpio, timer::MonoTimer,
+    };
 
     use crate::millis_to_ticks;
 
@@ -72,7 +74,11 @@ mod app {
             mut delay,
             nucleo_user_button,
             debug_timer,
-        } = hardware::Hardware::init(cx.device, cx.core);
+        } = hardware::Hardware::init(
+            cx.device,
+            cx.core,
+            SawtoothConfig::with_slope(hal::dac::CountingDirection::Increment, 0),
+        );
 
         delay.delay_ms(1000);
 

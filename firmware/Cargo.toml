@@ -5,8 +5,11 @@ edition = "2021"
 version = "0.1.0"
 
 [features]
-default = ["hv1", "hardware"]
+default = ["hv1", "hardware", "hw_triggered_adc2"]
 hardware = []
+
+hw_triggered_adc2 = []
+fixed-ctrl = []
 
 fb_a-op = [] # Op on fb_a, else R32
 cs-op = [] # Op's as follower on all current sense signals
@@ -36,7 +39,7 @@ rtic = { version = "2.0.0", features = [ "thumbv7-backend" ] }
 
 #stm32g4xx-hal = { git = "https://github.com/usbalbin/stm32g4xx-hal", branch = "hrtim", features = ["stm32g474"] }
 stm32g4xx-hal = { path = "../../stm32g4xx-hal", features = ["stm32g474", "hrtim"] }
-stm32-hrtim = { version = "0.1.0", features = ["stm32g474", "defmt"] } 
+stm32-hrtim = { version = "0.1.0", features = ["stm32g474", "defmt"] }
 #stm32-hrtim = { path = "../../stm32-hrtim", features = ["stm32g474", "defmt"] }
 usb-device = "0.3.2"
 usbd-serial = "0.2.2"
@@ -48,6 +51,7 @@ fugit = { version = "0.3.7", features = ["defmt"] }
 #probe-plotter = { git = "https://github.com/usbalbin/probe-plotter", branch = "add-ln" }
 probe-plotter = { path = "../../probe-plotter/probe-plotter" }
 cortex-m-rt = "0.7.5"
+fixed = "1.29.0"
 
 # cargo build/run
 [profile.dev]
@@ -74,7 +78,7 @@ debug = 2
 debug-assertions = false # <-
 incremental = false
 lto = 'fat'
-opt-level = "s" # <-
+opt-level = 3 # <-
 overflow-checks = false # <-
 
 # cargo test --release
