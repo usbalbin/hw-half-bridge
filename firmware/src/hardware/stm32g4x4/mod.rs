@@ -40,6 +40,14 @@ macro_rules! try_down_cast {
     }};
 }
 
+pub const T_ADC: NanosDurationU32 = adc::sampling_time(
+    hal::adc::config::SampleTime::Cycles_24_5,
+    hal::adc::config::Resolution::Twelve,
+);
+const TODO_T_PROCESSING: () = ();
+pub const T_PROCESSING: NanosDurationU32 = NanosDurationU32::nanos(500);
+pub const T_DAC: NanosDurationU32 = dacs::T_FAST_DAC_SETTLE_MIN_TO_MAX_1LSB;
+
 // <System Clocks>
 pub const SYS_PLL_SOURCE: rcc::PllSrc = rcc::PllSrc::HSI; // 16MHz
 pub const SYS_PLL_N_MUL: rcc::PllNMul = rcc::PllNMul::MUL_85;
@@ -47,7 +55,7 @@ pub const SYS_PLL_M_DIV: rcc::PllMDiv = rcc::PllMDiv::DIV_4;
 pub const SYS_PLL_R_DIV: rcc::PllRDiv = rcc::PllRDiv::DIV_2;
 
 pub const SYS_PLL_P_DIV: rcc::PllPDiv = rcc::PllPDiv::DIV_7; // For ADC
-pub const F_ADC: Hertz = Hertz::Hz(
+pub const F_PLL_P: Hertz = Hertz::Hz(
     SYS_PLL_SOURCE.frequency().raw() * SYS_PLL_N_MUL.multiplier()
         / SYS_PLL_M_DIV.divisor()
         / SYS_PLL_P_DIV.divisor(),
@@ -59,7 +67,7 @@ pub const F_SYS: Hertz = Hertz::Hz(
         / SYS_PLL_R_DIV.divisor(),
 );
 
-pub type Prescaler = stm32_hrtim::Pscl1;
+pub type Prescaler = stm32_hrtim::Pscl128;
 
 /// Switch frequency
 pub const F_SW: Hertz = Hertz::MHz(1);
@@ -79,9 +87,7 @@ pub const DEADTIME_RISING_TICKS: u16 = DEADTIME_TICKS;
 pub const PERIOD: u16 = try_down_cast!(F_SYS.raw() as u64 * 32 / F_SW.raw() as u64, u64, u16);
 
 /// Interrupt tick rate
-pub const TICK_RATE: Hertz = Hertz::kHz(10);
-
-pub const REPETITION_COUNTER: u8 = try_down_cast!(F_SW.raw() / TICK_RATE.raw() - 1, u32, u8);
+pub const TICK_RATE: Hertz = Hertz::kHz(1);
 
 pub const I_FILTER: EevSamplingFilter = EevSamplingFilter::None;
 
@@ -306,7 +312,6 @@ impl Hardware {
         // HRTIMA
         //#[cfg(feature = "hv5")]
         let a_hi = pa8;
-        //#[cfg(feature = "hv5")]
         let a_li = pa9; // Used by dbcc1
 
         //let mosi_pin = pb5.into_alternate(); // 5v tol
@@ -381,7 +386,7 @@ impl Hardware {
         let (mut ctrl, _f, eev_inputs) = dp
             .HRTIM_COMMON
             .hr_control(&mut rcc)
-            .set_adc1_trigger_psc(ADC_POST_SCALER)
+            //.set_adc1_trigger_psc(ADC_POST_SCALER)
             .set_adc2_trigger_psc(ADC_POST_SCALER)
             .set_adc3_trigger_psc(ADC_POST_SCALER)
             .set_adc4_trigger_psc(ADC_POST_SCALER)
@@ -413,6 +418,7 @@ impl Hardware {
             dp.HRTIM_TIMD,
             dp.HRTIM_TIME,
             dp.HRTIM_TIMF,
+            dp.TIM7,
             /*#[cfg(feature = "hv5")]
             a_hi,*/
             /*#[cfg(feature = "hv5")]
@@ -433,6 +439,7 @@ impl Hardware {
             d_li,
             #[cfg(feature = "hv4")]
             b_li,
+            &mut rcc,
             hr_ctrl,
         );
 
@@ -507,6 +514,8 @@ impl Hardware {
 
         let mut delay = cp.SYST.delay(&rcc.clocks);
         let adcs = Adcs::init(
+            &ad_channels,
+            &timers.control.adc_trigger1,
             dp.ADC12_COMMON,
             dp.ADC345_COMMON,
             dp.ADC1,

@@ -1,22 +1,17 @@
 use core::f64;
-
+use core::convert::From;
 use fugit::NanosDurationU32;
 use half_bridge::{
     control_2p2z::{DacSettings, ParametersBuck, TransferFunction, TwoPoleTwoZeroParams},
-    hardware,
 };
-use stm32g4xx_hal::adc;
-
-const T_ADC: NanosDurationU32 = hardware::adc::sampling_time(
-    adc::config::SampleTime::Cycles_24_5,
-    adc::config::Resolution::Twelve,
-);
-const T_PROCESSING: NanosDurationU32 = NanosDurationU32::nanos(todo!());
-const T_DAC: NanosDurationU32 = hardware::dacs::T_FAST_DAC_SETTLE_MIN_TO_MAX_1LSB;
+const T_ADC: NanosDurationU32 = NanosDurationU32::nanos(761);
+const T_PROCESSING: NanosDurationU32 = NanosDurationU32::nanos(400);
+const T_DAC: NanosDurationU32 = NanosDurationU32::nanos(125);
 
 const S: ParametersBuck = ParametersBuck {
     v_in: 16.0,
     v_out: 8.0,
+    v_diode: 0.6,
     c_out: 440.0e-6,
     f_sw: 200e3,
     l_inductor: 22e-6,
@@ -32,6 +27,7 @@ const S: ParametersBuck = ParametersBuck {
 const P: ParametersBuck = ParametersBuck {
     v_in: 16.0,
     v_out: 8.0,
+    v_diode: 0.0,
     c_out: 15.4e-6, // 2 * ~7.7uF @ 12V
     f_sw: 1e6,
     l_inductor: 22e-6, // 2.2 @ 0A, 2.0 at 8A, ~1.5 @ 24A
@@ -39,16 +35,18 @@ const P: ParametersBuck = ParametersBuck {
     r_esr_out_cap: 31e-3,      // todo
     current_sense_gain: 66e-3, // 66mV/A
     i_load: 10.0,              // 10A
-    t_adc: T_ADC,
-    t_processing: T_PROCESSING,
-    t_dac: T_DAC,
+    t_adc: T_ADC.to_nanos() as f64 * 1e-9,
+    t_processing: T_PROCESSING.to_nanos() as f64 * 1e-9,
+    t_dac: T_DAC.to_nanos() as f64 * 1e-9,
 };
 
 const TRANSFER_FUNCTION_AND_DAC_SETTINGS: (TransferFunction, DacSettings) =
     S.to_transfer_function();
 const TRANSFER_FUNCTION: TransferFunction = TRANSFER_FUNCTION_AND_DAC_SETTINGS.0;
+const DAC_SETTINGS: DacSettings = TRANSFER_FUNCTION_AND_DAC_SETTINGS.1;
 
 const COMPENSATOR: TwoPoleTwoZeroParams = TRANSFER_FUNCTION.to_2p2z();
+
 
 fn main() {
     println!("{:?}", TRANSFER_FUNCTION);
@@ -61,22 +59,26 @@ fn main() {
     TRANSFER_FUNCTION.print_high_freq_transfer_func();
     let ohmega_n = TRANSFER_FUNCTION.ohmega_n();
     dbg!(ohmega_n);
-    println!("{:?}", COMPENSATOR);
+    println!("{:?} - DAC settings: {:?}", COMPENSATOR, DAC_SETTINGS);
     println!("TwoPoleTwoZero {{ a1: 1.69, a2: -0.69, b0: 3.11, b1: 0.17, b2: -2.94 }} Expected");
+    println!("\n\n\n");
+    println!("Mine: {:?} - DAC settings: {:?}", P.to_transfer_function().0.to_2p2z(), P.to_transfer_function().1);
+    println!("\n\n\n");
 
     for v_in in [0.1, 1., 2., 10., 16., 30., 60.] {
         let params = ParametersBuck {
             v_in: f64::from(v_in).max(f64::EPSILON),
             v_out: P.v_out,
+            v_diode: P.v_diode,
             c_out: P.c_out,
             f_sw: P.f_sw,
             l_inductor: P.l_inductor,
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
             i_load: P.i_load,
-            t_adc: T_ADC,
-            t_processing: T_PROCESSING,
-            t_dac: T_DAC,
+            t_adc: P.t_adc,
+            t_processing: P.t_processing,
+            t_dac: P.t_dac,
         };
 
         let (tf, _dac) = params.to_transfer_function();
@@ -99,15 +101,16 @@ fn main() {
         let params = ParametersBuck {
             v_in: P.v_in,
             v_out: f64::from(v_out).max(f64::EPSILON),
+            v_diode: P.v_diode,
             c_out: P.c_out,
             f_sw: P.f_sw,
             l_inductor: P.l_inductor,
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
             i_load: P.i_load,
-            t_adc: T_ADC,
-            t_processing: T_PROCESSING,
-            t_dac: T_DAC,
+            t_adc: P.t_adc,
+            t_processing: P.t_processing,
+            t_dac: P.t_dac,
         };
 
         let (tf, _dac) = params.to_transfer_function();
@@ -130,15 +133,16 @@ fn main() {
         let params = ParametersBuck {
             v_in: P.v_in,
             v_out: P.v_out,
+            v_diode: P.v_diode,
             c_out: P.c_out,
             f_sw: P.f_sw,
             l_inductor: P.l_inductor,
             r_esr_out_cap: P.r_esr_out_cap,
             current_sense_gain: P.current_sense_gain,
             i_load: f64::from(i_load).max(f64::EPSILON), // 10A
-            t_adc: T_ADC,
-            t_processing: T_PROCESSING,
-            t_dac: T_DAC,
+            t_adc: P.t_adc,
+            t_processing: P.t_processing,
+            t_dac: P.t_dac,
         };
 
         let (tf, _dac) = params.to_transfer_function();
