@@ -119,9 +119,7 @@ pub struct ParametersBuck {
 
     /// TODO: Figure out this
     /// Time taken in seconds from the ADC reading of Vout, the calculation of the control function and to setting the DAC value
-    pub t_adc: f64,
-    pub t_processing: f64,
-    pub t_dac: f64,
+    pub phase_margin: PhaseMargin,
 }
 
 #[derive(Copy, Clone, Debug, defmt::Format)]
@@ -172,9 +170,7 @@ impl ParametersBuck {
             r_esr_out_cap,
             current_sense_gain,
             i_load,
-            t_adc,
-            t_processing,
-            t_dac,
+            phase_margin,
         } = self;
 
         p!(v_in, "16");
@@ -205,7 +201,7 @@ impl ParametersBuck {
         // S_e
         let dac_down_slope = -(slope_compensation_factor - 1.0) * inductor_current_up_slope; // volts/second
 
-        let vpp = dac_down_slope * t_sw;
+        let vpp = -dac_down_slope * t_sw; // V_PP is positive (paper eq. 6: V_PP = S_E * T_S)
 
         //
         let q_inv_no_pi = slope_compensation_factor * inv_steady_state_duty - 0.5;
@@ -228,7 +224,7 @@ impl ParametersBuck {
         (
             TransferFunction {
                 f_sw,
-                t_adc_sample_to_dac_out: t_adc + t_processing + t_dac,
+                phase_margin,
 
                 q_inv,
 
@@ -244,10 +240,22 @@ impl ParametersBuck {
     }
 }
 
+#[derive(Debug, defmt::Format, Copy, Clone)]
+pub enum PhaseMargin {
+    Manual {
+        phase_margin: f64,
+    },
+    Calculated {
+        t_adc: f64,
+        t_processing: f64,
+        t_dac: f64,
+    },
+}
+
 #[derive(Debug, defmt::Format)]
 pub struct TransferFunction {
     f_sw: f64,
-    t_adc_sample_to_dac_out: f64,
+    phase_margin: PhaseMargin,
 
     q_inv: f64,
 
@@ -260,7 +268,7 @@ impl TransferFunction {
     pub const fn to_2p2z(self) -> TwoPoleTwoZeroParams<f32> {
         let TransferFunction {
             f_sw,
-            t_adc_sample_to_dac_out,
+            phase_margin,
             q_inv: _,
             ohmega_p1,
             ohmega_esr,
@@ -283,14 +291,20 @@ impl TransferFunction {
         let ohmega_x = 2.0 * PI * f_x;
         p!(ohmega_x, "?");
 
-        let phase_erosion = 2.0 * PI * f_x * t_adc_sample_to_dac_out;
+        let phase_margin = match phase_margin {
+            PhaseMargin::Manual { phase_margin } => {
+                phase_margin
+            },
+            PhaseMargin::Calculated { t_adc, t_processing, t_dac } => {
+                let phase_erosion = 2.0 * PI * f_x * (t_adc + t_processing + t_dac);
+                // TODO: Is 50 enough?
+                50.0f64.to_radians() + phase_erosion
+            },
+        };
+
 
         //#[cfg(not(feature = "hardware"))]
         //assert!(phase_erosion < 90.0f64.to_radians());
-
-        // TODO: Is this enough?
-        //let phase_margin: f64 = 75.0f64.to_radians();
-        let phase_margin: f64 = 50.0f64.to_radians() + phase_erosion;
 
         // ChatGPT's suggestion
         let r = ohmega_x / ohmega_n;
@@ -301,17 +315,16 @@ impl TransferFunction {
         let phi_v = -0.5 * PI + phase_margin + atan(ohmega_x / ohmega_p1) + complex_pole_pair;
         //dbg!(ohmega_x);
 
-        let ohmega_cp1 = ohmega_esr; // Rätt
-        let ohmega_cz1 = ohmega_x / tan(phi_v);
-        p!(ohmega_cp1, "73_310"); // Rätt
-        p!(ohmega_cz1, "11_110"); // Fel
+        let ohmega_cp1 = ohmega_esr; // eq. 8
+        let ohmega_cz1 = ohmega_x / tan(phi_v); // eq. 10
+        p!(ohmega_cp1, "73_310");
+        p!(ohmega_cz1, "11_110");
 
-        let k1 = sqrt((1.0 + pow2(ohmega_x / ohmega_cz1)) / (1.0 + pow2(ohmega_x / ohmega_p1)));
-        //let k2 = 1.0 / f64::sqrt(pow2(1.0 - ohmega_x / pow2(ohmega_n)) + pow2(ohmega_x / ohmega_n));
-        let k2 = sqrt(1.0 / (pow2(1.0 - pow2(ohmega_x / ohmega_n)) + pow2(ohmega_x / ohmega_n)));
+        let k1 = sqrt((1.0 + pow2(ohmega_x / ohmega_cz1)) / (1.0 + pow2(ohmega_x / ohmega_p1))); // eq. 18
+        let k2 = sqrt(1.0 / (pow2(1.0 - pow2(ohmega_x / ohmega_n)) + pow2(ohmega_x / ohmega_n))); // eq. 19 (Q_C=1)
 
-        // pole at origin
-        let ohmega_cp0 = ohmega_x / (h_dc * k1 * k2); // Fel
+        // pole at origin, eq. 16
+        let ohmega_cp0 = ohmega_x / (h_dc * k1 * k2);
         p!(ohmega_cp0, "217_100");
 
         // Compensator transfer function in the analog domain
