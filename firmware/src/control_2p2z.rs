@@ -106,6 +106,13 @@ impl<T: Scalar> TwoPoleTwoZero<T> {
     }
 }
 
+#[derive(Debug, Clone, Copy, defmt::Format)]
+pub enum Topology {
+    Buck,
+    Boost,
+    BuckBoost,
+}
+
 pub struct ParametersBuck {
     pub v_in: f64,
     pub v_out: f64,
@@ -116,6 +123,7 @@ pub struct ParametersBuck {
     pub r_esr_out_cap: f64,
     pub current_sense_gain: f64,
     pub i_load: f64,
+    pub topology: Topology,
 
     /// TODO: Figure out this
     /// Time taken in seconds from the ADC reading of Vout, the calculation of the control function and to setting the DAC value
@@ -170,6 +178,7 @@ impl ParametersBuck {
             r_esr_out_cap,
             current_sense_gain,
             i_load,
+            topology,
             phase_margin,
         } = self;
 
@@ -186,14 +195,28 @@ impl ParametersBuck {
         let t_sw = 1.0 / f_sw;
         let r_load = v_out / i_load; // ohm
 
-        let steady_state_duty = (v_out + diode_drop) / v_in; // Assuming zero Rds(on) and Rdc drops
-        let inv_steady_state_duty = 1.0 - steady_state_duty;
+        // Topology-dependent steady-state duty cycle and inductor up-slope (S_n).
+        // The diode is in series with the output during the off-phase for all topologies.
+        //   Buck:      D  = (V_out + V_d) / V_in,       V_L_on = V_in - V_out - V_d
+        //   Boost:     D  = 1 - V_in / (V_out - V_d),   V_L_on = V_in
+        //   BuckBoost: D  = V_out / (V_in + V_out - V_d), V_L_on = V_in
+        let (steady_state_duty, inductor_current_up_slope) = match topology {
+            Topology::Buck => (
+                (v_out + diode_drop) / v_in,
+                (v_in - v_out - diode_drop) * current_sense_gain / l_inductor,
+            ),
+            Topology::Boost => (
+                1.0 - v_in / (v_out - diode_drop),
+                v_in * current_sense_gain / l_inductor,
+            ),
+            Topology::BuckBoost => (
+                v_out / (v_in + v_out - diode_drop),
+                v_in * current_sense_gain / l_inductor,
+            ),
+        };
+        let inv_steady_state_duty = 1.0 - steady_state_duty; // D'
 
         p!(steady_state_duty, "0.5375");
-
-        // S_n
-        let inductor_current_up_slope =
-            ((v_in - v_out - diode_drop) * current_sense_gain) / l_inductor; // volts/second
 
         // m_c
         let slope_compensation_factor = (1.0 + PI / 2.0) / (PI * inv_steady_state_duty);
@@ -209,11 +232,24 @@ impl ParametersBuck {
         // This turns out to be 1.0
         let q_inv = q_inv_no_pi * PI;
 
-        // st+ba
-        let h_dc = r_load / current_sense_gain * 1.0
-            / (1.0 + (q_inv_no_pi * r_load * t_sw / (l_inductor)));
-
-        let ohmega_p1 = (1.0 / (r_load * c_out)) + (q_inv_no_pi * t_sw / (l_inductor * c_out));
+        // For boost and buck-boost the inductor current only transfers to the output during D',
+        // and the effective load impedance seen by the current loop is D'^2 * R_load (from the
+        // 1:D' effective transformer in the averaged model).  For buck D' = 1 in that sense.
+        let (h_dc, ohmega_p1) = match topology {
+            Topology::Buck => (
+                r_load / current_sense_gain
+                    / (1.0 + q_inv_no_pi * r_load * t_sw / l_inductor),
+                1.0 / (r_load * c_out) + q_inv_no_pi * t_sw / (l_inductor * c_out),
+            ),
+            Topology::Boost | Topology::BuckBoost => {
+                let d_prime_sq = inv_steady_state_duty * inv_steady_state_duty;
+                (
+                    d_prime_sq * r_load / current_sense_gain
+                        / (1.0 + q_inv_no_pi * d_prime_sq * r_load * t_sw / l_inductor),
+                    d_prime_sq / (r_load * c_out) + q_inv_no_pi * t_sw / (l_inductor * c_out),
+                )
+            }
+        };
         let ohmega_esr = 1.0 / (c_out * r_esr_out_cap);
         p!(ohmega_p1, "732.6");
         p!(ohmega_esr, "aka ωCP1 (and ωZ1 ?) 73 310");
