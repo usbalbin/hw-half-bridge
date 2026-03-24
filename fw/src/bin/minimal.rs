@@ -1,17 +1,15 @@
 #![no_main]
 #![no_std]
-#![feature(type_alias_impl_trait)]
 
 use embassy_stm32::comp;
 use embassy_stm32::hrtim::Pscl1;
+use embassy_stm32::hrtim::stm32_hrtim::NoDacTrigger;
 use embassy_stm32::hrtim::stm32_hrtim::capture::HrCaptCh1;
 use embassy_stm32::hrtim::stm32_hrtim::control::AdcTriggerPostscaler;
 use embassy_stm32::hrtim::stm32_hrtim::output::HrOut;
 use embassy_stm32::hrtim::stm32_hrtim::pac::HRTIM_TIMA;
 use embassy_stm32::hrtim::stm32_hrtim::timer::{Ch1, Ch2};
-use embassy_stm32::hrtim::stm32_hrtim::{DacResetOnCounterReset, DacStepOnCmp2, NoDacTrigger};
 use embassy_stm32::peripherals::{COMP1, DMA1_CH1, DMA1_CH2};
-use embassy_stm32::time::Hertz;
 use embassy_stm32::{
     bind_interrupts,
     dac::{self, DacChannel},
@@ -19,7 +17,7 @@ use embassy_stm32::{
 };
 use fugit::NanosDurationU32;
 use full_control::control_2p2z::{
-    self, DacSettings, Parameters, PhaseMargin, Topology, TransferFunction, TwoPoleTwoZeroParams,
+    DacSettings, Parameters, PhaseMargin, Topology, TransferFunction, TwoPoleTwoZeroParams,
 };
 use test_app as _; // global logger + panicking-behavior + memory layout
 bind_interrupts!(struct Irqs {
@@ -37,10 +35,10 @@ const V_IN: f64 = 24.0; // nominal
 const V_IN_MIN: f64 = 15.0; // worst-case for slope compensation (highest D, largest required S_e)
 const V_IN_MAX: f64 = 28.0; // worst-case for on-time (shortest, fewest slope steps available)
 const V_TARGET: f64 = 14.4;
-const V_TARGET_INIT: f64 = 5.0;
-const C_OUT: f64 = 10e-6; // ~10 µF
-const L_INDUCTOR: f64 = 2e-6; // 2 µH
-const R_ESR: f64 = 10e-3; // 10 mΩ
+const V_TARGET_INIT: f64 = 10.0;
+const C_OUT: f64 = 46e-6; // 6× GRM188R60J106ME47D (7.7 µF@12V each)
+const L_INDUCTOR: f64 = 2e-6; // XAL8080-222MED (2.0 µH at 8A)
+const R_ESR: f64 = 0.5e-3; // ~0.5 mΩ parallel (6× 3 mΩ)
 const CS_GAIN: f64 = 0.066; // ACS37030: 66 mV/A
 const R_LOAD: f64 = 2.9; // 14.4V / 5A max charge current
 /// Maximum trip-current the controller can command (A).
@@ -84,38 +82,42 @@ const CTRL_PARAMS: Parameters = Parameters {
     current_sense_gain: CS_GAIN,
     i_load: V_TARGET / R_LOAD,
     v_diode: 0.0,
-    phase_margin: PhaseMargin::Manual {
-        phase_margin: 75.0f64.to_radians(),
+    phase_margin: PhaseMargin::Calculated {
+        t_adc: 1.2e-6,       // 60 ADC clocks @ 48.6 MHz
+        t_processing: 1.5e-6, // ISR execution at 170 MHz
+        t_dac: 0.2e-6,        // comparator propagation
     },
-    safety_factor: 5.0,
+    safety_factor: 2.0,
+    crossover_hz: F_SW / 50.0, // 10 kHz — above ω_esr (6.9 kHz) for -20dB/dec loop rolloff
     cycles_per_tick: ADC_POST_SCALER as usize + 1,
 };
 
 // Transfer function and DAC settings at the Buck operating point.
-// Use V_IN_MIN: at minimum input voltage D is highest, requiring the largest slope compensation.
-// Over-compensation at higher Vin is benign; under-compensation at low Vin risks subharmonic oscillation.
+// V_IN_MIN gives the worst-case duty cycle (highest D) for slope compensation
+// sizing.  Use max_feasible_crossover_hz() to check the ripple / phase limits.
 const TF_DAC: (TransferFunction, DacSettings) =
     CTRL_PARAMS.to_transfer_function(V_IN_MIN, Topology::Buck);
 
 // Physical-domain weights (error in Volts, output in current-sense Volts)
-const WEIGHTS_PHYS: TwoPoleTwoZeroParams<f32> = TF_DAC.0.to_2p2z();
+const WEIGHTS_PHYS: TwoPoleTwoZeroParams<f32> = TF_DAC.0.to_2p2z()
+    .expect("compensator infeasible: phi_v >= 90deg, reduce crossover_hz or cycles_per_tick");
 
 // Code-domain weights: b-coefficients scaled by 1/divider_ratio.
 // The a-coefficients are unchanged (they multiply past outputs already in codes).
-const WEIGHTS_CODE: TwoPoleTwoZeroParams<f32> = TwoPoleTwoZeroParams {
-    a1: WEIGHTS_PHYS.a1,
-    a2: WEIGHTS_PHYS.a2,
-    b0: (WEIGHTS_PHYS.b0 as f64 / DIVIDER_RATIO) as f32,
-    b1: (WEIGHTS_PHYS.b1 as f64 / DIVIDER_RATIO) as f32,
-    b2: (WEIGHTS_PHYS.b2 as f64 / DIVIDER_RATIO) as f32,
-};
+const WEIGHTS_CODE: TwoPoleTwoZeroParams<f32> = WEIGHTS_PHYS.to_code_domain(DIVIDER_RATIO);
 
 /// Minimum DAC steps that must occur during the HRTIM on-time.
 ///
-/// Step smoothness vs. slope accuracy: each step changes the current trip
-/// threshold by only ~7–15 mA while the inductor current ripple is ~4 A —
-/// so any value ≥ 4 is electrically irrelevant.  8 is a conservative default.
-const MIN_SLOPE_STEPS_DURING_ON_TIME: u16 = 8;
+/// Controls the DAC sawtooth step granularity (CR2 = on_time / min_steps).
+/// With CR2 = 699 (min_steps=8), each DAC step is ~48 codes = 0.58 A of
+/// peak current resolution at the typical 10 V / 24 V operating point.
+/// The voltage-loop controller adjusts its output in 1-code increments,
+/// but the actual peak current only changes when the output crosses a
+/// 48-code DAC step boundary — causing quantization-induced limit cycling.
+///
+/// Raising min_steps to 55 forces CR2 ≈ 100, giving ~7-code steps = 0.08 A
+/// resolution — a 7× improvement that eliminates the limit cycle.
+const MIN_SLOPE_STEPS_DURING_ON_TIME: u16 = 55;
 
 /// Approximate on-time in HR ticks (Buck: D = V_target / V_in).
 /// Use V_IN_MAX: at maximum input voltage the on-time is shortest, bounding the slope-step search
@@ -157,7 +159,11 @@ const fn best_slope_params(
         let ideal = target_per_tick * cr2 as f64;
         // Ceiling via integer arithmetic (.round()/.ceil() require std on no_std targets)
         let floor = ideal as u16;
-        let step_reg = if (floor as f64) < ideal { floor + 1 } else { floor };
+        let step_reg = if (floor as f64) < ideal {
+            floor + 1
+        } else {
+            floor
+        };
         if step_reg > 0 {
             let over_err = (step_reg as f64 - ideal) / ideal; // ≥ 0 for ceiling
             if best_step == 0 || over_err < best_over_err {
@@ -168,7 +174,8 @@ const fn best_slope_params(
         }
         cr2 += 1;
     }
-    assert!(best_step > 0);
+    const CR_MIN_ALLOWED: u16 = 0x60; // Min CR value for HRTIM at Pscl=1
+    assert!(best_cr2 > CR_MIN_ALLOWED);
     (best_cr2, best_step)
 }
 
@@ -195,8 +202,29 @@ pub const DAC_STEP_SIZE: u16 = SLOPE_PARAMS.1;
 ///
 /// Used by `task1` to update the slope compensation ramp from measured Vin without
 /// re-running the full `best_slope_params` search.
-const SLOPE_TO_INCDATA: f32 =
-    (16.0 * HR_TICKS_PER_DAC_INC as f64 / (LSB * F_HR as f64)) as f32;
+const SLOPE_TO_INCDATA: f32 = (16.0 * HR_TICKS_PER_DAC_INC as f64 / (LSB * F_HR as f64)) as f32;
+
+/// Correct initial DAC sawtooth step value for V_TARGET_INIT at nominal V_IN.
+///
+/// DAC_STEP_SIZE is designed for the worst-case slope corner (V_TARGET=14.4V,
+/// V_IN_MIN=15V → D'=0.04, m_c≈20.5, S_e≈386 kV/s).  At actual startup
+/// (V_TARGET_INIT=5V, V_IN=24V → D'≈0.79, m_c≈1.03, S_e≈20.7 kV/s) that
+/// is ~18× too large, causing oscillation in the first ~1 ms before task1
+/// can measure Vin and correct the slope.  This value pre-loads the right slope.
+const DAC_STEP_INIT: u16 = {
+    let dac = CTRL_PARAMS.dac_settings_at(V_IN, V_TARGET_INIT, Topology::Buck, 1.0);
+    // ceiling: round up so we slightly over-compensate rather than under-compensate
+    let incdata = (-dac.dac_slope * SLOPE_TO_INCDATA as f64) as u16 + 1;
+    if incdata < 1 { 1 } else { incdata }
+};
+
+/// Initial slope offset in DAC codes for V_TARGET_INIT at nominal V_IN.
+/// slope_offset ≈ S_e × D / F_sw / LSB  (slope ramp accumulated during on-time)
+const SLOPE_OFFSET_INIT: u16 = {
+    let dac = CTRL_PARAMS.dac_settings_at(V_IN, V_TARGET_INIT, Topology::Buck, 1.5);
+    let d = V_TARGET_INIT / V_IN;
+    dac.slope_offset_codes(d, LSB) as u16
+};
 
 /// Load current (A) – 12 steps × 1 ms each
 const LOAD_PROFILE: [f32; 12] = [
@@ -206,9 +234,9 @@ const LOAD_PROFILE: [f32; 12] = [
 /// Control-loop rate (Hz): switching frequency divided by the ADC postscaler.
 const CTRL_HZ: usize = F_SW as usize / (ADC_POST_SCALER as usize + 1); // 125 000 Hz (Div4 = ÷4)
 /// Total duration of each load-profile step in milliseconds.
-const STEP_MS: usize = 1000;
+const STEP_MS: usize = 200;
 /// Capture window in milliseconds at the start of each step (must be < STEP_MS).
-const CAPTURE_MS: usize = 20;
+const CAPTURE_MS: usize = 5;
 const _: () = assert!(CAPTURE_MS < STEP_MS, "CAPTURE_MS must be less than STEP_MS");
 /// Number of V_out samples captured per load-step transition.
 /// = CTRL_HZ × CAPTURE_MS / 1000
@@ -276,17 +304,16 @@ mod app {
 
     use super::*;
     use embassy_stm32::{
-        Config, Peri,
+        Config,
         adc::{self, Adc, AdcChannel, AdcConfig, InjectedAdc, SampleTime},
         comp::{self, Comp},
-        dac::{Dac, SOFTWARE},
         gpio::{Input, Output, Pull, Speed},
         hrtim::{
             self, HrControltExt, HrPwmBuilderExt as _, Parts,
             resonant_converter::DeadtimeConfig,
             stm32_hrtim::{
                 self, DacResetOnCounterReset, DacStepOnCmp2, HrCountingDirection, HrPwmAdvExt,
-                HrTimerMode, HrtimPrescaler, Polarity, PreloadSource,
+                HrTimerMode, Polarity, PreloadSource,
                 capture::HrCapture,
                 compare_register::HrCompareRegister,
                 deadtime::DeadtimePrescaler,
@@ -296,8 +323,8 @@ mod app {
                 timer_eev_cfg::{EevCfg, EevCfgs, EventFilter},
             },
         },
-        mode::{self, Blocking},
-        peripherals::{self, ADC1, ADC2, PC4, PC5},
+        mode,
+        peripherals::ADC2,
         rcc::{Pll, PllMul, PllPDiv, PllPreDiv, PllRDiv, PllSource, Sysclk, mux::Adcsel},
         triggers,
     };
@@ -311,9 +338,17 @@ mod app {
         target: AtomicU16,
         /// Most-recent raw Vin ADC code, written by control_loop and read by task1.
         vin_codes: AtomicU16,
+        /// Most-recent raw Vout ADC code, written by control_loop.
+        vout_codes: AtomicU16,
         /// Live DAC sawtooth step value (INCDATA 12.4 fp), written by task1 from
         /// measured Vin and read by control_loop each tick.
         dac_step_live: AtomicU16,
+        /// Slope compensation offset in DAC codes — the approximate ramp
+        /// accumulated by the DAC sawtooth during the on-time at the current
+        /// operating point.  Added to the controller output so the compensator
+        /// operates in the "current-only" domain without needing to account
+        /// for the slope ramp in its output range.
+        slope_offset: AtomicU16,
     }
 
     // Local resources go here
@@ -338,6 +373,7 @@ mod app {
 
         runtime_metric: probe_plotter::Metric<u32>,
         capt_metric: probe_plotter::Metric<u16>,
+        ctrl_metric: probe_plotter::Metric<u16>,
 
         capture_ch1: Capture1,
     }
@@ -350,6 +386,20 @@ mod app {
         core.DWT.enable_cycle_counter();
 
         defmt::info!("init");
+        defmt::info!(
+            "2P2Z coeffs: a1={} a2={} b0={} b1={} b2={}",
+            WEIGHTS_CODE.a1,
+            WEIGHTS_CODE.a2,
+            WEIGHTS_CODE.b0,
+            WEIGHTS_CODE.b1,
+            WEIGHTS_CODE.b2,
+        );
+        defmt::info!(
+            "DAC_MAX_CODE={} TARGET_CODE_INIT={}",
+            DAC_MAX_CODE as u32,
+            TARGET_CODE_INIT as u32,
+        );
+        defmt::info!("HR_TICKS_PER_DAC_INC: {}", HR_TICKS_PER_DAC_INC);
 
         let config = {
             let mut config = Config::default();
@@ -436,26 +486,31 @@ mod app {
 
         timer.cr1.set_duty(PERIOD_TICKS - 128); // Set max duty
         timer.cr2.set_duty(HR_TICKS_PER_DAC_INC); // Set DAC increment interval
-        timer.cr3.set_duty(200); // Set end of COMP blanking
+        timer.cr3.set_duty(300); // Set end of COMP blanking
         timer.cr4.set_duty(2048); // Set ADC sample point
         control.adc_trigger2.enable_source(&timer.cr4);
 
         timer.timer.capture_ch1().add_event(&eev6);
 
-        timer.out1.enable_set_event(&timer.timer);
+        timer.out1.enable_set_event(&timer.cr3);
         timer.out1.enable_rst_event(&timer.cr1);
         timer.out1.enable_rst_event(&eev6);
 
         timer.timer.start(&mut control.control);
 
         let adc = adc.setup_injected_conversions(
-            [(vout, SampleTime::CYCLES47_5), (vin, SampleTime::CYCLES47_5)],
+            [
+                (vout, SampleTime::CYCLES47_5),
+                (vin, SampleTime::CYCLES47_5),
+            ],
             triggers::HRTIM_ADC_TRG2,
             adc::Exten::RISING_EDGE,
             true,
         );
 
-        let controller = WEIGHTS_CODE.to_controller(0.0, DAC_MAX_CODE as f32);
+        // Internal limit set high; the control loop applies a dynamic external
+        // clamp (DAC_MAX_CODE + slope_offset) with set_last_output anti-windup.
+        let controller = WEIGHTS_CODE.to_controller(0.0, 4096.0);
 
         let load_dac2 = DacChannel::new_blocking(p.DAC2, p.PA6);
         let load_dac = MyDac(load_dac2);
@@ -475,7 +530,9 @@ mod app {
             Shared {
                 target: AtomicU16::new(TARGET_CODE_INIT as u16),
                 vin_codes: AtomicU16::new(0),
-                dac_step_live: AtomicU16::new(DAC_STEP_SIZE),
+                vout_codes: AtomicU16::new(0),
+                dac_step_live: AtomicU16::new(DAC_STEP_INIT),
+                slope_offset: AtomicU16::new(SLOPE_OFFSET_INIT),
             },
             Local {
                 adc,
@@ -483,7 +540,7 @@ mod app {
                 controller,
                 nucleo_user_button: Input::new(p.PC13, Pull::None),
                 
-                target_setting: probe_plotter::make_setting!(TARGET: f32 = 5.0, 0.0..=14.5, 0.1).unwrap(),
+                target_setting: probe_plotter::make_setting!(TARGET: f32 = 10.0, 0.0..=14.5, 0.1).unwrap(),
                 max_load: probe_plotter::make_setting!(MAX_LOAD: f32 = 4.0, 0..=10, 0.1).unwrap(),
 
                 temp_metric: probe_plotter::make_metric!(
@@ -499,6 +556,7 @@ mod app {
                 runtime_metric: probe_plotter::make_metric!(RUNTIME_US: u32 = 0, "RUNTIME_US / 170").unwrap(),
                 load_i_metric: probe_plotter::make_metric!(LOAD_I: f32 = 0.0, "LOAD_I").unwrap(),
                 capt_metric: probe_plotter::make_metric!(DUTY: u16 = 0, "100 * DUTY / (5440 * 2)").unwrap(),
+                ctrl_metric: probe_plotter::make_metric!(CTRL: u16 = 0, "CTRL").unwrap(),
                 capture_ch1,
             },
         )
@@ -534,28 +592,13 @@ mod app {
                     embassy_time::Timer::after_millis(1).await;
                 }
 
-                // Log the capture so it can be compared with the simulation.
-                // Alternatively, read directly from target memory (no RTT pressure):
-                //   addr=$(nm target/thumbv7em-none-eabihf/dev/minimal | awk '/CAPTURE_BUF/{print "0x"$1}')
-                //   probe-rs read b16 $addr 500
-                defmt::info!(
-                    "step {} load={} mA ({} samples @ {} Hz):",
-                    step as u32,
-                    (c * 1000.0) as i32,
-                    CAPTURE_LEN as u32,
-                    CTRL_HZ as u32,
-                );
-                // SAFETY: CAPTURE_IDX >= CAPTURE_LEN (confirmed with Acquire) means
-                // the ISR has finished writing; no further writes until we reset the index.
-                let buf: &[u16; CAPTURE_LEN] = unsafe { &*(&raw const CAPTURE_BUF) };
-                for chunk in buf.chunks(32) {
-                    defmt::info!("{:?}", chunk);
-                }
-
-                // 22.762512 [INFO ] [300, 301, 299, 301, 301, 302, 300, 301, 297, 298, 296, 296, 292, 293, 291, 294, 293, 296, 295, 298, 297, 299, 299, 302, 300, 302, 301, 302, 298, 299, 298, 298] (minimal src/bin/minimal.rs:435)
-                // 22.762573 [INFO ] [295, 297, 296, 298, 297, 299, 298, 299, 296, 298, 296, 298, 297, 299, 299, 301, 299, 299, 296, 298, 296, 299, 297, 300, 298, 301, 299, 300, 295, 297, 296, 299] (minimal src/bin/minimal.rs:435)
-                // 22.762603 [INFO ] [298, 44, 10753, 11265, 11009, 44, 1, 40, 257, 296, 10752, 256, 10497, 1, 38, 1, 9985, 10497, 10241, 299, 298, 300, 299, 301, 301, 302, 9513, 9729, 9217, 9985, 9729, 10497] (minimal src/bin/minimal.rs:435)
-                // 22.763793 [INFO ] [300, 298, 301, 299] (minimal src/bin/minimal.rs:435)
+                // Capture data is read directly via SWD by osc-watch / probe-plotter.
+                // Do NOT log CAPTURE_BUF via defmt here: the 78 defmt::info! calls
+                // each hold a critical section (all IRQs masked) for ~10 µs while
+                // formatting + writing to RTT.  At 125 kHz ISR rate (8 µs period),
+                // each CS skips at least one control_loop invocation, adding >80°
+                // of extra phase lag at crossover and destabilising the voltage loop.
+                defmt::info!("step {} load={} mA", step as u32, (c * 1000.0) as i32,);
 
                 // Mark the buffer as consumed and wait out the rest of the step.
                 CAPTURE_IDX.store(usize::MAX, Ordering::Relaxed);
@@ -564,7 +607,7 @@ mod app {
         }
     }
 
-    #[task(priority = 2, local = [i: usize = 0, nucleo_user_button, target_setting, vin_metric], shared = [&target, &vin_codes, &dac_step_live])]
+    #[task(priority = 2, local = [i: usize = 0, nucleo_user_button, target_setting, vin_metric], shared = [&target, &vin_codes, &dac_step_live, &slope_offset])]
     async fn task1(
         ctx: task1::Context,
         mut out: (Out1, Out2),
@@ -575,8 +618,12 @@ mod app {
         let mut ticker = Ticker::every(Duration::from_millis(1));
         let mut btn_ms_pressed = 0u32;
         let mut is_wait_for_btn_release = true;
-
+        let mut i = 0;
         loop {
+            if i % 100 == 0 {
+                //defmt::warn!("Hi");
+            }
+            i += 1;
             let target = vout_to_code(ctx.local.target_setting.get());
             ctx.shared.target.store(target, Ordering::Relaxed);
 
@@ -618,30 +665,40 @@ mod app {
             // ctx.local.half_bridge.clear_repetition_interrupt();
             // ctx.local.runtime_metric.set(start.elapsed());
 
-            // Slope feed-forward: recompute DAC step value from the latest Vin reading.
-            // Runs at 1 ms cadence — Vin changes slowly so this is more than sufficient.
-            // Uses f32 throughout; the STM32G474 FPU handles single-precision natively.
+            // Slope feed-forward: recompute DAC step value and slope offset from
+            // measured Vin and target Vout.  Uses the target (not actual VOUT) to
+            // avoid a fast feedback loop through the slope compensation path.
             {
                 let raw_vin = ctx.shared.vin_codes.load(Ordering::Relaxed);
                 ctx.local.vin_metric.set(raw_vin);
                 if raw_vin > 0 {
-                    let v_out = ctx.local.target_setting.get(); // actual target, f32 volts
+                    let v_out = ctx.local.target_setting.get(); // target voltage
                     let vin_v = (raw_vin as f32 * LSB as f32 * VIN_SCALE as f32)
                         .clamp(V_IN_MIN as f32, V_IN_MAX as f32);
                     let d_prime = 1.0_f32 - v_out / vin_v;
                     if d_prime > 0.01 {
-                        // m_c = (1 + π/2) / (π × D')
-                        let m_c = (1.0_f32 + core::f32::consts::FRAC_PI_2)
-                            / (core::f32::consts::PI * d_prime);
-                        // S_n = (V_in − V_out) × CS_GAIN / L  [V/s at the DAC sense point]
-                        let s_n = (vin_v - v_out) * CS_GAIN as f32 / L_INDUCTOR as f32;
-                        // S_e = (m_c − 1) × S_n  (magnitude, ≥ 0)
-                        let s_e = ((m_c - 1.0_f32) * s_n).max(0.0_f32);
-                        // INCDATA = ceil(S_e × SLOPE_TO_INCDATA)
+                        // 1.5× over-compensation margin to account for comparator
+                        // delay and current sensor bandwidth.
+                        let dac = CTRL_PARAMS.dac_settings_at(
+                            vin_v as f64, v_out as f64, Topology::Buck, 1.5,
+                        );
+                        // INCDATA = ceil(|dac_slope| × SLOPE_TO_INCDATA)
+                        // Ceiling: always over-compensate. Under-compensation risks
+                        // subharmonic oscillation at D > 50%.
+                        let s_e = (-dac.dac_slope) as f32;
                         let incdata_f = s_e * SLOPE_TO_INCDATA;
-                        let floor = (incdata_f + 0.5) as u16;
-                        //let incdata = if (floor as f32) < incdata_f { floor + 1 } else { floor };
-                        ctx.shared.dac_step_live.store(floor.max(1), Ordering::Relaxed);
+                        let floor = incdata_f as u16;
+                        let incdata =
+                            if (floor as f32) < incdata_f { floor + 1 } else { floor };
+                        ctx.shared
+                            .dac_step_live
+                            .store(incdata.max(1), Ordering::Relaxed);
+
+                        let d = v_out / vin_v;
+                        let offset = dac.slope_offset_codes(d as f64, LSB) as u16;
+                        ctx.shared
+                            .slope_offset
+                            .store(offset, Ordering::Relaxed);
                     }
                 }
             }
@@ -650,21 +707,36 @@ mod app {
         }
     }
 
-    #[task(binds = ADC1_2, local = [adc, controller, ref_dac, vout_metric, capture_ch1, capt_metric, runtime_metric, i: usize = 0], shared = [&target, &vin_codes, &dac_step_live], priority = 15)]
+    #[task(binds = ADC1_2, local = [adc, controller, ref_dac, vout_metric, capture_ch1, capt_metric, ctrl_metric, runtime_metric, i: usize = 0], shared = [&target, &vin_codes, &vout_codes, &dac_step_live, &slope_offset], priority = 15)]
     fn control_loop(ctx: control_loop::Context) {
         let t0 = cortex_m::peripheral::DWT::cycle_count();
 
         let samples = ctx.local.adc.read_injected_samples();
         let vout = samples[0];
         ctx.shared.vin_codes.store(samples[1], Ordering::Relaxed);
+        ctx.shared.vout_codes.store(vout, Ordering::Relaxed);
 
         let target = ctx.shared.target.load(Ordering::Relaxed);
         let error = target as i32 - vout as i32;
-        let ctrl = ctx.local.controller.update(error as f32) as u16;
+        // The controller output naturally includes the slope compensation
+        // headroom.  External clamp at DAC_MAX_CODE + slope_offset:
+        //  - at light load ctrl ≈ 0 → dac_code ≈ 2048 (no minimum current floor)
+        //  - at heavy load ctrl can reach 982 + offset (~1330) without saturating
+        let ctrl_f32 = ctx.local.controller.update(error as f32);
+        let slope_off = ctx.shared.slope_offset.load(Ordering::Relaxed);
+        let dynamic_limit = DAC_MAX_CODE as f32 + slope_off as f32;
+        let ctrl_clamped = ctrl_f32.clamp(0.0, dynamic_limit);
+        // Clamped-feedback anti-windup: store the externally clamped value
+        // so the integrator doesn't wind beyond the physical output limit.
+        ctx.local.controller.set_last_output(ctrl_clamped);
+        let ctrl = ctrl_clamped as u16;
         let dac_code = 2048u16.saturating_sub(ctrl);
         ctx.local.ref_dac.set_sawtooth_reset_value(dac_code);
-        ctx.local.ref_dac.set_sawtooth_step_value(ctx.shared.dac_step_live.load(Ordering::Relaxed));
+        ctx.local
+            .ref_dac
+            .set_sawtooth_step_value(ctx.shared.dac_step_live.load(Ordering::Relaxed));
         ctx.local.vout_metric.set(vout);
+        ctx.local.ctrl_metric.set(ctrl);
 
         // Store every sample when a capture is in progress.
         // Ordering::Relaxed load is fine: we only need atomicity, not ordering, for
@@ -683,7 +755,11 @@ mod app {
 
         {
             let (capt_ticks, _) = ctx.local.capture_ch1.get_last();
-            ctx.local.capt_metric.set(capt_ticks);
+            if capt_ticks >= 300 {
+                // 300 = CMP3 blanking boundary; captures below this are spurious
+                // EEV6 glitches inside the blanking window, not real on-time edges.
+                ctx.local.capt_metric.set(capt_ticks);
+            }
         }
 
         // Measure ISR execution time in cycles; stored as µs via the metric formula (÷170).

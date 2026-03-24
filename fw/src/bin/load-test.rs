@@ -2,12 +2,16 @@
 #![no_std]
 #![feature(type_alias_impl_trait)]
 
-use embassy_stm32::{bind_interrupts, dac::{self, DacChannel}, dma};
+use embassy_stm32::peripherals::DMA1_CH1;
+use embassy_stm32::{
+    bind_interrupts,
+    dac::{self, DacChannel},
+    dma,
+};
 use full_control::control_2p2z::{
     self, DacSettings, Topology, TransferFunction, TwoPoleTwoZeroParams,
 };
 use test_app as _; // global logger + panicking-behavior + memory layout
-use embassy_stm32::peripherals::DMA1_CH1;
 bind_interrupts!(struct Irqs {
     DMA1_CHANNEL1 => dma::InterruptHandler<DMA1_CH1>;
 });
@@ -31,11 +35,14 @@ const PARAMS: control_2p2z::Parameters = control_2p2z::Parameters {
 const TF_AND_DAC: (TransferFunction, DacSettings) =
     PARAMS.to_transfer_function(3.3, Topology::Buck);
 const DAC_SLOPE: f64 = TF_AND_DAC.1.dac_slope;
-const CONTROL_PARAMS: TwoPoleTwoZeroParams<f32> = TF_AND_DAC.0.to_2p2z();
+const CONTROL_PARAMS: TwoPoleTwoZeroParams<f32> = TF_AND_DAC.0.to_2p2z()
+    .expect("compensator infeasible: phi_v >= 90deg, reduce crossover_hz or cycles_per_tick");
 const TARGET: f32 = 1.0;
 
 /// Load current (A)
-const LOAD_PROFILE: [f32; 12] = [1e-3, 5.0, 1e-3, 50e-3, 1e-3, 1e-3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0];
+const LOAD_PROFILE: [f32; 12] = [
+    1e-3, 5.0, 1e-3, 50e-3, 1e-3, 1e-3, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
+];
 
 struct MyDac(DacChannel<'static, embassy_stm32::mode::Blocking>);
 
@@ -61,14 +68,21 @@ impl load::Dac for MyDac {
 mod app {
     use super::*;
     use embassy_stm32::{
-        Config, adc::{self, Adc, AdcChannel, AdcConfig, InjectedAdc, SampleTime}, dac::Dac, gpio::{Output, Speed}, hrtim::{
+        Config,
+        adc::{self, Adc, AdcChannel, AdcConfig, InjectedAdc, SampleTime},
+        dac::Dac,
+        gpio::{Output, Speed},
+        hrtim::{
             self, HrControltExt, HrPwmBuilderExt as _, Parts,
             stm32_hrtim::{
                 DacResetOnCounterReset, DacStepOnCmp2, HrCountingDirection, HrPwmAdvExt,
                 HrTimerMode, Polarity, PreloadSource, compare_register::HrCompareRegister,
                 timer_eev_cfg::EevCfgs,
             },
-        }, peripherals::ADC1, rcc::{Pll, PllMul, PllPDiv, PllPreDiv, PllRDiv, PllSource, Sysclk, mux::Adcsel}, triggers
+        },
+        peripherals::ADC1,
+        rcc::{Pll, PllMul, PllPDiv, PllPreDiv, PllRDiv, PllSource, Sysclk, mux::Adcsel},
+        triggers,
     };
     use full_control::control_2p2z::TwoPoleTwoZero;
     use load::Load;
@@ -150,7 +164,7 @@ mod app {
             [(v, SampleTime::CYCLES47_5)],
             triggers::HRTIM_ADC_TRG2,
             adc::Exten::RISING_EDGE,
-            true
+            true,
         );
 
         let controller = CONTROL_PARAMS.to_controller(0.0, 4095.0);

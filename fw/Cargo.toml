@@ -6,8 +6,9 @@ version = "0.1.0"
 
 [dependencies]
 cortex-m = { version = "0.7", features = ["critical-section-single-core"] }
-defmt = { version = "1", features = ["encoding-rzcobs"] }
-defmt-rtt = { version = "1.1.0", features = ["disable-blocking-mode"] }
+defmt = { version = "1", features = ["encoding-rzcobs",] }
+#defmt-rtt = { version = "1.1.0", features = ["disable-blocking-mode"] }
+defmt-rtt-prio = { path = "../../defmt-rtt-prio", features = ["prio_bits_4"]}
 #embassy-stm32 = { git = "https://github.com/embassy-rs/embassy", features = ["stm32g474re", "dual-bank"] }
 embassy-stm32 = { path = "../../embassy/embassy-stm32", features = ["stm32g474re", "dual-bank", "memory-x", "time-driver-any", "unstable-pac"] }
 embassy-time = { path = "../../embassy/embassy-time", features = ["defmt", "defmt-timestamp-uptime", "tick-hz-32_768", "generic-queue-8"] }
